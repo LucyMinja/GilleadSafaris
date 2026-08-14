@@ -1,0 +1,6 @@
+.footer-link .footer-arrow {
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-link:hover .footer-arrow {
+  transform: translateX(5px);
+}

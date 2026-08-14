@@ -1,0 +1,6 @@
+/* Fonts are loaded via a <link rel="stylesheet"> in app/layout.tsx, not here.
+   Turbopack silently drops an external @import placed inside a locally-@import'd
+   CSS file — it never makes it into the compiled bundle and no font request
+   ever fires. Keep this file import-free; see app/layout.tsx <head> for the
+   actual Google Fonts URL (must be kept in sync: Newsreader 400/500/600/700/800 +
+   Plus Jakarta Sans 400/500/600/700). */
