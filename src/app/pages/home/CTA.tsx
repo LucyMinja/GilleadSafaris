@@ -39,7 +39,7 @@ export default function CTA() {
               href={href}
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.1, ease: [0.22, 1, 0.36, 1] }}
               className="flex items-center justify-between py-5 group"
               style={{ borderBottom: '1px solid rgba(109,103,83,0.15)' }}

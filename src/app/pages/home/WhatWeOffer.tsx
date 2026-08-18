@@ -15,13 +15,16 @@ export default function WhatWeOffer() {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: false, margin: '-100px' }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         className="max-w-[1400px] mx-auto px-6 lg:px-16 mb-8 text-center"
       >
-        <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3.5vw, 44px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15 }}>
+        <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3.5vw, 44px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '18px' }}>
           Every kind of Tanzania experience
         </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', maxWidth: '1100px', margin: '0 auto' }}>
+          Big cat encounters at dawn, a Maasai village at midday, Stone Town's spice alleys by evening — Tanzania rewards travelers who mix wildlife, culture, and coast into one trip.
+        </p>
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '20px' }}>
@@ -30,7 +33,7 @@ export default function WhatWeOffer() {
             key={item.title}
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, delay: i * 0.08, ease: [0.22, 1, 0.36, 1] }}
             className={i === 0 ? 'sm:col-span-2 lg:col-span-2 lg:row-span-2' : ''}
           >

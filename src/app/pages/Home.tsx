@@ -3,8 +3,7 @@ import About from './home/About';
 import WhatWeOffer from './home/WhatWeOffer';
 import Destinations from './home/Destinations';
 import SafarisGrid from './home/SafarisGrid';
-import FullBleed from './home/FullBleed';
-import Testimonials from './home/Testimonials';
+import GuestStories from './home/GuestStories';
 import CTA from './home/CTA';
 
 export default function Home() {
@@ -15,8 +14,7 @@ export default function Home() {
       <WhatWeOffer />
       <Destinations />
       <SafarisGrid />
-      <FullBleed />
-      <Testimonials />
+      <GuestStories />
       <CTA />
     </main>
   );

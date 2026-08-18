@@ -1,7 +1,5 @@
 'use client';
 
-import { motion } from 'motion/react';
-
 /* ── Segmented progress indicator — replaces plain dots ──────── */
 export default function SegmentIndicator({
   total,
@@ -21,28 +19,35 @@ export default function SegmentIndicator({
   trackColor?: string;
 }) {
   return (
-    <div className="flex items-center gap-2 flex-1">
+    <div className="flex items-center gap-2.5 flex-1">
       {Array.from({ length: total }, (_, i) => (
         <button
           key={i}
           onClick={() => onGoTo(i)}
           aria-label={`Go to slide ${i + 1}`}
-          className="relative flex-1 overflow-hidden"
-          style={{ height: '3px', borderRadius: '100px', backgroundColor: trackColor, border: 'none', padding: 0, cursor: 'pointer' }}
+          className="relative flex-1 group py-2 -my-2"
+          style={{ border: 'none', padding: '8px 0', cursor: 'pointer', background: 'none' }}
         >
-          {i < active && (
-            <span className="absolute inset-0" style={{ backgroundColor: color, borderRadius: '100px' }} />
-          )}
-          {i === active && (
-            <motion.span
-              key={paused ? `paused-${active}` : `playing-${active}`}
-              className="absolute inset-y-0 left-0"
-              style={{ backgroundColor: color, borderRadius: '100px' }}
-              initial={{ width: '0%' }}
-              animate={{ width: paused ? '0%' : '100%' }}
-              transition={paused ? { duration: 0 } : { duration, ease: 'linear' }}
-            />
-          )}
+          <span
+            className="relative block overflow-hidden transition-transform duration-300 group-hover:scale-y-150"
+            style={{ height: '2.5px', borderRadius: '100px', backgroundColor: trackColor }}
+          >
+            {i < active && (
+              <span className="absolute inset-0" style={{ backgroundColor: color, borderRadius: '100px' }} />
+            )}
+            {i === active && (
+              <span
+                className="absolute inset-y-0 left-0 segment-fill"
+                style={{
+                  backgroundColor: color,
+                  borderRadius: '100px',
+                  boxShadow: `0 0 8px ${color}`,
+                  animationDuration: `${duration}s`,
+                  animationPlayState: paused ? 'paused' : 'running',
+                }}
+              />
+            )}
+          </span>
         </button>
       ))}
     </div>

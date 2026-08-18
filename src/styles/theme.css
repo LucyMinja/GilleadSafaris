@@ -330,3 +330,39 @@
     line-height: 1.5;
   }
 }
+
+/* Native CSS animation (not Framer Motion) so `animation-play-state: paused`
+   freezes mid-frame on hover instead of retargeting/whiplashing like a
+   Framer `animate` value change does. */
+@keyframes ken-burns-settle {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+@keyframes ken-burns-approach {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+.ken-burns {
+  animation-name: ken-burns-settle;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+/* Alternate direction — used on every other slide so the zoom reads as
+   in/out/in/out rather than repeating the same motion each time. */
+.ken-burns-alt {
+  animation-name: ken-burns-approach;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}
+
+/* Same reasoning as .ken-burns above — native CSS so pausing freezes the
+   fill exactly where it is instead of resetting to 0%. */
+@keyframes segment-fill {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.segment-fill {
+  animation-name: segment-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
+}

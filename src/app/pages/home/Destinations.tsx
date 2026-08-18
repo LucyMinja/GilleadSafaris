@@ -1,83 +1,103 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, ArrowRight } from 'lucide-react';
+import { ArrowUpRight, ArrowRight, Pause } from 'lucide-react';
 import SafariButton from '@/app/components/SafariButton';
 import SegmentIndicator from './SegmentIndicator';
+import SlideCounter from './SlideCounter';
+import MaskReveal from './MaskReveal';
+import SlideImage from './SlideImage';
 import { destinations } from './data';
+
+/* One easing curve for the whole slide so the image and the text cascade
+   read as one connected motion rather than separate pieces animating on
+   their own clocks. */
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+const TEXT_DURATION = 0.65;
+const TEXT_STAGGER = 0.12;
 
 export default function Destinations() {
   const [active, setActive] = useState(0);
-  const [dir, setDir] = useState(1);
   const [paused, setPaused] = useState(false);
   const total = destinations.length;
 
   const goTo = (i: number) => {
-    const next = ((i % total) + total) % total;
-    setDir(next > active ? 1 : -1);
-    setActive(next);
+    setActive(((i % total) + total) % total);
   };
 
   useEffect(() => {
     if (paused) return;
     const t = setInterval(() => {
-      setDir(1);
       setActive(p => (p + 1) % total);
     }, 4500);
     return () => clearInterval(t);
   }, [paused, total]);
 
-  const variants = {
-    enter: (d: number) => ({ x: d > 0 ? '100%' : '-100%', opacity: 0 }),
-    center: { x: 0, opacity: 1 },
-    exit: (d: number) => ({ x: d > 0 ? '-6%' : '6%', opacity: 0 }),
-  };
-
   const d = destinations[active];
 
   return (
-    <section style={{ backgroundColor: '#F1EAE0' }} onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)}>
+    <section style={{ backgroundColor: '#F1EAE0' }}>
             {/* Section title */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        viewport={{ once: false, margin: '-100px' }}
+        transition={{ duration: 0.8, ease: EASE }}
         className="max-w-[1400px] mx-auto px-6 lg:px-16 mb-8 text-center"
       >
-        <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(30px, 3.6vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15 }}>
+        <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(30px, 3.6vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '18px' }}>
           Discover Tanzania's wild places
         </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', maxWidth: '1100px', margin: '0 auto' }}>
+          From the wildebeest herds of the Serengeti to the white sand of Zanzibar, six parks and one archipelago each demand their own kind of trip — here's where to start.
+        </p>
       </motion.div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pb-14 lg:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-10 lg:items-center">
-        <div className="lg:col-span-5">
-          <AnimatePresence mode="wait" custom={dir}>
-            <motion.div
-              key={active}
-              custom={dir}
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            >
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '16px' }}>
-                {d.tag}
-              </p>
-              <h3 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.3vw, 48px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '20px' }}>
-                {d.name}
-              </h3>
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', fontWeight: 400, color: '#6D6753', lineHeight: 1.8, maxWidth: '360px', marginBottom: '32px' }}>
-                {d.desc}
-              </p>
-              <SafariButton href={d.href}>
-                Explore {d.name} <ArrowUpRight size={11} strokeWidth={1.5} />
-              </SafariButton>
-            </motion.div>
-          </AnimatePresence>
+        <motion.div
+          className="lg:col-span-5"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 0.8, ease: EASE }}
+        >
+          <div
+            className="relative"
+            style={{ minHeight: '300px' }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            <AnimatePresence>
+              <div key={active} className="absolute inset-x-0 top-0">
+                <MaskReveal delay={0} duration={TEXT_DURATION} ease={EASE} style={{ marginBottom: '16px' }}>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.32em', textTransform: 'uppercase', color: '#8D694B' }}>
+                    {d.tag}
+                  </p>
+                </MaskReveal>
+                <MaskReveal delay={TEXT_STAGGER} duration={TEXT_DURATION} ease={EASE} style={{ marginBottom: '20px' }}>
+                  <h3 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.3vw, 48px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05 }}>
+                    {d.name}
+                  </h3>
+                </MaskReveal>
+                <MaskReveal delay={TEXT_STAGGER * 2} duration={TEXT_DURATION} ease={EASE} style={{ marginBottom: '32px' }}>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', fontWeight: 400, color: '#6D6753', lineHeight: 1.8, maxWidth: '360px' }}>
+                    {d.desc}
+                  </p>
+                </MaskReveal>
+                <motion.div
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  transition={{ duration: TEXT_DURATION, delay: TEXT_STAGGER * 3, ease: EASE }}
+                >
+                  <SafariButton href={d.href}>
+                    Explore {d.name} <ArrowUpRight size={11} strokeWidth={1.5} />
+                  </SafariButton>
+                </motion.div>
+              </div>
+            </AnimatePresence>
+          </div>
 
           <div className="flex items-center gap-4 mt-12">
             <button
@@ -95,27 +115,42 @@ export default function Destinations() {
               <ArrowRight size={14} strokeWidth={1.5} />
             </button>
             <SegmentIndicator total={total} active={active} paused={paused} onGoTo={goTo} color="#8D694B" trackColor="rgba(109,103,83,0.16)" />
+            <SlideCounter active={active} total={total} color="#6D6753" />
           </div>
-        </div>
+        </motion.div>
 
-        <div className="lg:col-span-7">
-          <div className="relative overflow-hidden" style={{ height: 'clamp(360px, 42vw, 560px)', borderRadius: '4px', boxShadow: '0 20px 50px rgba(0,0,0,0.16)' }}>
-            <AnimatePresence custom={dir}>
-              <motion.div
-                key={active}
-                custom={dir}
-                variants={variants}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="absolute inset-0"
-              >
-                <Image src={d.img} alt={d.name} fill className="object-cover" unoptimized priority />
-              </motion.div>
+        <motion.div
+          className="lg:col-span-7"
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+        >
+          <div
+            className="relative overflow-hidden"
+            style={{ height: 'clamp(360px, 42vw, 560px)', borderRadius: '4px', boxShadow: '0 20px 50px rgba(0,0,0,0.16)' }}
+            onMouseEnter={() => setPaused(true)}
+            onMouseLeave={() => setPaused(false)}
+          >
+            <SlideImage key={active} src={d.img} alt={d.name} paused={paused} zoomIn={active % 2 === 1} />
+            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.18) 0%, transparent 30%)' }} />
+            <AnimatePresence>
+              {paused && (
+                <motion.div
+                  initial={{ opacity: 0, y: 6 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 6 }}
+                  transition={{ duration: 0.25 }}
+                  className="absolute bottom-5 right-5 flex items-center gap-2 pointer-events-none"
+                  style={{ backgroundColor: 'rgba(20,14,8,0.55)', backdropFilter: 'blur(4px)', padding: '6px 12px', borderRadius: '100px' }}
+                >
+                  <Pause size={10} strokeWidth={2} fill="currentColor" style={{ color: '#fff' }} />
+                  <span style={{ fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#fff' }}>Paused</span>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
-        </div>
+        </motion.div>
       </div>
 
     </section>
