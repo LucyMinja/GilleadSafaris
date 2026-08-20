@@ -1,13 +1,13 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
-import { ArrowRight, ArrowLeft } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import SafariButton from '@/app/components/SafariButton';
+import PageHero from '@/app/components/PageHero';
 import { EMPTY_FORM, steps, type FormErrors, type FormState } from './booking/types';
 import { safariOptions } from './booking/safariOptions';
 import { getTomorrow, validateStep } from './booking/utils';
 import SuccessScreen from './booking/SuccessScreen';
-import BookingHero from './booking/BookingHero';
 import StepProgress from './booking/StepProgress';
 import StepSafari from './booking/StepSafari';
 import StepDates from './booking/StepDates';
@@ -22,11 +22,6 @@ export default function Booking() {
   const [form, setForm] = useState<FormState>(EMPTY_FORM);
 
   const formSectionRef = useRef<HTMLDivElement>(null);
-  const heroRef = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
-  const textY = useTransform(scrollYProgress, [0, 0.8], ['0%', '45%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const selectedSafari = safariOptions.find((s) => s.id === form.safari);
   const tomorrow = getTomorrow();
@@ -75,8 +70,12 @@ export default function Booking() {
   }
 
   return (
-    <div style={{ backgroundColor: '#FFFFFF', fontFamily: "'Lato', sans-serif" }}>
-      <BookingHero heroRef={heroRef} bgY={bgY} textY={textY} heroOpacity={heroOpacity} />
+    <div style={{ backgroundColor: '#FFFFFF', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+      <PageHero
+        eyebrow="Start Your Journey"
+        title="Book a Safari"
+        subtitle="Tell us where you want to go, when you'd like to travel, and we'll craft the perfect Tanzania safari for you."
+      />
       <StepProgress step={step} goToStep={goToStep} />
 
       <div ref={formSectionRef} className="max-w-5xl mx-auto px-6 lg:px-8 py-12 scroll-mt-24">
@@ -110,23 +109,24 @@ export default function Booking() {
         </AnimatePresence>
 
         <div className="flex items-center justify-between mt-10 pt-8" style={{ borderTop: '1px solid #f0e8dc' }}>
-          <button
+          <SafariButton
             type="button"
             onClick={() => goToStep(step - 1)}
             disabled={step === 0}
-            className="btn-secondary disabled:opacity-0 disabled:pointer-events-none"
+            variant="secondary"
+            className="disabled:opacity-0 disabled:pointer-events-none"
           >
-            <ArrowLeft size={14} /> Back
-          </button>
+            Back
+          </SafariButton>
 
           {step < steps.length - 1 ? (
-            <button type="button" onClick={() => goToStep(step + 1)} className="btn-primary">
-              Continue <ArrowRight size={14} />
-            </button>
+            <SafariButton type="button" onClick={() => goToStep(step + 1)}>
+              Continue
+            </SafariButton>
           ) : (
-            <button type="button" onClick={() => setSubmitted(true)} className="btn-primary">
-              Submit Enquiry <ArrowRight size={14} />
-            </button>
+            <SafariButton type="button" onClick={() => setSubmitted(true)}>
+              Submit Enquiry
+            </SafariButton>
           )}
         </div>
       </div>

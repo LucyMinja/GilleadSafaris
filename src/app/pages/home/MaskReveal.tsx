@@ -1,6 +1,7 @@
 'use client';
 
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useInView } from 'motion/react';
 import type { ReactNode, CSSProperties } from 'react';
 
 /* ── Text block that drops down from behind a mask, blurring into focus.
@@ -14,6 +15,7 @@ export default function MaskReveal({
   ease = [0.22, 1, 0.36, 1],
   style,
   viewport = false,
+  once = true,
 }: {
   children: ReactNode;
   delay?: number;
@@ -21,17 +23,26 @@ export default function MaskReveal({
   ease?: [number, number, number, number];
   style?: CSSProperties;
   viewport?: boolean;
+  once?: boolean;
 }) {
   const hidden = { y: '-100%', opacity: 0, filter: 'blur(6px)' };
   const shown = { y: '0%', opacity: 1, filter: 'blur(0px)' };
 
+  const ref = useRef(null);
+  // whileInView doesn't play the transition in this project's Motion setup —
+  // useInView + a manually-toggled animate prop does. The ref is attached to
+  // this stable, untransformed wrapper (not the inner motion.div that
+  // carries the y:-100% transform) — attaching it to the transformed element
+  // itself made the IntersectionObserver never report "in view" even when
+  // the element was fully within the viewport.
+  const inView = useInView(ref, { once, amount: 0.4 });
+
   return (
-    <div style={{ overflow: 'hidden', ...style }}>
+    <div ref={ref} style={{ overflow: 'hidden', ...style }}>
       {viewport ? (
         <motion.div
           initial={hidden}
-          whileInView={shown}
-          viewport={{ once: true, amount: 0.4 }}
+          animate={inView ? shown : hidden}
           transition={{ duration, delay, ease }}
         >
           {children}

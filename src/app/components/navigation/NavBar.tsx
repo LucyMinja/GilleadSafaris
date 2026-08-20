@@ -32,8 +32,8 @@ export default function NavBar({
           />
         )}
       </AnimatePresence>
-      <div className="relative grid items-center px-6 lg:px-20 h-[96px]" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
-        <Link href="/" className="flex items-center group justify-self-start ml-24" style={{ textDecoration: 'none' }}>
+      <div className="relative grid items-center px-6 lg:px-10 xl:px-16 h-[96px]" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+        <Link href="/" className="flex items-center group justify-self-start" style={{ textDecoration: 'none', gridColumn: 1 }}>
           <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(141,105,75,0.5)]" style={{ position: 'relative', width: '96px', height: '96px' }}>
             <Image
               src="/images/og2.png"
@@ -54,7 +54,7 @@ export default function NavBar({
           </div>
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
+        <nav className="hidden xl:flex items-center gap-5 2xl:gap-7" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -85,10 +85,10 @@ export default function NavBar({
           })}
         </nav>
 
-        <div className="flex items-center gap-5 justify-self-end mr-24">
+        <div className="flex items-center gap-5 justify-self-end" style={{ gridColumn: 3 }}>
           <Link
             href="/booking"
-            className="hidden lg:inline-flex items-center gap-1.5 transition-colors duration-200"
+            className="hidden xl:inline-flex items-center gap-1.5 transition-colors duration-200"
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 600, color: accent, whiteSpace: 'nowrap' }}
             onMouseEnter={e => { e.currentTarget.style.color = hasBg ? '#F1EAE0' : '#ffffff'; }}
             onMouseLeave={e => { e.currentTarget.style.color = accent; }}
@@ -115,7 +115,7 @@ export default function NavBar({
               <span className="block h-px bg-current w-full" />
               <span className="block h-px bg-current" style={{ width: '75%' }} />
             </div>
-            <span className="hidden lg:block">Menu</span>
+            <span className="hidden xl:block">Menu</span>
           </button>
         </div>
       </div>

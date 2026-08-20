@@ -2,12 +2,14 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, ArrowRight, Pause } from 'lucide-react';
+import { ArrowRight, Pause } from 'lucide-react';
 import SafariButton from '@/app/components/SafariButton';
 import SegmentIndicator from './SegmentIndicator';
 import SlideCounter from './SlideCounter';
 import MaskReveal from './MaskReveal';
 import SlideImage from './SlideImage';
+import PinHeader from './PinHeader';
+import RevealOnView from './RevealOnView';
 import { destinations } from './data';
 
 /* One easing curve for the whole slide so the image and the text cascade
@@ -38,33 +40,27 @@ export default function Destinations() {
 
   return (
     <section style={{ backgroundColor: '#F1EAE0' }}>
-            {/* Section title */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: '-100px' }}
-        transition={{ duration: 0.8, ease: EASE }}
-        className="max-w-[1400px] mx-auto px-6 lg:px-16 mb-8 text-center"
-      >
+      <PinHeader>
         <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(30px, 3.6vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '18px' }}>
           Discover Tanzania's wild places
         </h2>
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', maxWidth: '1100px', margin: '0 auto' }}>
           From the wildebeest herds of the Serengeti to the white sand of Zanzibar, six parks and one archipelago each demand their own kind of trip — here's where to start.
         </p>
-      </motion.div>
+      </PinHeader>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pb-14 lg:pb-20 grid grid-cols-1 lg:grid-cols-12 gap-x-10 gap-y-10 lg:items-center">
-        <motion.div
+        <RevealOnView
           className="lg:col-span-5"
           initial={{ opacity: 0, x: -40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 0.8, ease: EASE }}
+          animate={{ opacity: 1, x: 0 }}
+          duration={0.8}
+          ease={EASE}
+          once={false}
+          margin="-100px"
         >
           <div
-            className="relative"
-            style={{ minHeight: '300px' }}
+            className="relative min-h-[190px] lg:min-h-[300px]"
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
@@ -87,19 +83,22 @@ export default function Destinations() {
                 </MaskReveal>
                 <motion.div
                   initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: 8 }}
-                  transition={{ duration: TEXT_DURATION, delay: TEXT_STAGGER * 3, ease: EASE }}
+                  animate={{ opacity: 1, y: 0, transition: { duration: TEXT_DURATION, delay: TEXT_STAGGER * 3, ease: EASE } }}
+                  exit={{ opacity: 0, y: 8, transition: { duration: TEXT_DURATION * 0.5, delay: 0, ease: EASE } }}
+                  className="hidden lg:block"
                 >
                   <SafariButton href={d.href}>
-                    Explore {d.name} <ArrowUpRight size={11} strokeWidth={1.5} />
+                    Explore {d.name}
                   </SafariButton>
                 </motion.div>
               </div>
             </AnimatePresence>
           </div>
 
-          <div className="flex items-center gap-4 mt-12">
+          {/* Prev/next arrows + counter are desktop-only — on mobile the indicator
+              and a single generic "Explore" button sit below the image instead
+              (see below), so a per-slide-changing control row up here would be redundant. */}
+          <div className="hidden lg:flex items-center gap-4 mt-12">
             <button
               onClick={() => { setPaused(true); goTo(active - 1); }}
               className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[rgba(109,103,83,0.08)]"
@@ -117,14 +116,17 @@ export default function Destinations() {
             <SegmentIndicator total={total} active={active} paused={paused} onGoTo={goTo} color="#8D694B" trackColor="rgba(109,103,83,0.16)" />
             <SlideCounter active={active} total={total} color="#6D6753" />
           </div>
-        </motion.div>
+        </RevealOnView>
 
-        <motion.div
+        <RevealOnView
           className="lg:col-span-7"
           initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 0.8, delay: 0.1, ease: EASE }}
+          animate={{ opacity: 1, x: 0 }}
+          duration={0.8}
+          delay={0.1}
+          ease={EASE}
+          once={false}
+          margin="-100px"
         >
           <div
             className="relative overflow-hidden"
@@ -150,7 +152,19 @@ export default function Destinations() {
               )}
             </AnimatePresence>
           </div>
-        </motion.div>
+
+          {/* Mobile-only: indicator dots + a generic "Explore" button sit here,
+              right under the image — no arrows (swipe/dots are enough on touch),
+              and the button label stays constant instead of changing per slide. */}
+          <div className="lg:hidden mt-6 flex flex-col items-center gap-6">
+            <div className="w-full">
+              <SegmentIndicator total={total} active={active} paused={paused} onGoTo={goTo} color="#8D694B" trackColor="rgba(109,103,83,0.16)" />
+            </div>
+            <SafariButton href={d.href}>
+              Explore
+            </SafariButton>
+          </div>
+        </RevealOnView>
       </div>
 
     </section>

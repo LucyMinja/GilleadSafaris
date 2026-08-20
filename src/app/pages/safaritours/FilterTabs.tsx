@@ -13,28 +13,29 @@ export default function FilterTabs({
 
   return (
     <div
-      className="sticky top-[88px] z-30 overflow-x-auto"
-      style={{ backgroundColor: '#ffffff', borderBottom: '1px solid rgba(138,105,79,0.15)', boxShadow: '0 2px 16px rgba(0,0,0,0.05)', scrollbarWidth: 'none' } as React.CSSProperties}
+      className="sticky top-[96px] z-30 overflow-x-auto"
+      style={{ backgroundColor: '#F1EAE0', borderBottom: '1px solid rgba(109,103,83,0.14)', scrollbarWidth: 'none' } as React.CSSProperties}
     >
-      <div className="flex items-stretch justify-center w-full" style={{ height: '60px' }}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex items-stretch" style={{ height: '64px' }}>
         {tourTypes.map((type) => (
           <button
             key={type}
             onClick={(e) => onTabClick(type, e)}
-            className="relative shrink-0 flex items-center px-8"
+            className="relative shrink-0 flex items-center px-6 lg:px-7"
             onMouseEnter={() => setHoveredTab(type)}
             onMouseLeave={() => setHoveredTab(null)}
             style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
               fontSize: '12px',
               letterSpacing: '0.14em',
               textTransform: 'uppercase',
-              fontWeight: activeType === type ? 700 : 400,
-              fontFamily: "'Lato', sans-serif",
-              color: activeType === type ? '#8a694f' : hoveredTab === type ? '#8a694f' : 'rgba(44,24,16,0.65)',
-              backgroundColor: hoveredTab === type && activeType !== type ? 'rgba(138,105,79,0.07)' : 'transparent',
+              fontWeight: activeType === type ? 700 : 500,
+              color: activeType === type || hoveredTab === type ? '#8D694B' : '#6D6753',
+              background: 'none',
               border: 'none',
               cursor: 'pointer',
-              transition: 'color 0.2s ease, background-color 0.2s ease',
+              transition: 'color 0.2s ease',
+              whiteSpace: 'nowrap',
             }}
           >
             {type}
@@ -42,7 +43,7 @@ export default function FilterTabs({
               <motion.div
                 layoutId="tab-indicator-safaris"
                 className="absolute bottom-0 left-0 right-0"
-                style={{ height: '2.5px', backgroundColor: '#8a694f', borderRadius: '2px 2px 0 0' }}
+                style={{ height: '2px', backgroundColor: '#8D694B' }}
                 transition={{ type: 'spring', stiffness: 380, damping: 32 }}
               />
             )}

@@ -33,7 +33,7 @@ export const destinations = [
     name: 'Zanzibar Archipelago',
     region: 'Indian Ocean Islands',
     tag: 'Beach & Culture',
-    heroImg: '/images/nakupenda beachh.jpg',
+    heroImg: '/images/nakupenda-beach.jpg',
     desc: 'An ancient spice island of white-sand beaches and turquoise waters. The UNESCO-listed Stone Town blends Arab, Indian, and African cultures into an intoxicating mosaic.',
     highlights: ['Stone Town', 'Spice Tours', 'Diving', 'Dolphin Watching'],
     bestTime: 'June – October',
@@ -103,7 +103,7 @@ export const destinations = [
     name: 'Selous Game Reserve',
     region: 'Southern Tanzania',
     tag: "Africa's Largest Reserve",
-    heroImg: 'https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1200&h=800&fit=crop&auto=format',
+    heroImg: '/images/956A2192.jpg',
     desc: 'A UNESCO World Heritage Site the size of Switzerland. Boat safaris along the Rufiji River reveal hippos, crocodiles, and prolific birdlife alongside extraordinary big game.',
     highlights: ['Boat Safaris', 'Walking Safaris', 'Wild Dogs', 'Rufiji River'],
     bestTime: 'June – October',
@@ -128,5 +128,3 @@ export const destinations = [
 ];
 
 export type Destination = (typeof destinations)[number];
-
-export const categories = ['All', 'Safari', 'Beach', 'Trekking'];

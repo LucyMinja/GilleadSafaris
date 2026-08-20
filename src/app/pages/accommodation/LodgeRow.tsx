@@ -1,6 +1,6 @@
-import Link from 'next/link';
 import { motion } from 'motion/react';
-import { MapPin, ArrowRight } from 'lucide-react';
+import { MapPin } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 import type { Lodge } from './types';
 
 export default function LodgeRow({ lodge, index, onView }: { lodge: Lodge; index: number; onView: (l: Lodge) => void }) {
@@ -54,12 +54,12 @@ export default function LodgeRow({ lodge, index, onView }: { lodge: Lodge; index
           </p>
 
           <div className="flex gap-3">
-            <button onClick={() => onView(lodge)} className="btn-secondary">
+            <SafariButton onClick={() => onView(lodge)} variant="secondary">
               View Property
-            </button>
-            <Link href="/booking" className="btn-primary">
-              Plan a Safari <ArrowRight size={12} />
-            </Link>
+            </SafariButton>
+            <SafariButton href="/booking">
+              Plan a Safari
+            </SafariButton>
           </div>
         </div>
       </div>

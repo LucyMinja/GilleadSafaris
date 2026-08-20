@@ -52,7 +52,7 @@ export const destinationData = [
     facts: { size: '2,643 km²', bestTime: 'June – October & Jan – February', animals: 'Humpback Whale · Dolphin · Sea Turtle · Red Colobus Monkey' },
     highlights: ['Stone Town UNESCO Heritage', 'Kendwa & Nungwi Beaches', 'Spice Farm Tours', 'Dolphin Watching', 'Swahili Cuisine'],
     relatedTours: [
-      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone town.jpg' },
+      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone-town.jpg' },
       { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
     ],
   },

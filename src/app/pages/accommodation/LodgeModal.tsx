@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
-import Link from 'next/link';
 import { motion } from 'motion/react';
-import { MapPin, Star, X, ArrowRight } from 'lucide-react';
+import { MapPin, Star, X } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 import type { Lodge } from './types';
 
 export default function LodgeModal({ lodge, onClose }: { lodge: Lodge; onClose: () => void }) {
@@ -86,10 +86,10 @@ export default function LodgeModal({ lodge, onClose }: { lodge: Lodge; onClose: 
           </div>
 
           <div className="flex flex-col sm:flex-row gap-3">
-            <Link href="/booking" className="btn-primary" style={{ flex: 1, justifyContent: 'center' }}>
-              Plan a Safari <ArrowRight size={13} />
-            </Link>
-            <button onClick={onClose} className="btn-secondary" style={{ flexShrink: 0 }}>Back to Properties</button>
+            <SafariButton href="/booking" style={{ flex: 1, justifyContent: 'center' }}>
+              Plan a Safari
+            </SafariButton>
+            <SafariButton onClick={onClose} variant="secondary" style={{ flexShrink: 0 }}>Back to Properties</SafariButton>
           </div>
         </div>
       </motion.div>

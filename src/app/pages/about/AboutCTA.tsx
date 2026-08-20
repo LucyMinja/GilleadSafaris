@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 
 export default function AboutCTA() {
   return (
@@ -22,12 +21,12 @@ export default function AboutCTA() {
           Let us build your perfect safari. Our Arusha-based team is ready to design an itinerary around you.
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="/booking" className="btn-primary">
-            Start Planning <ArrowUpRight size={13} strokeWidth={1.5} />
-          </Link>
-          <Link href="/contact" className="btn-secondary">
+          <SafariButton href="/booking">
+            Start Planning
+          </SafariButton>
+          <SafariButton href="/contact" variant="secondary">
             Get in Touch
-          </Link>
+          </SafariButton>
         </div>
       </motion.div>
     </section>

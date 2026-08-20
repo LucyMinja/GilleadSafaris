@@ -61,7 +61,7 @@ export default function MenuOverlay({
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.05, duration: 0.4 }}
-                    className={`py-5${link.desktopNav ? ' lg:hidden' : ''}`}
+                    className={`py-5${link.desktopNav ? ' xl:hidden' : ''}`}
                     style={{ borderBottom: '1px solid rgba(241,234,224,0.15)' }}
                   >
                     <Link

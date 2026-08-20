@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 
 export default function CultureCTA() {
   return (
@@ -22,12 +21,12 @@ export default function CultureCTA() {
           Our cultural add-ons can be woven into any safari itinerary. Ask us about Maasai village visits, Hadzabe hunting experiences, and Zanzibar spice tours.
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <Link href="/booking" className="btn-primary">
-            Build Your Safari <ArrowRight size={14} />
-          </Link>
-          <Link href="/contact" className="btn-secondary">
-            Ask a Question <ArrowUpRight size={13} strokeWidth={1.5} />
-          </Link>
+          <SafariButton href="/booking">
+            Build Your Safari
+          </SafariButton>
+          <SafariButton href="/contact" variant="secondary">
+            Ask a Question
+          </SafariButton>
         </div>
       </motion.div>
     </section>

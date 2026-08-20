@@ -3,14 +3,14 @@ export const southDestinations = [
     slug: 'zanzibar',
     name: 'Zanzibar Archipelago',
     region: 'Indian Ocean Islands',
-    heroImg: '/images/nakupenda beachh.jpg',
+    heroImg: '/images/nakupenda-beach.jpg',
     tagline: 'A thousand years of trade, spice, and ocean breeze.',
     intro: 'Zanzibar is not just a beach destination. It is one of the most historically layered places in the world  where Arab dhows, Chinese junks, and Portuguese caravels once dropped anchor in the same harbour, and where the resulting culture is unlike anything else in East Africa.',
     sections: [
       {
         heading: 'Stone Town  A City of Layers',
         body: 'Stone Town\'s narrow streets were designed to confuse invaders and capture the sea breeze. Over 500 carved wooden doors, each unique, mark the wealth and religion of the families inside. Every alley leads somewhere unexpected: a fish market at dawn, a spice merchant\'s courtyard, a rooftop café where the call to prayer drifts across the harbour at sunset.',
-        img: '/images/stone town.jpg',
+        img: '/images/stone-town.jpg',
         reverse: false,
       },
       {
@@ -22,14 +22,14 @@ export const southDestinations = [
       {
         heading: 'Beaches Beyond Compare',
         body: 'Nungwi, Kendwa, Paje, Matemwe  white sand and turquoise water in combinations that look almost artificial. The reef supports dolphins, sea turtles, whale sharks, and humpback whales. And the spice farms of the interior  cloves, nutmeg, vanilla, cinnamon growing in extraordinary abundance  explain why the smell of Zanzibar is unlike anywhere else you have been.',
-        img: '/images/nakupenda beachh.jpg',
+        img: '/images/nakupenda-beach.jpg',
         reverse: false,
       },
     ],
     facts: { size: '2,643 km²', bestTime: 'June – October & January – February', animals: 'Dolphin · Sea Turtle · Whale Shark · Red Colobus Monkey · Flamingo' },
     highlights: ['Stone Town UNESCO Heritage', 'Kendwa & Nungwi Beaches', 'Slave Market Memorial', 'Spice Farm Tours', 'Coral Reef Snorkelling'],
     relatedTours: [
-      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone town.jpg' },
+      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone-town.jpg' },
       { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
     ],
   },

@@ -1,6 +1,5 @@
-import Link from 'next/link';
 import { motion } from 'motion/react';
-import { ArrowUpRight } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 
 export default function StorySection() {
   return (
@@ -42,12 +41,12 @@ export default function StorySection() {
             Every itinerary we design is personal. We do not run group departures or cookie-cutter packages - we take the time to understand what you want from Tanzania and build a journey that reflects it.
           </p>
           <div className="flex flex-wrap gap-4">
-            <Link href="/safaris" className="btn-primary">
-              Our Safaris <ArrowUpRight size={11} strokeWidth={1.5} />
-            </Link>
-            <Link href="/contact" className="btn-secondary">
+            <SafariButton href="/safaris">
+              Our Safaris
+            </SafariButton>
+            <SafariButton href="/contact" variant="secondary">
               Contact Us
-            </Link>
+            </SafariButton>
           </div>
         </div>
       </motion.div>

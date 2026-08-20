@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { AnimatePresence, useScroll, useTransform } from 'motion/react';
+import { AnimatePresence } from 'motion/react';
+import PageHero from '@/app/components/PageHero';
 import { lodges } from './accommodation/lodges';
 import type { Lodge } from './accommodation/types';
-import AccommodationHero from './accommodation/AccommodationHero';
 import CategoryTabs from './accommodation/CategoryTabs';
 import LodgeRow from './accommodation/LodgeRow';
 import LodgeModal from './accommodation/LodgeModal';
@@ -12,13 +12,7 @@ import LodgeModal from './accommodation/LodgeModal';
 export default function Accommodation() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [selectedLodge, setSelectedLodge] = useState<Lodge | null>(null);
-  const heroRef = useRef<HTMLElement>(null);
   const contentRef = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '28%']);
-  const textY = useTransform(scrollYProgress, [0, 0.8], ['0%', '45%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   const handleTabClick = (cat: string, e: React.MouseEvent<HTMLButtonElement>) => {
     setActiveCategory(cat);
@@ -35,8 +29,12 @@ export default function Accommodation() {
 
   return (
     <>
-      <div style={{ backgroundColor: '#ffffff', fontFamily: "'Lato', sans-serif" }}>
-        <AccommodationHero heroRef={heroRef} bgY={bgY} textY={textY} heroOpacity={heroOpacity} />
+      <div style={{ backgroundColor: '#ffffff', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+        <PageHero
+          eyebrow="Where You Sleep"
+          title="Accommodation"
+          subtitle="Every property handpicked. Every stay intentional. From baobab treehouses to oceanfront villas."
+        />
         <CategoryTabs activeCategory={activeCategory} onTabClick={handleTabClick} />
 
         <div ref={contentRef} className="flex flex-col">

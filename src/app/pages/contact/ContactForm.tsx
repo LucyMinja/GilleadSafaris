@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Send, Check } from 'lucide-react';
+import SafariButton from '@/app/components/SafariButton';
 
 type FormState = { name: string; email: string; phone: string; subject: string; message: string };
 
@@ -68,9 +69,9 @@ export default function ContactForm({
         />
       </div>
       <div className="flex flex-wrap items-center gap-4 pt-1">
-        <button type="submit" className="btn-primary">
+        <SafariButton type="submit">
           Send Message <Send size={13} />
-        </button>
+        </SafariButton>
         <span style={{ fontSize: '12px', color: 'rgba(44,24,16,0.4)' }}>or</span>
         <Link href="/booking" style={{ fontSize: '13px', color: '#8a694f', fontWeight: 600, textDecoration: 'none', letterSpacing: '0.06em' }}>
           Plan a safari directly →
