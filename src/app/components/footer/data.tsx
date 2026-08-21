@@ -8,12 +8,12 @@ export const destinations = [
 ];
 
 export const tours = [
-  { label: '3 Days Classic Serengeti Safari', href: '/safaris?open=2' },
-  { label: '4 Days Zanzibar Beach & Stone Town', href: '/safaris?open=9' },
-  { label: '8 Days Best of Northern Tanzania', href: '/safaris?open=5' },
-  { label: '8 Days Wildebeest Migration', href: '/safaris?open=6' },
-  { label: '6 Days Ruaha, Mikumi & Udzungwa', href: '/safaris?open=8' },
-  { label: '8 Days Tanzania Cultural Tour', href: '/safaris?open=10' },
+  { label: '3 Days Classic Serengeti Safari', href: '/safaris/classic-serengeti-3-days' },
+  { label: '4 Days Zanzibar Beach & Stone Town', href: '/safaris/zanzibar-kendwa-stone-town-4-days' },
+  { label: '8 Days Best of Northern Tanzania', href: '/safaris/best-of-northern-tanzania-8-days' },
+  { label: '8 Days Wildebeest Migration', href: '/safaris/wildebeest-migration-8-days' },
+  { label: '6 Days Ruaha, Mikumi & Udzungwa', href: '/safaris/ruaha-mikumi-udzungwa-6-days' },
+  { label: '8 Days Tanzania Cultural Tour', href: '/safaris/tanzania-cultural-tour-8-days' },
 ];
 
 export const socials = [

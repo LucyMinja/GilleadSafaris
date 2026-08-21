@@ -72,7 +72,7 @@ export default function Destinations() {
                   </p>
                 </MaskReveal>
                 <MaskReveal delay={TEXT_STAGGER} duration={TEXT_DURATION} ease={EASE} style={{ marginBottom: '20px' }}>
-                  <h3 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.3vw, 48px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05 }}>
+                  <h3 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05 }}>
                     {d.name}
                   </h3>
                 </MaskReveal>

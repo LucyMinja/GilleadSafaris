@@ -5,25 +5,25 @@ export const values = [
     icon: <Heart size={22} strokeWidth={1.5} />,
     title: 'Genuine Care',
     desc: 'Every itinerary is crafted with personal attention. We listen first and design second - your trip is never a template.',
-    img: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=900&h=700&fit=crop&auto=format',
+    img: '/images/IMG_1256.jpg',
   },
   {
     icon: <Leaf size={22} strokeWidth={1.5} />,
     title: 'Conservation First',
     desc: "A portion of every booking supports Tanzania's anti-poaching rangers, community schools, and habitat restoration projects.",
-    img: 'https://images.unsplash.com/photo-1549366021-9f761d450615?w=900&h=700&fit=crop&auto=format',
+    img: '/images/956A4243.jpg',
   },
   {
     icon: <Award size={22} strokeWidth={1.5} />,
     title: 'Uncompromising Quality',
     desc: 'We handpick every lodge, driver, and guide. If we would not stay there ourselves, we will not recommend it to you.',
-    img: 'https://images.unsplash.com/photo-1595652974621-4a7a0b2caa14?w=900&h=700&fit=crop&auto=format',
+    img: "/images/kutokalodge_1707376322154(1).jpeg",
   },
   {
     icon: <Users size={22} strokeWidth={1.5} />,
     title: 'Community Benefit',
     desc: 'We partner only with local guides, community-owned camps, and villages that choose authentic cultural exchange.',
-    img: 'https://images.unsplash.com/photo-1580689402180-61f1ab9d6232?w=900&h=700&fit=crop&auto=format',
+    img: '/images/Darajani_Market.jpg',
   },
 ];
 
@@ -56,7 +56,6 @@ export const team = [
 
 export const stats = [
   { value: '6+', label: 'Years operating' },
-  { value: '4', label: 'Team members' },
   { value: '10', label: 'Safari packages' },
   { value: '2020', label: 'Established' },
 ];

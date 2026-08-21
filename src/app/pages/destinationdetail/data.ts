@@ -12,6 +12,35 @@ export const destinationData = [
     ],
     facts: { size: '14,763 km²', bestTime: 'June – October', animals: 'Lion · Cheetah · Leopard · Elephant · Buffalo · Wildebeest' },
     highlights: ['Great Migration', 'Big Five', 'Hot Air Balloon Safaris', 'Kopjes & Rock Formations', 'Predator Concentrations'],
+    story: {
+      bigImages: ['/images/956A3225.jpg', '/images/956A4274.jpg'],
+      bigVignette: {
+        eyebrow: 'Great Migration',
+        headline: 'Follow the herds',
+        blurb: 'Over 1.5 million wildebeest move in a continuous clockwise circuit through the Serengeti each year, trailed by lion, cheetah and hyena — one of the last truly wild spectacles left on earth.',
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+      secondary: [
+        {
+          img: '/images/956A3123.jpg',
+          vignette: {
+            eyebrow: 'Predator Concentrations',
+            headline: 'Where the hunters gather',
+            blurb: 'Lion, leopard, cheetah and hyena all share these plains, drawn by the same herds that never stop moving.',
+            cta: { label: 'Inquire About Game Drives', href: '/booking' },
+          },
+        },
+        {
+          img: '/images/956A2874.jpg',
+          vignette: {
+            eyebrow: 'Big Five',
+            headline: 'Face to face with a lion',
+            blurb: '"You don\'t forget the first time a lion looks straight at your vehicle."',
+            quote: true,
+          },
+        },
+      ],
+    },
     relatedTours: [
       { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.jpg' },
       { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
@@ -32,6 +61,35 @@ export const destinationData = [
     ],
     facts: { size: '8,292 km²', bestTime: 'Year-round', animals: 'Black Rhino · Lion · Elephant · Hippo · Flamingo · Hyena' },
     highlights: ['Volcanic Caldera', 'Black Rhino Sightings', 'Big Five in One Day', 'Olduvai Gorge', 'Maasai Culture'],
+    story: {
+      bigImages: ['/images/956A4243.jpg', '/images/IMG_1256.jpg'],
+      bigVignette: {
+        eyebrow: 'Volcanic Caldera',
+        headline: 'A world inside a crater',
+        blurb: 'Roughly three million years old and walled in on every side, the crater floor holds one of the highest concentrations of wildlife anywhere on the continent.',
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+      secondary: [
+        {
+          img: '/images/956A2874.jpg',
+          vignette: {
+            eyebrow: 'Big Five in One Day',
+            headline: 'Every icon, one descent',
+            blurb: 'Lion, elephant, rhino, buffalo and leopard all move within the same 260 km² floor — a single day inside the crater can outshine a week anywhere else.',
+            cta: { label: 'Inquire About the Crater Tour', href: '/booking' },
+          },
+        },
+        {
+          img: '/images/IMG_1068.jpg',
+          vignette: {
+            eyebrow: 'Meet Your Team',
+            headline: 'Guides who grew up on this rim',
+            blurb: '"Our driver-guides know this crater the way most people know their own street."',
+            quote: true,
+          },
+        },
+      ],
+    },
     relatedTours: [
       { id: 1, name: '1 Day Ngorongoro Crater Safari', duration: '1 Day', img: '/images/956A3279.jpg' },
       { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
@@ -51,6 +109,35 @@ export const destinationData = [
     ],
     facts: { size: '2,643 km²', bestTime: 'June – October & Jan – February', animals: 'Humpback Whale · Dolphin · Sea Turtle · Red Colobus Monkey' },
     highlights: ['Stone Town UNESCO Heritage', 'Kendwa & Nungwi Beaches', 'Spice Farm Tours', 'Dolphin Watching', 'Swahili Cuisine'],
+    story: {
+      bigImages: ['/images/nakupenda-beach.jpg', '/images/prison.jpg'],
+      bigVignette: {
+        eyebrow: 'Kendwa & Nungwi Beaches',
+        headline: 'Where the sand runs white',
+        blurb: "Zanzibar's northern coast is ringed by warm, shallow water and sand that stays cool underfoot even at midday — postcard water, without needing a filter.",
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+      secondary: [
+        {
+          img: '/images/stone-town.jpg',
+          vignette: {
+            eyebrow: 'Stone Town UNESCO Heritage',
+            headline: 'A thousand years of trade',
+            blurb: "Narrow coral-stone alleys, carved doors and a skyline that's barely changed in two centuries — Stone Town has been a UNESCO World Heritage Site since 2000.",
+            cta: { label: 'Inquire About the City Tour', href: '/booking' },
+          },
+        },
+        {
+          img: '/images/Darajani_Market.jpg',
+          vignette: {
+            eyebrow: 'Swahili Cuisine',
+            headline: 'Bought and cooked the same day',
+            blurb: '"Every spice, bean and fruit you\'ll eat this week was probably sold a few metres from here this morning."',
+            quote: true,
+          },
+        },
+      ],
+    },
     relatedTours: [
       { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone-town.jpg' },
       { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
@@ -69,6 +156,19 @@ export const destinationData = [
     ],
     facts: { size: '756 km² (park)', bestTime: 'January – March & June – October', animals: 'Elephant · Buffalo · Leopard · Colobus Monkey · Sunbird' },
     highlights: ['Uhuru Peak at 5,895m', 'Five Climatic Zones', 'Glacier Views', 'Chagga Culture', 'Lemosho & Machame Routes'],
+    story: {
+      // Kilimanjaro doesn't yet have enough distinct verified real photography
+      // in the library for a second staggered pairing — one honest photo
+      // beats two mismatched ones, see project convention on verifying image
+      // content before trusting it (CLAUDE.md, Images section).
+      bigImages: ['/images/kilimanjaro-graded.jpg'],
+      bigVignette: {
+        eyebrow: 'Uhuru Peak at 5,895m',
+        headline: "Africa's roof, one climb at a time",
+        blurb: 'Six ecological zones in a single ascent, from tropical rainforest to arctic summit, ending at the highest point on the continent.',
+        cta: { label: 'Plan This Climb', href: '/safaris' },
+      },
+    },
     relatedTours: [
       { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
       { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
@@ -87,6 +187,35 @@ export const destinationData = [
     ],
     facts: { size: '2,850 km²', bestTime: 'June – October', animals: 'Elephant · Lion · Leopard · Gerenuk · Oryx · Python' },
     highlights: ['Giant Elephant Herds', 'Ancient Baobab Trees', '550+ Bird Species', 'Swamp Wildlife', 'Dry Season Spectacle'],
+    story: {
+      bigImages: ['/images/IMG_0227.jpg', '/images/956A3309.jpg'],
+      bigVignette: {
+        eyebrow: 'Giant Elephant Herds',
+        headline: 'Three hundred strong, and counting',
+        blurb: 'Tarangire has one of the highest elephant densities in Tanzania — herds like this one gather along the river that never runs dry through the long dry season.',
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+      secondary: [
+        {
+          img: '/images/956A2613.jpg',
+          vignette: {
+            eyebrow: 'Ancient Baobab Trees',
+            headline: 'Some older than the nearest town',
+            blurb: 'Baobabs over a thousand years old rise out of the grassland here, giving Tarangire a primordial quality unlike any other northern park.',
+            cta: { label: 'Inquire About Tarangire', href: '/booking' },
+          },
+        },
+        {
+          img: '/images/IMG_2444.jpg',
+          vignette: {
+            eyebrow: 'Dry Season Spectacle',
+            headline: 'The river everyone needs',
+            blurb: '"By September, almost everything in the park has found its way back to the water."',
+            quote: true,
+          },
+        },
+      ],
+    },
     relatedTours: [
       { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/elephantsafari.png' },
       { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
@@ -106,6 +235,19 @@ export const destinationData = [
     ],
     facts: { size: '137 km²', bestTime: 'October – April (birding)', animals: 'Colobus Monkey · Giraffe · Buffalo · Hippo · Flamingo · Leopard' },
     highlights: ['Ngurdoto Crater', 'Momella Lakes', 'Mount Meru Climb', 'Walking Safaris', 'Kilimanjaro Views'],
+    story: {
+      // No dedicated verified photo of Arusha NP itself is in the library
+      // yet — using a real, honest photo of Gillead's own fleet instead of
+      // a mismatched park photo, since Arusha genuinely is where every
+      // safari (not just this one) starts.
+      bigImages: ['/images/IMG_1068.jpg'],
+      bigVignette: {
+        eyebrow: 'Your Gateway',
+        headline: 'Every safari starts here',
+        blurb: 'Arusha is where our own guides and vehicles are based — 37km from Arusha National Park itself, and the first stop on almost every itinerary we run.',
+        cta: { label: 'Plan Your Safari', href: '/safaris' },
+      },
+    },
     relatedTours: [
       { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.jpg' },
       { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/elephantsafari.png' },

@@ -1,58 +1,113 @@
-import { motion } from 'motion/react';
 import { MapPin } from 'lucide-react';
+import RevealOnView from '@/app/pages/home/RevealOnView';
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function HistorySection({
   dest,
+  img,
 }: {
   dest: { name: string; history: string[]; facts: { size: string; bestTime: string; animals: string }; highlights: string[] };
+  img: string;
 }) {
-  return (
-    <section className="py-24 px-6 lg:px-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
-        <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: '-80px' }} transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}>
-          <div className="flex items-center gap-3 mb-6">
-            <div style={{ width: '24px', height: '1px', backgroundColor: '#d3ba8b' }} />
-            <span style={{ fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#d3ba8b' }}>History & Story</span>
-          </div>
-          <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(26px, 3.5vw, 42px)', fontWeight: 400, color: '#000000', lineHeight: 1.2, marginBottom: '28px' }}>
-            The story behind<br /><em style={{ color: '#8a694f' }}>{dest.name.split(' ')[0]}</em>
-          </h2>
-          <div className="space-y-5">
-            {dest.history.map((para, i) => (
-              <p key={i} style={{ fontSize: '15px', lineHeight: 2, color: '#444444', fontWeight: 300 }}>{para}</p>
-            ))}
-          </div>
-        </motion.div>
+  const [firstPara, ...restParas] = dest.history;
 
-        <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: false, margin: '-80px' }} transition={{ duration: 1, delay: 0.1, ease: [0.22, 1, 0.36, 1] }} className="space-y-6">
-          <div className="grid grid-cols-1 gap-4">
-            {[
-              { label: 'Size', value: dest.facts.size },
-              { label: 'Best Time to Visit', value: dest.facts.bestTime },
-              { label: 'Wildlife', value: dest.facts.animals },
-            ].map(({ label, value }) => (
-              <div key={label} className="flex items-start gap-4 p-5" style={{ backgroundColor: '#faf7f4', border: '1px solid #f0e8dc', borderRadius: '12px' }}>
-                <MapPin size={16} strokeWidth={1.5} style={{ color: '#d3ba8b', flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <p style={{ fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#d3ba8b', marginBottom: '4px' }}>{label}</p>
-                  <p style={{ fontSize: '14px', color: '#000000' }}>{value}</p>
-                </div>
-              </div>
+  return (
+    <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-20 lg:pt-28 pb-6 lg:pb-8">
+      {/* Opening paragraph paired with a real photo — matches TourIntro's
+          image+text pairing on the tour detail pages, so this page doesn't
+          drop straight into bare text with nothing to look at. */}
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 lg:items-center mb-10 lg:mb-14">
+        <RevealOnView
+          className="lg:col-span-5 lg:order-1"
+          initial={{ opacity: 0, x: -40 }}
+          animate={{ opacity: 1, x: 0 }}
+          duration={0.8}
+          ease={EASE}
+          once={false}
+          margin="-80px"
+        >
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '14px' }}>History & Story</p>
+          <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.2vw, 42px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '24px' }}>
+            The story behind {dest.name.split(' ')[0]}
+          </h2>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753' }}>{firstPara}</p>
+        </RevealOnView>
+
+        <RevealOnView
+          className="lg:col-span-7 lg:order-2"
+          initial={{ opacity: 0, x: 40 }}
+          animate={{ opacity: 1, x: 0 }}
+          duration={0.8}
+          delay={0.1}
+          ease={EASE}
+          once={false}
+          margin="-80px"
+        >
+          <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '2px' }}>
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${img})`, backgroundColor: '#8D694B' }} />
+          </div>
+        </RevealOnView>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-12">
+        <RevealOnView
+          className="lg:col-span-7"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          duration={0.8}
+          ease={EASE}
+          once={false}
+          margin="-80px"
+        >
+          <div className="flex flex-col gap-5">
+            {restParas.map((para, i) => (
+              <p key={i} style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753' }}>{para}</p>
             ))}
           </div>
-          <div className="p-6" style={{ backgroundColor: '#8a694f', borderRadius: '14px' }}>
-            <p style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#d3ba8b', marginBottom: '14px' }}>Highlights</p>
-            <ul className="space-y-2.5">
-              {dest.highlights.map((h) => (
-                <li key={h} className="flex items-center gap-3" style={{ fontSize: '14px', color: 'rgba(255,255,255,0.88)' }}>
-                  <span style={{ width: '5px', height: '5px', borderRadius: '50%', backgroundColor: '#d3ba8b', flexShrink: 0 }} />
-                  {h}
-                </li>
+        </RevealOnView>
+
+        <RevealOnView
+          className="lg:col-span-5"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          duration={0.8}
+          delay={0.1}
+          ease={EASE}
+          once={false}
+          margin="-80px"
+        >
+          <div className="p-8" style={{ backgroundColor: '#ffffff', borderRadius: '4px', border: '1px solid rgba(109,103,83,0.12)' }}>
+            <div className="flex flex-col gap-5 mb-7">
+              {[
+                { label: 'Size', value: dest.facts.size },
+                { label: 'Best Time to Visit', value: dest.facts.bestTime },
+                { label: 'Wildlife', value: dest.facts.animals },
+              ].map(({ label, value }) => (
+                <div key={label} className="flex items-start gap-3">
+                  <MapPin size={13} strokeWidth={1.5} color="#8D694B" style={{ marginTop: '3px', flexShrink: 0 }} />
+                  <div>
+                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '4px' }}>{label}</p>
+                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753' }}>{value}</p>
+                  </div>
+                </div>
               ))}
-            </ul>
+            </div>
+
+            <div className="pt-6" style={{ borderTop: '1px solid rgba(109,103,83,0.12)' }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '12px' }}>Highlights</p>
+              <div className="flex flex-col gap-2.5">
+                {dest.highlights.map((h) => (
+                  <div key={h} className="flex items-center gap-2.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753' }}>
+                    <div style={{ width: '4px', height: '4px', backgroundColor: '#8D694B', borderRadius: '50%', flexShrink: 0 }} />
+                    {h}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </motion.div>
+        </RevealOnView>
       </div>
-    </section>
+    </div>
   );
 }

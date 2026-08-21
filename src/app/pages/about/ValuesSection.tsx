@@ -1,52 +1,60 @@
-import { motion } from 'motion/react';
+import RevealOnView from '@/app/pages/home/RevealOnView';
+import WordReveal from '@/app/components/WordReveal';
 import { values } from './data';
+
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export default function ValuesSection() {
   return (
-    <div style={{ backgroundColor: '#faf7f4' }}>
-      <div className="text-center pt-24 pb-10 px-6">
-        <p style={{ fontSize: '11px', letterSpacing: '0.22em', textTransform: 'uppercase', color: '#d3ba8b', marginBottom: '16px' }}>What Drives Us</p>
-        <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 300, color: '#1a1a1a', lineHeight: 1.2 }}>
+    <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-6 lg:pt-8 pb-6 lg:pb-8">
+      <div className="text-center mb-8 lg:mb-10">
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '14px' }}>What Drives Us</p>
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.2vw, 42px)', fontWeight: 600, color: '#6D6753' }}>
           Our Values
         </h2>
       </div>
-      {values.map((v, i) => {
-        const isReverse = i % 2 === 1;
-        const textBg = i % 2 === 0 ? '#faf7f4' : '#ffffff';
-        return (
-          <motion.div
-            key={v.title}
-            className={`relative flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
-            style={{ backgroundColor: textBg, minHeight: 'auto' }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: '-60px' }}
-            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          >
-            <div className={`relative w-full lg:w-[38%] min-h-[240px] lg:min-h-[420px] flex-shrink-0 overflow-hidden ${isReverse ? 'clip-diag-l-sm' : 'clip-diag-r-sm'}`}>
-              <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 hover:scale-105"
-                style={{ backgroundImage: `url(${v.img})` }}
-              />
-              <div className="absolute inset-0" style={{ background: 'linear-gradient(160deg, rgba(0,0,0,0.3) 0%, rgba(20,10,4,0.7) 100%)' }} />
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center gap-5 text-center px-10">
-                  <div style={{ color: '#d3ba8b', opacity: 0.95 }}>{v.icon}</div>
-                  <p style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: 'rgba(255,255,255,0.55)' }}>
-                    {String(i + 1).padStart(2, '0')}
-                  </p>
+
+      <div className="flex flex-col gap-16 lg:gap-24">
+        {values.map((v, i) => {
+          const isReverse = i % 2 === 1;
+          return (
+            <div key={v.title} className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 lg:items-center">
+              <RevealOnView
+                className={`lg:col-span-7 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}
+                initial={{ opacity: 0, x: isReverse ? 40 : -40 }}
+                animate={{ opacity: 1, x: 0 }}
+                duration={0.8}
+                ease={EASE}
+                once={false}
+                margin="-80px"
+              >
+                <div className="relative overflow-hidden" style={{ height: 'clamp(280px, 30vw, 400px)', borderRadius: '2px' }}>
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${v.img}')`, backgroundColor: '#8D694B' }} />
                 </div>
-              </div>
+              </RevealOnView>
+
+              <RevealOnView
+                className={`lg:col-span-5 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`}
+                initial={{ opacity: 0, x: isReverse ? -40 : 40 }}
+                animate={{ opacity: 1, x: 0 }}
+                duration={0.8}
+                delay={0.1}
+                ease={EASE}
+                once={false}
+                margin="-80px"
+              >
+                <div style={{ color: '#8D694B', marginBottom: '18px' }}>{v.icon}</div>
+                <h3 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(24px, 2.4vw, 32px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '16px' }}>{v.title}</h3>
+                <WordReveal
+                  text={v.desc}
+                  once={false}
+                  style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', lineHeight: 1.8, color: '#6D6753' }}
+                />
+              </RevealOnView>
             </div>
-            <div className="flex-1 flex flex-col justify-center py-10 px-6 lg:py-16 lg:px-[6vw]">
-              <div style={{ maxWidth: '460px', width: '100%' }}>
-                <h3 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(22px, 2.8vw, 36px)', fontWeight: 300, color: '#1a1a1a', marginBottom: '16px', letterSpacing: '-0.01em', lineHeight: 1.2 }}>{v.title}</h3>
-                <p style={{ fontSize: '15px', lineHeight: 1.85, color: '#5a5047', fontWeight: 300 }}>{v.desc}</p>
-              </div>
-            </div>
-          </motion.div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
