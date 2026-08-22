@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef } from 'react';
-import { motion, useInView, type Target } from 'motion/react';
+import { motion, useInView, type Target, type UseInViewOptions } from 'motion/react';
 import type { ReactNode, CSSProperties } from 'react';
 
 const DEFAULT_EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -31,7 +31,7 @@ export default function RevealOnView({
   duration?: number;
   delay?: number;
   ease?: [number, number, number, number];
-  margin?: string;
+  margin?: UseInViewOptions['margin'];
   once?: boolean;
   className?: string;
   style?: CSSProperties;
