@@ -20,9 +20,9 @@ export default function AboutCTA() {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', color: '#6D6753', opacity: 0.8, maxWidth: '480px', margin: '0 auto 32px' }}>
           Let us build your perfect safari. Our Arusha-based team is ready to design an itinerary around you.
         </p>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <SafariButton href="/booking" variant="secondary">Start Planning</SafariButton>
-          <SafariButton href="/contact" variant="secondary">Get in Touch</SafariButton>
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+          <SafariButton href="/booking" variant="secondary" className="w-full sm:w-auto">Start Planning</SafariButton>
+          <SafariButton href="/contact" variant="secondary" className="w-full sm:w-auto">Get in Touch</SafariButton>
         </div>
       </RevealOnView>
     </div>

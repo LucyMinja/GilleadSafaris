@@ -74,9 +74,9 @@ export default function TourDetail({ slug }: { slug: string }) {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', color: '#6D6753', opacity: 0.8, maxWidth: '520px', margin: '0 auto 32px' }}>
           Tell us your dates and group size, and our Arusha-based team will tailor this itinerary around you.
         </p>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <SafariButton href={`/booking?tour=${tour.slug}`}>Plan Your Safari</SafariButton>
-          <SafariButton href="/safaris" variant="secondary">Back to All Safaris</SafariButton>
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+          <SafariButton href={`/booking?tour=${tour.slug}`} className="w-full sm:w-auto">Plan Your Safari</SafariButton>
+          <SafariButton href="/safaris" variant="secondary" className="w-full sm:w-auto">Back to All Safaris</SafariButton>
         </div>
       </div>
     </div>

@@ -35,9 +35,9 @@ export default function StorySection() {
             style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753' }}
           />
         </div>
-        <div className="flex flex-wrap gap-4 mb-10">
-          <SafariButton href="/safaris">Our Safaris</SafariButton>
-          <SafariButton href="/contact" variant="secondary">Contact Us</SafariButton>
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:gap-4 mb-10">
+          <SafariButton href="/safaris" className="w-full sm:w-auto">Our Safaris</SafariButton>
+          <SafariButton href="/contact" variant="secondary" className="w-full sm:w-auto">Contact Us</SafariButton>
         </div>
 
         {/* Quiet inline facts instead of a shouty full-bleed stats band —

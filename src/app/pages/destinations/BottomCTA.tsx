@@ -35,11 +35,11 @@ export default function BottomCTA() {
           </p>
         </MaskReveal>
         <MaskReveal viewport duration={0.6} delay={0.6}>
-          <div className="flex items-center justify-center gap-4 flex-wrap">
-            <SafariButton href="/booking">
+          <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+            <SafariButton href="/booking" className="w-full sm:w-auto">
               Start Planning
             </SafariButton>
-            <SafariButton href="/contact" variant="secondary">
+            <SafariButton href="/contact" variant="secondary" className="w-full sm:w-auto">
               Contact Us
             </SafariButton>
           </div>

@@ -10,7 +10,7 @@ export const values = [
   {
     icon: <Leaf size={22} strokeWidth={1.5} />,
     title: 'Conservation First',
-    desc: "A portion of every booking supports Tanzania's anti-poaching rangers, community schools, and habitat restoration projects.",
+    desc: "We work inside parks that depend on tourism to fund their own protection - every safari we run is a reason for that land to stay wild.",
     img: '/images/956A4243.jpg',
   },
   {
@@ -22,7 +22,7 @@ export const values = [
   {
     icon: <Users size={22} strokeWidth={1.5} />,
     title: 'Community Benefit',
-    desc: 'We partner only with local guides, community-owned camps, and villages that choose authentic cultural exchange.',
+    desc: 'Our guides and drivers are local, and every cultural visit is arranged directly with the community you meet - a real exchange, not a staged one.',
     img: '/images/Darajani_Market.jpg',
   },
 ];

@@ -14,9 +14,9 @@ export const menuLinks = [
   { label: 'Accommodation', href: '/accommodation', desktopNav: true, sub: ['Luxury Lodges', 'Tented Camps', 'Beach Resorts'] },
   { label: 'About', href: '/about', desktopNav: true, sub: [] },
   { label: 'Gallery', href: '/gallery', desktopNav: true, sub: [] },
-  { label: 'Culture & Heritage', href: '/culture', desktopNav: false, sub: ['Maasai People', 'Zanzibar Heritage', 'Hadzabe Tribe', 'What to Pack'] },
+  { label: 'Heritage', href: '/culture', desktopNav: true, sub: ['Maasai People', 'Zanzibar Heritage', 'Hadzabe Tribe', 'What to Pack'] },
   { label: 'Book a Safari', href: '/booking', desktopNav: false, sub: [] },
-  { label: 'Contact', href: '/contact', desktopNav: false, sub: [] },
+  { label: 'Contact', href: '/contact', desktopNav: true, sub: [] },
 ];
 
 export const desktopLinks = [
@@ -25,4 +25,6 @@ export const desktopLinks = [
   { label: 'Accommodation', href: '/accommodation' },
   { label: 'About', href: '/about' },
   { label: 'Gallery', href: '/gallery' },
+  { label: 'Heritage', href: '/culture' },
+  { label: 'Contact', href: '/contact' },
 ];

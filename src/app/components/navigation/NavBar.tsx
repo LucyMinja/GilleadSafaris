@@ -32,8 +32,13 @@ export default function NavBar({
           />
         )}
       </AnimatePresence>
-      <div className="relative grid items-center px-6 lg:px-10 xl:px-16 h-[96px]" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
+      {/* Content capped to the same 1400px column as every page section below
+          it, so the logo and right-side controls line up with page content
+          instead of sitting at their own wider edge-to-edge width. */}
+      <div className="relative max-w-[1400px] mx-auto grid items-center px-6 lg:px-16 h-[96px]" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
         <Link href="/" className="flex items-center group justify-self-start" style={{ textDecoration: 'none', gridColumn: 1 }}>
+          {/* Single light-logo asset for now — the dark/scrolled variant
+              will come back once that asset is ready. */}
           <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(141,105,75,0.5)]" style={{ position: 'relative', width: '96px', height: '96px' }}>
             <Image
               src="/images/og2.png"
@@ -41,20 +46,12 @@ export default function NavBar({
               width={72}
               height={72}
               className="object-contain absolute inset-0"
-              style={{ opacity: hasBg ? 0 : 1, transition: 'opacity 0.3s ease', width: '72px', height: '72px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
-            />
-            <Image
-              src="/logo.gif"
-              alt="Gillead Safaris"
-              width={96}
-              height={96}
-              className="object-contain absolute inset-0"
-              style={{ opacity: hasBg ? 1 : 0, transition: 'opacity 0.3s ease', width: '96px', height: '96px' }}
+              style={{ width: '72px', height: '72px', top: '50%', left: '50%', transform: 'translate(-50%, -50%)' }}
             />
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-5 2xl:gap-7" style={{ gridColumn: 2 }}>
+        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
@@ -64,8 +61,8 @@ export default function NavBar({
                 className="relative pb-1"
                 style={{
                   fontFamily: "'Plus Jakarta Sans', sans-serif",
-                  fontSize: '13px',
-                  letterSpacing: '0.12em',
+                  fontSize: '12px',
+                  letterSpacing: '0.1em',
                   textTransform: 'uppercase',
                   fontWeight: isActive ? 700 : 500,
                   color: isActive ? accent : linkColor,

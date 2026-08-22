@@ -20,9 +20,9 @@ export default function CultureCTA() {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', color: '#6D6753', opacity: 0.8, maxWidth: '480px', margin: '0 auto 32px' }}>
           Our cultural add-ons can be woven into any safari itinerary. Ask us about Maasai village visits, Hadzabe hunting experiences, and Zanzibar spice tours.
         </p>
-        <div className="flex items-center justify-center gap-4 flex-wrap">
-          <SafariButton href="/booking">Build Your Safari</SafariButton>
-          <SafariButton href="/contact" variant="secondary">Ask a Question</SafariButton>
+        <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
+          <SafariButton href="/booking" className="w-full sm:w-auto">Build Your Safari</SafariButton>
+          <SafariButton href="/contact" variant="secondary" className="w-full sm:w-auto">Ask a Question</SafariButton>
         </div>
       </RevealOnView>
     </div>

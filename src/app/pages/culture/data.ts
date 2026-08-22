@@ -8,7 +8,7 @@ export const sections = [
 
 A visit to an authentic Maasai village — known as a boma — offers an intimate window into a culture that has coexisted with wildlife for millennia. Witness the adamu (jumping dance), learn about traditional medicine, and understand how these warriors track lion prides on foot.
 
-Gillead Safaris partners only with villages that have chosen genuine cultural exchange over performance. Your visit directly benefits the community through fair compensation and educational fund contributions.`,
+A visit like this is arranged directly with the community you meet, not through a third party — the aim is a real exchange, not a staged performance.`,
     facts: ['Population: 1.5 million across Tanzania & Kenya', 'The jumping dance (adamu) selects warriors', 'Cattle represent wealth and social status', 'A moran (warrior) must drink blood and milk ceremonially'],
     reverse: false,
   },
@@ -53,7 +53,7 @@ These encounters require sensitivity and are offered only to guests who engage w
 
 The Ngorongoro Conservation Area is a model of coexistence: Maasai pastoralists live within the world's greatest wildlife sanctuary, managing their cattle alongside buffalo, elephant, and lion in a balance refined over generations.
 
-Gillead Safaris contributes directly to conservation through our Community Wildlife Fund, which supports anti-poaching ranger units, school programs teaching the value of wildlife, and habitat restoration across Northern Tanzania.`,
+It's a commitment upheld by thousands of rangers, researchers, and Maasai communities working alongside these parks every day — the reason there's still this much wildlife left to see.`,
     facts: ['38% of Tanzania is protected conservation land', 'Over 4 million animals in the Serengeti ecosystem', 'The Ngorongoro Conservation Area — UNESCO designation 1979', 'Tanzanian rangers number over 10,000 across all parks'],
     reverse: true,
   },
