@@ -3,7 +3,7 @@ import { LegalHero, LegalPageWrapper, LegalSection } from '@/app/components/Lega
 export default function PrivacyPolicy() {
   return (
     <div>
-      <LegalHero eyebrow="Legal" title="Privacy Policy" updated="10 June 2026" />
+      <LegalHero title="Privacy Policy" updated="10 June 2026" />
 
       <LegalPageWrapper>
         <LegalSection title="1. Introduction">

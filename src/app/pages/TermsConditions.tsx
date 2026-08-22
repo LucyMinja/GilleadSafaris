@@ -5,7 +5,7 @@ import SectionsPartTwo from './termsconditions/SectionsPartTwo';
 export default function TermsConditions() {
   return (
     <div>
-      <LegalHero eyebrow="Legal" title="Terms &amp; Conditions" updated="10 June 2026" />
+      <LegalHero title="Terms &amp; Conditions" updated="10 June 2026" />
 
       <LegalPageWrapper>
         <SectionsPartOne />
