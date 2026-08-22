@@ -29,7 +29,7 @@ export default function TourFacts({ tour }: { tour: Tour }) {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.7, marginTop: '4px' }}>{tour.priceNote}</p>
       </div>
 
-      <SafariButton href="/booking" className="w-full justify-center">
+      <SafariButton href={`/booking?tour=${tour.slug}`} className="w-full justify-center">
         Book Now
       </SafariButton>
     </div>

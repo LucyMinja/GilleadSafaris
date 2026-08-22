@@ -1,68 +1,97 @@
-import { motion } from 'motion/react';
-import { MapPin } from 'lucide-react';
+'use client';
+
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { MapPin, Star } from 'lucide-react';
 import SafariButton from '@/app/components/SafariButton';
+import ExpandToggle from '@/app/components/ExpandToggle';
+import RevealOnView from '@/app/pages/home/RevealOnView';
 import type { Lodge } from './types';
 
-export default function LodgeRow({ lodge, index, onView }: { lodge: Lodge; index: number; onView: (l: Lodge) => void }) {
+const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
+export default function LodgeRow({ lodge, index }: { lodge: Lodge; index: number }) {
   const isReverse = index % 2 === 1;
-  const textBg = index % 2 === 0 ? '#faf7f4' : '#ffffff';
+  const [expanded, setExpanded] = useState(false);
 
   return (
-    <motion.article
-      className={`group relative flex flex-col ${isReverse ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}
-      style={{ backgroundColor: textBg }}
+    <RevealOnView
       initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: false, margin: '-60px' }}
-      transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+      animate={{ opacity: 1, y: 0 }}
+      duration={0.85}
+      ease={EASE}
+      once={false}
+      margin="-60px"
+      className="w-full max-w-[1400px] mx-auto px-6 lg:px-16 py-12 lg:py-16 grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-10 lg:items-center"
     >
-      <div
-        className="relative w-full lg:w-[50%] min-h-[300px] lg:min-h-[560px] flex-shrink-0 overflow-hidden"
-        style={{
-          clipPath: isReverse
-            ? 'polygon(160px 0, 100% 0, 100% 100%, 0 100%)'
-            : 'polygon(0 0, 100% 0, calc(100% - 160px) 100%, 0 100%)',
-        }}
-      >
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-          style={{ backgroundImage: `url(${lodge.img})`, backgroundColor: '#8a694f' }}
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.06) 0%, rgba(0,0,0,0.28) 100%)' }} />
-      </div>
-
-      <div className="flex-1 flex flex-col justify-center py-14 px-6 lg:py-20 lg:px-[6vw]">
-        <div style={{ maxWidth: '460px', width: '100%' }}>
-          <div className="flex items-center gap-3 mb-5">
-            <span style={{ fontSize: '9px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#8a694f', fontWeight: 700 }}>{lodge.type}</span>
-            <span style={{ color: '#d3ba8b', fontSize: '10px' }}>·</span>
-            <span className="flex items-center gap-1" style={{ fontSize: '11px', color: 'rgba(44,24,16,0.45)' }}>
-              <MapPin size={10} style={{ color: '#d3ba8b' }} />{lodge.location}
-            </span>
-          </div>
-
-          <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(26px, 3vw, 40px)', fontWeight: 400, color: '#1a1a1a', lineHeight: 1.15, marginBottom: '18px', letterSpacing: '-0.01em' }}>
-            {lodge.name}
-          </h2>
-
-          <p style={{ fontSize: '14px', fontStyle: 'italic', color: '#8a694f', marginBottom: '16px', lineHeight: 1.65 }}>
-            {lodge.highlight}
-          </p>
-
-          <p style={{ fontSize: '14px', lineHeight: 1.95, color: '#5a5047', fontWeight: 300, marginBottom: '32px' }}>
-            {lodge.desc}
-          </p>
-
-          <div className="flex gap-3">
-            <SafariButton onClick={() => onView(lodge)} variant="secondary">
-              View Property
-            </SafariButton>
-            <SafariButton href="/booking">
-              Plan a Safari
-            </SafariButton>
+      {/* Image column — alternates sides, same 7/5 split used by every other
+          listing card on this site, not a one-off full-bleed treatment */}
+      <div className={`relative lg:col-span-7 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
+        <div className="relative" style={{ width: '88%', margin: isReverse ? '0 0 0 auto' : '0' }}>
+          <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '4px' }}>
+            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${lodge.img}')`, backgroundColor: '#8D694B' }} />
+            <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 55%)' }} />
           </div>
         </div>
       </div>
-    </motion.article>
+
+      {/* Text column */}
+      <div className={`lg:col-span-5 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`} style={{ marginTop: 'clamp(24px, 3vw, 0px)' }}>
+        <div className="flex items-center gap-3 mb-4 flex-wrap">
+          <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', fontWeight: 700 }}>{lodge.type}</span>
+          <span style={{ color: '#8D694B', fontSize: '10px', opacity: 0.5 }}>·</span>
+          <span className="flex items-center gap-1.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.75 }}>
+            <MapPin size={11} strokeWidth={1.5} color="#8D694B" />{lodge.location}
+          </span>
+          <span className="flex items-center gap-1" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.75 }}>
+            <Star size={11} strokeWidth={1.5} color="#8D694B" fill="#8D694B" /> {lodge.rating}
+          </span>
+        </div>
+
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '14px' }}>
+          {lodge.name}
+        </h2>
+
+        <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontStyle: 'italic', fontSize: '16px', color: '#8D694B', marginBottom: '16px', lineHeight: 1.6 }}>
+          {lodge.highlight}
+        </p>
+
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '24px' }}>
+          {lodge.desc}
+        </p>
+
+        <div className="flex items-center gap-6 flex-wrap mb-2">
+          <SafariButton href="/booking">Plan a Safari</SafariButton>
+          <ExpandToggle expanded={expanded} onClick={() => setExpanded((e) => !e)} openLabel="Read More" />
+        </div>
+
+        <AnimatePresence initial={false}>
+          {expanded && (
+            <motion.div
+              className="overflow-hidden"
+              initial={{ height: 0, opacity: 0 }}
+              animate={{ height: 'auto', opacity: 1 }}
+              exit={{ height: 0, opacity: 0 }}
+              transition={{ duration: 0.4, ease: EASE }}
+            >
+              <div className="pt-6 flex flex-col gap-5">
+                <div>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Facilities</p>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.amenities.join(' · ')}</p>
+                </div>
+                <div>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Best For</p>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.bestFor.join(', ')}</p>
+                </div>
+                <div>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Season</p>
+                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.season} · {lodge.price}</p>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </div>
+    </RevealOnView>
   );
 }

@@ -18,14 +18,15 @@ export default function Contact() {
   };
 
   return (
-    <div style={{ backgroundColor: '#FFFFFF', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
-        eyebrow="We're Here to Help"
         title="Contact Us"
-        subtitle="Our Arusha-based team is ready to plan your perfect Tanzania safari."
+        subtitle="Our team is ready to plan your perfect Tanzania safari."
       />
-      <OfficeSection />
-      <FormSection form={form} sent={sent} onChange={update} onSubmit={handleSubmit} />
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-14">
+        <OfficeSection />
+        <FormSection form={form} sent={sent} onChange={update} onSubmit={handleSubmit} />
+      </div>
       <MapSection />
     </div>
   );

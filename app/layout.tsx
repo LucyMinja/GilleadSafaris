@@ -7,7 +7,7 @@ import PageTransition from '@/app/components/PageTransition';
 import '@/styles/index.css';
 
 export const metadata: Metadata = {
-  title: 'Gillead Safaris — Tanzania, East Africa',
+  title: 'Gillead Safaris Tanzania, East Africa',
   description:
     'Explore and book unforgettable safari adventures in Tanzania with a visually stunning, fully responsive website featuring captivating images and seamless navigation.',
   robots: 'noindex, nofollow',

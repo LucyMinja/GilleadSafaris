@@ -21,7 +21,7 @@ export default function TourDetail({ slug }: { slug: string }) {
 
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <PageHero eyebrow={tour.type} title={tour.name} subtitle={tour.duration} />
+      <PageHero title={tour.name} subtitle={tour.duration} />
 
       <TourIntro tour={tour} />
 
@@ -75,7 +75,7 @@ export default function TourDetail({ slug }: { slug: string }) {
           Tell us your dates and group size, and our Arusha-based team will tailor this itinerary around you.
         </p>
         <div className="flex items-center justify-center gap-4 flex-wrap">
-          <SafariButton href="/booking">Plan Your Safari</SafariButton>
+          <SafariButton href={`/booking?tour=${tour.slug}`}>Plan Your Safari</SafariButton>
           <SafariButton href="/safaris" variant="secondary">Back to All Safaris</SafariButton>
         </div>
       </div>

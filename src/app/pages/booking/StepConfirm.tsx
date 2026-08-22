@@ -1,25 +1,29 @@
-import { Edit2 } from 'lucide-react';
-import type { FormState } from './types';
+import { Edit2, Check } from 'lucide-react';
+import type { FormErrors, FormState } from './types';
 import type { safariOptions } from './safariOptions';
 import { formatDate } from './utils';
+import ErrorMsg from './ErrorMsg';
 
 export default function StepConfirm({
   form,
-  selectedSafari,
+  selectedSafaris,
   goToStep,
+  updateForm,
+  errors,
 }: {
   form: FormState;
-  selectedSafari: (typeof safariOptions)[number] | undefined;
+  selectedSafaris: (typeof safariOptions)[number][];
   goToStep: (i: number) => void;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
+  errors: FormErrors;
 }) {
   const cards = [
     {
-      title: 'Safari Package',
+      title: selectedSafaris.length > 1 ? `${selectedSafaris.length} Safari Packages` : 'Safari Package',
       editStep: 0,
-      lines: [
-        { text: selectedSafari?.name || '—', bold: true },
-        { text: `${selectedSafari?.duration} · ${selectedSafari?.price}` },
-      ],
+      lines: (selectedSafaris.length > 0
+        ? selectedSafaris.map((s, i) => ({ text: `${s.name} · ${s.duration}`, bold: i === 0 }))
+        : [{ text: '—', bold: true }]) as { text: string; bold?: boolean; muted?: boolean }[],
     },
     {
       title: 'Travel Dates',
@@ -55,40 +59,44 @@ export default function StepConfirm({
 
   return (
     <div>
-      <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 400, color: '#000', marginBottom: '8px' }}>
-        Review &amp; Submit
-      </h2>
-      <p style={{ fontSize: '14px', color: '#666', marginBottom: '32px' }}>
-        Please check everything below before submitting your enquiry.
-      </p>
+      <div className="text-center">
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 3.2vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
+          Review &amp; Submit
+        </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8, marginBottom: '32px' }}>
+          Please check everything below before submitting your enquiry.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
         {cards.map(({ title, editStep, lines }) => (
           <div
             key={title}
             className="p-5"
-            style={{ backgroundColor: '#faf7f4', border: '1px solid #ede8e1', borderRadius: '14px' }}
+            style={{ backgroundColor: '#ffffff', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}
           >
             <div className="flex items-center justify-between mb-3">
-              <p style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, color: '#d3ba8b' }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: '#8D694B' }}>
                 {title}
               </p>
               <button
                 onClick={() => goToStep(editStep)}
                 className="flex items-center gap-1 hover:opacity-70 transition-opacity"
-                style={{ fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8a694f' }}
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.1em', textTransform: 'uppercase', color: '#8D694B' }}
               >
                 <Edit2 size={10} /> Edit
               </button>
             </div>
-            <div className="space-y-0.5">
+            <div className="flex flex-col gap-0.5">
               {lines.map((line, i) => (
                 <p
                   key={i}
                   style={{
-                    fontFamily: line.bold ? "'DM Serif Display', sans-serif" : "'Lato', sans-serif",
-                    fontSize: line.bold ? '15px' : '13px',
-                    color: line.muted ? '#aaa' : line.bold ? '#1a1a1a' : '#555',
+                    fontFamily: line.bold ? "'Newsreader', Georgia, serif" : "'Plus Jakarta Sans', sans-serif",
+                    fontWeight: line.bold ? 600 : 400,
+                    fontSize: line.bold ? '16px' : '14px',
+                    color: line.muted ? '#6D6753' : '#6D6753',
+                    opacity: line.muted ? 0.55 : line.bold ? 1 : 0.8,
                     lineHeight: 1.5,
                   }}
                 >
@@ -101,20 +109,44 @@ export default function StepConfirm({
       </div>
 
       {form.specialRequests && (
-        <div className="mb-6 p-5" style={{ backgroundColor: '#faf7f4', border: '1px solid #ede8e1', borderRadius: '14px' }}>
-          <p style={{ fontSize: '10px', letterSpacing: '0.15em', textTransform: 'uppercase', fontWeight: 600, color: '#d3ba8b', marginBottom: '8px' }}>
+        <div className="mb-6 p-5" style={{ backgroundColor: '#ffffff', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 700, color: '#8D694B', marginBottom: '8px' }}>
             Special Requests
           </p>
-          <p style={{ fontSize: '13px', color: '#555', lineHeight: 1.7 }}>{form.specialRequests}</p>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '14px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{form.specialRequests}</p>
         </div>
       )}
 
-      <div className="p-5 mb-2" style={{ backgroundColor: 'rgba(211,186,139,0.08)', border: '1px solid #ede8e1', borderRadius: '12px' }}>
-        <p style={{ fontSize: '13px', lineHeight: 1.7, color: '#666' }}>
+      <div className="p-5 mb-2" style={{ backgroundColor: 'rgba(141,105,75,0.06)', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '14px', lineHeight: 1.75, color: '#6D6753', opacity: 0.85, marginBottom: '16px' }}>
           By submitting you agree to be contacted by Gillead Safaris Tanzania regarding your trip.
-          This is a <strong style={{ color: '#1a1a1a' }}>non-binding enquiry</strong> — no payment is required at this stage.
+          This is a <strong style={{ color: '#6D6753', opacity: 1 }}>non-binding enquiry</strong> — every itinerary is priced individually for your dates and group size, and no payment is required at this stage.
           Our specialists will respond within 24 hours.
         </p>
+
+        <div
+          className="flex items-start gap-3 cursor-pointer"
+          onClick={() => updateForm('consent', !form.consent)}
+          role="checkbox"
+          aria-checked={form.consent}
+          tabIndex={0}
+          onKeyDown={(e) => e.key === 'Enter' && updateForm('consent', !form.consent)}
+        >
+          <div
+            className="w-5 h-5 shrink-0 flex items-center justify-center mt-0.5"
+            style={{
+              borderRadius: '3px',
+              border: form.consent ? 'none' : `1.5px solid ${errors.consent ? '#C0554B' : 'rgba(109,103,83,0.4)'}`,
+              backgroundColor: form.consent ? '#8D694B' : '#ffffff',
+            }}
+          >
+            {form.consent && <Check size={12} color="#ffffff" strokeWidth={3} />}
+          </div>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '14px', color: '#6D6753', lineHeight: 1.5 }}>
+            I agree to be contacted about this enquiry <span style={{ color: '#C0554B' }}>*</span>
+          </p>
+        </div>
+        <ErrorMsg field="consent" errors={errors} />
       </div>
     </div>
   );

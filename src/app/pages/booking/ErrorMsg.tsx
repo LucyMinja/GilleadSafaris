@@ -12,7 +12,7 @@ export default function ErrorMsg({ field, errors }: { field: string; errors: For
           exit={{ opacity: 0, y: -6 }}
           transition={{ duration: 0.2 }}
           className="flex items-start gap-1.5 mt-2"
-          style={{ fontSize: '12px', color: '#d95f5f', lineHeight: 1.45 }}
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#C0554B', lineHeight: 1.45 }}
         >
           <AlertCircle size={13} className="mt-0.5 shrink-0" />
           {errors[field]}

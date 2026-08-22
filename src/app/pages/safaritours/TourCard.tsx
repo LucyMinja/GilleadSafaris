@@ -107,7 +107,7 @@ export default function TourCard({ tour, index }: { tour: Tour; index: number })
 
           <MaskReveal viewport once={false} duration={0.6} delay={0.85}>
             <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-              <SafariButton href="/booking" onClick={(e) => e.stopPropagation()}>
+              <SafariButton href={`/booking?tour=${tour.slug}`} onClick={(e) => e.stopPropagation()}>
                 Book Now
               </SafariButton>
               <WordLink href={href}>View Full Itinerary</WordLink>

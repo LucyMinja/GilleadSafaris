@@ -10,7 +10,6 @@ export default function About() {
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
-        eyebrow="Our Story"
         title="About Gillead Safaris"
         subtitle="A Tanzanian-owned safari company built on honest service, deep local knowledge, and a genuine love for the wild places we call home."
       />

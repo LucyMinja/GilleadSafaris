@@ -13,16 +13,17 @@ import { motion, useScroll, useTransform } from 'motion/react';
 // rendering a generic fallback serif this whole time instead of matching
 // the homepage. The background video, gradient layering, layout, and
 // fonts here are the homepage Hero's, reused exactly — only the
-// eyebrow/title/subtitle text is page-specific. One component now owns
-// all of it, so every page hero moves and reads identically.
+// title/subtitle text is page-specific. One component now owns all of it,
+// so every page hero moves and reads identically.
+//
+// The small tracked-uppercase "eyebrow" label that used to sit above the
+// title (in a low-contrast gold against the video) has been dropped
+// entirely — it read poorly against busy hero footage and wasn't worth
+// keeping on some pages and not others.
 export default function PageHero({
-  eyebrow,
-  eyebrowLines = false,
   title,
   subtitle,
 }: {
-  eyebrow?: string;
-  eyebrowLines?: boolean;
   title: ReactNode;
   subtitle?: string;
 }) {
@@ -46,19 +47,6 @@ export default function PageHero({
 
       <motion.div className="relative z-10 text-center px-6 max-w-4xl mx-auto" style={{ y: textY, opacity: heroOpacity }}>
         <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, delay: 0.2 }}>
-          {eyebrow && eyebrowLines && (
-            <div className="flex items-center justify-center gap-3 mb-5">
-              <div style={{ width: '28px', height: '1px', backgroundColor: '#C9A97E' }} />
-              <span style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.24em', textTransform: 'uppercase', color: '#C9A97E' }}>{eyebrow}</span>
-              <div style={{ width: '28px', height: '1px', backgroundColor: '#C9A97E' }} />
-            </div>
-          )}
-          {eyebrow && !eyebrowLines && (
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#C9A97E', marginBottom: '20px' }}>
-              {eyebrow}
-            </p>
-          )}
-
           <h1
             style={{
               fontFamily: "'Newsreader', Georgia, serif",

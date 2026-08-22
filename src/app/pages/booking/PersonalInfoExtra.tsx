@@ -9,7 +9,7 @@ export default function PersonalInfoExtra({
   touched,
 }: {
   form: FormState;
-  updateForm: (key: keyof FormState, value: string | number) => void;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
   errors: FormErrors;
   touched: Record<string, boolean>;
 }) {
@@ -25,7 +25,6 @@ export default function PersonalInfoExtra({
           onChange={(e) => updateForm('country', e.target.value)}
           style={inputStyle('country', errors, touched, form)}
           placeholder="United Kingdom"
-          className="placeholder:text-[#ccc]"
         />
       </div>
 
@@ -36,7 +35,7 @@ export default function PersonalInfoExtra({
         <select
           value={form.howHeard}
           onChange={(e) => updateForm('howHeard', e.target.value)}
-          style={{ ...inputStyle('howHeard', errors, touched, form), color: form.howHeard ? '#1a1a1a' : '#bbb' }}
+          style={{ ...inputStyle('howHeard', errors, touched, form), color: form.howHeard ? '#6D6753' : 'rgba(109,103,83,0.4)' }}
         >
           <option value="" disabled>Select one…</option>
           <option value="google">Google Search</option>
@@ -57,16 +56,17 @@ export default function PersonalInfoExtra({
           value={form.specialRequests}
           onChange={(e) => updateForm('specialRequests', e.target.value)}
           rows={4}
-          className="w-full outline-none resize-none placeholder:text-[#ccc]"
+          className="w-full outline-none resize-none"
           style={{
-            fontSize: '14px', color: '#1a1a1a',
-            backgroundColor: '#fff',
-            border: '1.5px solid #e8ddd4',
-            borderRadius: '10px', padding: '12px 16px',
+            fontFamily: "'Plus Jakarta Sans', sans-serif",
+            fontSize: '15px', color: '#6D6753',
+            backgroundColor: '#ffffff',
+            border: '1.5px solid rgba(109,103,83,0.25)',
+            borderRadius: '2px', padding: '13px 16px',
             transition: 'border-color 0.2s',
           }}
-          onFocus={(e) => (e.currentTarget.style.borderColor = '#d3ba8b')}
-          onBlur={(e) => (e.currentTarget.style.borderColor = '#e8ddd4')}
+          onFocus={(e) => (e.currentTarget.style.borderColor = '#8D694B')}
+          onBlur={(e) => (e.currentTarget.style.borderColor = 'rgba(109,103,83,0.25)')}
           placeholder="Dietary requirements, mobility needs, special occasions, specific wildlife priorities..."
         />
       </div>

@@ -14,5 +14,3 @@ export type Lodge = {
   bestFor: string[];
   season: string;
 };
-
-export const categories = ['All', 'Luxury Lodges', 'Tented Camps', 'Beach Resorts'];

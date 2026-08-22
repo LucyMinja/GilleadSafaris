@@ -1,84 +1,57 @@
-import { type RefObject, useState } from 'react';
-import { motion } from 'motion/react';
-import { categories, type Photo } from './data';
+import RevealOnView from '@/app/pages/home/RevealOnView';
+import type { Photo } from './data';
 
 export default function PhotoGrid({
-  contentRef,
-  activeCategory,
-  filtered,
-  onTabClick,
+  photos,
   onSelect,
 }: {
-  contentRef: RefObject<HTMLDivElement | null>;
-  activeCategory: string;
-  filtered: Photo[];
-  onTabClick: (cat: string) => void;
+  photos: Photo[];
   onSelect: (p: Photo) => void;
 }) {
-  const [hoveredTab, setHoveredTab] = useState<string | null>(null);
-
   return (
-    <section className="px-6 lg:px-16 py-12" style={{ backgroundColor: '#faf7f4' }}>
-      <div
-        className="sticky top-[88px] z-30 overflow-x-auto mb-10 -mx-6 lg:-mx-16"
-        style={{ backgroundColor: '#ffffff', borderBottom: '1px solid rgba(138,105,79,0.15)', boxShadow: '0 2px 16px rgba(0,0,0,0.05)', scrollbarWidth: 'none' } as React.CSSProperties}
-      >
-        <div className="flex items-stretch justify-center" style={{ minWidth: 'max-content', width: '100%', height: '60px' }}>
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={(e) => { onTabClick(cat); (e.currentTarget as HTMLButtonElement).scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' }); }}
-              className="relative shrink-0 flex items-center px-8"
-              onMouseEnter={() => setHoveredTab(cat)}
-              onMouseLeave={() => setHoveredTab(null)}
-              style={{
-                fontSize: '12px',
-                letterSpacing: '0.14em',
-                textTransform: 'uppercase',
-                fontWeight: activeCategory === cat ? 700 : 400,
-                fontFamily: "'Lato', sans-serif",
-                color: activeCategory === cat ? '#8a694f' : hoveredTab === cat ? '#8a694f' : 'rgba(44,24,16,0.65)',
-                backgroundColor: hoveredTab === cat && activeCategory !== cat ? 'rgba(138,105,79,0.07)' : 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                transition: 'color 0.2s ease, background-color 0.2s ease',
-              }}
-            >
-              {cat}
-              {activeCategory === cat && (
-                <motion.div
-                  layoutId="tab-indicator-gallery"
-                  className="absolute bottom-0 left-0 right-0"
-                  style={{ height: '2.5px', backgroundColor: '#8a694f', borderRadius: '2px 2px 0 0' }}
-                  transition={{ type: 'spring', stiffness: 380, damping: 32 }}
-                />
-              )}
-            </button>
-          ))}
-        </div>
-      </div>
-
-      <div ref={contentRef} className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3">
-        {filtered.map((photo, i) => (
-          <motion.div
+    <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-10 lg:pt-12 pb-20 lg:pb-28">
+      {/* items-start matters here, not just visually: CSS Grid's default
+          align-items:stretch forces every item to fill its row's full
+          height — and since `dense` packing reshuffles which tiles land
+          in the same row, a tile's aspect-ratio was getting silently
+          overridden by whatever tall neighbor it happened to land next
+          to, making supposedly-identical tiles render at different
+          proportions row to row. items-start lets each tile keep its own
+          intrinsic aspect-ratio regardless of its row-mates. */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 items-start" style={{ gridAutoFlow: 'dense' }}>
+        {photos.map((photo, i) => (
+          <RevealOnView
             key={photo.id}
-            layout
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: i * 0.03 }}
-            className="break-inside-avoid cursor-pointer group overflow-hidden relative"
-            style={{ borderRadius: '12px', boxShadow: '0 3px 16px rgba(0,0,0,0.08)' }}
-            onClick={() => onSelect(photo)}
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            duration={0.5}
+            delay={(i % 8) * 0.05}
+            once
+            margin="-40px"
+            className={photo.featured ? 'sm:col-span-2' : ''}
           >
-            <img
-              src={photo.img}
-              alt={photo.caption}
-              className="w-full block transition-transform duration-500 group-hover:scale-105"
-              style={{ backgroundColor: '#8a694f' }}
-            />
-          </motion.div>
+            <div
+              className="group relative cursor-pointer overflow-hidden"
+              style={{ borderRadius: '2px', aspectRatio: photo.featured ? '16 / 10' : '3 / 4' }}
+              onClick={() => onSelect(photo)}
+            >
+              <img
+                src={photo.img}
+                alt={photo.caption}
+                className="w-full h-full object-cover block transition-transform duration-500 group-hover:scale-105"
+                style={{ backgroundColor: '#8D694B' }}
+              />
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 45%)' }} />
+              <p
+                className="absolute bottom-3 left-4 right-4 pointer-events-none opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300"
+                style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#F1EAE0' }}
+              >
+                {photo.caption}
+              </p>
+            </div>
+          </RevealOnView>
         ))}
       </div>
-    </section>
+    </div>
   );
 }

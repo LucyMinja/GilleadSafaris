@@ -98,7 +98,7 @@ export default function About() {
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '18px', fontWeight: 400 }}
               />
               <WordReveal
-                text="We're a team of Arusha locals — guides, drivers, and planners — who have spent our lives among these plains, turning bucket-list dreams into real memories since 2020."
+                text="We're a team of professional driver-guides, trip planners, and safari specialists based in Arusha — trained for these parks, not just born near them — turning bucket-list dreams into real itineraries since 2020."
                 baseDelay={0.5}
                 className="justify-center lg:justify-start"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '18px', fontWeight: 400 }}

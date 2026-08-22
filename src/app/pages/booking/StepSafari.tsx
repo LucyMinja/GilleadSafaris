@@ -1,87 +1,78 @@
-import { motion, AnimatePresence } from 'motion/react';
+import { AnimatePresence, motion } from 'motion/react';
 import { Check } from 'lucide-react';
+import WordLink from '@/app/components/WordLink';
 import type { FormErrors, FormState } from './types';
 import { safariOptions } from './safariOptions';
 import ErrorMsg from './ErrorMsg';
 
 export default function StepSafari({
   form,
+  toggleSafari,
   updateForm,
   errors,
+  touched,
+  blurValidate,
 }: {
   form: FormState;
-  updateForm: (key: keyof FormState, value: string | number) => void;
+  toggleSafari: (id: string) => void;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
   errors: FormErrors;
+  touched: Record<string, boolean>;
+  blurValidate: (key: string) => void;
 }) {
   return (
     <div>
-      <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 400, color: '#000', marginBottom: '8px' }}>
-        Choose Your Safari
-      </h2>
-      <p style={{ fontSize: '14px', color: '#666', marginBottom: '32px', lineHeight: 1.6 }}>
-        Select one of our set itineraries, or choose "Custom / Bespoke Safari" if you'd like our team to design a trip around your own ideas.
-      </p>
+      <div className="text-center">
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 3.2vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
+          Choose Your Safari
+        </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8, marginBottom: '32px', lineHeight: 1.7 }}>
+          Pick one, or select a couple you're deciding between and our team will help you choose. Every itinerary is described in full elsewhere — click through if you want the details first.
+        </p>
+      </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         {safariOptions.map((safari) => {
-          const isSelected = form.safari === safari.id;
+          const isSelected = form.safari.includes(safari.id);
           return (
-            <motion.div
+            <div
               key={safari.id}
-              whileHover={{ y: -3 }}
-              transition={{ duration: 0.2 }}
-              className="cursor-pointer overflow-hidden"
+              className="flex items-start gap-3 px-5 py-4 cursor-pointer transition-colors"
               style={{
-                borderRadius: '14px',
-                boxShadow: isSelected
-                  ? '0 0 0 2px #8a694f, 0 8px 28px rgba(0,0,0,0.12)'
-                  : '0 2px 16px rgba(0,0,0,0.07)',
-                transition: 'box-shadow 0.2s',
+                border: `1.5px solid ${isSelected ? '#8D694B' : 'rgba(109,103,83,0.15)'}`,
+                borderRadius: '2px',
+                backgroundColor: isSelected ? 'rgba(141,105,75,0.07)' : '#ffffff',
               }}
-              onClick={() => updateForm('safari', safari.id)}
-              role="radio"
+              onClick={() => toggleSafari(safari.id)}
+              role="checkbox"
               aria-checked={isSelected}
               tabIndex={0}
-              onKeyDown={(e) => e.key === 'Enter' && updateForm('safari', safari.id)}
+              onKeyDown={(e) => e.key === 'Enter' && toggleSafari(safari.id)}
             >
-              <div className="relative overflow-hidden" style={{ height: '160px' }}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-500"
-                  style={{ backgroundImage: `url(${safari.img})`, backgroundColor: '#8a694f', transform: isSelected ? 'scale(1.05)' : 'scale(1)' }}
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 60%)' }} />
-                {isSelected && (
-                  <motion.div
-                    initial={{ scale: 0 }} animate={{ scale: 1 }}
-                    className="absolute top-3 right-3 w-7 h-7 flex items-center justify-center"
-                    style={{ borderRadius: '50%', backgroundColor: '#8a694f', border: '2px solid #d3ba8b' }}
-                  >
-                    <Check size={13} className="text-[#d3ba8b]" strokeWidth={2.5} />
-                  </motion.div>
-                )}
+              <div
+                className="w-5 h-5 shrink-0 flex items-center justify-center mt-0.5"
+                style={{
+                  borderRadius: '3px',
+                  border: isSelected ? 'none' : '1.5px solid rgba(109,103,83,0.3)',
+                  backgroundColor: isSelected ? '#8D694B' : 'transparent',
+                }}
+              >
+                {isSelected && <Check size={12} color="#ffffff" strokeWidth={3} />}
               </div>
-              <div className="p-4" style={{ backgroundColor: isSelected ? '#fdf9f5' : '#ffffff' }}>
-                <p style={{
-                  fontFamily: "'DM Serif Display', sans-serif",
-                  fontSize: '13px',
-                  fontWeight: 400,
-                  color: isSelected ? '#8a694f' : '#1a1a1a',
-                  marginBottom: '6px',
-                  lineHeight: 1.4,
-                }}>
+              <div className="min-w-0">
+                <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '16px', fontWeight: 600, color: isSelected ? '#8D694B' : '#6D6753', lineHeight: 1.3, marginBottom: '4px' }}>
                   {safari.name}
                 </p>
-                <div className="flex items-center justify-between">
-                  <span style={{ fontSize: '11px', color: '#aaa' }}>{safari.duration}</span>
-                  <span style={{ fontSize: '12px', color: '#d3ba8b', fontFamily: "'DM Serif Display', sans-serif" }}>{safari.price}</span>
-                </div>
-                {safari.desc && (
-                  <p style={{ fontSize: '11px', color: '#8a7060', lineHeight: 1.6, marginTop: '8px', fontWeight: 300 }}>
-                    {safari.desc}
-                  </p>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.6, marginBottom: safari.id === 'custom' ? 0 : '8px' }}>{safari.duration}</p>
+                {safari.id !== 'custom' && (
+                  <div onClick={(e) => e.stopPropagation()} style={{ display: 'inline-block' }}>
+                    <WordLink href={`/safaris/${safari.id}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: '10px' }}>
+                      See What This Package Contains
+                    </WordLink>
+                  </div>
                 )}
               </div>
-            </motion.div>
+            </div>
           );
         })}
       </div>
@@ -89,35 +80,36 @@ export default function StepSafari({
       <ErrorMsg field="safari" errors={errors} />
 
       <AnimatePresence>
-        {form.safari === 'custom' && (
+        {form.safari.includes('custom') && (
           <motion.div
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35 }}
             className="mt-8 p-6"
-            style={{ backgroundColor: 'rgba(211,186,139,0.07)', border: '1px solid #e8ddd4', borderRadius: '14px' }}
+            style={{ backgroundColor: 'rgba(141,105,75,0.06)', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}
           >
-            <p style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: '17px', color: '#000', marginBottom: '6px' }}>
-              Describe your dream safari
+            <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '18px', fontWeight: 600, color: '#6D6753', marginBottom: '6px' }}>
+              Describe your dream safari <span style={{ color: '#C0554B' }}>*</span>
             </p>
-            <p style={{ fontSize: '13px', color: '#666', marginBottom: '16px', lineHeight: 1.7 }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '14px', color: '#6D6753', opacity: 0.75, marginBottom: '16px', lineHeight: 1.7 }}>
               Tell us anything useful — parks you'd like to visit, accommodation style, pace of travel, special interests, or budget range.
             </p>
             <textarea
               rows={5}
               value={form.specialRequests}
               onChange={(e) => updateForm('specialRequests', e.target.value)}
-              className="w-full outline-none resize-none placeholder:text-[#ccc]"
+              onBlur={() => blurValidate('specialRequests')}
+              className="w-full outline-none resize-none"
               style={{
-                fontSize: '14px', color: '#1a1a1a',
-                backgroundColor: '#fff',
-                border: '1.5px solid #e8ddd4',
-                borderRadius: '10px', padding: '12px 16px',
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: '15px', color: '#6D6753',
+                backgroundColor: '#ffffff',
+                border: `1.5px solid ${errors.specialRequests ? '#C0554B' : touched.specialRequests && form.specialRequests ? '#5F8D6E' : 'rgba(109,103,83,0.25)'}`,
+                borderRadius: '2px', padding: '13px 16px',
                 transition: 'border-color 0.2s',
               }}
-              onFocus={(e) => (e.currentTarget.style.borderColor = '#d3ba8b')}
-              onBlur={(e) => (e.currentTarget.style.borderColor = '#e8ddd4')}
               placeholder="e.g. 10 days, 2 adults, mix of Serengeti and Zanzibar, mid-range lodges, keen on big cats and birdwatching..."
             />
+            <ErrorMsg field="specialRequests" errors={errors} />
           </motion.div>
         )}
       </AnimatePresence>

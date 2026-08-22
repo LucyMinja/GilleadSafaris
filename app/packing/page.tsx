@@ -1,7 +1,7 @@
 import PackingGuide from '@/app/components/PackingGuide';
 
 export const metadata = {
-  title: 'What to Pack — Gillead Safaris Tanzania',
+  title: 'What to Pack. Gillead Safaris Tanzania',
   description: 'Complete packing guide by season for your Tanzania safari. Know exactly what to bring for every time of year.',
 };
 

@@ -25,7 +25,6 @@ export default function SafariTours() {
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
-        eyebrow="Curated Experiences"
         title="Safari Tours"
         subtitle="Ten handcrafted itineraries across Tanzania's parks, beaches and cultures - every safari is tailor-made and quoted to suit your budget."
       />

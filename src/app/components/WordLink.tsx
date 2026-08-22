@@ -48,12 +48,12 @@ type WordLinkProps = {
   className?: string;
 } & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-export default function WordLink({ href, children, className, ...rest }: WordLinkProps) {
+export default function WordLink({ href, children, className, style, ...rest }: WordLinkProps) {
   return (
     <Link
       href={href}
       className={className}
-      style={base}
+      style={{ ...base, ...style }}
       onMouseEnter={e => {
         const underline = e.currentTarget.querySelector<HTMLElement>('[data-wordlink-underline]');
         const arrow = e.currentTarget.querySelector<HTMLElement>('[data-wordlink-arrow]');

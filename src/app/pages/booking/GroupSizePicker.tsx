@@ -6,11 +6,11 @@ import { labelStyle } from './utils';
 export default function GroupSizePicker({
   form,
   updateForm,
-  selectedSafari,
+  selectedSafaris,
 }: {
   form: FormState;
-  updateForm: (key: keyof FormState, value: string | number) => void;
-  selectedSafari: (typeof safariOptions)[number] | undefined;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
+  selectedSafaris: (typeof safariOptions)[number][];
 }) {
   const noErrors: FormErrors = {};
   return (
@@ -18,7 +18,7 @@ export default function GroupSizePicker({
       <p style={labelStyle(noErrors)}>
         <Users size={13} /> Group Size
       </p>
-      <div className="space-y-3">
+      <div className="flex flex-col gap-3">
         {[
           { key: 'adults' as const, label: 'Adults', sub: '18 years and over', min: 1 },
           { key: 'children' as const, label: 'Children', sub: 'Under 18 years', min: 0 },
@@ -26,29 +26,29 @@ export default function GroupSizePicker({
           <div
             key={key}
             className="flex items-center justify-between px-5 py-4"
-            style={{ border: '1px solid #f0e8dc', borderRadius: '12px', backgroundColor: '#fdfaf7' }}
+            style={{ border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px', backgroundColor: '#ffffff' }}
           >
             <div>
-              <p style={{ fontSize: '14px', color: '#1a1a1a', fontWeight: 500 }}>{label}</p>
-              <p style={{ fontSize: '11px', color: '#aaa', marginTop: '2px' }}>{sub}</p>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', fontWeight: 600 }}>{label}</p>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.55, marginTop: '2px' }}>{sub}</p>
             </div>
             <div className="flex items-center gap-4">
               <button
                 type="button"
                 onClick={() => updateForm(key, Math.max(min, (form[key] as number) - 1))}
                 disabled={(form[key] as number) <= min}
-                className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[#f0e8dc] disabled:opacity-30"
-                style={{ border: '1px solid #e8ddd4', borderRadius: '50%', color: '#8a694f', fontSize: '18px', lineHeight: 1 }}
+                className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[rgba(141,105,75,0.1)] disabled:opacity-30"
+                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '50%', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
                 aria-label={`Decrease ${label}`}
               >−</button>
-              <span style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: '22px', color: '#1a1a1a', width: '28px', textAlign: 'center', display: 'inline-block' }}>
+              <span style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '22px', fontWeight: 600, color: '#6D6753', width: '28px', textAlign: 'center', display: 'inline-block' }}>
                 {form[key] as number}
               </span>
               <button
                 type="button"
                 onClick={() => updateForm(key, (form[key] as number) + 1)}
-                className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[#f0e8dc]"
-                style={{ border: '1px solid #e8ddd4', borderRadius: '50%', color: '#8a694f', fontSize: '18px', lineHeight: 1 }}
+                className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[rgba(141,105,75,0.1)]"
+                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '50%', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
                 aria-label={`Increase ${label}`}
               >+</button>
             </div>
@@ -56,19 +56,21 @@ export default function GroupSizePicker({
         ))}
       </div>
 
-      {selectedSafari && (
+      {selectedSafaris.length > 0 && (
         <div
-          className="mt-6 p-5 flex items-start gap-4"
-          style={{ backgroundColor: 'rgba(211,186,139,0.1)', border: '1px solid #e8ddd4', borderRadius: '12px' }}
+          className="mt-6 p-5"
+          style={{ backgroundColor: 'rgba(141,105,75,0.06)', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}
         >
-          <div
-            className="w-12 h-12 shrink-0 rounded-lg bg-cover bg-center"
-            style={{ backgroundImage: `url(${selectedSafari.img})`, backgroundColor: '#8a694f' }}
-          />
-          <div>
-            <p style={{ fontSize: '10px', letterSpacing: '0.12em', textTransform: 'uppercase', color: '#d3ba8b', marginBottom: '4px' }}>Selected</p>
-            <p style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: '15px', color: '#1a1a1a', lineHeight: 1.3 }}>{selectedSafari.name}</p>
-            <p style={{ fontSize: '12px', color: '#888', marginTop: '2px' }}>{selectedSafari.duration}</p>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>
+            {selectedSafaris.length > 1 ? `${selectedSafaris.length} Selected` : 'Selected'}
+          </p>
+          <div className="flex flex-col gap-2">
+            {selectedSafaris.map((s) => (
+              <div key={s.id}>
+                <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '15px', fontWeight: 600, color: '#6D6753', lineHeight: 1.3 }}>{s.name}</p>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.6, marginTop: '1px' }}>{s.duration}</p>
+              </div>
+            ))}
           </div>
         </div>
       )}

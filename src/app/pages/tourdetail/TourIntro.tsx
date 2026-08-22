@@ -44,7 +44,7 @@ export default function TourIntro({ tour }: { tour: Tour }) {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '28px' }}>
           {tour.desc}
         </p>
-        <WordLink href="/booking">Book This Safari</WordLink>
+        <WordLink href={`/booking?tour=${tour.slug}`}>Book This Safari</WordLink>
       </RevealOnView>
     </div>
   );

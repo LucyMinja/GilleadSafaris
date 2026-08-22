@@ -12,24 +12,26 @@ export default function StepPersonalInfo({
   blurValidate,
 }: {
   form: FormState;
-  updateForm: (key: keyof FormState, value: string | number) => void;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
   errors: FormErrors;
   touched: Record<string, boolean>;
   blurValidate: (key: string) => void;
 }) {
   return (
     <div>
-      <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 400, color: '#000', marginBottom: '8px' }}>
-        Your Details
-      </h2>
-      <p style={{ fontSize: '14px', color: '#666', marginBottom: '32px' }}>
-        We'll use these to prepare your personalised quote. Fields marked <span style={{ color: '#d95f5f' }}>*</span> are required.
-      </p>
+      <div className="text-center">
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 3.2vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
+          Your Details
+        </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8, marginBottom: '32px' }}>
+          We'll use these to prepare your personalised quote. Fields marked <span style={{ color: '#C0554B' }}>*</span> are required.
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-6 gap-y-5">
         <div>
           <label style={labelStyle(errors, 'firstName') as React.CSSProperties}>
-            <User size={12} /> First Name <span style={{ color: '#d95f5f' }}>*</span>
+            <User size={12} /> First Name <span style={{ color: '#C0554B' }}>*</span>
           </label>
           <input
             type="text"
@@ -38,7 +40,6 @@ export default function StepPersonalInfo({
             onBlur={() => blurValidate('firstName')}
             style={inputStyle('firstName', errors, touched, form)}
             placeholder="Jane"
-            className="placeholder:text-[#ccc]"
           />
           <ErrorMsg field="firstName" errors={errors} />
         </div>
@@ -54,14 +55,13 @@ export default function StepPersonalInfo({
             onBlur={() => blurValidate('lastName')}
             style={inputStyle('lastName', errors, touched, form)}
             placeholder="Doe"
-            className="placeholder:text-[#ccc]"
           />
           <ErrorMsg field="lastName" errors={errors} />
         </div>
 
         <div>
           <label style={labelStyle(errors, 'email') as React.CSSProperties}>
-            <Mail size={12} /> Email Address <span style={{ color: '#d95f5f' }}>*</span>
+            <Mail size={12} /> Email Address <span style={{ color: '#C0554B' }}>*</span>
           </label>
           <input
             type="email"
@@ -70,12 +70,11 @@ export default function StepPersonalInfo({
             onBlur={() => blurValidate('email')}
             style={inputStyle('email', errors, touched, form)}
             placeholder="jane@example.com"
-            className="placeholder:text-[#ccc]"
             autoComplete="email"
           />
           <ErrorMsg field="email" errors={errors} />
           {touched.email && !errors.email && form.email && (
-            <p className="flex items-center gap-1.5 mt-1.5" style={{ fontSize: '12px', color: '#5fa876' }}>
+            <p className="flex items-center gap-1.5 mt-1.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#5F8D6E' }}>
               <CheckCircle2 size={12} /> Looks good
             </p>
           )}
@@ -92,12 +91,11 @@ export default function StepPersonalInfo({
             onBlur={() => blurValidate('phone')}
             style={inputStyle('phone', errors, touched, form)}
             placeholder="+1 234 567 8900"
-            className="placeholder:text-[#ccc]"
             autoComplete="tel"
           />
           <ErrorMsg field="phone" errors={errors} />
           {!errors.phone && (
-            <p style={{ fontSize: '11px', color: '#aaa', marginTop: '6px' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.55, marginTop: '6px' }}>
               Include country code for WhatsApp contact
             </p>
           )}

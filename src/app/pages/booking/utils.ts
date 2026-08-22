@@ -21,6 +21,28 @@ export const getDayAfter = (date: string): string => {
   return `${yyyy}-${mm}-${dd}`;
 };
 
+export const addNights = (date: string, nights: number): string => {
+  const d = new Date(date + 'T00:00:00');
+  d.setDate(d.getDate() + nights);
+  const yyyy = d.getFullYear();
+  const mm = String(d.getMonth() + 1).padStart(2, '0');
+  const dd = String(d.getDate()).padStart(2, '0');
+  return `${yyyy}-${mm}-${dd}`;
+};
+
+// Reads the night count straight from a duration string like
+// "8 Days / 7 Nights" or "1 Day" — lets the Dates step auto-suggest a
+// departure date that actually matches the itinerary the visitor picked,
+// instead of leaving two unrelated date pickers for them to reconcile
+// themselves.
+export const parseNights = (duration: string): number | null => {
+  const nightsMatch = duration.match(/(\d+)\s*Night/i);
+  if (nightsMatch) return parseInt(nightsMatch[1], 10);
+  const daysMatch = duration.match(/(\d+)\s*Day/i);
+  if (daysMatch) return Math.max(0, parseInt(daysMatch[1], 10) - 1);
+  return null;
+};
+
 export const isValidEmail = (v: string) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim());
 export const isValidPhone = (v: string) => !v.trim() || /^[+]?[\d\s\-().]{7,20}$/.test(v.trim());
 
@@ -38,12 +60,13 @@ export const inputStyle = (
   const hasError = !!errors[key];
   const isValid = forceValid || (touched[key] && !errors[key] && !!form[key as keyof FormState]);
   return {
-    fontSize: '14px',
-    color: '#1a1a1a',
+    fontFamily: "'Plus Jakarta Sans', sans-serif",
+    fontSize: '15px',
+    color: '#6D6753',
     backgroundColor: '#ffffff',
-    border: `1.5px solid ${hasError ? '#d95f5f' : isValid ? '#5fa876' : '#e8ddd4'}`,
-    borderRadius: '10px',
-    padding: '12px 16px',
+    border: `1.5px solid ${hasError ? '#C0554B' : isValid ? '#5F8D6E' : 'rgba(109,103,83,0.25)'}`,
+    borderRadius: '2px',
+    padding: '13px 16px',
     width: '100%',
     outline: 'none',
     transition: 'border-color 0.2s',
@@ -51,20 +74,23 @@ export const inputStyle = (
 };
 
 export const labelStyle = (errors: FormErrors, key?: string): React.CSSProperties => ({
-  fontSize: '11px',
-  letterSpacing: '0.1em',
+  fontFamily: "'Plus Jakarta Sans', sans-serif",
+  fontSize: '10px',
+  letterSpacing: '0.14em',
   textTransform: 'uppercase',
-  color: key && errors[key] ? '#d95f5f' : '#d3ba8b',
+  color: key && errors[key] ? '#C0554B' : '#8D694B',
   display: 'flex',
   alignItems: 'center',
   gap: '6px',
-  marginBottom: '8px',
+  marginBottom: '10px',
 });
 
 export const validateStep = (s: number, form: FormState, tomorrow: string): FormErrors => {
   const errs: FormErrors = {};
   if (s === 0) {
-    if (!form.safari) errs.safari = 'Please select a safari package to continue.';
+    if (form.safari.length === 0) errs.safari = 'Please select at least one safari package to continue.';
+    else if (form.safari.includes('custom') && !form.specialRequests.trim())
+      errs.specialRequests = 'Please describe your dream safari so our team knows what to plan.';
   }
   if (s === 1) {
     if (!form.startDate) {
@@ -91,6 +117,9 @@ export const validateStep = (s: number, form: FormState, tomorrow: string): Form
 
     if (!isValidPhone(form.phone))
       errs.phone = 'Please enter a valid phone number (e.g. +1 234 567 8900).';
+  }
+  if (s === 3) {
+    if (!form.consent) errs.consent = 'Please confirm you agree before submitting your enquiry.';
   }
   return errs;
 };

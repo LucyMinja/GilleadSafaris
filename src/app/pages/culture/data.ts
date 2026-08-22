@@ -3,7 +3,7 @@ export const sections = [
     id: 1,
     title: 'The Maasai — Warriors of the Plains',
     sub: 'Living Culture',
-    img: 'https://images.unsplash.com/photo-1580689402180-61f1ab9d6232?w=1200&h=800&fit=crop&auto=format',
+    img: '/images/IMG_2493.jpg',
     desc: `The Maasai are synonymous with Tanzania. For centuries, these semi-nomadic pastoralists have roamed the savannas of East Africa in vivid red shukas, their livestock the measure of their wealth and status.
 
 A visit to an authentic Maasai village — known as a boma — offers an intimate window into a culture that has coexisted with wildlife for millennia. Witness the adamu (jumping dance), learn about traditional medicine, and understand how these warriors track lion prides on foot.
@@ -16,7 +16,7 @@ Gillead Safaris partners only with villages that have chosen genuine cultural ex
     id: 2,
     title: 'Zanzibar Spice Island Heritage',
     sub: 'Stone Town & Swahili Coast',
-    img: 'https://images.unsplash.com/photo-1620896712848-d05411ec91ec?w=1200&h=800&fit=crop&auto=format',
+    img: '/images/stone-town.jpg',
     desc: `Zanzibar's Stone Town is a living museum of Swahili civilization — a UNESCO World Heritage Site where Arab, Indian, Persian, and African cultures have been layered over a thousand years of trade into something entirely unique.
 
 The narrow, winding alleyways reveal ornately carved wooden doors (the number of brass studs indicates the owner's wealth), hammams, merchant houses, and the haunting legacy of the Arab slave trade at the Old Slave Market.
@@ -29,7 +29,13 @@ Beyond Stone Town, Zanzibar's spice plantations produce cloves, vanilla, nutmeg,
     id: 3,
     title: 'The Hadzabe — Last Hunter-Gatherers',
     sub: 'Ancient Ways',
-    img: 'https://images.unsplash.com/photo-1623743423143-23df3234ae5c?w=1200&h=800&fit=crop&auto=format',
+    // No verified real photo of the Hadzabe community exists in this
+    // project's image library — using an unrelated photo and implying it
+    // shows a specific people is a real misrepresentation risk, worse than
+    // a generic park/lodge mismatch. Using a real, unpeopled Rift Valley
+    // savanna landscape instead, honest about not showing the community
+    // itself, until real (consented) photography is available.
+    img: '/images/956A3701.jpg',
     desc: `The Hadzabe people of the Lake Eyasi region are one of the last remaining hunter-gatherer communities on earth. They live much as their ancestors did 10,000 years ago — moving with the seasons, hunting with handmade bows, and gathering wild honey and berries.
 
 A dawn walk with Hadzabe hunters is among the most extraordinary cultural experiences available anywhere in the world. They communicate through clicks (a phonemic feature shared with the Khoisan people of Southern Africa), read animal tracks in the dust, and build fires from a friction method mastered over millennia.
@@ -42,7 +48,7 @@ These encounters require sensitivity and are offered only to guests who engage w
     id: 4,
     title: 'Wildlife & Conservation Legacy',
     sub: "Tanzania's Guardianship",
-    img: 'https://images.unsplash.com/photo-1741850821329-95a6db240037?w=1200&h=800&fit=crop&auto=format',
+    img: '/images/956A4243.jpg',
     desc: `Tanzania protects 38% of its total land area for conservation — more than any other African nation. This extraordinary commitment reflects a deep cultural relationship with wildlife that predates colonialism by thousands of years.
 
 The Ngorongoro Conservation Area is a model of coexistence: Maasai pastoralists live within the world's greatest wildlife sanctuary, managing their cattle alongside buffalo, elephant, and lion in a balance refined over generations.
@@ -54,8 +60,8 @@ Gillead Safaris contributes directly to conservation through our Community Wildl
 ];
 
 export const cuisine = [
-  { name: 'Nyama Choma', desc: 'Roasted meat over open flame — the foundation of Tanzanian celebration', img: 'https://images.unsplash.com/photo-1741850820936-0ce266eccc13?w=600&h=400&fit=crop&auto=format' },
-  { name: 'Pilau Rice', desc: 'Zanzibar spiced rice perfumed with cardamom, cloves, and cinnamon', img: 'https://images.unsplash.com/photo-1761078206756-68d3023f3021?w=600&h=400&fit=crop&auto=format' },
-  { name: 'Ugali & Sukuma', desc: 'Stiff maize porridge with braised collard greens — the everyday staple', img: 'https://images.unsplash.com/photo-1623951581058-58138db08519?w=600&h=400&fit=crop&auto=format' },
-  { name: 'Zanzibar Pizza', desc: 'A delicious street-food hybrid of Indian and African flavours from Forodhani', img: 'https://images.unsplash.com/photo-1694860950114-0979b01c2615?w=600&h=400&fit=crop&auto=format' },
+  { name: 'Nyama Choma', desc: 'Roasted meat over open flame — the foundation of Tanzanian celebration' },
+  { name: 'Pilau Rice', desc: 'Zanzibar spiced rice perfumed with cardamom, cloves, and cinnamon' },
+  { name: 'Ugali & Sukuma', desc: 'Stiff maize porridge with braised collard greens — the everyday staple' },
+  { name: 'Zanzibar Pizza', desc: 'A delicious street-food hybrid of Indian and African flavours from Forodhani' },
 ];

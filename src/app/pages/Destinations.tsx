@@ -9,7 +9,6 @@ export default function Destinations() {
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
-        eyebrow="Nine places, one country"
         title="Every corner of Tanzania has its own story."
         subtitle="From the endless plains of the Serengeti to the spice-scented alleys of Stone Town — here's where our guides actually take people, and why."
       />

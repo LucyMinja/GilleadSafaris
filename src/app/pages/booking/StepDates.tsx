@@ -3,7 +3,7 @@ import { Calendar, CheckCircle2 } from 'lucide-react';
 import type { FormErrors, FormState } from './types';
 import { months } from './types';
 import type { safariOptions } from './safariOptions';
-import { getTomorrow, getDayAfter, formatDate, inputStyle, labelStyle } from './utils';
+import { getTomorrow, getDayAfter, addNights, parseNights, formatDate, inputStyle, labelStyle } from './utils';
 import ErrorMsg from './ErrorMsg';
 import GroupSizePicker from './GroupSizePicker';
 
@@ -16,24 +16,36 @@ export default function StepDates({
   touched,
   blurValidate,
   tomorrow,
-  selectedSafari,
+  selectedSafaris,
 }: {
   form: FormState;
   setForm: React.Dispatch<React.SetStateAction<FormState>>;
-  updateForm: (key: keyof FormState, value: string | number) => void;
+  updateForm: (key: keyof FormState, value: string | number | boolean) => void;
   errors: FormErrors;
   setErrors: React.Dispatch<React.SetStateAction<FormErrors>>;
   touched: Record<string, boolean>;
   blurValidate: (key: string) => void;
   tomorrow: string;
-  selectedSafari: (typeof safariOptions)[number] | undefined;
+  selectedSafaris: (typeof safariOptions)[number][];
 }) {
+  // With more than one package selected there's no single "the" duration to
+  // suggest from, so the auto-fill only kicks in for a single, non-custom
+  // pick — otherwise the two date fields just stay independent.
+  const primarySafari = selectedSafaris.length === 1 ? selectedSafaris[0] : undefined;
+  const knownNights = primarySafari && primarySafari.id !== 'custom' ? parseNights(primarySafari.duration) : null;
+
   return (
     <div>
-      <h2 style={{ fontFamily: "'DM Serif Display', sans-serif", fontSize: 'clamp(24px, 4vw, 34px)', fontWeight: 400, color: '#000', marginBottom: '8px' }}>
-        Dates &amp; Group Size
-      </h2>
-      <p style={{ fontSize: '14px', color: '#666', marginBottom: '32px' }}>When would you like to travel?</p>
+      <div className="text-center">
+        <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 3.2vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
+          Dates &amp; Group Size
+        </h2>
+        <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8, marginBottom: '32px' }}>
+          {knownNights
+            ? `When would you like to travel? We've pre-filled ${knownNights} night${knownNights !== 1 ? 's' : ''} to match "${primarySafari!.name}" — adjust it if you'd like a different length.`
+            : 'When would you like to travel?'}
+        </p>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         <div>
@@ -42,8 +54,8 @@ export default function StepDates({
           </p>
 
           <div className="mb-4">
-            <label style={{ fontSize: '12px', color: '#888', marginBottom: '8px', display: 'block' }}>
-              Arrival date <span style={{ color: '#d95f5f' }}>*</span>
+            <label style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.7, marginBottom: '8px', display: 'block' }}>
+              Arrival date <span style={{ color: '#C0554B' }}>*</span>
             </label>
             <input
               type="date"
@@ -57,7 +69,13 @@ export default function StepDates({
                   startDate: value,
                   month: parsed ? months[parsed.getMonth()] : f.month,
                   year: parsed ? String(parsed.getFullYear()) : f.year,
-                  endDate: f.endDate && f.endDate <= value ? '' : f.endDate,
+                  // Auto-suggest a departure date matching the chosen
+                  // safari's real length instead of leaving two disconnected
+                  // pickers — only when the visitor hasn't already set their
+                  // own end date, so this never overwrites a manual choice.
+                  endDate: value && knownNights != null && !f.endDate
+                    ? addNights(value, knownNights)
+                    : f.endDate && f.endDate <= value ? '' : f.endDate,
                 }));
                 setErrors((e) => { const n = { ...e }; delete n.startDate; return n; });
               }}
@@ -66,7 +84,7 @@ export default function StepDates({
               style={inputStyle('startDate', errors, touched, form, !errors.startDate && !!form.startDate && form.startDate >= tomorrow)}
             />
             {!errors.startDate && (
-              <p style={{ fontSize: '11px', color: '#aaa', marginTop: '6px' }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.55, marginTop: '6px' }}>
                 Earliest available: {formatDate(tomorrow)}
               </p>
             )}
@@ -74,8 +92,8 @@ export default function StepDates({
           </div>
 
           <div>
-            <label style={{ fontSize: '12px', color: '#888', marginBottom: '8px', display: 'block' }}>
-              Departure date <span style={{ color: '#aaa', fontSize: '11px' }}>(optional)</span>
+            <label style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.7, marginBottom: '8px', display: 'block' }}>
+              Departure date <span style={{ color: '#6D6753', opacity: 0.5, fontSize: '12px' }}>(optional)</span>
             </label>
             <input
               type="date"
@@ -92,7 +110,7 @@ export default function StepDates({
               }}
             />
             {!form.startDate && (
-              <p style={{ fontSize: '11px', color: '#bbb', marginTop: '6px' }}>Select an arrival date first</p>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.45, marginTop: '6px' }}>Select an arrival date first</p>
             )}
             <ErrorMsg field="endDate" errors={errors} />
           </div>
@@ -102,10 +120,10 @@ export default function StepDates({
               <motion.div
                 initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}
                 className="mt-4 flex items-center gap-2 px-4 py-3"
-                style={{ backgroundColor: 'rgba(95,168,118,0.08)', border: '1px solid rgba(95,168,118,0.25)', borderRadius: '10px' }}
+                style={{ backgroundColor: 'rgba(95,141,110,0.08)', border: '1px solid rgba(95,141,110,0.3)', borderRadius: '2px' }}
               >
-                <CheckCircle2 size={14} style={{ color: '#5fa876', flexShrink: 0 }} />
-                <p style={{ fontSize: '13px', color: '#3d7a52' }}>
+                <CheckCircle2 size={14} color="#5F8D6E" style={{ flexShrink: 0 }} />
+                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#3d6b4d' }}>
                   {(() => {
                     const nights = Math.round(
                       (new Date(form.endDate + 'T00:00:00').getTime() - new Date(form.startDate + 'T00:00:00').getTime())
@@ -119,7 +137,7 @@ export default function StepDates({
           </AnimatePresence>
         </div>
 
-        <GroupSizePicker form={form} updateForm={updateForm} selectedSafari={selectedSafari} />
+        <GroupSizePicker form={form} updateForm={updateForm} selectedSafaris={selectedSafaris} />
       </div>
     </div>
   );

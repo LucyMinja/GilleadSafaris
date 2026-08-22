@@ -17,8 +17,6 @@ export default function DestinationDetail({ slug }: { slug: string }) {
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
-        eyebrow={dest.region}
-        eyebrowLines
         title={dest.name}
         subtitle={dest.tagline}
       />
