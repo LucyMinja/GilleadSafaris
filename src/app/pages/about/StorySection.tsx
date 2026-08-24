@@ -1,6 +1,7 @@
 import SafariButton from '@/app/components/SafariButton';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordReveal from '@/app/components/WordReveal';
+import CoverImage from '@/app/components/CoverImage';
 import { stats } from './data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -74,7 +75,7 @@ export default function StorySection() {
         margin="-80px"
       >
         <div className="relative overflow-hidden" style={{ height: 'clamp(360px, 40vw, 560px)', borderRadius: '2px' }}>
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/IMG_1068.jpg')", backgroundColor: '#8D694B' }} />
+          <CoverImage src="/images/IMG_1068.jpg" priority />
         </div>
       </RevealOnView>
     </div>

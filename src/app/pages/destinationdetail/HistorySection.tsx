@@ -1,5 +1,6 @@
 import { MapPin } from 'lucide-react';
 import RevealOnView from '@/app/pages/home/RevealOnView';
+import CoverImage from '@/app/components/CoverImage';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -45,7 +46,7 @@ export default function HistorySection({
           margin="-80px"
         >
           <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '2px' }}>
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${img})`, backgroundColor: '#8D694B' }} />
+            <CoverImage src={img} priority />
           </div>
         </RevealOnView>
       </div>

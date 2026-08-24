@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Clock, ArrowUpRight } from 'lucide-react';
 import RevealOnView from '@/app/pages/home/RevealOnView';
+import CoverImage from '@/app/components/CoverImage';
 import type { Tour } from '../safaritours/data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -42,7 +43,7 @@ export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] })
           >
             <Link href={`/safaris/${t.slug}`} className="group block">
               <div className="relative overflow-hidden mb-4" style={{ height: '220px', borderRadius: '4px' }}>
-                <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" style={{ backgroundImage: `url(${t.img})`, backgroundColor: '#8D694B' }} />
+                <CoverImage src={t.img} alt={t.name} className="transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)' }} />
                 <div className="absolute bottom-4 left-4 flex items-center gap-1.5">
                   <Clock size={11} strokeWidth={1.5} color="#F1EAE0" />

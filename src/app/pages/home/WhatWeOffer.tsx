@@ -6,6 +6,7 @@ import { motion, useInView } from 'motion/react';
 import { ArrowRight } from 'lucide-react';
 import TiltCard from './TiltCard';
 import PinHeader from './PinHeader';
+import CoverImage from '@/app/components/CoverImage';
 import { offerings } from './data';
 
 function OfferCard({ item, i }: { item: (typeof offerings)[number]; i: number }) {
@@ -38,8 +39,7 @@ function OfferCard({ item, i }: { item: (typeof offerings)[number]; i: number })
             onMouseEnter={e => (e.currentTarget.style.boxShadow = '0 22px 50px rgba(0,0,0,0.22)')}
             onMouseLeave={e => (e.currentTarget.style.boxShadow = '0 10px 28px rgba(0,0,0,0.14)')}
           >
-            <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-              style={{ backgroundImage: `url('${item.img}')`, backgroundColor: '#8D694B' }} />
+            <CoverImage src={item.img} alt={item.title} className="transition-transform duration-700 group-hover:scale-105" />
             <div className="absolute bottom-2 left-5 right-5 flex items-end justify-between gap-3">
               <p style={{ fontFamily: "'Newsreader', serif", fontSize: i === 0 ? 'clamp(17px, 2.2vw, 28px)' : 'clamp(17px, 1.4vw, 17px)', fontWeight: 600, color: '#ffffff', lineHeight: 1.25, textShadow: '0 2px 12px rgba(0,0,0,0.55), 0 1px 3px rgba(0,0,0,0.5)' }}>
                 {item.title}

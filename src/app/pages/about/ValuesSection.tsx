@@ -1,5 +1,6 @@
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordReveal from '@/app/components/WordReveal';
+import CoverImage from '@/app/components/CoverImage';
 import { values } from './data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -29,7 +30,7 @@ export default function ValuesSection() {
                 margin="-80px"
               >
                 <div className="relative overflow-hidden" style={{ height: 'clamp(280px, 30vw, 400px)', borderRadius: '2px' }}>
-                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${v.img}')`, backgroundColor: '#8D694B' }} />
+                  <CoverImage src={v.img} alt={v.title} priority={i === 0} />
                 </div>
               </RevealOnView>
 

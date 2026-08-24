@@ -6,6 +6,7 @@ import { MapPin, Star } from 'lucide-react';
 import SafariButton from '@/app/components/SafariButton';
 import ExpandToggle from '@/app/components/ExpandToggle';
 import RevealOnView from '@/app/pages/home/RevealOnView';
+import CoverImage from '@/app/components/CoverImage';
 import type { Lodge } from './types';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -29,7 +30,7 @@ export default function LodgeRow({ lodge, index }: { lodge: Lodge; index: number
       <div className={`relative lg:col-span-7 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
         <div className="relative" style={{ width: '88%', margin: isReverse ? '0 0 0 auto' : '0' }}>
           <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '4px' }}>
-            <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url('${lodge.img}')`, backgroundColor: '#8D694B' }} />
+            <CoverImage src={lodge.img} alt={lodge.name} priority={index === 0} />
             <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 55%)' }} />
           </div>
         </div>

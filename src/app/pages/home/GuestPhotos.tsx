@@ -1,3 +1,5 @@
+import CoverImage from '@/app/components/CoverImage';
+
 // Two offset, framed photos — a magazine-spread collage rather than a
 // full-bleed image (explicitly asked to avoid) or another carousel.
 // Static here on purpose: the parent column in GuestStories is already
@@ -9,13 +11,13 @@ export default function GuestPhotos() {
         className="absolute overflow-hidden"
         style={{ top: 0, left: 0, width: '76%', height: '82%', borderRadius: '4px', boxShadow: '0 24px 60px rgba(0,0,0,0.22)' }}
       >
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/956A2097.jpg')", backgroundColor: '#8D694B' }} />
+        <CoverImage src="/images/956A2097.jpg" />
       </div>
       <div
         className="absolute overflow-hidden"
         style={{ bottom: 0, right: 0, width: '54%', height: '50%', borderRadius: '4px', boxShadow: '0 20px 50px rgba(0,0,0,0.28)', border: '6px solid #F1EAE0' }}
       >
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/nakupenda-beach.jpg')", backgroundColor: '#8D694B' }} />
+        <CoverImage src="/images/nakupenda-beach.jpg" />
       </div>
     </div>
   );

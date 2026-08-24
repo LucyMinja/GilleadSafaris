@@ -7,6 +7,7 @@ import SafariButton from '@/app/components/SafariButton';
 import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
 import PinHeader from './PinHeader';
+import CoverImage from '@/app/components/CoverImage';
 import { safaris } from './data';
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -26,8 +27,7 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
     >
       <Link href={s.href} className="group block" style={{ textDecoration: 'none' }}>
         <div ref={overlayRef} className="relative overflow-hidden" style={{ borderRadius: '4px', aspectRatio: '4/3' }}>
-          <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-            style={{ backgroundImage: `url('${s.img}')`, backgroundColor: '#8D694B' }} />
+          <CoverImage src={s.img} alt={s.name} className="transition-transform duration-700 group-hover:scale-105" />
           <motion.div
             className="absolute inset-0 pointer-events-none"
             style={{ backgroundColor: '#F1EAE0' }}

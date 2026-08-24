@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import SafariButton from '@/app/components/SafariButton';
 import WordReveal from '@/app/components/WordReveal';
+import CoverImage from '@/app/components/CoverImage';
 import RevealOnView from './RevealOnView';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -31,12 +32,10 @@ export default function About() {
             className="order-2 lg:order-1 lg:col-span-7">
             <div className="relative mx-auto lg:mx-0" style={{ width: '88%' }}>
               <div className="group relative overflow-hidden" style={{ height: 'clamp(400px, 38vw, 520px)', borderRadius: '4px' }}>
-                <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-[1400ms] ease-out group-hover:scale-[1.12]"
-                  style={{
-                    backgroundImage: "url('/images/956A2613.jpg')",
-                    backgroundColor: '#8D694B',
-                  }}
+                <CoverImage
+                  src="/images/956A2613.jpg"
+                  priority
+                  className="transition-transform duration-[1400ms] ease-out group-hover:scale-[1.12]"
                 />
                 <div className="absolute inset-0 opacity-40 group-hover:opacity-90 transition-opacity duration-700" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 55%, transparent 100%)' }} />
                 <div className="absolute bottom-8 left-8 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-100">

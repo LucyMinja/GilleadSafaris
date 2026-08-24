@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { Images, ArrowRight } from 'lucide-react';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordLink from '@/app/components/WordLink';
+import CoverImage from '@/app/components/CoverImage';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -87,13 +88,14 @@ export default function StoryGallery({
             <AnimatePresence initial={false}>
               <motion.div
                 key={active}
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${bigImages[active]})`, backgroundColor: '#8D694B' }}
+                className="absolute inset-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.2, ease: EASE }}
-              />
+              >
+                <CoverImage src={bigImages[active]} priority />
+              </motion.div>
             </AnimatePresence>
           </div>
         </RevealOnView>
@@ -113,7 +115,7 @@ export default function StoryGallery({
             margin="-80px"
           >
             <div className="relative overflow-hidden mb-6" style={{ height: 'clamp(260px, 26vw, 360px)', borderRadius: '2px' }}>
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${secondary[0].img})`, backgroundColor: '#8D694B' }} />
+              <CoverImage src={secondary[0].img} alt={secondary[0].vignette.headline} />
             </div>
             <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[0].vignette.eyebrow}</p>
             <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[0].vignette.headline}</h4>
@@ -132,7 +134,7 @@ export default function StoryGallery({
             margin="-80px"
           >
             <div className="relative overflow-hidden mb-6" style={{ height: 'clamp(340px, 34vw, 460px)', borderRadius: '2px' }}>
-              <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${secondary[1].img})`, backgroundColor: '#8D694B' }} />
+              <CoverImage src={secondary[1].img} alt={secondary[1].vignette.headline} />
             </div>
             <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[1].vignette.eyebrow}</p>
             <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[1].vignette.headline}</h4>

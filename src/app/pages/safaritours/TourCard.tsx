@@ -9,6 +9,7 @@ import WordLink from '@/app/components/WordLink';
 import MaskReveal from '@/app/pages/home/MaskReveal';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordReveal from '@/app/components/WordReveal';
+import CoverImage from '@/app/components/CoverImage';
 import type { Tour } from './data';
 
 // Same gentler, evenly-paced curve as DestinationRow — the site's usual
@@ -42,11 +43,12 @@ export default function TourCard({ tour, index }: { tour: Tour; index: number })
               style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '4px' }}
             >
               <motion.div
-                className="absolute inset-0 bg-cover bg-center"
-                style={{ backgroundImage: `url(${tour.img})`, backgroundColor: '#8D694B' }}
+                className="absolute inset-0"
                 animate={{ scale: hovered ? 1.06 : 1 }}
                 transition={{ duration: 0.7, ease: EASE }}
-              />
+              >
+                <CoverImage src={tour.img} alt={tour.name} priority={index === 0} />
+              </motion.div>
               <motion.div
                 className="absolute inset-0 pointer-events-none"
                 style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)' }}

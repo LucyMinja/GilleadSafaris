@@ -1,5 +1,6 @@
 import WordLink from '@/app/components/WordLink';
 import RevealOnView from '@/app/pages/home/RevealOnView';
+import CoverImage from '@/app/components/CoverImage';
 import type { Tour } from '../safaritours/data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -23,7 +24,7 @@ export default function TourIntro({ tour }: { tour: Tour }) {
         margin="-100px"
       >
         <div className="relative overflow-hidden" style={{ height: 'clamp(320px, 36vw, 480px)', borderRadius: '4px' }}>
-          <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${tour.img})`, backgroundColor: '#8D694B' }} />
+          <CoverImage src={tour.img} alt={tour.name} priority />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 40%)' }} />
         </div>
       </RevealOnView>

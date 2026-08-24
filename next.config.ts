@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
-  allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev', '10.10.10.12'],
+  allowedDevOrigins: ['local-origin.dev', '*.local-origin.dev', '10.10.10.13'],
   turbopack: {
     root: path.resolve(__dirname),
   },
