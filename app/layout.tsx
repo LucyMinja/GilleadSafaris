@@ -4,10 +4,18 @@ import Footer from '@/app/components/Footer';
 import ScrollToTop from '@/app/components/ScrollToTop';
 import NewsletterPopup from '@/app/components/NewsletterPopup';
 import PageTransition from '@/app/components/PageTransition';
+import MotionProvider from '@/app/components/MotionProvider';
+import { SITE_URL, SITE_NAME } from '@/lib/site';
 import '@/styles/index.css';
 
+// Site isn't live yet — robots stays 'noindex, nofollow' site-wide. Flip to
+// 'index, follow' here (and see app/robots.ts) when ready to go live.
 export const metadata: Metadata = {
-  title: 'Gillead Safaris Tanzania, East Africa',
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: `${SITE_NAME} — Tanzania, East Africa`,
+    template: `%s`,
+  },
   description:
     'Explore and book unforgettable safari adventures in Tanzania with a visually stunning, fully responsive website featuring captivating images and seamless navigation.',
   robots: 'noindex, nofollow',
@@ -32,11 +40,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         className="min-h-screen"
         style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", backgroundColor: '#F1EAE0', color: '#6D6753' }}
       >
-        <ScrollToTop />
-        <Navigation />
-        <NewsletterPopup />
-        <PageTransition>{children}</PageTransition>
-        <Footer />
+        <MotionProvider>
+          <ScrollToTop />
+          <Navigation />
+          <NewsletterPopup />
+          <PageTransition>{children}</PageTransition>
+          <Footer />
+        </MotionProvider>
       </body>
     </html>
   );

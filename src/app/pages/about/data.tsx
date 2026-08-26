@@ -5,13 +5,13 @@ export const values = [
     icon: <Heart size={22} strokeWidth={1.5} />,
     title: 'Genuine Care',
     desc: 'Every itinerary is crafted with personal attention. We listen first and design second - your trip is never a template.',
-    img: '/images/IMG_1256.jpg',
+    img: '/images/IMG_1256.webp',
   },
   {
     icon: <Leaf size={22} strokeWidth={1.5} />,
     title: 'Conservation First',
     desc: "We work inside parks that depend on tourism to fund their own protection - every safari we run is a reason for that land to stay wild.",
-    img: '/images/956A4243.jpg',
+    img: '/images/956A4243.webp',
   },
   {
     icon: <Award size={22} strokeWidth={1.5} />,
@@ -32,25 +32,25 @@ export const team = [
     name: 'Nicanory Erasto',
     role: 'Reservation Manager',
     bio: 'Nicanory oversees bookings and logistics for every safari, making sure vehicles, lodges, and permits are confirmed and ready well ahead of your arrival in Tanzania.',
-    img: '/images/team/nic.png',
+    img: '/images/team/nic.webp',
   },
   {
     name: 'Dr. Rose Mongi',
     role: 'Team Leader',
     bio: 'Rose leads the Gillead Safaris team, coordinating guides and office staff to keep every itinerary running smoothly from the moment you land to the moment you depart.',
-    img: '/images/team/rose.png',
+    img: '/images/team/rose.webp',
   },
   {
     name: 'Victor Mosses',
     role: 'Customer Consultant',
     bio: 'Victor works directly with guests to understand what they want from their trip, answering questions and tailoring each safari itinerary to their interests and budget.',
-    img: '/images/team/vic.png',
+    img: '/images/team/vic.webp',
   },
   {
     name: 'Faith',
     role: 'Sales and Marketing',
     bio: 'Faith is often the first point of contact for new guests, helping you explore our safari packages and find the right fit for your Tanzania adventure.',
-    img: '/images/team/faith.png',
+    img: '/images/team/faith.webp',
   },
 ];
 

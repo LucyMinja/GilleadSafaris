@@ -12,7 +12,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const dest = destinationData.find((d) => d.slug === slug);
   if (!dest) return {};
   return {
-    title: `${dest.name} Gillead Safaris Tanzania`,
+    title: `${dest.name} — Gillead Safaris Tanzania`,
     description: dest.tagline,
   };
 }

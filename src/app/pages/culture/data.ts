@@ -3,7 +3,7 @@ export const sections = [
     id: 1,
     title: 'The Maasai — Warriors of the Plains',
     sub: 'Living Culture',
-    img: '/images/IMG_2493.jpg',
+    img: '/images/IMG_2493.webp',
     desc: `The Maasai are synonymous with Tanzania. For centuries, these semi-nomadic pastoralists have roamed the savannas of East Africa in vivid red shukas, their livestock the measure of their wealth and status.
 
 A visit to an authentic Maasai village — known as a boma — offers an intimate window into a culture that has coexisted with wildlife for millennia. Witness the adamu (jumping dance), learn about traditional medicine, and understand how these warriors track lion prides on foot.
@@ -17,7 +17,7 @@ A visit like this is arranged directly with the community you meet, not through 
     id: 2,
     title: 'Zanzibar Spice Island Heritage',
     sub: 'Stone Town & Swahili Coast',
-    img: '/images/stone-town.jpg',
+    img: '/images/stone-town.webp',
     img2: '/images/Darajani_Market.jpg',
     desc: `Zanzibar's Stone Town is a living museum of Swahili civilization — a UNESCO World Heritage Site where Arab, Indian, Persian, and African cultures have been layered over a thousand years of trade into something entirely unique.
 
@@ -38,7 +38,7 @@ Beyond Stone Town, Zanzibar's spice plantations produce cloves, vanilla, nutmeg,
     // a generic park/lodge mismatch. Using a real, unpeopled Rift Valley
     // savanna landscape instead, honest about not showing the community
     // itself, until real (consented) photography is available.
-    img: '/images/956A3701.jpg',
+    img: '/images/956A3701.webp',
     desc: `The Hadzabe people of the Lake Eyasi region are one of the last remaining hunter-gatherer communities on earth. They live much as their ancestors did 10,000 years ago — moving with the seasons, hunting with handmade bows, and gathering wild honey and berries.
 
 A dawn walk with Hadzabe hunters is among the most extraordinary cultural experiences available anywhere in the world. They communicate through clicks (a phonemic feature shared with the Khoisan people of Southern Africa), read animal tracks in the dust, and build fires from a friction method mastered over millennia.
@@ -52,8 +52,8 @@ These encounters require sensitivity and are offered only to guests who engage w
     id: 4,
     title: 'Wildlife & Conservation Legacy',
     sub: "Tanzania's Guardianship",
-    img: '/images/956A4243.jpg',
-    img2: '/images/IMG_1256.jpg',
+    img: '/images/956A4243.webp',
+    img2: '/images/IMG_1256.webp',
     desc: `Tanzania protects 38% of its total land area for conservation — more than any other African nation. This extraordinary commitment reflects a deep cultural relationship with wildlife that predates colonialism by thousands of years.
 
 The Ngorongoro Conservation Area is a model of coexistence: Maasai pastoralists live within the world's greatest wildlife sanctuary, managing their cattle alongside buffalo, elephant, and lion in a balance refined over generations.

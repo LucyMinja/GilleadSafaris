@@ -6,7 +6,7 @@ export default function PopupHero({ onDismiss }: { onDismiss: () => void }) {
     <div className="relative overflow-hidden" style={{ height: '220px' }}>
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=800&h=500&fit=crop&auto=format')" }}
+        style={{ backgroundImage: "url('/images/956A4274.webp')" }}
         initial={{ scale: 1.15 }}
         animate={{ scale: 1 }}
         transition={{ duration: 6, ease: [0.22, 1, 0.36, 1] }}

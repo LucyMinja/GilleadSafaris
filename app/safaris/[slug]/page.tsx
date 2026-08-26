@@ -11,7 +11,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const tour = tours.find((t) => t.slug === slug);
   if (!tour) return {};
   return {
-    title: `${tour.name} Gillead Safaris Tanzania`,
+    title: `${tour.name} — Gillead Safaris Tanzania`,
     description: tour.desc,
   };
 }

@@ -11,13 +11,13 @@ export default function GuestPhotos() {
         className="absolute overflow-hidden"
         style={{ top: 0, left: 0, width: '76%', height: '82%', borderRadius: '4px', boxShadow: '0 24px 60px rgba(0,0,0,0.22)' }}
       >
-        <CoverImage src="/images/956A2097.jpg" />
+        <CoverImage src="/images/956A2097.webp" />
       </div>
       <div
         className="absolute overflow-hidden"
         style={{ bottom: 0, right: 0, width: '54%', height: '50%', borderRadius: '4px', boxShadow: '0 20px 50px rgba(0,0,0,0.28)', border: '6px solid #F1EAE0' }}
       >
-        <CoverImage src="/images/nakupenda-beach.jpg" />
+        <CoverImage src="/images/nakupenda-beach.webp" />
       </div>
     </div>
   );

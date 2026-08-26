@@ -7,7 +7,7 @@ export const seasonsWet = [
     badgeColor: '#9D7354',
     weather: 'Heavy afternoon rains, lush vegetation, cool-humid (22–27°C), some roads may be challenging.',
     wildlife: 'Extraordinary photography light, empty parks, resident wildlife still present. Some camps close. Best for birdwatching  200+ migratory species present.',
-    heroImg: 'https://images.unsplash.com/photo-1517001170041-70a5966d5402?w=900&h=500&fit=crop&auto=format',
+    heroImg: '/images/956A2587.webp',
     categories: [
       {
         title: 'Clothing',
@@ -74,7 +74,7 @@ export const seasonsWet = [
     badgeColor: '#7A5C1E',
     weather: 'Intermittent afternoon showers (light compared to long rains), warm 26–30°C, green and scenic. Often sunny mornings.',
     wildlife: 'Migratory birds arrive from Europe. Calving preparation begins in late November. Beautiful green Serengeti with pink flamingos on alkaline lakes.',
-    heroImg: 'https://images.unsplash.com/photo-1728042107033-76b13feac547?w=900&h=500&fit=crop&auto=format',
+    heroImg: '/images/956A1611.webp',
     categories: [
       {
         title: 'Clothing',

@@ -9,7 +9,7 @@ export const seasonsDry = [
     badgeColor: C.gold,
     weather: 'Cool mornings (8–15°C), warm afternoons (24–28°C), bone-dry, zero rain, dusty tracks.',
     wildlife: 'Best game viewing of the year  animals concentrate at water sources. Great Migration river crossings at Mara. Black rhino sightings in Ngorongoro.',
-    heroImg: 'https://images.unsplash.com/photo-1741850821140-cbf6be551828?w=900&h=500&fit=crop&auto=format',
+    heroImg: '/images/956A2546.webp',
     categories: [
       {
         title: 'Clothing',
@@ -78,7 +78,7 @@ export const seasonsDry = [
     badgeColor: '#8A694F',
     weather: 'Hot and dry (30–35°C), minimal rain, intense sun. Short rains usually finish by December.',
     wildlife: 'Wildebeest calving season in southern Serengeti  500,000 calves born in 3 weeks. Excellent predator action. Fewer tourists than peak dry season.',
-    heroImg: 'https://images.unsplash.com/photo-1695787841714-bc5acb2b23c5?w=900&h=500&fit=crop&auto=format',
+    heroImg: '/images/956A2681.webp',
     categories: [
       {
         title: 'Clothing',

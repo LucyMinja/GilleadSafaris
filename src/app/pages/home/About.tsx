@@ -33,7 +33,7 @@ export default function About() {
             <div className="relative mx-auto lg:mx-0" style={{ width: '88%' }}>
               <div className="group relative overflow-hidden" style={{ height: 'clamp(400px, 38vw, 520px)', borderRadius: '4px' }}>
                 <CoverImage
-                  src="/images/956A2613.jpg"
+                  src="/images/956A2613.webp"
                   priority
                   className="transition-transform duration-[1400ms] ease-out group-hover:scale-[1.12]"
                 />
@@ -52,7 +52,7 @@ export default function About() {
                 style={{ width: '38%', bottom: '-56px', right: '-24px', transform: 'rotate(4deg)' }}
               >
                 <div className="group relative overflow-hidden" style={{ aspectRatio: '4/3', borderRadius: '6px', border: '6px solid #F1EAE0', boxShadow: '0 24px 60px rgba(0,0,0,0.25)' }}>
-                  <Image src="/images/team/nic.png" alt="Nicanory, our reservation manager in Arusha" fill className="object-cover transition-transform duration-700 group-hover:scale-110" unoptimized />
+                  <Image src="/images/team/nic.webp" alt="Nicanory, our reservation manager in Arusha" fill className="object-cover transition-transform duration-700 group-hover:scale-110" unoptimized />
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%)' }} />
                   <div className="absolute bottom-3 left-0 right-0 px-2 text-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out delay-100">
                     <p style={{ fontFamily: "'Newsreader', serif", fontStyle: 'italic', fontSize: '12px', color: '#ffffff', lineHeight: 1.4 }}>

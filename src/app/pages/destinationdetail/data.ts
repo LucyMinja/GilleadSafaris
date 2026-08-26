@@ -3,7 +3,7 @@ export const destinationData = [
     slug: 'serengeti',
     name: 'Serengeti National Park',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1557456170-0cf4f4d0d362?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/956A4274.webp',
     tagline: 'The endless plains where life plays out in full.',
     history: [
       'The name "Serengeti" comes from the Maasai word Siringet  meaning "the place where the land runs on forever." For thousands of years, Maasai pastoralists grazed their cattle across these plains alongside lion, elephant, and wildebeest, developing a coexistence with wildlife that shaped the entire ecosystem.',
@@ -13,7 +13,7 @@ export const destinationData = [
     facts: { size: '14,763 km²', bestTime: 'June – October', animals: 'Lion · Cheetah · Leopard · Elephant · Buffalo · Wildebeest' },
     highlights: ['Great Migration', 'Big Five', 'Hot Air Balloon Safaris', 'Kopjes & Rock Formations', 'Predator Concentrations'],
     story: {
-      bigImages: ['/images/956A3225.jpg', '/images/956A4274.jpg'],
+      bigImages: ['/images/956A3225.webp', '/images/956A4274.webp'],
       bigVignette: {
         eyebrow: 'Great Migration',
         headline: 'Follow the herds',
@@ -22,7 +22,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/956A3123.jpg',
+          img: '/images/956A3123.webp',
           vignette: {
             eyebrow: 'Predator Concentrations',
             headline: 'Where the hunters gather',
@@ -31,7 +31,7 @@ export const destinationData = [
           },
         },
         {
-          img: '/images/956A2874.jpg',
+          img: '/images/956A2874.webp',
           vignette: {
             eyebrow: 'Big Five',
             headline: 'Face to face with a lion',
@@ -42,17 +42,17 @@ export const destinationData = [
       ],
     },
     relatedTours: [
-      { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.jpg' },
-      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
-      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
-      { id: 6, name: '8 Days Wildebeest Migration River Crossing', duration: '8 Days / 7 Nights', img: '/images/956A4274.jpg' },
+      { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.webp' },
+      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.webp' },
+      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
+      { id: 6, name: '8 Days Wildebeest Migration River Crossing', duration: '8 Days / 7 Nights', img: '/images/956A4274.webp' },
     ],
   },
   {
     slug: 'ngorongoro',
     name: 'Ngorongoro Conservation Area',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/IMG_1226.webp',
     tagline: 'A world within a crater  ancient, intact, and unforgettable.',
     history: [
       'Ngorongoro Crater was formed around three million years ago when a giant volcano exploded and collapsed inward, creating one of the largest intact calderas on earth. The crater floor  roughly 260 km²  became a self-contained world, sheltering an extraordinary density of wildlife within its 600-metre-high walls.',
@@ -62,7 +62,7 @@ export const destinationData = [
     facts: { size: '8,292 km²', bestTime: 'Year-round', animals: 'Black Rhino · Lion · Elephant · Hippo · Flamingo · Hyena' },
     highlights: ['Volcanic Caldera', 'Black Rhino Sightings', 'Big Five in One Day', 'Olduvai Gorge', 'Maasai Culture'],
     story: {
-      bigImages: ['/images/956A4243.jpg', '/images/IMG_1256.jpg'],
+      bigImages: ['/images/956A4243.webp', '/images/IMG_1256.webp'],
       bigVignette: {
         eyebrow: 'Volcanic Caldera',
         headline: 'A world inside a crater',
@@ -71,7 +71,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/956A2874.jpg',
+          img: '/images/956A2874.webp',
           vignette: {
             eyebrow: 'Big Five in One Day',
             headline: 'Every icon, one descent',
@@ -80,7 +80,7 @@ export const destinationData = [
           },
         },
         {
-          img: '/images/IMG_1068.jpg',
+          img: '/images/IMG_1068.webp',
           vignette: {
             eyebrow: 'Meet Your Team',
             headline: 'Guides who grew up on this rim',
@@ -91,16 +91,16 @@ export const destinationData = [
       ],
     },
     relatedTours: [
-      { id: 1, name: '1 Day Ngorongoro Crater Safari', duration: '1 Day', img: '/images/956A3279.jpg' },
-      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
-      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
+      { id: 1, name: '1 Day Ngorongoro Crater Safari', duration: '1 Day', img: '/images/IMG_1226.webp' },
+      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.webp' },
+      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
     ],
   },
   {
     slug: 'zanzibar',
     name: 'Zanzibar Archipelago',
     region: 'Indian Ocean Islands',
-    heroImg: 'https://images.unsplash.com/photo-1573160813959-7ea66e14e673?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/nakupenda-beach.webp',
     tagline: 'A thousand years of trade, spice, and ocean breeze.',
     history: [
       'Zanzibar\'s story is one of the most layered in the world. For over a thousand years the island sat at the crossroads of Indian Ocean trade routes, drawing Arab merchants, Persian sailors, Indian traders, and Portuguese explorers  each leaving a mark on its language, architecture, food, and culture.',
@@ -110,7 +110,7 @@ export const destinationData = [
     facts: { size: '2,643 km²', bestTime: 'June – October & Jan – February', animals: 'Humpback Whale · Dolphin · Sea Turtle · Red Colobus Monkey' },
     highlights: ['Stone Town UNESCO Heritage', 'Kendwa & Nungwi Beaches', 'Spice Farm Tours', 'Dolphin Watching', 'Swahili Cuisine'],
     story: {
-      bigImages: ['/images/nakupenda-beach.jpg', '/images/prison.jpg'],
+      bigImages: ['/images/nakupenda-beach.webp', '/images/prison.webp'],
       bigVignette: {
         eyebrow: 'Kendwa & Nungwi Beaches',
         headline: 'Where the sand runs white',
@@ -119,7 +119,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/stone-town.jpg',
+          img: '/images/stone-town.webp',
           vignette: {
             eyebrow: 'Stone Town UNESCO Heritage',
             headline: 'A thousand years of trade',
@@ -139,15 +139,15 @@ export const destinationData = [
       ],
     },
     relatedTours: [
-      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone-town.jpg' },
-      { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
+      { id: 9, name: '4 Days Zanzibar Kendwa Beach & Stone Town Tour', duration: '4 Days / 3 Nights', img: '/images/stone-town.webp' },
+      { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/IMG_2493.webp' },
     ],
   },
   {
     slug: 'kilimanjaro',
     name: 'Mount Kilimanjaro',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1621414050946-1a8d2a9d7c5b?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/kilimanjaro-graded.jpg',
     tagline: "Africa's roof  a summit that changes everyone who climbs it.",
     history: [
       'Kilimanjaro is the highest free-standing mountain in the world, rising 5,895 metres above sea level from the surrounding plains of northern Tanzania. Its three volcanic cones  Kibo, Mawenzi, and Shira  were formed over a million years ago, and Kibo\'s crater still shows signs of geothermal activity.',
@@ -170,15 +170,15 @@ export const destinationData = [
       },
     },
     relatedTours: [
-      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
-      { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/956A1769.jpg' },
+      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
+      { id: 10, name: '8 Days Tanzania Cultural Tour', duration: '8 Days / 7 Nights', img: '/images/IMG_2493.webp' },
     ],
   },
   {
     slug: 'tarangire',
     name: 'Tarangire National Park',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/IMG_0227.webp',
     tagline: 'Ancient baobabs, elephant herds, and a river that never runs dry.',
     history: [
       'Tarangire takes its name from the Tarangire River  the only permanent water source in the region during Tanzania\'s long dry season. This single fact shapes the entire ecosystem: every dry season, thousands of animals converge on the riverbanks in one of the most dramatic wildlife concentrations in Africa.',
@@ -188,7 +188,7 @@ export const destinationData = [
     facts: { size: '2,850 km²', bestTime: 'June – October', animals: 'Elephant · Lion · Leopard · Gerenuk · Oryx · Python' },
     highlights: ['Giant Elephant Herds', 'Ancient Baobab Trees', '550+ Bird Species', 'Swamp Wildlife', 'Dry Season Spectacle'],
     story: {
-      bigImages: ['/images/IMG_0227.jpg', '/images/956A3309.jpg'],
+      bigImages: ['/images/IMG_0227.webp', '/images/956A3309.webp'],
       bigVignette: {
         eyebrow: 'Giant Elephant Herds',
         headline: 'Three hundred strong, and counting',
@@ -197,7 +197,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/956A2613.jpg',
+          img: '/images/956A2613.webp',
           vignette: {
             eyebrow: 'Ancient Baobab Trees',
             headline: 'Some older than the nearest town',
@@ -217,16 +217,16 @@ export const destinationData = [
       ],
     },
     relatedTours: [
-      { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/elephantsafari.png' },
-      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.jpg' },
-      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
+      { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/IMG_0227.webp' },
+      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.webp' },
+      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
     ],
   },
   {
     slug: 'arusha',
     name: 'Arusha National Park',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1623743423143-23df3234ae5c?w=1920&h=1080&fit=crop&auto=format',
+    heroImg: '/images/IMG_1068.webp',
     tagline: 'A wild gem hiding in plain sight  37km from the city.',
     history: [
       'Arusha National Park is the smallest but perhaps the most ecologically diverse park in Tanzania. Established in 1960 and covering just 137 km², it packs an extraordinary range of habitats into a compact space  from the forests of Ngurdoto Crater to the glittering Momella Lakes and the dramatic slopes of Mount Meru, Tanzania\'s second-highest peak at 4,566 metres.',
@@ -240,7 +240,7 @@ export const destinationData = [
       // yet — using a real, honest photo of Gillead's own fleet instead of
       // a mismatched park photo, since Arusha genuinely is where every
       // safari (not just this one) starts.
-      bigImages: ['/images/IMG_1068.jpg'],
+      bigImages: ['/images/IMG_1068.webp'],
       bigVignette: {
         eyebrow: 'Your Gateway',
         headline: 'Every safari starts here',
@@ -249,9 +249,97 @@ export const destinationData = [
       },
     },
     relatedTours: [
-      { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.jpg' },
-      { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/elephantsafari.png' },
-      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.jpg' },
+      { id: 2, name: '3 Days Classic Serengeti Safari', duration: '3 Days / 2 Nights', img: '/images/956A2358.webp' },
+      { id: 3, name: '4 Nights / 5 Days Northern Safari', duration: '5 Days / 4 Nights', img: '/images/IMG_0227.webp' },
+      { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
+    ],
+  },
+  {
+    slug: 'manyara',
+    name: 'Lake Manyara National Park',
+    region: 'Northern Tanzania',
+    heroImg: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format',
+    tagline: 'A narrow strip of forest, lake and escarpment where lions climb trees.',
+    history: [
+      "Lake Manyara sits at the base of the Great Rift Valley's western escarpment, a narrow strip of groundwater forest, acacia woodland and alkaline lake squeezed between a 600-metre wall of rock and the water's edge. Early twentieth-century travel writers, including Ernest Hemingway after a 1930s safari through the area, wrote admiringly of the view from the escarpment road above the lake.",
+      "In the 1960s the park became a pioneering site for elephant research: biologist Iain Douglas-Hamilton spent years here developing techniques for identifying individual elephants by their ears and tusks, work that laid the foundation for elephant conservation science across the continent.",
+      "The lake itself is alkaline and shallow, expanding and contracting with the rains — when conditions are right, it draws vast flocks of lesser flamingo that turn its shallows pink. But Manyara's best-known residents are its lions, which have developed the unusual habit of climbing into acacia and sausage trees, a behaviour rarely seen anywhere else in Africa.",
+    ],
+    facts: { size: '648 km²', bestTime: 'June – October', animals: 'Tree-Climbing Lion · Flamingo · Hippo · Elephant · Blue Monkey' },
+    highlights: ['Tree-Climbing Lions', 'Groundwater Forest', 'Maji Moto Hot Springs', 'Flamingo-Lined Soda Lake', 'Rift Valley Escarpment Views'],
+    story: {
+      // No verified real photography of Manyara itself is in the library yet
+      // (it isn't part of our own photo set) — one honest stock photo beats
+      // a mismatched real one, see project convention on verifying image
+      // content before trusting it (CLAUDE.md, Images section).
+      bigImages: ['https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format'],
+      bigVignette: {
+        eyebrow: 'Tree-Climbing Lions',
+        headline: 'A habit found almost nowhere else',
+        blurb: "Manyara's lions regularly rest in the branches of acacia and sausage trees — one of only a few places in Africa where this behaviour is reliably seen.",
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+    },
+    relatedTours: [
+      { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.webp' },
+      { id: 6, name: '8 Days Wildebeest Migration River Crossing', duration: '8 Days / 7 Nights', img: '/images/956A4274.webp' },
+    ],
+  },
+  {
+    slug: 'ruaha',
+    name: 'Ruaha National Park',
+    region: 'Southern Tanzania',
+    heroImg: '/images/956A3701.webp',
+    tagline: "Where East and Southern Africa's wildlife meet, and almost no one else is watching.",
+    history: [
+      "Ruaha takes its name from the Great Ruaha River, whose sand-choked bed becomes the region's only reliable water source through the long dry season. As the river shrinks to a chain of pools between July and November, elephant, buffalo and huge prides of lion converge along its banks in numbers that make Ruaha home to some of the largest lion prides recorded anywhere in Africa.",
+      "Following a 2008 boundary expansion that absorbed the neighbouring Usangu Game Reserve, Ruaha grew to roughly 22,000 km² — larger than the Serengeti — yet still receives only a small fraction of the visitors. Ruaha sits at a genuine ecological crossing point: species typical of East Africa's Rift Valley, like greater kudu, share the same ground as southern miombo-woodland species like sable antelope, a mix found almost nowhere else in Tanzania.",
+      "The park is also one of the last strongholds of the African wild dog, with one of the largest known populations left on the continent. Rugged, baobab-lined valleys and near-total remoteness are what draw the safari-goers who make the long journey south.",
+    ],
+    facts: { size: '22,000 km²', bestTime: 'June – November', animals: 'African Wild Dog · Lion · Elephant · Greater Kudu · Sable Antelope' },
+    highlights: ['Great Ruaha River', 'Largest Lion Prides in Tanzania', 'African Wild Dog Stronghold', 'East-Meets-South Wildlife Mix', 'Remote, Uncrowded Safaris'],
+    story: {
+      // Only two verified real photos of Ruaha are in the library (the
+      // lodge photography from accommodation/lodges.ts) — using both, no
+      // secondary pairing forced from unrelated generic wildlife shots.
+      bigImages: ['/images/956A3701.webp', '/images/956A2236.webp'],
+      bigVignette: {
+        eyebrow: 'Great Ruaha River',
+        headline: 'Where the dry season concentrates everything',
+        blurb: "As the river shrinks to scattered pools between July and November, elephant, buffalo and some of Tanzania's largest lion prides converge along its banks.",
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+    },
+    relatedTours: [
+      { id: 8, name: '6 Days Ruaha, Mikumi & Udzungwa National Park', duration: '6 Days / 5 Nights', img: '/images/956A3701.webp' },
+    ],
+  },
+  {
+    slug: 'selous',
+    name: 'Selous Game Reserve',
+    region: 'Southern Tanzania',
+    heroImg: '/images/956A2192.webp',
+    tagline: 'A wilderness the size of Switzerland, explored by boat, on foot, and almost never by crowd.',
+    history: [
+      "Selous takes its name from Frederick Courteney Selous, the English explorer and big-game hunter who died here during the East African campaign of the First World War and is buried within its boundaries. Established in 1922 and declared a UNESCO World Heritage Site in 1982, it remains one of the largest protected wilderness areas on the continent — roughly the size of Switzerland.",
+      "The Rufiji River is what sets Selous apart from almost every other Tanzanian park: it is one of the very few places in the country where boat safaris are a normal part of the itinerary, gliding past pods of hippo and basking crocodile in numbers few other rivers can match. Walking safaris are permitted here too, a rarer privilege that puts guests on foot in genuine wilderness rather than behind a windscreen.",
+      "In 2019 the Tanzanian government split the reserve, converting the northern, tourism-focused section into Nyerere National Park while the remaining southern area kept the Selous name as a hunting concession. Most of the camps and boat safaris travellers know as \"Selous\" now sit within that renamed northern section, though the Selous name has stuck in how the region is marketed and remembered.",
+    ],
+    facts: { size: '54,600 km²', bestTime: 'June – October', animals: 'African Wild Dog · Hippo · Crocodile · Elephant · Lion' },
+    highlights: ['Rufiji River Boat Safaris', 'Walking Safaris', 'African Wild Dog Stronghold', 'UNESCO World Heritage Site', 'Vast, Untouched Wilderness'],
+    story: {
+      // Both images already verified as Selous in accommodation/lodges.ts
+      // (Selous Migration Camp's own primary + secondary photos).
+      bigImages: ['/images/956A2192.webp', '/images/956A2874.webp'],
+      bigVignette: {
+        eyebrow: 'Rufiji River Boat Safaris',
+        headline: 'The river safari almost nowhere else offers',
+        blurb: 'Boat safaris along the Rufiji River bring guests close to hippo pods and basking crocodile in one of the only parts of Tanzania where this is a normal part of the itinerary.',
+        cta: { label: 'Plan This Safari', href: '/safaris' },
+      },
+    },
+    relatedTours: [
+      { id: 7, name: '5 Days Selous Game Reserve & Mikumi National Park', duration: '5 Days / 4 Nights', img: '/images/956A2192.webp' },
     ],
   },
 ];
