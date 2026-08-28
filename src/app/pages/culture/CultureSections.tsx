@@ -12,7 +12,7 @@ export default function CultureSections() {
         const isReverse = section.reverse;
         const [firstPara, ...restParas] = section.desc.split('\n\n');
         return (
-          <div key={section.id} className="max-w-[1400px] mx-auto px-6 lg:px-16 py-20 lg:py-28">
+          <div key={section.id} className="max-w-[1400px] mx-auto px-6 lg:px-16 py-10 lg:py-14">
             {/* Headline — placed before the photo so the title reads first,
                 giving a brief orientation before the image rather than
                 after it. No eyebrow/tag, no rule, just the title. */}

@@ -84,15 +84,6 @@ export default function MenuOverlay({
                         {link.label}
                       </span>
                     </Link>
-                    {link.sub.length > 0 && (
-                      <div className="flex flex-wrap gap-x-4 gap-y-1 mt-2">
-                        {link.sub.map((s) => (
-                          <span key={s} style={{ fontSize: '11px', color: 'rgba(241,234,224,0.45)', letterSpacing: '0.06em' }}>
-                            {s}
-                          </span>
-                        ))}
-                      </div>
-                    )}
                   </motion.div>
                 );
               })}

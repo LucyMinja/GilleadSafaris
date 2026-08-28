@@ -64,6 +64,14 @@ export const quickLinks = [
   { label: 'Accommodation', href: '/accommodation' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Culture & Heritage', href: '/culture' },
+  { label: 'Travel Essentials', href: '/essentials' },
+  { label: 'Sustainability', href: '/sustainability' },
   { label: 'About Us', href: '/about' },
   { label: 'Contact', href: '/contact' },
+];
+
+export const legal = [
+  { label: 'Privacy Policy', href: '/privacy-policy' },
+  { label: 'Terms & Conditions', href: '/terms-conditions' },
+  { label: 'Cookie Policy', href: '/cookie-policy' },
 ];

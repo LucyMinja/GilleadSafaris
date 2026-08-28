@@ -13,10 +13,12 @@ const STATIC_ROUTES = [
   '/contact',
   '/culture',
   '/destinations',
+  '/essentials',
   '/gallery',
-  '/packing',
   '/privacy-policy',
+  '/cookie-policy',
   '/safaris',
+  '/sustainability',
   '/terms-conditions',
 ];
 

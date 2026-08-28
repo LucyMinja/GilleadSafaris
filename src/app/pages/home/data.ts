@@ -10,16 +10,16 @@ export const safaris = [
   { name: '3-Day Classic Serengeti Safari', days: '3 Days', desc: "A perfect introduction to the Serengeti's endless plains, with a sunrise stop at Ngorongoro Crater on the way back.", href: '/safaris', img: '/images/956A2358.webp' },
   { name: '8-Day Best of Northern Tanzania', days: '8 Days', desc: 'Tarangire, the Ngorongoro Crater, Olduvai Gorge, three days in the Serengeti, and Lake Manyara in one circuit.', href: '/safaris', img: '/images/956A2613.webp' },
   { name: '4-Day Zanzibar Beach & Stone Town', days: '4 Days', desc: "Stone Town's spice-trade history paired with white sand and snorkelling at Kendwa Beach.", href: '/safaris', img: '/images/stone-town.webp' },
-  { name: '8-Day Wildebeest Migration', days: '8 Days', desc: 'Follow the Great Migration to the Mara River crossings, with an optional hot air balloon flight.', href: '/safaris', img: '/images/956A3701.webp' },
+  { name: '8-Day Wildebeest Migration', days: '8 Days', desc: 'Follow the Great Migration to the Mara River crossings, with an optional hot air balloon flight.', href: '/safaris', img: '/images/3.webp' },
   { name: '5-Day Selous & Mikumi', days: '5 Days', desc: "Boat safaris on the Rufiji River and game drives through Mikumi's elephant and lion country.", href: '/safaris', img: '/images/956A2192.webp' },
   { name: '8-Day Tanzania Cultural Tour', days: '8 Days', desc: 'Stay with a Maasai community, meet the Hadzabe at Lake Eyasi, and finish at the Ngorongoro Crater.', href: '/safaris', img: '/images/IMG_2493.webp' },
 ];
 
 export const offerings = [
   { title: 'Into the Wild', img: '/images/956A2874.webp', href: '/safaris' },
-  { title: 'The Great Migration', img: '/images/956A3207.webp', href: '/safaris' },
-  { title: 'Meet the Maasai', img: '/images/Darajani_Market.jpg', href: '/culture' },
-  { title: 'Zanzibar Shores', img: '/images/stone-town.webp', href: '/safaris' },
+  { title: 'The Great Migration', img: '/images/5.webp', href: '/safaris' },
+  { title: 'Meet the Maasai', img: '/images/IMG_2493.webp', href: '/culture' },
+  { title: 'Zanzibar Shores', img: '/images/nakupenda-beach.webp', href: '/safaris' },
   { title: 'Off the Beaten Path', img: '/images/956A2236.webp', href: '/safaris' },
 ];
 

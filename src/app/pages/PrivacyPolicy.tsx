@@ -3,7 +3,7 @@ import { LegalHero, LegalPageWrapper, LegalSection } from '@/app/components/Lega
 export default function PrivacyPolicy() {
   return (
     <div>
-      <LegalHero title="Privacy Policy" updated="10 June 2026" />
+      <LegalHero title="Privacy Policy" updated="26 August 2026" />
 
       <LegalPageWrapper>
         <LegalSection title="1. Introduction">
@@ -104,10 +104,13 @@ export default function PrivacyPolicy() {
 
         <LegalSection title="8. Cookies">
           <p>
-            Our website uses cookies and similar technologies to remember your preferences, understand how
-            visitors use our site, and improve performance. You can control or disable cookies through your
-            browser settings; however, doing so may affect certain features of the website, such as booking
-            forms.
+            Our website uses a small number of strictly necessary cookies to function, and, only with your
+            consent, Google Analytics cookies to understand how visitors use the site in aggregate. Analytics
+            cookies are off by default until you accept them through the cookie banner shown on your first
+            visit; declining means Google Analytics runs in a cookieless, consent-denied mode that doesn't
+            identify you individually. You can change this choice at any time from the cookie preferences link
+            in our footer. Full details, including which cookies are set and for how long, are in our{' '}
+            <a href="/cookie-policy">Cookie Policy</a>.
           </p>
         </LegalSection>
 
