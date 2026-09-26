@@ -26,7 +26,7 @@ export default function Essentials() {
 
       <PackingGuide />
 
-      <div style={{ backgroundColor: '#F1EAE0' }} className="pt-6 lg:pt-8 pb-20 lg:pb-28">
+      <div style={{ backgroundColor: '#F1EAE0' }} className="pt-2 lg:pt-4 pb-20 lg:pb-28">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-16 text-center">
         <div className="max-w-5xl mx-auto">
           <RevealOnView
@@ -37,19 +37,13 @@ export default function Essentials() {
             once={false}
             margin="-80px"
           >
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '14px' }}>
-              Our Promise
-            </p>
-            <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.2vw, 40px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '20px' }}>
-              Straightforward answers, before you commit to anything
-            </h2>
+            <WordReveal
+              text="Still have questions? Every itinerary starts with a real conversation, not a template — and every question above is one we'd rather you ask now than discover on the ground. If something isn't covered here, our guides in Arusha are the ones who'll actually be with you, and they're glad to answer directly."
+              once={false}
+              className="justify-center"
+              style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', fontWeight: 400, lineHeight: 1.8, color: '#6D6753', marginBottom: '32px' }}
+            />
           </RevealOnView>
-          <WordReveal
-            text="Every itinerary starts with a real conversation, not a template — and every question above is one we'd rather you ask now than discover on the ground. If something isn't covered here, our guides in Arusha are the ones who'll actually be with you, and they're glad to answer directly."
-            once={false}
-            className="justify-center"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', lineHeight: 1.8, color: '#6D6753', marginBottom: '32px' }}
-          />
           <div className="flex justify-center">
             <SafariButton href="/contact">Ask Us Anything</SafariButton>
           </div>

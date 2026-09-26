@@ -8,12 +8,8 @@ export const seasonsWet = [
     facts: ['22–27°C, humid', 'Heavy afternoon rain', 'Lush, empty parks', '200+ bird species'],
     categories: [
       {
-        title: 'Clothing',
-        items: ['Packable waterproof jacket', 'Quick-dry trousers & shirts', 'Moisture-wicking base layers', 'Extra changes of clothes', 'Long sleeves for evenings', 'Warm layer for camp'],
-      },
-      {
-        title: 'Footwear',
-        items: ['Waterproof hiking boots', 'Rubber camp sandals', 'Gaiters', 'Extra socks'],
+        title: 'Clothing & Footwear',
+        items: ['Packable waterproof jacket', 'Quick-dry trousers & shirts', 'Moisture-wicking base layers', 'Extra changes of clothes', 'Long sleeves for evenings', 'Warm layer for camp', 'Waterproof hiking boots', 'Rubber camp sandals', 'Gaiters', 'Extra socks'],
       },
       {
         title: 'Wet Weather Gear',
@@ -38,12 +34,8 @@ export const seasonsWet = [
     facts: ['26–30°C, brief showers', 'Green Serengeti', 'Migratory birds arrive', 'Flamingos on soda lakes'],
     categories: [
       {
-        title: 'Clothing',
-        items: ['Mix of light layers', 'Light waterproof layer', 'Breathable long sleeves', 'Light trousers & shorts', 'Swimwear', 'Smart-casual layer'],
-      },
-      {
-        title: 'Footwear',
-        items: ['Water-resistant shoes', 'Camp sandals', 'Lightweight boots'],
+        title: 'Clothing & Footwear',
+        items: ['Mix of light layers', 'Light waterproof layer', 'Breathable long sleeves', 'Light trousers & shorts', 'Swimwear', 'Smart-casual layer', 'Water-resistant shoes', 'Camp sandals', 'Lightweight boots'],
       },
       {
         title: 'Sun & Rain',

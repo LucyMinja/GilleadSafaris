@@ -1,3 +1,5 @@
+'use client';
+
 import { AnimatePresence, motion } from 'motion/react';
 import { Check } from 'lucide-react';
 import WordLink from '@/app/components/WordLink';
@@ -21,7 +23,7 @@ export default function StepSafari({
   blurValidate: (key: string) => void;
 }) {
   return (
-    <div>
+    <div className="pb-20 lg:pb-0">
       <div className="text-center">
         <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 3.2vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
           Choose Your Safari
@@ -37,11 +39,12 @@ export default function StepSafari({
           return (
             <div
               key={safari.id}
-              className="flex items-start gap-3 px-5 py-4 cursor-pointer transition-colors"
+              className="group flex items-start gap-3 px-5 py-4 cursor-pointer transition-all duration-300"
               style={{
                 border: `1.5px solid ${isSelected ? '#8D694B' : 'rgba(109,103,83,0.15)'}`,
-                borderRadius: '2px',
+                borderRadius: '8px',
                 backgroundColor: isSelected ? 'rgba(141,105,75,0.07)' : '#ffffff',
+                boxShadow: isSelected ? '0 4px 20px rgba(141,105,75,0.1)' : 'none'
               }}
               onClick={() => toggleSafari(safari.id)}
               role="checkbox"
@@ -50,24 +53,40 @@ export default function StepSafari({
               onKeyDown={(e) => e.key === 'Enter' && toggleSafari(safari.id)}
             >
               <div
-                className="w-5 h-5 shrink-0 flex items-center justify-center mt-0.5"
+                className="w-5 h-5 shrink-0 flex items-center justify-center mt-0.5 transition-colors"
                 style={{
-                  borderRadius: '3px',
+                  borderRadius: '4px',
                   border: isSelected ? 'none' : '1.5px solid rgba(109,103,83,0.3)',
                   backgroundColor: isSelected ? '#8D694B' : 'transparent',
                 }}
               >
                 {isSelected && <Check size={12} color="#ffffff" strokeWidth={3} />}
               </div>
-              <div className="min-w-0">
-                <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '16px', fontWeight: 600, color: isSelected ? '#8D694B' : '#6D6753', lineHeight: 1.3, marginBottom: '4px' }}>
-                  {safari.name}
-                </p>
-                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.6, marginBottom: safari.id === 'custom' ? 0 : '8px' }}>{safari.duration}</p>
+              <div className="min-w-0 flex-1">
+                <div className="flex justify-between items-start gap-2">
+                  <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '16px', fontWeight: 600, color: isSelected ? '#8D694B' : '#6D6753', lineHeight: 1.3, marginBottom: '2px' }}>
+                    {safari.name}
+                  </p>
+                  {safari.price && (
+                    <span style={{
+                      fontFamily: "'Plus Jakarta Sans', sans-serif",
+                      fontSize: '11px',
+                      fontWeight: 700,
+                      color: isSelected ? '#8D694B' : '#8D694B',
+                      backgroundColor: 'rgba(141,105,75,0.1)',
+                      padding: '2px 6px',
+                      borderRadius: '4px',
+                      whiteSpace: 'nowrap'
+                    }}>
+                      {safari.price}
+                    </span>
+                  )}
+                </div>
+                <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '12px', color: '#6D6753', opacity: 0.6, marginBottom: safari.id === 'custom' ? 0 : '10px' }}>{safari.duration}</p>
                 {safari.id !== 'custom' && (
                   <div onClick={(e) => e.stopPropagation()} style={{ display: 'inline-block' }}>
-                    <WordLink href={`/safaris/${safari.id}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: '10px' }}>
-                      See What This Package Contains
+                    <WordLink href={`/safaris/${safari.id}`} target="_blank" rel="noopener noreferrer" style={{ fontSize: '10px', opacity: 0.8 }}>
+                      See Package Details
                     </WordLink>
                   </div>
                 )}
@@ -85,7 +104,7 @@ export default function StepSafari({
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.35 }}
             className="mt-8 p-6"
-            style={{ backgroundColor: 'rgba(141,105,75,0.06)', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '2px' }}
+            style={{ backgroundColor: 'rgba(141,105,75,0.06)', border: '1px solid rgba(109,103,83,0.15)', borderRadius: '8px' }}
           >
             <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '18px', fontWeight: 600, color: '#6D6753', marginBottom: '6px' }}>
               Describe your dream safari <span style={{ color: '#C0554B' }}>*</span>
@@ -104,7 +123,7 @@ export default function StepSafari({
                 fontSize: '15px', color: '#6D6753',
                 backgroundColor: '#ffffff',
                 border: `1.5px solid ${errors.specialRequests ? '#C0554B' : touched.specialRequests && form.specialRequests ? '#5F8D6E' : 'rgba(109,103,83,0.25)'}`,
-                borderRadius: '2px', padding: '13px 16px',
+                borderRadius: '8px', padding: '13px 16px',
                 transition: 'border-color 0.2s',
               }}
               placeholder="e.g. 10 days, 2 adults, mix of Serengeti and Zanzibar, mid-range lodges, keen on big cats and birdwatching..."

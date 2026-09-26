@@ -1,8 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import { desktopLinks } from './data';
+import NavDropdown from './NavDropdown';
 
 export default function NavBar({
   hasBg,
@@ -13,9 +17,13 @@ export default function NavBar({
   pathname: string;
   onMenuOpen: () => void;
 }) {
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+
   const linkColor = hasBg ? 'rgba(241,234,224,0.82)' : 'rgba(255,255,255,0.90)';
   const linkHoverOut = hasBg ? 'rgba(241,234,224,0.82)' : 'rgba(255,255,255,0.90)';
   const accent = hasBg ? '#C9A97E' : '#8D694B';
+
+  const handleClose = () => setActiveDropdown(null);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -32,13 +40,9 @@ export default function NavBar({
           />
         )}
       </AnimatePresence>
-      {/* Content capped to the same 1400px column as every page section below
-          it, so the logo and right-side controls line up with page content
-          instead of sitting at their own wider edge-to-edge width. */}
+
       <div className="relative max-w-[1400px] mx-auto grid items-center px-6 lg:px-16 h-[96px]" style={{ gridTemplateColumns: '1fr auto 1fr' }}>
         <Link href="/" className="flex items-center group justify-self-start" style={{ textDecoration: 'none', gridColumn: 1 }}>
-          {/* Single light-logo asset for now — the dark/scrolled variant
-              will come back once that asset is ready. */}
           <div className="flex-shrink-0 transition-transform duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_8px_rgba(141,105,75,0.5)]" style={{ position: 'relative', width: '96px', height: '96px' }}>
             <Image
               src="/images/og2.png"
@@ -51,9 +55,27 @@ export default function NavBar({
           </div>
         </Link>
 
-        <nav className="hidden xl:flex items-center gap-4 2xl:gap-6" style={{ gridColumn: 2 }}>
+        <nav className="hidden xl:flex items-center gap-6 h-full" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link) => {
-            const isActive = pathname === link.href;
+            const isActive = pathname === link.href || (link.subLinks && link.subLinks.some(sub => pathname === sub.href));
+
+            if (link.subLinks && link.subLinks.length > 0) {
+              return (
+                <NavDropdown
+                  key={link.href}
+                  link={link}
+                  isActive={isActive}
+                  accent={accent}
+                  linkColor={linkColor}
+                  isOpen={activeDropdown === link.label}
+                  onMouseEnter={() => setActiveDropdown(link.label)}
+                  onMouseLeave={() => setActiveDropdown(null)}
+                  onClose={handleClose}
+                  hasBg={hasBg}
+                />
+              );
+            }
+
             return (
               <Link
                 key={link.href}

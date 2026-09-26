@@ -34,9 +34,6 @@ export default function Booking() {
     setErrors((e) => { const n = { ...e }; delete n[key]; return n; });
   };
 
-  // Some travellers know exactly which one itinerary they want; others are
-  // choosing between a couple of options and want our team to help them
-  // decide — so safari selection is a toggle-able set, not a single pick.
   const toggleSafari = (id: string) => {
     setForm((f) => ({
       ...f,
@@ -82,10 +79,6 @@ export default function Booking() {
     setSubmitted(true);
   };
 
-  // A tour a visitor was already looking at (e.g. "Book This Safari" on its
-  // own detail page) carries through via `?tour=<slug>` instead of landing
-  // back on a blank step-1 grid they have to re-search — this was the
-  // actual source of the "confusing" flow, not just the styling.
   useEffect(() => {
     const tourParam = searchParams.get('tour');
     if (!tourParam) return;
@@ -94,7 +87,6 @@ export default function Booking() {
       setForm((f) => ({ ...f, safari: [match.id] }));
       setStep(1);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -113,7 +105,7 @@ export default function Booking() {
   }
 
   return (
-    <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }} className="min-h-screen pb-32 lg:pb-0">
       <PageHero
         title="Book a Safari"
         subtitle="Tell us where you want to go, when you'd like to travel, and we'll craft the perfect Tanzania safari for you."
@@ -154,7 +146,8 @@ export default function Booking() {
           </motion.div>
         </AnimatePresence>
 
-        <div className="flex items-center justify-between mt-12 pt-8" style={{ borderTop: '1px solid rgba(109,103,83,0.15)' }}>
+        {/* Desktop Navigation (Hidden on small screens) */}
+        <div className="hidden lg:flex items-center justify-between mt-12 pt-8" style={{ borderTop: '1px solid rgba(109,103,83,0.15)' }}>
           <SafariButton
             type="button"
             onClick={() => goToStep(step - 1)}
@@ -175,6 +168,39 @@ export default function Booking() {
             </SafariButton>
           )}
         </div>
+      </div>
+
+      {/* Mobile Sticky Navigation Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 px-6 py-4 bg-[#F1EAE0]/80 backdrop-blur-md border-t border-[rgba(109,103,83,0.1)] flex items-center justify-between gap-4 shadow-[0_-4px_20px_rgba(0,0,0,0.05)]">
+        <button
+          type="button"
+          onClick={() => goToStep(step - 1)}
+          disabled={step === 0}
+          className="flex-1 py-3 text-[13px] font-bold uppercase tracking-wider text-[#6D6753] disabled:opacity-30 transition-opacity"
+          style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+        >
+          Back
+        </button>
+
+        {step < steps.length - 1 ? (
+          <button
+            type="button"
+            onClick={() => goToStep(step + 1)}
+            className="flex-[2] py-3 bg-[#8D694B] text-white rounded-lg text-[13px] font-bold uppercase tracking-wider shadow-lg shadow-[#8D694B]/20 active:scale-[0.98] transition-transform"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            Continue
+          </button>
+        ) : (
+          <button
+            type="button"
+            onClick={handleSubmit}
+            className="flex-[2] py-3 bg-[#8D694B] text-white rounded-xl text-[13px] font-bold uppercase tracking-wider active:scale-[0.98] transition-transform"
+            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
+          >
+            Submit Enquiry
+          </button>
+        )}
       </div>
     </div>
   );

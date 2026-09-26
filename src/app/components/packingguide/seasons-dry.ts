@@ -10,12 +10,8 @@ export const seasonsDry = [
     facts: ['8–15°C mornings', 'Zero rainfall', 'Mara river crossings', 'Black rhino sightings'],
     categories: [
       {
-        title: 'Clothing',
-        items: ['Thermal base layer', 'Fleece or light down jacket', '3–4 long-sleeve shirts', '2–3 zip-off trousers', 'Shorts', 'Wide-brim hat', 'Buff or neck gaiter', 'Windproof jacket'],
-      },
-      {
-        title: 'Footwear',
-        items: ['Sturdy closed-toe shoes', 'Camp sandals', 'Warm socks'],
+        title: 'Clothing & Footwear',
+        items: ['Thermal base layer', 'Fleece or light down jacket', '3–4 long-sleeve shirts', '2–3 zip-off trousers', 'Shorts', 'Wide-brim hat', 'Buff or neck gaiter', 'Windproof jacket', 'Sturdy closed-toe shoes', 'Camp sandals', 'Warm socks'],
       },
       {
         title: 'Sun & Skin',
@@ -40,12 +36,8 @@ export const seasonsDry = [
     facts: ['30–35°C, dry heat', 'Wildebeest calving', '500k calves in 3 weeks', 'Fewer tourists'],
     categories: [
       {
-        title: 'Clothing',
-        items: ['Breathable linen shirts', 'Loose cotton trousers', 'Shorts', 'Wide-brim hat', 'Light sun scarf', 'Swimwear', 'Smart-casual outfit'],
-      },
-      {
-        title: 'Footwear',
-        items: ['Breathable mesh shoes', 'Sandals', 'Flip flops'],
+        title: 'Clothing & Footwear',
+        items: ['Breathable linen shirts', 'Loose cotton trousers', 'Shorts', 'Wide-brim hat', 'Light sun scarf', 'Swimwear', 'Smart-casual outfit', 'Breathable mesh shoes', 'Sandals', 'Flip flops'],
       },
       {
         title: 'Sun & Skin',

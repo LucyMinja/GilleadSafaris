@@ -8,7 +8,7 @@ const notes = [
 
 export default function BottomNotes() {
   return (
-    <div className="mt-16 pt-8" style={{ borderTop: '1px solid rgba(109,103,83,0.12)' }}>
+    <div className="mb-14">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {notes.map(({ label, text }) => (
           <div key={label}>
