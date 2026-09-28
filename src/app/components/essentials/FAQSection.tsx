@@ -13,8 +13,9 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
 
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-10 lg:items-start">
+      {/* Image column — order-2 on mobile */}
       <RevealOnView
-        className={`lg:col-span-5 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}
+        className={`lg:col-span-5 order-2 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}
         initial={{ opacity: 0, x: isReverse ? 40 : -40 }}
         animate={{ opacity: 1, x: 0 }}
         duration={0.8}
@@ -27,7 +28,8 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
         </div>
       </RevealOnView>
 
-      <div className={`lg:col-span-7 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`}>
+      {/* Text column — order-1 on mobile */}
+      <div className={`lg:col-span-7 order-1 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`}>
         <RevealOnView
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -39,7 +41,7 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '14px' }}>
             {section.kicker}
           </p>
-          <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(30px, 3.4vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '32px' }}>
+          <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(30px, 3.4vw, 460px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '32px' }}>
             {section.title}
           </h2>
         </RevealOnView>

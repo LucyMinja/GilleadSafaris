@@ -8,13 +8,6 @@ import { testimonials, tripAdvisorUrl } from './data';
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-// Replaces the old FullBleed (generic unattributed quote) + Testimonials
-// pair with one section — a magazine-style photo collage next to real,
-// verifiable TripAdvisor reviews, with a direct link back to the source.
-// Plain in-flow fade-in, no artificial extra height or sticky pin — that
-// approach kept leaving real empty space beneath the content. Uses
-// useInView + animate (not whileInView) since whileInView doesn't play
-// the transition in this project's Motion setup.
 export default function GuestStories() {
   const [active, setActive] = useState(0);
   const t = testimonials[active];
@@ -29,11 +22,9 @@ export default function GuestStories() {
           animate={hasEntered ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.85, ease: EASE }}
           className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-x-14 gap-y-12 lg:items-center">
-        <div className="lg:col-span-5">
-          <GuestPhotos />
-        </div>
 
-        <div className="lg:col-span-7">
+        {/* Text column — order-1 on mobile to ensure title/quote read first */}
+        <div className="order-1 lg:order-2 lg:col-span-7">
           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '16px' }}>
             Guest Experiences
           </p>
@@ -97,7 +88,12 @@ export default function GuestStories() {
             </a>
           </div>
         </div>
-        </motion.div>
+
+        {/* Image column — order-2 on mobile */}
+        <div className="order-2 lg:order-1 lg:col-span-5">
+          <GuestPhotos />
+        </div>
+      </motion.div>
     </section>
   );
 }

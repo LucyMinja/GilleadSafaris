@@ -58,12 +58,6 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
   );
 }
 
-// Calm static grid, deliberately distinct from the Destinations carousel above —
-// two auto-rotating carousels back to back read as redundant, so this one just sits still
-// until scrolled into view, where each card reveals once rather than looping. The header
-// uses the same pin-and-build mechanic as every other section (PinHeader); the grid keeps
-// its own staggered reveal since scroll-scrubbing a row of small repeated cards doesn't
-// read as a "build."
 export default function SafarisGrid() {
   return (
     <section style={{ backgroundColor: '#F1EAE0' }} className="pb-10 lg:pb-14">

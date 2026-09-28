@@ -12,31 +12,38 @@ import '@/styles/index.css';
 // Set at build time (static export — no server to read this at request
 // time). Get this from Google Analytics 4 → Admin → Data Streams → your
 // web stream → Measurement ID, and add it to .env.local as
-// NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX before deploying. Until it's
-// set, no GA script loads at all — nothing tracks anyone, consent or not.
+// NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX before deploying.
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
-// Site isn't live yet — robots stays 'noindex, nofollow' site-wide. Flip to
-// 'index, follow' here (and see app/robots.ts) when ready to go live.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: `${SITE_NAME} — Tanzania, East Africa`,
-    template: `%s`,
+    template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Explore and book unforgettable safari adventures in Tanzania with a visually stunning, fully responsive website featuring captivating images and seamless navigation.',
-  robots: 'noindex, nofollow',
+    'Design your dream Tanzania safari with Gillead Safaris. Local expertise for private tours to Serengeti, Ngorongoro, and Zanzibar.',
+  // Site is going live — flip to index/follow
+  robots: 'index, follow',
+  openGraph: {
+    title: SITE_NAME,
+    description: 'Boutique tailor-made safaris across Tanzania.',
+    url: SITE_URL,
+    siteName: SITE_NAME,
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_NAME,
+    description: 'Boutique tailor-made safaris across Tanzania.',
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* Turbopack silently drops the external @import in src/styles/fonts.css
-            (confirmed: it never appears in the compiled CSS bundle, no network
-            request is ever made for it) — loading via <link> instead, which
-            Next.js hoists into <head> regardless of the CSS bundler. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
@@ -45,12 +52,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         {GA_MEASUREMENT_ID && (
           <>
-            {/* Consent Mode v2 default — MUST run before gtag.js loads.
-                Both storage types start denied, so no GA cookie is set and
-                no personal data is sent until CookieConsent.tsx records an
-                explicit "Accept All". A decline is a real decline: GA only
-                gets anonymous, cookieless pings for aggregate modeling,
-                never the visitor's own cookie-based tracking. */}
             <script
               dangerouslySetInnerHTML={{
                 __html: `

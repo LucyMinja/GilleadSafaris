@@ -15,11 +15,6 @@ import { motion, useScroll, useTransform } from 'motion/react';
 // fonts here are the homepage Hero's, reused exactly — only the
 // title/subtitle text is page-specific. One component now owns all of it,
 // so every page hero moves and reads identically.
-//
-// The small tracked-uppercase "eyebrow" label that used to sit above the
-// title (in a low-contrast gold against the video) has been dropped
-// entirely — it read poorly against busy hero footage and wasn't worth
-// keeping on some pages and not others.
 export default function PageHero({
   title,
   subtitle,

@@ -7,9 +7,10 @@ import { ChevronDown } from 'lucide-react';
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
+
   const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
-  const textY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-18%']);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.28], [1, 0]);
+  const textY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-15%']);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden">
@@ -19,11 +20,11 @@ export default function Hero() {
           <source src="https://videos.pexels.com/video-files/4010927/4010927-hd_1280_720_30fps.mp4" type="video/mp4" />
         </video>
       </motion.div>
+
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }} />
 
-      {/* Bottom fade — bridges the hero's dark cinematic tone into About's beige
-          background as a color transition, rather than a hard cut between sections */}
+      {/* Reverted to your original Soft Beige bridge */}
       <div className="absolute inset-x-0 bottom-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(241,234,224,0.35) 80%, #F1EAE0 100%)' }} />
 
       <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style={{ y: textY, opacity: heroOpacity }}>

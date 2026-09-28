@@ -1,118 +1,133 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import confetti from 'canvas-confetti';
-import CollapsedTab from './newsletter/CollapsedTab';
-import PopupHero from './newsletter/PopupHero';
-import SuccessState from './newsletter/SuccessState';
-import SubscribeForm from './newsletter/SubscribeForm';
-
-const STORAGE_KEY = 'gillead_newsletter';
-const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+import { X, Mail, ArrowRight } from 'lucide-react';
+import SafariButton from './SafariButton';
 
 export default function NewsletterPopup() {
-  const [visible, setVisible] = useState(false);
-  const [collapsed, setCollapsed] = useState(false);
-  const [name, setName] = useState('');
+  const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const cardRef = useRef<HTMLDivElement>(null);
+  const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-
-    // Never show again if subscribed or permanently dismissed
-    if (stored === 'subscribed' || stored === 'permanent') return;
-
-    // If dismissed once, only show again after 3 days
-    if (stored) {
-      const elapsed = Date.now() - Number(stored);
-      if (elapsed < THREE_DAYS_MS) return;
-    }
-
-    const t = setTimeout(() => setVisible(true), 6000);
-    return () => clearTimeout(t);
+    const timer = setTimeout(() => {
+      const dismissed = localStorage.getItem('gillead:newsletter_dismissed');
+      if (!dismissed) setShow(true);
+    }, 8000);
+    return () => clearTimeout(timer);
   }, []);
 
-  // Left untouched, the full card would sit over page content indefinitely — shrink it
-  // to a small tab after a while so it stops blocking whatever's underneath.
-  useEffect(() => {
-    if (!visible || submitted) return;
-    const t = setTimeout(() => setCollapsed(true), 9000);
-    return () => clearTimeout(t);
-  }, [visible, submitted]);
-
   const dismiss = () => {
-    const stored = localStorage.getItem(STORAGE_KEY);
-    if (stored && stored !== 'subscribed' && stored !== 'permanent') {
-      localStorage.setItem(STORAGE_KEY, 'permanent');
-    } else {
-      localStorage.setItem(STORAGE_KEY, String(Date.now()));
-    }
-    setVisible(false);
+    setShow(false);
+    localStorage.setItem('gillead:newsletter_dismissed', 'true');
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !email) return;
-    setSubmitted(true);
-    localStorage.setItem(STORAGE_KEY, 'subscribed');
-
-    const rect = cardRef.current?.getBoundingClientRect();
-    const origin = rect
-      ? { x: (rect.left + rect.width / 2) / window.innerWidth, y: (rect.top + 40) / window.innerHeight }
-      : { x: 0.85, y: 0.7 };
-    confetti({
-      particleCount: 90,
-      spread: 75,
-      startVelocity: 32,
-      gravity: 1.1,
-      origin,
-      colors: ['#8D694B', '#8D694B', '#8D694B', '#F1EAE0'],
-      zIndex: 300,
-    });
-
-    setTimeout(() => setVisible(false), 3800);
+    if (!email) return;
+    setSubscribed(true);
+    setTimeout(dismiss, 3000);
   };
-
-  if (visible && collapsed) {
-    return <CollapsedTab onExpand={() => setCollapsed(false)} />;
-  }
 
   return (
     <AnimatePresence>
-      {visible && !collapsed && (
-        <motion.div
-          ref={cardRef}
-          initial={{ opacity: 0, y: 40, scale: 0.9, rotate: -2 }}
-          animate={{ opacity: 1, y: 0, scale: 1, rotate: 0 }}
-          exit={{ opacity: 0, y: 24, scale: 0.94, rotate: 1 }}
-          transition={{ type: 'spring', stiffness: 260, damping: 22, mass: 0.9 }}
-          className="fixed z-[200] overflow-hidden w-[calc(100vw-32px)] max-w-[360px] bottom-4 left-1/2 -translate-x-1/2 sm:bottom-8 sm:left-auto sm:right-8 sm:translate-x-0 sm:w-[360px]"
-          style={{
-            borderRadius: '20px',
-            boxShadow: '0 32px 80px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.15)',
-            border: '1px solid rgba(141,105,75,0.25)',
-          }}
-        >
-          <PopupHero onDismiss={dismiss} />
+      {show && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={dismiss}
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
+          />
 
-          <div style={{ backgroundColor: '#F1EAE0', padding: '24px' }}>
-            {submitted ? (
-              <SuccessState name={name} />
-            ) : (
-              <SubscribeForm
-                name={name}
-                email={email}
-                onNameChange={setName}
-                onEmailChange={setEmail}
-                onSubmit={handleSubmit}
-                onDismiss={dismiss}
-              />
-            )}
-          </div>
-        </motion.div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="relative w-full max-w-lg overflow-hidden"
+            style={{
+              backgroundColor: '#F1EAE0',
+              borderRadius: '12px',
+              boxShadow: '0 40px 100px rgba(0,0,0,0.3)',
+              border: '1px solid rgba(109,103,83,0.1)'
+            }}
+          >
+            {/* High-end "Invitation" Header */}
+            <div className="h-2 w-full" style={{ backgroundColor: '#8D694B' }} />
+
+            <button
+              onClick={dismiss}
+              className="absolute top-4 right-4 text-[#6D6753]/40 hover:text-[#8D694B] transition-colors"
+            >
+              <X size={20} strokeWidth={1.5} />
+            </button>
+
+            <div className="p-10 lg:p-14 text-center">
+              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-8" style={{ backgroundColor: 'rgba(141,105,75,0.1)' }}>
+                <Mail size={20} color="#8D694B" strokeWidth={1.5} />
+              </div>
+
+              <AnimatePresence mode="wait">
+                {!subscribed ? (
+                  <motion.div
+                    key="form"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -10 }}
+                  >
+                    <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: '32px', fontWeight: 500, color: '#6D6753', marginBottom: '16px', lineHeight: 1.2 }}>
+                      The Spirit of Tanzania,<br />delivered to you.
+                    </h2>
+                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.8, lineHeight: 1.7, marginBottom: '32px' }}>
+                      Join our inner circle for seasonal wildlife updates, new luxury lodge openings, and curated safari inspiration.
+                    </p>
+
+                    <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
+                      <input
+                        type="email"
+                        required
+                        placeholder="Your email address"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-5 py-4 outline-none transition-all duration-300"
+                        style={{
+                          fontFamily: "'Plus Jakarta Sans', sans-serif",
+                          fontSize: '14px',
+                          backgroundColor: '#ffffff',
+                          border: '1px solid rgba(109,103,83,0.15)',
+                          borderRadius: '4px',
+                          color: '#6D6753'
+                        }}
+                      />
+                      <SafariButton type="submit" className="w-full">
+                        Subscribe <ArrowRight size={14} className="ml-1" />
+                      </SafariButton>
+                    </form>
+                    <p className="mt-4" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#6D6753', opacity: 0.4 }}>
+                      Zero spam. Unsubscribe anytime.
+                    </p>
+                  </motion.div>
+                ) : (
+                  <motion.div
+                    key="success"
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="py-6"
+                  >
+                    <div className="text-4xl mb-6">🐘</div>
+                    <h3 style={{ fontFamily: "'Newsreader', serif", fontSize: '28px', color: '#6D6753', marginBottom: '12px' }}>Karibu sana!</h3>
+                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8 }}>
+                      Thank you for joining us. We look forward to sharing our world with you.
+                    </p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

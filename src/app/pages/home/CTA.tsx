@@ -38,13 +38,11 @@ function ContactRow({ label, value, href, delay }: { label: string; value: strin
   );
 }
 
-// Plain in-flow reveal on scroll, matching the Destinations section's
-// converging pattern: left column slides in from the left, right column
-// slides in from the right, on the same duration/ease/margin.
 export default function CTA() {
   return (
     <section style={{ backgroundColor: '#F1EAE0' }} className="pt-8 pb-20 lg:pt-10 lg:pb-28">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        {/* Text column — order-1 on mobile */}
         <RevealOnView
           initial={{ opacity: 0, x: -40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -52,6 +50,7 @@ export default function CTA() {
           ease={EASE}
           once={false}
           margin="-100px"
+          className="order-1 lg:order-1"
         >
           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '16px' }}>Start Planning</p>
           <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '18px' }}>
@@ -72,6 +71,7 @@ export default function CTA() {
           </div>
         </RevealOnView>
 
+        {/* Info/Contacts column — order-2 on mobile */}
         <RevealOnView
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
@@ -80,6 +80,7 @@ export default function CTA() {
           ease={EASE}
           once={false}
           margin="-100px"
+          className="order-2 lg:order-2"
         >
           {contacts.map(({ label, value, href }, i) => (
             <ContactRow key={label} label={label} value={value} href={href} delay={i * 0.08} />

@@ -6,12 +6,6 @@ import type { ReactNode, CSSProperties } from 'react';
 
 const DEFAULT_EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
-// Motion's declarative `whileInView` prop doesn't play the transition in
-// this project's setup — elements snap straight to their target state the
-// instant they're observed, instead of easing in. The imperative
-// useInView() hook + a manually-toggled `animate` prop does animate
-// correctly, so every scroll-triggered reveal on the homepage goes through
-// this wrapper instead of `whileInView` directly.
 export default function RevealOnView({
   children,
   initial,
@@ -24,6 +18,8 @@ export default function RevealOnView({
   className,
   style,
   id,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   children: ReactNode;
   initial: Target;
@@ -36,6 +32,8 @@ export default function RevealOnView({
   className?: string;
   style?: CSSProperties;
   id?: string;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }) {
   const ref = useRef(null);
   const inView = useInView(ref, { once, margin });
@@ -49,6 +47,8 @@ export default function RevealOnView({
       transition={{ duration, delay, ease }}
       className={className}
       style={style}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       {children}
     </motion.div>

@@ -8,20 +8,11 @@ import RevealOnView from './RevealOnView';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
-// Plain in-flow reveal on scroll — no artificial extra height, no sticky
-// pin. That approach kept leaving real empty space before the content below
-// it across different viewport heights; this can't, because the section is
-// exactly as tall as its content. Image column slides in from the left,
-// text column slides in from the right, so the two halves visibly converge
-// rather than the whole block fading in as one flat unit.
 export default function About() {
   return (
     <section id="about" className="py-20 lg:py-28" style={{ backgroundColor: '#F1EAE0' }}>
-      {/* Asymmetric composition — image sits left, text sits right; headline lives
-          inside the text column (not spanning full width) so it reads as one
-          composed block instead of a banner sitting over the page */}
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-12 lg:items-center">
-          {/* Image column — left, wider */}
+          {/* Image column — order-2 on mobile */}
           <RevealOnView
             initial={{ opacity: 0, x: -40 }}
             animate={{ opacity: 1, x: 0 }}
@@ -45,8 +36,6 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Floating guide photo — breaks out of the image box's bottom-right corner,
-                  tilted slightly like a kept Polaroid, leaning toward the text column */}
               <div
                 className="absolute hidden md:block"
                 style={{ width: '38%', bottom: '-56px', right: '-24px', transform: 'rotate(4deg)' }}
@@ -64,7 +53,7 @@ export default function About() {
             </div>
           </RevealOnView>
 
-          {/* Text column — right, narrower */}
+          {/* Text column — order-1 on mobile */}
           <RevealOnView
             initial={{ opacity: 0, x: 40 }}
             animate={{ opacity: 1, x: 0 }}

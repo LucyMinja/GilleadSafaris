@@ -18,14 +18,6 @@ export type Vignette = {
   quote?: boolean;
 };
 
-// The staggered editorial layout saved for these pages: one big photo+text
-// pairing, then a second pairing lower down where the two photos are
-// deliberately NOT aligned with each other (one sits lower) for a
-// scrapbook feel rather than a clean grid. No borders/shadows/boxes —
-// photos float directly on the page background. `bigImages` can hold 2
-// photos (renders as a slow crossfade "carousel") or just 1 (renders
-// static) — several destinations don't have enough distinct verified
-// photography to justify a second pairing, so `secondary` is optional.
 export default function StoryGallery({
   bigImages,
   bigVignette,
@@ -53,10 +45,11 @@ export default function StoryGallery({
         </Link>
       </div>
 
-      {/* First pairing — large photo (right), text vertically centered (left) */}
+      {/* First pairing — order adjusted for mobile: Text then Image */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-8 items-center mb-24 lg:mb-32">
+        {/* Text column — order-1 on mobile */}
         <RevealOnView
-          className="lg:col-span-5 lg:order-1"
+          className="lg:col-span-5 order-1 lg:order-1"
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           duration={0.8}
@@ -74,8 +67,9 @@ export default function StoryGallery({
           {bigVignette.cta && <WordLink href={bigVignette.cta.href}>{bigVignette.cta.label}</WordLink>}
         </RevealOnView>
 
+        {/* Image column — order-2 on mobile */}
         <RevealOnView
-          className="lg:col-span-7 lg:order-2"
+          className="lg:col-span-7 order-2 lg:order-2"
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           duration={0.8}
@@ -101,12 +95,11 @@ export default function StoryGallery({
         </RevealOnView>
       </div>
 
-      {/* Second pairing — offset, collage feel: square photo+caption (left),
-          taller portrait photo+caption (right, sits lower) */}
+      {/* Second pairing — collage feel: reordered for mobile to show text then image */}
       {secondary && (
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-12 gap-y-16">
           <RevealOnView
-            className="lg:col-span-5"
+            className="lg:col-span-5 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             duration={0.8}
@@ -114,17 +107,19 @@ export default function StoryGallery({
             once={false}
             margin="-80px"
           >
-            <div className="relative overflow-hidden mb-6" style={{ height: 'clamp(260px, 26vw, 360px)', borderRadius: '2px' }}>
+            <div className="order-1">
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[0].vignette.eyebrow}</p>
+              <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[0].vignette.headline}</h4>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', lineHeight: 1.7, color: '#6D6753', opacity: 0.85, marginBottom: secondary[0].vignette.cta ? '16px' : '24px' }}>{secondary[0].vignette.blurb}</p>
+              {secondary[0].vignette.cta && <div className="mb-6"><WordLink href={secondary[0].vignette.cta.href}>{secondary[0].vignette.cta.label}</WordLink></div>}
+            </div>
+            <div className="relative overflow-hidden order-2" style={{ height: 'clamp(260px, 26vw, 360px)', borderRadius: '2px' }}>
               <CoverImage src={secondary[0].img} alt={secondary[0].vignette.headline} />
             </div>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[0].vignette.eyebrow}</p>
-            <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[0].vignette.headline}</h4>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', lineHeight: 1.7, color: '#6D6753', opacity: 0.85, marginBottom: secondary[0].vignette.cta ? '16px' : 0 }}>{secondary[0].vignette.blurb}</p>
-            {secondary[0].vignette.cta && <WordLink href={secondary[0].vignette.cta.href}>{secondary[0].vignette.cta.label}</WordLink>}
           </RevealOnView>
 
           <RevealOnView
-            className="lg:col-span-5 lg:col-start-8 lg:mt-20"
+            className="lg:col-span-5 lg:col-start-8 lg:mt-20 flex flex-col"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             duration={0.8}
@@ -133,12 +128,14 @@ export default function StoryGallery({
             once={false}
             margin="-80px"
           >
-            <div className="relative overflow-hidden mb-6" style={{ height: 'clamp(340px, 34vw, 460px)', borderRadius: '2px' }}>
+            <div className="order-1">
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[1].vignette.eyebrow}</p>
+              <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[1].vignette.headline}</h4>
+              <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontStyle: 'italic', fontSize: '16px', lineHeight: 1.7, color: '#6D6753', opacity: 0.75, marginBottom: '24px' }}>{secondary[1].vignette.blurb}</p>
+            </div>
+            <div className="relative overflow-hidden order-2" style={{ height: 'clamp(340px, 34vw, 460px)', borderRadius: '2px' }}>
               <CoverImage src={secondary[1].img} alt={secondary[1].vignette.headline} />
             </div>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>{secondary[1].vignette.eyebrow}</p>
-            <h4 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 2.3vw, 40px)', fontWeight: 300, color: '#6D6753', lineHeight: 1.05, marginBottom: '10px' }}>{secondary[1].vignette.headline}</h4>
-            <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontStyle: 'italic', fontSize: '16px', lineHeight: 1.7, color: '#6D6753', opacity: 0.75 }}>{secondary[1].vignette.blurb}</p>
           </RevealOnView>
         </div>
       )}

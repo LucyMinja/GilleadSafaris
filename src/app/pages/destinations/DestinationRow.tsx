@@ -12,27 +12,13 @@ import WordReveal from '@/app/components/WordReveal';
 import CoverImage from '@/app/components/CoverImage';
 import type { Destination } from './data';
 
-// Not the site's usual [0.22, 1, 0.36, 1] — that curve pins both control
-// points' y-value at 1, so it shoots to ~90% within the first ~20% of the
-// duration and just imperceptibly creeps the rest. Fine for a short reveal,
-// but on this page (rows keep re-triggering as you scroll past them either
-// direction) it read as "no animation" on a normal-speed scroll down — the
-// visible motion was already over before the row was really in view. This
-// curve spreads progress evenly across the full duration instead.
 const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 
 export default function DestinationRow({ dest, index }: { dest: Destination; index: number }) {
-  // First row (right after the hero) leads with words, then the image —
-  // every row after that alternates normally.
   const isReverse = index % 2 === 0;
   const [hovered, setHovered] = useState(false);
   const storyHref = dest.slug ? `/destinations/${dest.slug}` : null;
 
-  // Subtle parallax — the image drifts a few px slower than the text as the
-  // row scrolls through, so the pairing reads as one physically connected
-  // thing rather than two flat blocks sitting side by side. Same small
-  // offset at every breakpoint; on mobile the image is full-width but the
-  // drift itself doesn't depend on layout, so it stays correct there too.
   const imgWrapRef = useRef(null);
   const { scrollYProgress } = useScroll({ target: imgWrapRef, offset: ['start end', 'end start'] });
   const imgY = useTransform(scrollYProgress, [0, 1], ['-18px', '18px']);
@@ -48,15 +34,9 @@ export default function DestinationRow({ dest, index }: { dest: Destination; ind
       margin="0px"
       className="w-full max-w-[1400px] mx-auto px-6 lg:px-16 py-14 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-10 lg:items-center"
     >
-      {/* display:contents keeps these two columns as direct grid children
-          (so col-span/order still work) while sharing one hover state —
-          hovering the image OR the words brings the whole row alive
-          together, not just whichever piece you're touching. */}
       <div className="contents" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
-        {/* Image column — alternates sides. Same 7/5 column split and gap as
-            the homepage About section, so the text-to-image spacing reads
-            identically across both pages. */}
-        <div className={`relative lg:col-span-7 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
+        {/* Image column — order-2 on mobile */}
+        <div className={`relative lg:col-span-7 order-2 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
           <div ref={imgWrapRef} className="relative" style={{ width: '88%', margin: isReverse ? '0 0 0 auto' : '0' }}>
             <motion.div style={{ y: imgY }}>
               <ClickableWrap href={storyHref} className="relative block overflow-hidden" style={{ height: 'clamp(320px, 34vw, 460px)', borderRadius: '4px' }}>
@@ -78,9 +58,8 @@ export default function DestinationRow({ dest, index }: { dest: Destination; ind
           </div>
         </div>
 
-        {/* Text column — fills its grid column naturally, same as About, rather
-            than being capped to an artificial max-width. */}
-        <div className={`lg:col-span-5 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`} style={{ marginTop: 'clamp(24px, 3vw, 0px)' }}>
+        {/* Text column — order-1 on mobile */}
+        <div className={`lg:col-span-5 order-1 ${isReverse ? 'lg:order-1' : 'lg:order-2'}`} style={{ marginTop: 'clamp(24px, 3vw, 0px)' }}>
           <div className="flex items-center justify-between gap-4 mb-4">
             <div className="flex items-center gap-1.5" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#8D694B' }}>
               <MapPin size={11} strokeWidth={1.5} /> {dest.region}
@@ -131,9 +110,6 @@ export default function DestinationRow({ dest, index }: { dest: Destination; ind
   );
 }
 
-// Wraps children in a Link when href is set, otherwise renders a plain div —
-// destinations without a slug yet (no detail page to send people to) stay
-// non-clickable instead of linking somewhere broken.
 function ClickableWrap({
   href,
   children,
