@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
-import { menuLinks } from './data';
+import { menuLinks, type NavLink } from './data';
 
 export default function MenuOverlay({
   open,
@@ -10,7 +10,7 @@ export default function MenuOverlay({
   onClose,
 }: {
   open: boolean;
-  pathname: string;
+  pathname: string | null;
   onClose: () => void;
 }) {
   const [expandedLinks, setExpandedLinks] = useState<Record<string, boolean>>({});
@@ -60,10 +60,11 @@ export default function MenuOverlay({
             </div>
 
             <nav className="flex-1 overflow-y-auto px-10 py-6">
-              {menuLinks.map((link, i) => {
-                const hasSubs = link.subLinks && link.subLinks.length > 0;
+              {menuLinks.map((link: NavLink, i) => {
+                const hasSubs = !!(link.subLinks && link.subLinks.length > 0);
                 const isExpanded = !!expandedLinks[link.label];
-                const isActive = pathname === link.href || (link.subLinks && link.subLinks.some(sub => pathname === sub.href));
+                // Fix: Ensure strict boolean result
+                const isActive: boolean = !!(pathname && (pathname === link.href || (link.subLinks && link.subLinks.some(sub => pathname === sub.href))));
 
                 return (
                   <motion.div
@@ -107,7 +108,6 @@ export default function MenuOverlay({
                       )}
                     </div>
 
-                    {/* Sub-links section for mobile/overlay */}
                     {hasSubs && isExpanded && (
                       <motion.div
                         initial={{ opacity: 0, height: 0 }}

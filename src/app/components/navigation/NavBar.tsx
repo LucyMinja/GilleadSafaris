@@ -14,7 +14,7 @@ export default function NavBar({
   onMenuOpen,
 }: {
   hasBg: boolean;
-  pathname: string;
+  pathname: string | null;
   onMenuOpen: () => void;
 }) {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -57,11 +57,8 @@ export default function NavBar({
 
         <nav className="hidden xl:flex items-center gap-6 h-full" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link: NavLink) => {
-            // Strict boolean coercion for TypeScript production build
-            const isActive: boolean = Boolean(
-              pathname === link.href ||
-              (link.subLinks && link.subLinks.some(sub => pathname === sub.href))
-            );
+            // Fix: Guaranteed strict boolean result to satisfy Vercel production builds.
+            const isActive: boolean = !!pathname && (pathname === link.href || (link.subLinks?.some(sub => sub.href === pathname) ?? false));
 
             if (link.subLinks && link.subLinks.length > 0) {
               return (
@@ -132,7 +129,7 @@ export default function NavBar({
               cursor: 'pointer',
             }}
             onMouseEnter={e => { e.currentTarget.style.color = accent; }}
-            onMouseLeave={e => { e.currentTarget.style.color = hasBg ? 'rgba(241,234,224,0.7)' : 'rgba(255,255,255,0.80)'; }}
+            onMouseLeave={e => { e.currentTarget.style.color = hasBg ? 'rgba(241,234,224,0.7)' : 'rgba(255,255,255,0.75)'; }}
           >
             <div className="flex flex-col gap-1.5" style={{ width: '18px' }}>
               <span className="block h-px bg-current w-full" />

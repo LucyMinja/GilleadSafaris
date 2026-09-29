@@ -9,10 +9,6 @@ import CookieConsent from '@/app/components/CookieConsent';
 import { SITE_URL, SITE_NAME } from '@/lib/site';
 import '@/styles/index.css';
 
-// Set at build time (static export — no server to read this at request
-// time). Get this from Google Analytics 4 → Admin → Data Streams → your
-// web stream → Measurement ID, and add it to .env.local as
-// NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX before deploying.
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata: Metadata = {
@@ -22,22 +18,8 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Design your dream Tanzania safari with Gillead Safaris. Local expertise for private tours to Serengeti, Ngorongoro, and Zanzibar.',
-  // Site is going live — flip to index/follow
+    'Explore and book unforgettable safari adventures in Tanzania with a visually stunning, fully responsive website.',
   robots: 'index, follow',
-  openGraph: {
-    title: SITE_NAME,
-    description: 'Boutique tailor-made safaris across Tanzania.',
-    url: SITE_URL,
-    siteName: SITE_NAME,
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: SITE_NAME,
-    description: 'Boutique tailor-made safaris across Tanzania.',
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
