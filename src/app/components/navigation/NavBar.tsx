@@ -57,8 +57,8 @@ export default function NavBar({
 
         <nav className="hidden xl:flex items-center gap-6 h-full" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link: NavLink) => {
-            // Fix: Guaranteed strict boolean result to satisfy Vercel production builds.
-            const isActive: boolean = !!pathname && (pathname === link.href || (link.subLinks?.some(sub => sub.href === pathname) ?? false));
+            // Fix: Guaranteed strict boolean result to satisfy Vercel production build check.
+            const isActive: boolean = Boolean(pathname && (pathname === link.href || (link.subLinks?.some(sub => sub.href === pathname) ?? false)));
 
             if (link.subLinks && link.subLinks.length > 0) {
               return (
