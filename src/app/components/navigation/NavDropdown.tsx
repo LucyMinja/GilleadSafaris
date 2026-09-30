@@ -9,7 +9,7 @@ import { NavLink } from './data';
 
 interface NavDropdownProps {
   link: NavLink;
-  isActive: boolean;
+  isActive?: boolean;
   accent: string;
   linkColor: string;
   isOpen: boolean;
@@ -21,7 +21,7 @@ interface NavDropdownProps {
 
 export default function NavDropdown({
   link,
-  isActive,
+  isActive = false,
   accent,
   linkColor,
   isOpen,
@@ -47,7 +47,6 @@ export default function NavDropdown({
     return pathname === href;
   };
 
-  // The container reveals beautifully and triggers a high-end deliberate cascading reveal for items below the first one
   const containerVariants = {
     closed: {
       opacity: 0,
@@ -68,8 +67,8 @@ export default function NavDropdown({
       transition: {
         duration: 0.35,
         ease: [0.16, 1, 0.3, 1],
-        staggerChildren: 0.09, // Graceful slow stagger for subsequent rows
-        delayChildren: 0.01   // Triggers immediately so the panel does not look empty
+        staggerChildren: 0.09,
+        delayChildren: 0.01
       }
     }
   };
@@ -104,7 +103,6 @@ export default function NavDropdown({
         </span>
       </button>
 
-      {/* Dropdown Menu Panel */}
       <motion.div
         variants={containerVariants}
         initial="closed"
@@ -122,24 +120,9 @@ export default function NavDropdown({
           <div className="py-4 px-2 flex flex-col gap-0.5">
             {link.subLinks?.map((sub, index) => {
               const activeSub = isSubLinkActive(sub.href);
-
-              // Unique animation variant for each row item:
-              // The first item (index 0) is visible immediately with the container,
-              // while all following items drift upwards slowly from underneath it.
               const itemVariants = {
-                closed: {
-                  opacity: 0,
-                  y: index === 0 ? 0 : 12,
-                  transition: { duration: 0.15 }
-                },
-                open: {
-                  opacity: 1,
-                  y: 0,
-                  transition: {
-                    duration: index === 0 ? 0.15 : 0.55, // First item is instant; subsequent items glide slowly
-                    ease: [0.16, 1, 0.3, 1]
-                  }
-                }
+                closed: { opacity: 0, y: index === 0 ? 0 : 12 },
+                open: { opacity: 1, y: 0 }
               };
 
               return (
@@ -148,9 +131,7 @@ export default function NavDropdown({
                     href={sub.href}
                     onClick={onClose}
                     className={`relative block px-4 py-3 rounded-xl transition-all duration-300 group/item overflow-hidden ${
-                      hasBg
-                        ? 'hover:bg-white/[0.06] text-[#F1EAE0]'
-                        : 'hover:bg-black/[0.04] text-[#6D6753]'
+                      hasBg ? 'hover:bg-white/[0.06] text-[#F1EAE0]' : 'hover:bg-black/[0.04] text-[#6D6753]'
                     }`}
                     style={{
                       textDecoration: 'none',
@@ -159,35 +140,12 @@ export default function NavDropdown({
                   >
                     <div
                       className="text-[14px] font-semibold mb-0.5 tracking-wide transition-colors flex items-center"
-                      style={{
-                        fontFamily: "'Plus Jakarta Sans', sans-serif",
-                        color: activeSub ? accent : 'inherit'
-                      }}
+                      style={{ color: activeSub ? accent : 'inherit' }}
                     >
-                      <span
-                        className={`transition-colors duration-200 ${
-                          activeSub
-                            ? ''
-                            : (hasBg ? 'group-hover/item:text-white' : 'group-hover/item:text-black')
-                        }`}
-                      >
-                        {sub.label}
-                      </span>
+                      {sub.label}
                     </div>
-
                     {sub.description && (
-                      <div
-                        className={`text-[11.5px] leading-relaxed transition-all duration-300 ${
-                          activeSub
-                            ? 'opacity-90 font-medium'
-                            : (hasBg ? 'text-[#F1EAE0]/50 group-hover/item:text-white/80' : 'text-[#6D6753]/50 group-hover/item:text-black/75')
-                        }`}
-                        style={{
-                          fontFamily: "'Plus Jakarta Sans', sans-serif",
-                        }}
-                      >
-                        {sub.description}
-                      </div>
+                      <div className="text-[11.5px] opacity-70">{sub.description}</div>
                     )}
                   </Link>
                 </motion.div>
