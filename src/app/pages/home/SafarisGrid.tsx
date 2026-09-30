@@ -4,6 +4,8 @@ import { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'motion/react';
 import SafariButton from '@/app/components/SafariButton';
+import WordLink from '@/app/components/WordLink';
+import { toursIn } from '@/app/pages/safaritours/data';
 import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
 import PinHeader from './PinHeader';
@@ -76,7 +78,15 @@ export default function SafarisGrid() {
         ))}
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex justify-center mt-12">
+      {/* Only six trips fit here — point to the full lists, one per section,
+          with live counts so they never go stale as trips are added. */}
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex flex-wrap justify-center gap-x-10 gap-y-4 mt-14">
+        <WordLink href="/safaris">All {toursIn('safaris').length} safaris</WordLink>
+        <WordLink href="/trekking">{toursIn('trekking').length} Kilimanjaro &amp; treks</WordLink>
+        <WordLink href="/beach">{toursIn('beach').length} beach holidays</WordLink>
+      </div>
+
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex justify-center mt-10">
         <SafariButton href="/booking">
           Book a Safari
         </SafariButton>

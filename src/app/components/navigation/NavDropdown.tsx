@@ -4,8 +4,9 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
-import { ChevronDown } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { NavLink } from './data';
+import { navLabel, subLabel, chromeLink } from '../chromeType';
 
 interface NavDropdownProps {
   link: NavLink;
@@ -54,16 +55,28 @@ export default function NavDropdown({
       y: 6,
       scale: 0.99,
       pointerEvents: 'none' as const,
-      transition: { duration: 0.2, ease: [0.32, 0, 0.67, 0] as [number, number, number, number], when: "afterChildren" }
+      // Instant close: when you slide from one menu to the next, the old
+      // panel must vanish at once rather than fade out (and wait for its
+      // items to fade first via afterChildren) underneath the new one.
+      transition: { duration: 0 }
     },
     open: {
       opacity: 1,
       y: 0,
       scale: 1,
       pointerEvents: 'auto' as const,
-      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] as [number, number, number, number], staggerChildren: 0.09, delayChildren: 0.01 }
+      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] as [number, number, number, number], staggerChildren: 0.025, delayChildren: 0.01 }
     }
   };
+
+  // Minimal panel: names only, one column. Descriptions stay in the data
+  // (handy elsewhere) but made the menu read as a wall of text. The
+  // "View all" link (the one without a description) is split off below a
+  // hairline so it reads as the exit, not another item.
+  const items = link.subLinks?.filter((sub) => sub.description) ?? [];
+  const viewAll = link.subLinks?.find((sub) => !sub.description);
+  const hairline = 'rgba(255,255,255,0.12)';
+  const panelAccent = '#C9A97E'; // the panel is always dark, so always the light tan accent
 
   return (
     <div className="relative flex items-center h-full" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -71,10 +84,7 @@ export default function NavDropdown({
         type="button"
         className="relative flex items-center group bg-transparent border-none cursor-pointer outline-none h-full"
         style={{
-          fontFamily: "'Plus Jakarta Sans', sans-serif",
-          fontSize: '12px',
-          letterSpacing: '0.1em',
-          textTransform: 'uppercase',
+          ...navLabel,
           fontWeight: isActive || isOpen ? 700 : 500,
           color: isActive || isOpen ? accent : linkColor,
           transition: 'color 0.2s ease',
@@ -82,7 +92,12 @@ export default function NavDropdown({
         }}
       >
         <span className="relative flex items-center gap-1">
-          <span>{link.label}</span>
+          <span className="relative">
+            {link.label}
+            {isActive && (
+              <span className="absolute -bottom-1.5 left-0 right-0" style={{ height: '2px', backgroundColor: accent }} />
+            )}
+          </span>
           <ChevronDown
             size={12}
             className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
@@ -96,50 +111,48 @@ export default function NavDropdown({
         initial="closed"
         animate={isOpen ? "open" : "closed"}
         className="absolute top-full left-1/2 -translate-x-1/2 pt-2 origin-top"
-        style={{ minWidth: '320px' }}
+        style={{ minWidth: '260px' }}
       >
         <div
-          className="rounded-2xl shadow-[0_30px_60px_rgba(0,0,0,0.18)] overflow-hidden border backdrop-blur-xl"
+          className="rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.14)] overflow-hidden border"
           style={{
-            backgroundColor: hasBg ? 'rgba(78, 73, 58, 0.98)' : 'rgba(248, 244, 238, 0.98)',
-            borderColor: hasBg ? 'rgba(241, 234, 224, 0.1)' : 'rgba(109, 103, 83, 0.1)',
+            backgroundColor: 'var(--chrome)',
+            borderColor: hairline,
           }}
         >
-          <div className="py-4 px-2 flex flex-col gap-0.5">
-            {link.subLinks?.map((sub, index) => {
+          <ul className="py-3 m-0 list-none">
+            {items.map((sub) => {
               const activeSub = isSubLinkActive(sub.href);
-              const itemVariants = {
-                closed: { opacity: 0, y: index === 0 ? 0 : 12 },
-                open: { opacity: 1, y: 0 }
-              };
-
               return (
-                <motion.div key={sub.href} variants={itemVariants}>
+                <motion.li key={sub.href} variants={{ closed: { opacity: 0, y: 4, transition: { duration: 0 } }, open: { opacity: 1, y: 0 } }}>
                   <Link
                     href={sub.href}
                     onClick={onClose}
-                    className={`relative block px-4 py-3 rounded-xl transition-all duration-300 group/item overflow-hidden ${
-                      hasBg ? 'hover:bg-white/[0.06] text-[#F1EAE0]' : 'hover:bg-black/[0.04] text-[#6D6753]'
-                    }`}
+                    className={`block px-6 py-2 whitespace-nowrap transition-colors duration-200 text-white hover:text-[#C9A97E]`}
                     style={{
+                      ...chromeLink,
                       textDecoration: 'none',
-                      backgroundColor: activeSub ? (hasBg ? 'rgba(241,234,224,0.08)' : 'rgba(109,103,83,0.06)') : 'transparent'
+                      fontWeight: activeSub ? 600 : 400,
+                      color: activeSub ? panelAccent : undefined,
                     }}
                   >
-                    <div
-                      className="text-[14px] font-semibold mb-0.5 tracking-wide transition-colors flex items-center"
-                      style={{ color: activeSub ? accent : 'inherit' }}
-                    >
-                      {sub.label}
-                    </div>
-                    {sub.description && (
-                      <div className="text-[11.5px] opacity-70">{sub.description}</div>
-                    )}
+                    {sub.label}
                   </Link>
-                </motion.div>
+                </motion.li>
               );
             })}
-          </div>
+          </ul>
+          {viewAll && (
+            <Link
+              href={viewAll.href}
+              onClick={onClose}
+              className="flex items-center justify-between gap-6 px-6 py-3.5 whitespace-nowrap transition-opacity duration-200 hover:opacity-70"
+              style={{ borderTop: `1px solid ${hairline}`, textDecoration: 'none', ...subLabel, color: panelAccent }}
+            >
+              {viewAll.label}
+              <ArrowRight size={13} strokeWidth={1.5} />
+            </Link>
+          )}
         </div>
       </motion.div>
     </div>

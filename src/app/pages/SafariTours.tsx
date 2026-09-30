@@ -3,13 +3,14 @@
 import { useEffect } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import PageHero from '@/app/components/PageHero';
-import { tours } from './safaritours/data';
+import { tours as allTours, toursIn, tourHref } from './safaritours/data';
 import TourCard from './safaritours/TourCard';
 import WhatsIncluded from './safaritours/WhatsIncluded';
 
 export default function SafariTours() {
   const searchParams = useSearchParams();
   const router = useRouter();
+  const tours = toursIn('safaris');
 
   // Old links (footer, destination "related tours") used `?open=<id>` to
   // deep-link into an inline expand that no longer exists — redirect those
@@ -17,8 +18,8 @@ export default function SafariTours() {
   useEffect(() => {
     const openId = searchParams.get('open');
     if (openId) {
-      const match = tours.find((t) => t.id === Number(openId));
-      if (match) router.replace(`/safaris/${match.slug}`);
+      const match = allTours.find((t) => t.id === Number(openId));
+      if (match) router.replace(tourHref(match));
     }
   }, [searchParams, router]);
 
@@ -26,7 +27,7 @@ export default function SafariTours() {
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <PageHero
         title="Safari Tours"
-        subtitle="Ten handcrafted itineraries across Tanzania's parks, beaches and cultures - every safari is tailor-made and quoted to suit your budget."
+        subtitle="Handcrafted itineraries across Tanzania's parks and cultures - every safari is tailor-made and quoted to suit your budget."
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">

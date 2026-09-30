@@ -10,7 +10,7 @@ import MaskReveal from '@/app/pages/home/MaskReveal';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordReveal from '@/app/components/WordReveal';
 import CoverImage from '@/app/components/CoverImage';
-import type { Tour } from './data';
+import { tourHref, type Tour } from './data';
 
 // Same gentler, evenly-paced curve as DestinationRow — the site's usual
 // [0.22, 1, 0.36, 1] shoots to ~90% almost instantly then imperceptibly
@@ -20,7 +20,7 @@ const EASE: [number, number, number, number] = [0.25, 0.1, 0.25, 1];
 export default function TourCard({ tour, index }: { tour: Tour; index: number }) {
   const isReverse = index % 2 === 1;
   const [hovered, setHovered] = useState(false);
-  const href = `/safaris/${tour.slug}`;
+  const href = tourHref(tour);
 
   return (
     <RevealOnView

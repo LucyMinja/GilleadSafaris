@@ -316,7 +316,7 @@ export const destinationData = [
   },
   {
     slug: 'selous',
-    name: 'Selous Game Reserve',
+    name: 'Nyerere National Park (Selous)',
     region: 'Southern Tanzania',
     heroImg: '/images/956A2192.webp',
     tagline: 'A wilderness the size of Switzerland, explored by boat, on foot, and almost never by crowd.',

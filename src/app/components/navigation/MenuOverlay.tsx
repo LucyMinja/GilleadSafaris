@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
+import { X, ChevronDown, ChevronUp } from 'lucide-react';
 import { menuLinks, type NavLink } from './data';
+import { subLabel, chromeLink, chromeSmall } from '../chromeType';
 
 export default function MenuOverlay({
   open,
@@ -17,6 +18,14 @@ export default function MenuOverlay({
 
   const toggleExpand = (label: string) => {
     setExpandedLinks(prev => ({ ...prev, [label]: !prev[label] }));
+  };
+
+  // Mouse users get the sub-list on hover; touch devices (no hover) keep
+  // tap-the-chevron, since a hover there would fire on the same tap as the link.
+  const setExpandOnHover = (label: string, open: boolean) => {
+    if (typeof window !== 'undefined' && window.matchMedia('(hover: hover)').matches) {
+      setExpandedLinks(prev => ({ ...prev, [label]: open }));
+    }
   };
 
   return (
@@ -37,23 +46,23 @@ export default function MenuOverlay({
             exit={{ x: '100%' }}
             transition={{ duration: 0.55, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="fixed right-0 top-0 bottom-0 z-[70] w-full max-w-lg flex flex-col"
-            style={{ backgroundColor: '#6D6753', borderLeft: '1px solid rgba(241,234,224,0.15)' }}
+            style={{ backgroundColor: 'var(--chrome)', borderLeft: '1px solid rgba(241,234,224,0.15)' }}
           >
             <div className="flex items-center justify-between px-10 py-8" style={{ borderBottom: '1px solid rgba(241,234,224,0.15)' }}>
               <Link
                 href="/"
-                style={{ fontFamily: "'Newsreader', serif", fontSize: '15px', color: 'rgba(241,234,224,0.75)', transition: 'color 0.2s ease' }}
+                style={{ fontFamily: "'Newsreader', serif", fontSize: '16px', color: '#FFFFFF', transition: 'color 0.2s ease' }}
                 onMouseEnter={e => { e.currentTarget.style.color = '#C9A97E'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(241,234,224,0.75)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; }}
                 onClick={onClose}
               >
                 Gillead Safaris
               </Link>
               <button
                 onClick={onClose}
-                style={{ color: 'rgba(241,234,224,0.6)', transition: 'color 0.2s ease' }}
+                style={{ color: '#FFFFFF', transition: 'color 0.2s ease' }}
                 onMouseEnter={e => { e.currentTarget.style.color = '#C9A97E'; }}
-                onMouseLeave={e => { e.currentTarget.style.color = 'rgba(241,234,224,0.6)'; }}
+                onMouseLeave={e => { e.currentTarget.style.color = '#FFFFFF'; }}
               >
                 <X size={20} strokeWidth={1.5} />
               </button>
@@ -72,7 +81,13 @@ export default function MenuOverlay({
                     initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: i * 0.04, duration: 0.4 }}
-                    className="py-4"
+                    // On xl+ screens the navbar already shows these links, so the
+                    // side menu only lists what the bar doesn't (Accommodation,
+                    // Essentials, Sustainability). Below xl the bar collapses and
+                    // the menu is the only nav, so everything shows.
+                    className={`py-4 ${link.desktopNav ? 'xl:hidden' : ''}`}
+                    onMouseEnter={hasSubs ? () => setExpandOnHover(link.label, true) : undefined}
+                    onMouseLeave={hasSubs ? () => setExpandOnHover(link.label, false) : undefined}
                     style={{ borderBottom: '1px solid rgba(241,234,224,0.12)' }}
                   >
                     <div className="flex items-center justify-between w-full">
@@ -86,12 +101,12 @@ export default function MenuOverlay({
                             fontFamily: "'Newsreader', serif",
                             fontSize: 'clamp(20px, 3.5vw, 26px)',
                             fontWeight: 600,
-                            color: isActive ? '#C9A97E' : 'rgba(241,234,224,0.85)',
+                            color: isActive ? '#C9A97E' : '#FFFFFF',
                             letterSpacing: '-0.01em',
                             transition: 'color 0.2s ease',
                           }}
                           onMouseEnter={e => (e.currentTarget.style.color = '#C9A97E')}
-                          onMouseLeave={e => (e.currentTarget.style.color = isActive ? '#C9A97E' : 'rgba(241,234,224,0.85)')}
+                          onMouseLeave={e => (e.currentTarget.style.color = isActive ? '#C9A97E' : '#FFFFFF')}
                         >
                           {link.label}
                         </span>
@@ -101,7 +116,7 @@ export default function MenuOverlay({
                         <button
                           onClick={() => toggleExpand(link.label)}
                           className="p-2 ml-2 transition-colors duration-200"
-                          style={{ color: isExpanded ? '#C9A97E' : 'rgba(241,234,224,0.5)' }}
+                          style={{ color: isExpanded ? '#C9A97E' : '#FFFFFF' }}
                         >
                           {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                         </button>
@@ -121,14 +136,14 @@ export default function MenuOverlay({
                               key={sub.href}
                               href={sub.href}
                               onClick={onClose}
-                              className="text-[14px] py-1 transition-colors duration-200"
+                              className="py-1 transition-colors duration-200"
                               style={{
-                                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                                color: isSubActive ? '#C9A97E' : 'rgba(241,234,224,0.65)',
+                                ...chromeLink,
+                                color: isSubActive ? '#C9A97E' : '#FFFFFF',
                                 fontWeight: isSubActive ? 600 : 400
                               }}
                               onMouseEnter={e => (e.currentTarget.style.color = '#C9A97E')}
-                              onMouseLeave={e => (e.currentTarget.style.color = isSubActive ? '#C9A97E' : 'rgba(241,234,224,0.65)')}
+                              onMouseLeave={e => (e.currentTarget.style.color = isSubActive ? '#C9A97E' : '#FFFFFF')}
                             >
                               {sub.label}
                             </Link>
@@ -145,13 +160,13 @@ export default function MenuOverlay({
               <Link
                 href="/booking"
                 className="inline-flex items-center gap-2"
-                style={{ fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#C9A97E', fontWeight: 500 }}
+                style={{ ...subLabel, fontWeight: 700, color: '#E9A36B' }}
                 onClick={onClose}
               >
-                Plan your safari <ArrowUpRight size={11} strokeWidth={1.5} />
+                Plan your safari
               </Link>
-              <p style={{ fontSize: '11px', color: 'rgba(241,234,224,0.45)', marginTop: '12px', letterSpacing: '0.04em' }}>
-                info@gillieadsafaris.com · +255 753 959 375
+              <p style={{ ...chromeSmall, color: '#FFFFFF', marginTop: '12px' }}>
+                info@gilleadsafaris.com · +255 753 959 375
               </p>
             </div>
           </motion.div>

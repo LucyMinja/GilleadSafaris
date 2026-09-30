@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { Clock, ArrowUpRight } from 'lucide-react';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import CoverImage from '@/app/components/CoverImage';
-import type { Tour } from '../safaritours/data';
+import { tourCategory, tourHref, type Tour } from '../safaritours/data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -18,7 +18,7 @@ function sharesPark(a: string[], b: string[]) {
 
 export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] }) {
   const related = all
-    .filter((t) => t.id !== tour.id && sharesPark(t.parks, tour.parks))
+    .filter((t) => t.id !== tour.id && tourCategory(t) === tourCategory(tour) && sharesPark(t.parks, tour.parks))
     .slice(0, 3);
 
   if (related.length === 0) return null;
@@ -27,7 +27,7 @@ export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] })
     <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-6 lg:pt-8 pb-20 lg:pb-28 text-center">
       <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '10px' }}>Similar Trips</p>
       <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 2.6vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '32px' }}>
-        Other safaris that visit the same parks
+        {tourCategory(tour) === 'trekking' ? 'Other climbs on the same mountain' : tourCategory(tour) === 'beach' ? 'Other trips to the same shores' : 'Other safaris that visit the same parks'}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
         {related.map((t, i) => (
@@ -41,7 +41,7 @@ export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] })
             once={false}
             margin="-40px"
           >
-            <Link href={`/safaris/${t.slug}`} className="group block">
+            <Link href={tourHref(t)} className="group block">
               <div className="relative overflow-hidden mb-4" style={{ height: '220px', borderRadius: '4px' }}>
                 <CoverImage src={t.img} alt={t.name} className="transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)' }} />

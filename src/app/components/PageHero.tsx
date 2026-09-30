@@ -29,7 +29,7 @@ export default function PageHero({
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-end justify-center overflow-hidden pb-[24vh]">
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
         <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ backgroundColor: '#8D694B' }}>
           <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4" />
@@ -50,8 +50,9 @@ export default function PageHero({
               color: '#ffffff',
               marginBottom: '20px',
               letterSpacing: '0',
-              fontSize: 'clamp(40px, 5.2vw, 70px)',
+              fontSize: 'clamp(38px, 4.8vw, 64px)',
               textShadow: '0 2px 16px rgba(0,0,0,0.4)',
+              textWrap: 'balance',
             }}
           >
             {title}

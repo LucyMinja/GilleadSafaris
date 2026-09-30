@@ -91,7 +91,7 @@ export default function SuccessScreen({
 
         <p className="text-center" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.6, lineHeight: 1.7 }}>
           Need to change something?{' '}
-          <a href="mailto:info@gillieadsafaris.com" style={{ color: '#8D694B', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+          <a href="mailto:info@gilleadsafaris.com" style={{ color: '#8D694B', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
             Email us directly
           </a>{' '}
           or call{' '}

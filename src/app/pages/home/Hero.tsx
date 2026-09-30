@@ -27,9 +27,9 @@ export default function Hero() {
       {/* Reverted to your original Soft Beige bridge */}
       <div className="absolute inset-x-0 bottom-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(241,234,224,0.35) 80%, #F1EAE0 100%)' }} />
 
-      <motion.div className="absolute inset-0 flex flex-col items-center justify-center text-center px-6" style={{ y: textY, opacity: heroOpacity }}>
+      <motion.div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-[24vh]" style={{ y: textY, opacity: heroOpacity }}>
         <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, delay: 0.4 }}>
-          <h1 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(40px, 5.2vw, 70px)', fontWeight: 400, lineHeight: 1.15, letterSpacing: '0', color: '#ffffff', textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}>
+          <h1 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(38px, 4.8vw, 64px)', fontWeight: 400, lineHeight: 1.15, letterSpacing: '0', color: '#ffffff', textShadow: '0 2px 16px rgba(0,0,0,0.4)', textWrap: 'balance' }}>
             Some journeys bring you<br />back to life.
           </h1>
         </motion.div>

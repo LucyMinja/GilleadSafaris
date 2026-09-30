@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import PageHero from '@/app/components/PageHero';
 import SafariButton from '@/app/components/SafariButton';
 import RevealOnView from '@/app/pages/home/RevealOnView';
-import { tours } from '@/app/pages/safaritours/data';
+import { tours, tourCategory } from '@/app/pages/safaritours/data';
 import WhatsIncluded from '@/app/pages/safaritours/WhatsIncluded';
 import ItineraryFull from '@/app/pages/tourdetail/ItineraryFull';
 import TourFacts from '@/app/pages/tourdetail/TourFacts';
@@ -18,6 +18,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 export default function TourDetail({ slug }: { slug: string }) {
   const tour = tours.find((t) => t.slug === slug);
   if (!tour) notFound();
+  const category = tourCategory(tour);
+  const backLabel = { safaris: 'Back to All Safaris', trekking: 'Back to All Treks', beach: 'Back to Beach Holidays' }[category];
 
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
@@ -63,7 +65,7 @@ export default function TourDetail({ slug }: { slug: string }) {
         </RevealOnView>
       </div>
 
-      <WhatsIncluded />
+      <WhatsIncluded category={category} />
 
       <RelatedTours tour={tour} all={tours} />
 
@@ -75,8 +77,8 @@ export default function TourDetail({ slug }: { slug: string }) {
           Tell us your dates and group size, and our Arusha-based team will tailor this itinerary around you.
         </p>
         <div className="grid grid-cols-2 gap-3 sm:flex sm:flex-wrap sm:items-center sm:justify-center sm:gap-4">
-          <SafariButton href={`/booking?tour=${tour.slug}`} className="w-full sm:w-auto">Plan Your Safari</SafariButton>
-          <SafariButton href="/safaris" variant="secondary" className="w-full sm:w-auto">Back to All Safaris</SafariButton>
+          <SafariButton href={`/booking?tour=${tour.slug}`} className="w-full sm:w-auto">{category === 'safaris' ? 'Plan Your Safari' : 'Plan This Trip'}</SafariButton>
+          <SafariButton href={`/${category}`} variant="secondary" className="w-full sm:w-auto">{backLabel}</SafariButton>
         </div>
       </div>
     </div>

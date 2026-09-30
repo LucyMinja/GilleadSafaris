@@ -8,6 +8,9 @@
   --text-2xl: 1.5rem;
   --background: #F1EAE0;
   --foreground: #6D6753;
+  /* Deep Olive — shared background for the site chrome: navbar, dropdowns,
+     side menu, footer. Dark Olive (#6D6753) stays the text colour on beige. */
+  --chrome: #4E493A;
   --card: #FFFFFF;
   --card-foreground: #6D6753;
   --popover: #FFFFFF;

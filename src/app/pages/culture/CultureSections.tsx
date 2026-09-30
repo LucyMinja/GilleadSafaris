@@ -12,7 +12,7 @@ export default function CultureSections() {
         const isReverse = section.reverse;
         const [firstPara, ...restParas] = section.desc.split('\n\n');
         return (
-          <div key={section.id} className="max-w-[1400px] mx-auto px-6 lg:px-16 py-10 lg:py-14">
+          <div key={section.id} id={`culture-${section.id}`} className="max-w-[1400px] mx-auto px-6 lg:px-16 py-10 lg:py-14 scroll-mt-24">
             {/* Headline — Title first */}
             <RevealOnView
               initial={{ opacity: 0, y: 14 }}

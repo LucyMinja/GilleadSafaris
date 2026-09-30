@@ -11,7 +11,7 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 const contacts = [
   { label: 'Phone', value: '+255 753 959 375', href: 'tel:+255753959375' },
-  { label: 'Email', value: 'info@gillieadsafaris.com', href: 'mailto:info@gillieadsafaris.com' },
+  { label: 'Email', value: 'info@gilleadsafaris.com', href: 'mailto:info@gilleadsafaris.com' },
   { label: 'Location', value: 'Arusha, Tanzania', href: '/contact' },
 ];
 

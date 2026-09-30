@@ -71,6 +71,12 @@ was reading as generic filler rather than real credibility.)
 
 - Palette: Soft Beige `#F1EAE0` (background), Dark Olive `#6D6753` (text),
   Safari Brown `#8D694B` (accent/CTA). Defined in `src/styles/theme.css`.
+  Site chrome (navbar, dropdowns, side menu, footer) uses the darker Deep
+  Olive `--chrome: #4E493A` with white text; the active nav item is tan
+  `#C9A97E` and the "Plan your safari" link is sunset orange `#E9A36B`.
+  Chrome text sizes come from `src/app/components/chromeType.ts` (`navLabel`,
+  `subLabel`, `chromeLink`, `chromeSmall`) — spread those instead of hand-setting
+  font sizes in nav/menu/footer code.
 - Fonts: Newsreader (headings/titles ONLY, variable weights 600/700/800 —
   no light weights imported on purpose, don't set anything under 600 on it)
   + Plus Jakarta Sans (body/paragraphs, 400/500/600/700). Loaded via a

@@ -35,7 +35,7 @@ export const toursMore = [
     img: '/images/leopard.webp',
     highlight: 'Southern Circuit',
     desc: 'Discover the Rufiji River by boat, encounter hippos and crocodiles in the Selous Game Reserve, then spot giraffe, buffalo, elephant, lion and leopard on game drives in Mikumi National Park. Departs from and returns to Dar es Salaam.',
-    parks: ['Selous Game Reserve', 'Mikumi National Park'],
+    parks: ['Nyerere National Park (Selous)', 'Mikumi National Park'],
     itinerary: [
       { day: 'Day 1', title: 'Dar es Salaam – Selous Game Reserve', text: 'Pickup from your hotel in Dar es Salaam and drive to the Selous, arriving in time for game viewing and an evening boat safari on the Rufiji River.', meals: 'Dinner', accommodation: 'Overnight at Hippo Camp.' },
       { day: 'Day 2–3', title: 'Selous Game Reserve', text: 'Two full days exploring the Selous by foot safari, vehicle game drive and Rufiji River boat trips - hippos, crocodiles and around 350 bird species.', meals: 'Breakfast, Lunch, Dinner', accommodation: 'Dinner and overnight at Selous Impala Camp / Rufiji River Camp / Sand Rivers Lodge.' },

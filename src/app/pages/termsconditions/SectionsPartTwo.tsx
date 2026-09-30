@@ -41,7 +41,7 @@ export default function SectionsPartTwo() {
         <p>
           If you have a concern during your safari, please raise it immediately with your guide or our office
           so we can attempt to resolve it on the spot. If the issue remains unresolved, please submit a written
-          complaint to <a href="mailto:info@gillieadsafaris.com">info@gillieadsafaris.com</a> within 30 days of
+          complaint to <a href="mailto:info@gilleadsafaris.com">info@gilleadsafaris.com</a> within 30 days of
           the end of your trip, and we will investigate and respond within a reasonable time.
         </p>
       </LegalSection>
@@ -70,7 +70,7 @@ export default function SectionsPartTwo() {
         <ul>
           <li><strong>Gillead Safaris Tanzania Ltd</strong>  Arusha, Tanzania</li>
           <li>Phone: <a href="tel:+255753959375">+255 753 959 375</a></li>
-          <li>Email: <a href="mailto:info@gillieadsafaris.com">info@gillieadsafaris.com</a></li>
+          <li>Email: <a href="mailto:info@gilleadsafaris.com">info@gilleadsafaris.com</a></li>
         </ul>
       </LegalSection>
     </>

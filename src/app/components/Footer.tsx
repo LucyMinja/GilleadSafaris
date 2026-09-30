@@ -8,7 +8,7 @@ import BottomBar from './footer/BottomBar';
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#6D6753', borderTop: '1px solid rgba(241,234,224,0.15)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+    <footer style={{ backgroundColor: 'var(--chrome)', borderTop: '1px solid rgba(241,234,224,0.15)', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-20 pt-14 pb-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           <BrandColumn />

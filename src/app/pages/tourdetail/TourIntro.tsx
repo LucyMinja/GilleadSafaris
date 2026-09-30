@@ -1,7 +1,7 @@
 import WordLink from '@/app/components/WordLink';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import CoverImage from '@/app/components/CoverImage';
-import type { Tour } from '../safaritours/data';
+import { tourCategory, type Tour } from '../safaritours/data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -41,7 +41,7 @@ export default function TourIntro({ tour }: { tour: Tour }) {
         <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '28px' }}>
           {tour.desc}
         </p>
-        <WordLink href={`/booking?tour=${tour.slug}`}>Book This Safari</WordLink>
+        <WordLink href={`/booking?tour=${tour.slug}`}>{tourCategory(tour) === 'trekking' ? 'Book This Climb' : tourCategory(tour) === 'beach' ? 'Book This Trip' : 'Book This Safari'}</WordLink>
       </RevealOnView>
     </div>
   );

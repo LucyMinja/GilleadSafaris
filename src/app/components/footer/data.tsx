@@ -1,18 +1,18 @@
 export const destinations = [
-  { label: 'Serengeti', href: '/destinations#serengeti' },
-  { label: 'Kilimanjaro', href: '/destinations#mount' },
-  { label: 'Zanzibar', href: '/destinations#zanzibar' },
-  { label: 'Ngorongoro', href: '/destinations#ngorongoro' },
-  { label: 'Tarangire', href: '/destinations#tarangire' },
-  { label: 'Arusha', href: '/destinations#arusha' },
+  { label: 'Serengeti', href: '/destinations/serengeti' },
+  { label: 'Ngorongoro', href: '/destinations/ngorongoro' },
+  { label: 'Tarangire', href: '/destinations/tarangire' },
+  { label: 'Lake Manyara', href: '/destinations/manyara' },
+  { label: 'Ruaha', href: '/destinations/ruaha' },
+  { label: 'Arusha', href: '/destinations/arusha' },
 ];
 
 export const tours = [
   { label: '3 Days Classic Serengeti Safari', href: '/safaris/classic-serengeti-3-days' },
-  { label: '4 Days Zanzibar Beach & Stone Town', href: '/safaris/zanzibar-kendwa-stone-town-4-days' },
-  { label: '8 Days Best of Northern Tanzania', href: '/safaris/best-of-northern-tanzania-8-days' },
   { label: '8 Days Wildebeest Migration', href: '/safaris/wildebeest-migration-8-days' },
-  { label: '6 Days Ruaha, Mikumi & Udzungwa', href: '/safaris/ruaha-mikumi-udzungwa-6-days' },
+  { label: '8 Days Best of Northern Tanzania', href: '/safaris/best-of-northern-tanzania-8-days' },
+  { label: '7 Days Kilimanjaro Machame Route', href: '/trekking/kilimanjaro-machame-route-7-days' },
+  { label: '10 Days Safari & Zanzibar', href: '/beach/safari-and-zanzibar-10-days' },
   { label: '8 Days Tanzania Cultural Tour', href: '/safaris/tanzania-cultural-tour-8-days' },
 ];
 
@@ -61,6 +61,8 @@ export const socials = [
 
 export const quickLinks = [
   { label: 'Safari Tours', href: '/safaris' },
+  { label: 'Trekking', href: '/trekking' },
+  { label: 'Beach Holidays', href: '/beach' },
   { label: 'Accommodation', href: '/accommodation' },
   { label: 'Gallery', href: '/gallery' },
   { label: 'Culture & Heritage', href: '/culture' },

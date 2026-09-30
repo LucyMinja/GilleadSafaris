@@ -1,27 +1,24 @@
 'use client';
 
+import { chromeSmall } from '../chromeType';
+
 const linkStyle: React.CSSProperties = {
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
-  fontSize: '12px',
-  fontWeight: 400,
-  color: 'rgba(241,234,224,0.55)',
-  letterSpacing: '0.04em',
+  ...chromeSmall,
+  color: '#FFFFFF',
   textDecoration: 'none',
   transition: 'color 0.2s ease',
 };
 
 const fineprintStyle: React.CSSProperties = {
-  fontFamily: "'Plus Jakarta Sans', sans-serif",
-  fontSize: '12px',
-  color: 'rgba(241,234,224,0.55)',
-  letterSpacing: '0.04em',
+  ...chromeSmall,
+  color: '#FFFFFF',
 };
 
 function onHoverIn(e: React.MouseEvent<HTMLElement>) {
   e.currentTarget.style.color = '#C9A97E';
 }
 function onHoverOut(e: React.MouseEvent<HTMLElement>) {
-  e.currentTarget.style.color = 'rgba(241,234,224,0.55)';
+  e.currentTarget.style.color = '#FFFFFF';
 }
 
 const subject = 'Website Inquiry — Online Services';

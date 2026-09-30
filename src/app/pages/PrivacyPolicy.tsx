@@ -131,7 +131,7 @@ export default function PrivacyPolicy() {
           <ul>
             <li><strong>Gillead Safaris Tanzania Ltd</strong>  Arusha, Tanzania</li>
             <li>Phone: <a href="tel:+255753959375">+255 753 959 375</a></li>
-            <li>Email: <a href="mailto:info@gillieadsafaris.com">info@gillieadsafaris.com</a></li>
+            <li>Email: <a href="mailto:info@gilleadsafaris.com">info@gilleadsafaris.com</a></li>
           </ul>
         </LegalSection>
 
