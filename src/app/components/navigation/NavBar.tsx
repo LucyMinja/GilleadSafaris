@@ -1,5 +1,6 @@
 'use client';
 
+// Build verification fix for Vercel deployment
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
