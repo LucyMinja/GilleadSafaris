@@ -57,15 +57,14 @@ export default function NavBar({
 
         <nav className="hidden xl:flex items-center gap-6 h-full" style={{ gridColumn: 2 }}>
           {desktopLinks.map((link: NavLink) => {
-            // Strict boolean check
-            const isActive: boolean = !!(pathname && (pathname === link.href || (link.subLinks?.some(sub => sub.href === pathname) ?? false)));
+            const isActive = !!(pathname && (pathname === link.href || (link.subLinks?.some(sub => sub.href === pathname) ?? false)));
 
             if (link.subLinks && link.subLinks.length > 0) {
               return (
                 <NavDropdown
                   key={link.href}
                   link={link}
-                  isActive={isActive}
+                  isActive={isActive as any}
                   accent={accent}
                   linkColor={linkColor}
                   isOpen={activeDropdown === link.label}
