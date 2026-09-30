@@ -9,7 +9,7 @@ import { NavLink } from './data';
 
 interface NavDropdownProps {
   link: NavLink;
-  isActive?: any; // Changed to any to bypass strict build worker mismatch
+  isActive: boolean;
   accent: string;
   linkColor: string;
   isOpen: boolean;
@@ -21,7 +21,7 @@ interface NavDropdownProps {
 
 export default function NavDropdown({
   link,
-  isActive = false,
+  isActive,
   accent,
   linkColor,
   isOpen,
@@ -48,24 +48,22 @@ export default function NavDropdown({
     return p === href;
   };
 
-  const containerVariants = {
+    const containerVariants = {
     closed: {
       opacity: 0,
       y: 6,
       scale: 0.99,
       pointerEvents: 'none' as const,
-      transition: { duration: 0.2, ease: [0.32, 0, 0.67, 0], when: "afterChildren" }
+      transition: { duration: 0.2, ease: [0.32, 0, 0.67, 0] as [number, number, number, number], when: "afterChildren" }
     },
     open: {
       opacity: 1,
       y: 0,
       scale: 1,
       pointerEvents: 'auto' as const,
-      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1], staggerChildren: 0.09, delayChildren: 0.01 }
+      transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] as [number, number, number, number], staggerChildren: 0.09, delayChildren: 0.01 }
     }
   };
-
-  const safeIsActive = !!isActive;
 
   return (
     <div className="relative flex items-center h-full" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
@@ -77,8 +75,8 @@ export default function NavDropdown({
           fontSize: '12px',
           letterSpacing: '0.1em',
           textTransform: 'uppercase',
-          fontWeight: safeIsActive || isOpen ? 700 : 500,
-          color: safeIsActive || isOpen ? accent : linkColor,
+          fontWeight: isActive || isOpen ? 700 : 500,
+          color: isActive || isOpen ? accent : linkColor,
           transition: 'color 0.2s ease',
           whiteSpace: 'nowrap',
         }}
