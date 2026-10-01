@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { Cookie } from 'lucide-react';
+import SafariButton from './SafariButton';
+import { chromeLink } from './chromeType';
 
 declare global {
   interface Window {
@@ -75,91 +77,60 @@ export default function CookieConsent() {
 
   if (!visible) {
     if (!decided) return null;
+    // Small square tab to reopen preferences — boxed like the site's buttons.
     return (
       <button
         onClick={() => setVisible(true)}
         aria-label="Cookie preferences"
-        className="fixed z-[100] bottom-6 left-6 flex items-center justify-center"
+        // Hidden on phones, where it would sit on top of other bottom-corner UI;
+        // the Cookie Policy page has its own "change preferences" button.
+        className="fixed z-[100] bottom-6 left-6 hidden sm:flex items-center justify-center"
         style={{
-          width: '48px',
-          height: '48px',
-          borderRadius: '50%',
-          backgroundColor: '#6D6753',
-          border: '1px solid rgba(241,234,224,0.15)',
-          boxShadow: '0 12px 30px rgba(0,0,0,0.3)',
+          width: '40px',
+          height: '40px',
+          borderRadius: '2px',
+          backgroundColor: 'var(--chrome)',
+          border: '1px solid rgba(255,255,255,0.12)',
+          boxShadow: '0 10px 24px rgba(0,0,0,0.25)',
           cursor: 'pointer',
         }}
       >
-        <Cookie size={19} strokeWidth={1.5} color="#C9A97E" />
+        <Cookie size={17} strokeWidth={1.5} color="#C9A97E" />
       </button>
     );
   }
 
+  // Same chrome colour, type and boxed buttons as the navbar/footer. On phones
+  // it's a slim strip with the two buttons side by side, so it covers far
+  // less of the hero than the old stacked card.
   return (
     <div
-      className="fixed z-[100] bottom-4 left-4 right-4 sm:right-auto sm:bottom-6 sm:left-6 sm:w-[360px]"
+      className="fixed z-[100] bottom-3 left-3 right-3 sm:right-auto sm:bottom-6 sm:left-6 sm:w-[380px]"
       role="dialog"
       aria-label="Cookie preferences"
     >
       <div
+        className="p-4 sm:p-6"
         style={{
-          backgroundColor: '#6D6753',
-          borderRadius: '12px',
-          padding: '22px',
+          backgroundColor: 'var(--chrome)',
+          borderRadius: '2px',
           boxShadow: '0 20px 50px rgba(0,0,0,0.35)',
-          border: '1px solid rgba(241,234,224,0.12)',
+          border: '1px solid rgba(255,255,255,0.12)',
         }}
       >
-        <div className="flex items-start gap-3 mb-5">
-          <div
-            className="flex items-center justify-center flex-shrink-0"
-            style={{ width: '32px', height: '32px', borderRadius: '50%', backgroundColor: 'rgba(141,105,75,0.3)' }}
-          >
-            <Cookie size={16} strokeWidth={1.5} color="#C9A97E" />
-          </div>
-          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', lineHeight: 1.6, color: 'rgba(241,234,224,0.85)' }}>
-            We use cookies to run this site and, with your permission, Google Analytics to understand how it's used.{' '}
-            <Link href="/cookie-policy" style={{ color: '#C9A97E', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
-              Read our Cookie Policy
-            </Link>
-          </p>
-        </div>
-        <div className="flex flex-col gap-2">
-          <button
-            onClick={() => choose(true)}
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: '12px',
-              fontWeight: 600,
-              letterSpacing: '0.06em',
-              color: '#ffffff',
-              backgroundColor: '#8D694B',
-              border: 'none',
-              borderRadius: '6px',
-              padding: '11px 16px',
-              cursor: 'pointer',
-              width: '100%',
-            }}
-          >
-            Accept All
-          </button>
-          <button
-            onClick={() => choose(false)}
-            style={{
-              fontFamily: "'Plus Jakarta Sans', sans-serif",
-              fontSize: '12px',
-              letterSpacing: '0.06em',
-              color: 'rgba(241,234,224,0.7)',
-              background: 'none',
-              border: '1px solid rgba(241,234,224,0.22)',
-              borderRadius: '6px',
-              padding: '10px 16px',
-              cursor: 'pointer',
-              width: '100%',
-            }}
-          >
-            Reject Non-Essential
-          </button>
+        <p className="mb-4" style={{ ...chromeLink, color: '#FFFFFF', lineHeight: 1.6 }}>
+          We use cookies to run this site and, with your permission, Google Analytics to understand how it’s used.{' '}
+          <Link href="/cookie-policy" style={{ color: '#C9A97E', textDecoration: 'underline', textUnderlineOffset: '2px' }}>
+            Cookie Policy
+          </Link>
+        </p>
+        <div className="grid grid-cols-2 gap-2">
+          <SafariButton size="sm" onClick={() => choose(true)} style={{ width: '100%', padding: '10px 12px' }}>
+            Accept all
+          </SafariButton>
+          <SafariButton size="sm" variant="light" onClick={() => choose(false)} style={{ width: '100%', padding: '10px 12px' }}>
+            Essential only
+          </SafariButton>
         </div>
       </div>
     </div>

@@ -1,133 +1,122 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Mail, ArrowRight } from 'lucide-react';
+import { X } from 'lucide-react';
 import SafariButton from './SafariButton';
+import CoverImage from './CoverImage';
+import { chromeLink, chromeSmall, subLabel } from './chromeType';
 
+const DISMISSED_KEY = 'gillead:newsletter_dismissed';
+const COOKIE_KEY = 'gillead-cookie-consent';
+
+// A small corner card, not a page-blocking modal. It waits until someone is
+// actually reading (half a page scrolled), never stacks on top of the cookie
+// banner, and stays off the booking flow entirely.
 export default function NewsletterPopup() {
+  const pathname = usePathname();
   const [show, setShow] = useState(false);
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      const dismissed = localStorage.getItem('gillead:newsletter_dismissed');
-      if (!dismissed) setShow(true);
-    }, 8000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (pathname?.startsWith('/booking')) return;
+    const read = (key: string) => { try { return localStorage.getItem(key); } catch { return null; } };
+    if (read(DISMISSED_KEY)) return;
+
+    const onScroll = () => {
+      const scrolled = window.scrollY / Math.max(1, document.body.scrollHeight - window.innerHeight);
+      if (scrolled > 0.5 && read(COOKIE_KEY)) {
+        setShow(true);
+        window.removeEventListener('scroll', onScroll);
+      }
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, [pathname]);
 
   const dismiss = () => {
     setShow(false);
-    localStorage.setItem('gillead:newsletter_dismissed', 'true');
+    try { localStorage.setItem(DISMISSED_KEY, 'true'); } catch {}
   };
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
     if (!email) return;
     setSubscribed(true);
-    setTimeout(dismiss, 3000);
+    setTimeout(dismiss, 3500);
   };
 
   return (
     <AnimatePresence>
       {show && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center px-6">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={dismiss}
-            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
-          />
+        <motion.aside
+          role="dialog"
+          aria-label="Newsletter sign-up"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 24 }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          className="fixed z-[55] bottom-3 left-3 right-3 sm:left-auto sm:bottom-6 sm:right-6 sm:w-[460px] flex overflow-hidden"
+          style={{ backgroundColor: 'var(--chrome)', borderRadius: '2px', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}
+        >
+          <div className="relative hidden sm:block flex-shrink-0" style={{ width: '120px' }}>
+            <CoverImage src="/images/956A2358.webp" alt="Serengeti plains at first light" />
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-lg overflow-hidden"
-            style={{
-              backgroundColor: '#F1EAE0',
-              borderRadius: '12px',
-              boxShadow: '0 40px 100px rgba(0,0,0,0.3)',
-              border: '1px solid rgba(109,103,83,0.1)'
-            }}
-          >
-            {/* High-end "Invitation" Header */}
-            <div className="h-2 w-full" style={{ backgroundColor: '#8D694B' }} />
-
+          <div className="relative flex-1 min-w-0 p-5 sm:p-6">
             <button
               onClick={dismiss}
-              className="absolute top-4 right-4 text-[#6D6753]/40 hover:text-[#8D694B] transition-colors"
+              aria-label="Close"
+              className="absolute top-3 right-3 text-white/60 hover:text-white transition-colors"
+              style={{ background: 'none', border: 'none', cursor: 'pointer' }}
             >
-              <X size={20} strokeWidth={1.5} />
+              <X size={16} strokeWidth={1.5} />
             </button>
 
-            <div className="p-10 lg:p-14 text-center">
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-full mb-8" style={{ backgroundColor: 'rgba(141,105,75,0.1)' }}>
-                <Mail size={20} color="#8D694B" strokeWidth={1.5} />
+            {!subscribed ? (
+              <>
+                <p style={{ fontFamily: "'Newsreader', serif", fontSize: '21px', fontWeight: 600, color: '#FFFFFF', lineHeight: 1.25, marginBottom: '8px', paddingRight: '20px' }}>
+                  A short letter from Arusha, once a season
+                </p>
+                <p style={{ ...chromeLink, color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, marginBottom: '16px' }}>
+                  Where the herds are, which parks are quiet, and a few photos from our guides. Nothing else.
+                </p>
+                <form onSubmit={handleSubscribe} className="flex gap-2">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Your email"
+                    aria-label="Email address"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 min-w-0 px-3 outline-none focus:border-[#C9A97E]"
+                    style={{ ...chromeLink, color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '2px' }}
+                  />
+                  <SafariButton type="submit" size="sm">Subscribe</SafariButton>
+                </form>
+                <button
+                  onClick={dismiss}
+                  className="mt-3 text-white/60 hover:text-white transition-colors"
+                  style={{ ...chromeSmall, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+                >
+                  No thanks
+                </button>
+              </>
+            ) : (
+              <div className="py-2">
+                <p style={{ ...subLabel, color: '#C9A97E', marginBottom: '8px' }}>Asante</p>
+                <p style={{ fontFamily: "'Newsreader', serif", fontSize: '21px', fontWeight: 600, color: '#FFFFFF', lineHeight: 1.25, marginBottom: '6px' }}>
+                  You&rsquo;re on the list.
+                </p>
+                <p style={{ ...chromeLink, color: 'rgba(255,255,255,0.8)' }}>
+                  The next letter goes out at the start of the season.
+                </p>
               </div>
-
-              <AnimatePresence mode="wait">
-                {!subscribed ? (
-                  <motion.div
-                    key="form"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                  >
-                    <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: '32px', fontWeight: 500, color: '#6D6753', marginBottom: '16px', lineHeight: 1.2 }}>
-                      The Spirit of Tanzania,<br />delivered to you.
-                    </h2>
-                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.8, lineHeight: 1.7, marginBottom: '32px' }}>
-                      Join our inner circle for seasonal wildlife updates, new luxury lodge openings, and curated safari inspiration.
-                    </p>
-
-                    <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
-                      <input
-                        type="email"
-                        required
-                        placeholder="Your email address"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-5 py-4 outline-none transition-all duration-300"
-                        style={{
-                          fontFamily: "'Plus Jakarta Sans', sans-serif",
-                          fontSize: '14px',
-                          backgroundColor: '#ffffff',
-                          border: '1px solid rgba(109,103,83,0.15)',
-                          borderRadius: '4px',
-                          color: '#6D6753'
-                        }}
-                      />
-                      <SafariButton type="submit" className="w-full">
-                        Subscribe <ArrowRight size={14} className="ml-1" />
-                      </SafariButton>
-                    </form>
-                    <p className="mt-4" style={{ fontSize: '10px', textTransform: 'uppercase', letterSpacing: '0.05em', color: '#6D6753', opacity: 0.4 }}>
-                      Zero spam. Unsubscribe anytime.
-                    </p>
-                  </motion.div>
-                ) : (
-                  <motion.div
-                    key="success"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    className="py-6"
-                  >
-                    <div className="text-4xl mb-6">🐘</div>
-                    <h3 style={{ fontFamily: "'Newsreader', serif", fontSize: '28px', color: '#6D6753', marginBottom: '12px' }}>Karibu sana!</h3>
-                    <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.8 }}>
-                      Thank you for joining us. We look forward to sharing our world with you.
-                    </p>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          </motion.div>
-        </div>
+            )}
+          </div>
+        </motion.aside>
       )}
     </AnimatePresence>
   );

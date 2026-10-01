@@ -38,7 +38,7 @@ export default function GroupSizePicker({
                 onClick={() => updateForm(key, Math.max(min, (form[key] as number) - 1))}
                 disabled={(form[key] as number) <= min}
                 className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[rgba(141,105,75,0.1)] disabled:opacity-30"
-                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '50%', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
+                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '2px', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
                 aria-label={`Decrease ${label}`}
               >−</button>
               <span style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '22px', fontWeight: 600, color: '#6D6753', width: '28px', textAlign: 'center', display: 'inline-block' }}>
@@ -48,7 +48,7 @@ export default function GroupSizePicker({
                 type="button"
                 onClick={() => updateForm(key, (form[key] as number) + 1)}
                 className="w-9 h-9 flex items-center justify-center transition-all hover:bg-[rgba(141,105,75,0.1)]"
-                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '50%', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
+                style={{ border: '1px solid rgba(109,103,83,0.25)', borderRadius: '2px', color: '#8D694B', fontSize: '18px', lineHeight: 1 }}
                 aria-label={`Increase ${label}`}
               >+</button>
             </div>

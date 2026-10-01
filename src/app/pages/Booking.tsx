@@ -183,23 +183,13 @@ export default function Booking() {
         </button>
 
         {step < steps.length - 1 ? (
-          <button
-            type="button"
-            onClick={() => goToStep(step + 1)}
-            className="flex-[2] py-3 bg-[#8D694B] text-white rounded-lg text-[13px] font-bold uppercase tracking-wider shadow-lg shadow-[#8D694B]/20 active:scale-[0.98] transition-transform"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
+          <SafariButton type="button" onClick={() => goToStep(step + 1)} className="flex-[2]">
             Continue
-          </button>
+          </SafariButton>
         ) : (
-          <button
-            type="button"
-            onClick={handleSubmit}
-            className="flex-[2] py-3 bg-[#8D694B] text-white rounded-xl text-[13px] font-bold uppercase tracking-wider active:scale-[0.98] transition-transform"
-            style={{ fontFamily: "'Plus Jakarta Sans', sans-serif" }}
-          >
+          <SafariButton type="button" onClick={handleSubmit} className="flex-[2]">
             Submit Enquiry
-          </button>
+          </SafariButton>
         )}
       </div>
     </div>

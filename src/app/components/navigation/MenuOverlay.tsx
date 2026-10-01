@@ -3,7 +3,12 @@ import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { X, ChevronDown, ChevronUp } from 'lucide-react';
 import { menuLinks, type NavLink } from './data';
+import { socials } from '../footer/data';
+import { offices } from '@/app/pages/contact/data';
+import CoverImage from '../CoverImage';
 import { subLabel, chromeLink, chromeSmall } from '../chromeType';
+
+const office = offices[0];
 
 export default function MenuOverlay({
   open,
@@ -129,9 +134,14 @@ export default function MenuOverlay({
                         animate={{ opacity: 1, height: 'auto' }}
                         className="pl-4 mt-2 flex flex-col gap-3"
                       >
-                        {link.subLinks?.map((sub) => {
+                        {link.subLinks?.map((sub, i, all) => {
                           const isSubActive = pathname === sub.href;
+                          const startsGroup = sub.group && sub.group !== all[i - 1]?.group;
                           return (
+                            <div key={sub.href} className="flex flex-col">
+                            {startsGroup && (
+                              <p className={i > 0 ? 'pt-2' : ''} style={{ ...subLabel, fontSize: '10px', color: '#C9A97E' }}>{sub.group}</p>
+                            )}
                             <Link
                               key={sub.href}
                               href={sub.href}
@@ -147,6 +157,7 @@ export default function MenuOverlay({
                             >
                               {sub.label}
                             </Link>
+                            </div>
                           );
                         })}
                       </motion.div>
@@ -154,6 +165,36 @@ export default function MenuOverlay({
                   </motion.div>
                 );
               })}
+              {/* Desktop only: the bar already carries the main links, so the
+                  drawer's spare space goes to how to reach the team. */}
+              <div className="hidden xl:block mt-10">
+                <div className="relative overflow-hidden mb-6" style={{ height: '180px', borderRadius: '2px' }}>
+                  <CoverImage src={office.img} alt="Gillead Safaris vehicles out on a game drive" />
+                </div>
+                <p style={{ fontFamily: "'Newsreader', serif", fontSize: '22px', fontWeight: 600, color: '#FFFFFF', marginBottom: '14px' }}>
+                  Talk to us in {office.city}
+                </p>
+                <div className="flex flex-col gap-1.5 mb-6">
+                  <a href={`tel:${office.phone.replace(/\s/g, '')}`} style={{ ...chromeLink, color: '#FFFFFF' }} className="hover:!text-[#C9A97E] transition-colors">{office.phone}</a>
+                  <a href={`mailto:${office.email}`} style={{ ...chromeLink, color: '#FFFFFF' }} className="hover:!text-[#C9A97E] transition-colors">{office.email}</a>
+                  <span style={{ ...chromeSmall, color: '#FFFFFF', opacity: 0.75 }}>{office.hours}</span>
+                </div>
+                <div className="flex gap-2">
+                  {socials.map(({ label, href, icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex items-center justify-center text-white transition-colors hover:bg-[#8D694B] hover:border-[#8D694B]"
+                      style={{ width: '38px', height: '38px', borderRadius: '2px', border: '1px solid rgba(255,255,255,0.2)' }}
+                    >
+                      {icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
             </nav>
 
             <div className="px-10 py-8" style={{ borderTop: '1px solid rgba(241,234,224,0.15)' }}>

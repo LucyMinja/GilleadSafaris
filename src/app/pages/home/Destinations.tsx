@@ -101,14 +101,14 @@ export default function Destinations() {
           <div className="hidden lg:flex items-center gap-4 mt-12">
             <button
               onClick={() => { setPaused(true); goTo(active - 1); }}
-              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[rgba(109,103,83,0.08)]"
+              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-[2px] transition-colors duration-200 hover:bg-[#8D694B] hover:text-white hover:border-[#8D694B]"
               style={{ border: '1px solid rgba(109,103,83,0.3)', color: '#6D6753' }}
             >
               <ArrowRight size={14} strokeWidth={1.5} className="rotate-180" />
             </button>
             <button
               onClick={() => { setPaused(true); goTo(active + 1); }}
-              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-colors duration-200 hover:bg-[rgba(109,103,83,0.08)]"
+              className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-[2px] transition-colors duration-200 hover:bg-[#8D694B] hover:text-white hover:border-[#8D694B]"
               style={{ border: '1px solid rgba(109,103,83,0.3)', color: '#6D6753' }}
             >
               <ArrowRight size={14} strokeWidth={1.5} />

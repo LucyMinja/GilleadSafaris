@@ -51,7 +51,7 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
         </MaskReveal>
         <MaskReveal viewport delay={delay + 0.29} duration={0.5} ease={EASE}>
           <p className="transition-colors duration-500 text-[#6D6753] group-hover:text-[#8D694B]"
-            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '14px', fontWeight: 400, lineHeight: 1.65, opacity: 0.75 }}>
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '17px', fontWeight: 400, lineHeight: 1.65, opacity: 0.85 }}>
             {s.desc}
           </p>
         </MaskReveal>

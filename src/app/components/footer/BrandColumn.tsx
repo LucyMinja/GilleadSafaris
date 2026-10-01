@@ -7,7 +7,7 @@ export default function BrandColumn() {
   return (
     <div className="lg:col-span-2">
       <Link href="/" className="flex items-center gap-3 mb-6" style={{ textDecoration: 'none' }}>
-        <Image src="/logo.gif" alt="Gillead Safaris" width={52} height={52} className="w-auto h-12 object-contain" />
+        <Image src="/images/og2.png" alt="Gillead Safaris" width={52} height={52} className="w-12 h-12 object-contain" />
         <div>
           <div style={{ fontFamily: "'Newsreader', serif", fontSize: '16px', color: '#FFFFFF', lineHeight: 1 }}>Gillead Safaris</div>
           <div style={{ ...subLabel, fontSize: '10px', color: '#C9A97E', marginTop: '4px' }}>Tanzania</div>
@@ -33,7 +33,7 @@ export default function BrandColumn() {
         {socials.map(({ label, href, icon }) => (
           <a key={label} href={href} target="_blank" rel="noopener noreferrer" title={label}
             style={{
-              width: '40px', height: '40px', borderRadius: '10px',
+              width: '40px', height: '40px', borderRadius: '2px',
               display: 'flex', alignItems: 'center', justifyContent: 'center',
               backgroundColor: 'rgba(241,234,224,0.1)',
               color: '#FFFFFF',

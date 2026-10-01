@@ -2,7 +2,9 @@ export interface NavLink {
   label: string;
   href: string;
   desktopNav?: boolean;
-  subLinks?: { label: string; href: string; description?: string }[];
+  // `group` puts a small heading above a run of links (e.g. the four
+  // Kilimanjaro routes) so the label doesn't repeat on every line.
+  subLinks?: { label: string; href: string; description?: string; group?: string }[];
 }
 
 export const menuLinks: NavLink[] = [
@@ -37,13 +39,13 @@ export const menuLinks: NavLink[] = [
     href: '/trekking',
     desktopNav: true,
     subLinks: [
-      { label: 'Kilimanjaro — Machame Route', href: '/trekking/kilimanjaro-machame-route-7-days', description: '7 days · the most scenic way up' },
-      { label: 'Kilimanjaro — Lemosho Route', href: '/trekking/kilimanjaro-lemosho-route-8-days', description: '8 days · highest summit success' },
-      { label: 'Kilimanjaro — Marangu Route', href: '/trekking/kilimanjaro-marangu-route-6-days', description: '6 days · sleep in mountain huts' },
-      { label: 'Kilimanjaro — Rongai Route', href: '/trekking/kilimanjaro-rongai-route-7-days', description: '7 days · quiet northern approach' },
-      { label: 'Mount Meru Climb', href: '/trekking/mount-meru-climb-4-days', description: '4 days · summit among giraffe & buffalo' },
-      { label: 'Ol Doinyo Lengai & Lake Natron', href: '/trekking/ol-doinyo-lengai-lake-natron-3-days', description: '3 days · night climb on an active volcano' },
-      { label: 'Kilimanjaro Day Hike', href: '/trekking/kilimanjaro-day-hike', description: '1 day · rainforest to Mandara Hut' },
+      { group: 'Kilimanjaro', label: 'Machame Route', href: '/trekking/kilimanjaro-machame-route-7-days', description: '7 days · the most scenic way up' },
+      { group: 'Kilimanjaro', label: 'Lemosho Route', href: '/trekking/kilimanjaro-lemosho-route-8-days', description: '8 days · highest summit success' },
+      { group: 'Kilimanjaro', label: 'Marangu Route', href: '/trekking/kilimanjaro-marangu-route-6-days', description: '6 days · sleep in mountain huts' },
+      { group: 'Kilimanjaro', label: 'Rongai Route', href: '/trekking/kilimanjaro-rongai-route-7-days', description: '7 days · quiet northern approach' },
+      { group: 'Kilimanjaro', label: 'Day Hike', href: '/trekking/kilimanjaro-day-hike', description: '1 day · rainforest to Mandara Hut' },
+      { group: 'Other peaks', label: 'Mount Meru', href: '/trekking/mount-meru-climb-4-days', description: '4 days · summit among giraffe & buffalo' },
+      { group: 'Other peaks', label: 'Ol Doinyo Lengai', href: '/trekking/ol-doinyo-lengai-lake-natron-3-days', description: '3 days · night climb on an active volcano' },
       { label: 'View All Treks', href: '/trekking' },
     ]
   },

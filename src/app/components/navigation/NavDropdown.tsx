@@ -114,17 +114,23 @@ export default function NavDropdown({
         style={{ minWidth: '260px' }}
       >
         <div
-          className="rounded-lg shadow-[0_20px_40px_rgba(0,0,0,0.14)] overflow-hidden border"
+          className="rounded-[2px] shadow-[0_20px_40px_rgba(0,0,0,0.14)] overflow-hidden border"
           style={{
             backgroundColor: 'var(--chrome)',
             borderColor: hairline,
           }}
         >
           <ul className="py-3 m-0 list-none">
-            {items.map((sub) => {
+            {items.map((sub, i) => {
               const activeSub = isSubLinkActive(sub.href);
+              const startsGroup = sub.group && sub.group !== items[i - 1]?.group;
               return (
                 <motion.li key={sub.href} variants={{ closed: { opacity: 0, y: 4, transition: { duration: 0 } }, open: { opacity: 1, y: 0 } }}>
+                  {startsGroup && (
+                    <p className={`px-6 pb-1 ${i > 0 ? 'pt-4' : 'pt-1'}`} style={{ ...subLabel, fontSize: '10px', color: panelAccent }}>
+                      {sub.group}
+                    </p>
+                  )}
                   <Link
                     href={sub.href}
                     onClick={onClose}
