@@ -29,7 +29,6 @@ export default function Hero() {
         <div>
           <HeroTitle
             text={'Some journeys bring you\nback to life.'}
-            delay={0.4}
             style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(38px, 4.8vw, 64px)', fontWeight: 400, lineHeight: 1.15, color: '#ffffff', textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}
           />
         </div>

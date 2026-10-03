@@ -26,3 +26,13 @@
 
 /* Homepage hero: progress line under the active scene name. */
 @keyframes hero-fill { from { width: 0%; } to { width: 100%; } }
+
+/* Hero headline "ink-in": outline first, then the letters fill with white.
+   Animations override the inline color/text-shadow while they run. */
+@keyframes hero-ink {
+  0%   { color: rgba(255, 255, 255, 0); -webkit-text-stroke: 1px rgba(255, 255, 255, 0); text-shadow: none; }
+  30%  { color: rgba(255, 255, 255, 0); -webkit-text-stroke: 1px rgba(255, 255, 255, 0.9); text-shadow: none; }
+  100% { color: #ffffff; -webkit-text-stroke: 1px rgba(255, 255, 255, 0); text-shadow: 0 2px 16px rgba(0, 0, 0, 0.4); }
+}
+.hero-ink { animation: hero-ink 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both; }
+@media (prefers-reduced-motion: reduce) { .hero-ink { animation: none; } }

@@ -2,13 +2,15 @@
 
 import type { CSSProperties, ReactNode } from 'react';
 
-// Hero headline. Deliberately static for now — no entrance animation, no
-// decorative rule. "\n" in the text forces a line break.
-export default function HeroTitle({ text, style }: { text: ReactNode; delay?: number; style?: CSSProperties }) {
-  if (typeof text !== 'string') return <h1 style={style}>{text}</h1>;
+// Hero headline with an "ink-in" entrance: the words first appear as a fine
+// white outline, then fill with solid white (see .hero-ink in globals.css).
+// "\n" in the text forces a line break.
+export default function HeroTitle({ text, style }: { text: ReactNode; style?: CSSProperties }) {
   return (
-    <h1 style={style}>
-      {text.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)}
+    <h1 className="hero-ink" style={style}>
+      {typeof text === 'string'
+        ? text.split('\n').map((line, i) => <span key={i} className="block">{line}</span>)
+        : text}
     </h1>
   );
 }
