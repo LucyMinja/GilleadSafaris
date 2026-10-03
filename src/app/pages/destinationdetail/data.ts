@@ -91,7 +91,7 @@ export const destinationData = [
       ],
     },
     relatedTours: [
-      { id: 1, name: '1 Day Ngorongoro Crater Safari', duration: '1 Day', img: '/images/IMG_1226.webp' },
+      { id: 1, name: '1 Day Ngorongoro Crater Safari', duration: '1 Day', img: '/images/px-ngorongoro-road.jpg' },
       { id: 4, name: '6 Days Best of Tanzania Safari', duration: '6 Days / 5 Nights', img: '/images/956A3309.webp' },
       { id: 5, name: '8 Days Best of Northern Tanzania Safari', duration: '8 Days / 7 Nights', img: '/images/956A2613.webp' },
     ],
