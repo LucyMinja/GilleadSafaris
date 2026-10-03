@@ -63,7 +63,7 @@ export default function PageHero({
           />
 
           {subtitle && (
-            <p style={{
+            <p className="hero-ink-sub" style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '17px',
                 lineHeight: 1.8,

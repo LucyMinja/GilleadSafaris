@@ -36,3 +36,13 @@
 }
 .hero-ink { animation: hero-ink 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.2s both; }
 @media (prefers-reduced-motion: reduce) { .hero-ink { animation: none; } }
+
+/* Same ink-in for the supporting line, a beat after the headline, with a
+   finer outline to suit the small text. */
+@keyframes hero-ink-sub {
+  0%   { color: rgba(255, 255, 255, 0); -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0); }
+  30%  { color: rgba(255, 255, 255, 0); -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.85); }
+  100% { color: rgba(255, 255, 255, 0.82); -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0); }
+}
+.hero-ink-sub { animation: hero-ink-sub 2s cubic-bezier(0.4, 0, 0.2, 1) 1s both; }
+@media (prefers-reduced-motion: reduce) { .hero-ink-sub { animation: none; } }
