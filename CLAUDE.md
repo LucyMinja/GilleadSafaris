@@ -175,7 +175,8 @@ filename or existing caption.
   list rows read `src/app/pages/destinations/data.ts`). Heroes are curated
   Pexels photos (`public/images/px-*.jpg`, credited in `ATTRIBUTIONS.md`),
   chosen for a moody, cinematic, clearly-wild look; About must show a person.
-  Never use zoo/captive-animal photos, and check a photo's real resolution
+  Never use zoo/captive-animal photos or anything showing another company's
+  name/logo (vehicle stickers, tyre covers like "ANGA", signage), and check a photo's real resolution
   (≥2000px wide) before using it full-screen.
 - **No repeated photos**: each photo belongs to one thing (one tour, lodge,
   destination, section). Lists that show a tour (homepage cards, destination

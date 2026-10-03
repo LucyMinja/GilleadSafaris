@@ -22,7 +22,7 @@ export default function Contact() {
       <PageHero
         title="Contact Us"
         subtitle="Our team is ready to plan your perfect Tanzania safari."
-        image="/images/px-contact-jeep-acacia.jpg"
+        image="/images/px-contact-acacia-zebras.jpg"
       />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-x-16 gap-y-14">
         <OfficeSection />

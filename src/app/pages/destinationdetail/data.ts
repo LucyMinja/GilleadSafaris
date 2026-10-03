@@ -240,7 +240,7 @@ export const destinationData = [
       // yet — using a real, honest photo of Gillead's own fleet instead of
       // a mismatched park photo, since Arusha genuinely is where every
       // safari (not just this one) starts.
-      bigImages: ['/images/IMG_1078.webp'],
+      bigImages: ['/images/IMG_0376.webp'],
       bigVignette: {
         eyebrow: 'Your Gateway',
         headline: 'Every safari starts here',

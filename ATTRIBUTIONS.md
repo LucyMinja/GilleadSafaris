@@ -15,7 +15,7 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-zanzibar-dhow-sunset.jpg | Beach | https://www.pexels.com/photo/14093348/ | GavinR |
 | px-heritage-carved-door.jpg | Culture / Heritage | https://www.pexels.com/photo/11025240/ | Roman Odintsov |
 | px-about-maasai-zebras.jpg | About | https://www.pexels.com/photo/2343011/ | Chomolla |
-| px-contact-jeep-acacia.jpg | Contact | https://www.pexels.com/photo/20179680/ | Tanzania Wild Sky |
+| px-contact-acacia-zebras.jpg | Contact | https://www.pexels.com/photo/13098956/ | G.N. |
 | px-acacia-sunset.jpg | Destinations | https://www.pexels.com/photo/23831844/ | Image Noise |
 | px-serengeti-lions.jpg | Serengeti | https://www.pexels.com/photo/39034105/ | Laura Phillips |
 | px-ngorongoro-road.jpg | Ngorongoro | https://www.pexels.com/photo/28708299/ | GSN Travel |
@@ -26,7 +26,7 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-arusha-meru.jpg | Arusha | https://www.pexels.com/photo/30847954/ | MN STR |
 | px-safari-tent.jpg | Accommodation | https://www.pexels.com/photo/6790685/ | Lelani Badenhorst |
 | px-safari-road.jpg | Booking | https://www.pexels.com/photo/4404518/ | Kureng Workx |
-| px-kilimanjaro-plains.jpg | Essentials | https://www.pexels.com/photo/14510921/ | Twilight Kenya |
+| px-essentials-acacia-kili.jpg | Essentials | https://www.pexels.com/photo/19168338/ | Wladimir Kuhne |
 | px-elephants-waterhole.jpg | Sustainability | https://www.pexels.com/photo/9185432/ | Akos Helgert |
 | px-trek-machame-trail / lemosho-camp / marangu-rocks / rongai-summit | Kilimanjaro tours | https://www.pexels.com/photo/15993988/ · 15993995 · 15994011 · 15994039 | Balaz Simon |
 | px-trek-meru-sunrise.jpg | Mount Meru tour | https://www.pexels.com/photo/9594981/ | Kureng Workx |

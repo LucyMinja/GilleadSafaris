@@ -36,7 +36,7 @@ export const sections: EssentialsSection[] = [
     id: 'travel-requirements',
     kicker: 'Arrival Logistics',
     title: 'Travel Requirements',
-    img: '/images/IMG_1073.webp',
+    img: '/images/956A2519.webp',
     reverse: true,
     items: [
       {

@@ -169,7 +169,7 @@ export default function MenuOverlay({
                   drawer's spare space goes to how to reach the team. */}
               <div className="hidden xl:block mt-10">
                 <div className="relative overflow-hidden mb-6" style={{ height: '180px', borderRadius: '2px' }}>
-                  <CoverImage sizes="440px" src={office.img} alt="Gillead Safaris vehicles out on a game drive" />
+                  <CoverImage sizes="440px" src={office.img} alt="Cattle egrets on green plains below the mountains" />
                 </div>
                 <p style={{ fontFamily: "'Newsreader', serif", fontSize: '22px', fontWeight: 600, color: '#FFFFFF', marginBottom: '14px' }}>
                   Talk to us in {office.city}
