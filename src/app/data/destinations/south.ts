@@ -37,7 +37,7 @@ export const southDestinations = [
     slug: 'tarangire',
     name: 'Tarangire National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/IMG_0227.webp',
+    heroImg: '/images/px-tarangire-balloon.jpg',
     tagline: 'Ancient baobabs, elephant herds, and a river that never runs dry.',
     intro: 'There is a moment in Tarangire  usually in July or August  when you crest a low ridge and see the river below, and along both banks, as far as you can see, elephants. Hundreds of them. No fences, no schedule. Just elephants doing exactly what they have done in this valley for tens of thousands of years.',
     sections: [
@@ -72,7 +72,7 @@ export const southDestinations = [
     slug: 'arusha',
     name: 'Arusha National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/956A2527.webp',
+    heroImg: '/images/px-arusha-meru.jpg',
     tagline: 'A wild gem hiding in plain sight  37km from the city.',
     intro: 'Most visitors to Arusha never see it. They land, spend a night in town, then drive toward the Serengeti  and the extraordinary wilderness that sits just 37 kilometres east of the city goes unvisited. It is one of the great oversights in Tanzanian tourism.',
     sections: [
@@ -107,7 +107,7 @@ export const southDestinations = [
     slug: 'ruaha',
     name: 'Ruaha National Park',
     region: 'Southern Tanzania',
-    heroImg: '/images/956A3701.webp',
+    heroImg: '/images/px-ruaha-wild-dogs.jpg',
     tagline: "Where East and Southern Africa's wildlife meet, and almost no one else is watching.",
     intro: "Ruaha is Tanzania's largest national park and one of its least visited — a rugged, baobab-studded wilderness where the ecosystems of East and Southern Africa overlap, and the Great Ruaha River draws in wildlife on a scale that rivals anywhere in the north.",
     sections: [
@@ -134,7 +134,7 @@ export const southDestinations = [
     slug: 'selous',
     name: 'Nyerere National Park (Selous)',
     region: 'Southern Tanzania',
-    heroImg: '/images/956A2192.webp',
+    heroImg: '/images/px-nyerere-hippos.jpg',
     tagline: 'A wilderness the size of Switzerland, explored by boat, on foot, and almost never by crowd.',
     intro: 'Selous takes its name from Frederick Courteney Selous, the English explorer who died here during the First World War and is buried within its boundaries. Declared a UNESCO World Heritage Site in 1982, it remains one of the largest protected wilderness areas on the continent.',
     sections: [

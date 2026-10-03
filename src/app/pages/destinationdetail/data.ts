@@ -3,7 +3,7 @@ export const destinationData = [
     slug: 'serengeti',
     name: 'Serengeti National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/956A4274.webp',
+    heroImg: '/images/px-serengeti-lions.jpg',
     tagline: 'The endless plains where life plays out in full.',
     history: [
       'The name "Serengeti" comes from the Maasai word Siringet  meaning "the place where the land runs on forever." For thousands of years, Maasai pastoralists grazed their cattle across these plains alongside lion, elephant, and wildebeest, developing a coexistence with wildlife that shaped the entire ecosystem.',
@@ -52,7 +52,7 @@ export const destinationData = [
     slug: 'ngorongoro',
     name: 'Ngorongoro Conservation Area',
     region: 'Northern Tanzania',
-    heroImg: '/images/IMG_1226.webp',
+    heroImg: '/images/px-ngorongoro-road.jpg',
     tagline: 'A world within a crater  ancient, intact, and unforgettable.',
     history: [
       'Ngorongoro Crater was formed around three million years ago when a giant volcano exploded and collapsed inward, creating one of the largest intact calderas on earth. The crater floor  roughly 260 km²  became a self-contained world, sheltering an extraordinary density of wildlife within its 600-metre-high walls.',
@@ -178,7 +178,7 @@ export const destinationData = [
     slug: 'tarangire',
     name: 'Tarangire National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/IMG_0227.webp',
+    heroImg: '/images/px-tarangire-balloon.jpg',
     tagline: 'Ancient baobabs, elephant herds, and a river that never runs dry.',
     history: [
       'Tarangire takes its name from the Tarangire River  the only permanent water source in the region during Tanzania\'s long dry season. This single fact shapes the entire ecosystem: every dry season, thousands of animals converge on the riverbanks in one of the most dramatic wildlife concentrations in Africa.',
@@ -226,7 +226,7 @@ export const destinationData = [
     slug: 'arusha',
     name: 'Arusha National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/IMG_1068.webp',
+    heroImg: '/images/px-arusha-meru.jpg',
     tagline: 'A wild gem hiding in plain sight  37km from the city.',
     history: [
       'Arusha National Park is the smallest but perhaps the most ecologically diverse park in Tanzania. Established in 1960 and covering just 137 km², it packs an extraordinary range of habitats into a compact space  from the forests of Ngurdoto Crater to the glittering Momella Lakes and the dramatic slopes of Mount Meru, Tanzania\'s second-highest peak at 4,566 metres.',
@@ -258,7 +258,7 @@ export const destinationData = [
     slug: 'manyara',
     name: 'Lake Manyara National Park',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format',
+    heroImg: '/images/px-manyara-flamingos.jpg',
     tagline: 'A narrow strip of forest, lake and escarpment where lions climb trees.',
     history: [
       "Lake Manyara sits at the base of the Great Rift Valley's western escarpment, a narrow strip of groundwater forest, acacia woodland and alkaline lake squeezed between a 600-metre wall of rock and the water's edge. Early twentieth-century travel writers, including Ernest Hemingway after a 1930s safari through the area, wrote admiringly of the view from the escarpment road above the lake.",
@@ -272,7 +272,7 @@ export const destinationData = [
       // (it isn't part of our own photo set) — one honest stock photo beats
       // a mismatched real one, see project convention on verifying image
       // content before trusting it (CLAUDE.md, Images section).
-      bigImages: ['https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format'],
+      bigImages: ['/images/px-manyara-flamingos.jpg'],
       bigVignette: {
         eyebrow: 'Tree-Climbing Lions',
         headline: 'A habit found almost nowhere else',
@@ -289,7 +289,7 @@ export const destinationData = [
     slug: 'ruaha',
     name: 'Ruaha National Park',
     region: 'Southern Tanzania',
-    heroImg: '/images/956A3701.webp',
+    heroImg: '/images/px-ruaha-wild-dogs.jpg',
     tagline: "Where East and Southern Africa's wildlife meet, and almost no one else is watching.",
     history: [
       "Ruaha takes its name from the Great Ruaha River, whose sand-choked bed becomes the region's only reliable water source through the long dry season. As the river shrinks to a chain of pools between July and November, elephant, buffalo and huge prides of lion converge along its banks in numbers that make Ruaha home to some of the largest lion prides recorded anywhere in Africa.",
@@ -318,7 +318,7 @@ export const destinationData = [
     slug: 'selous',
     name: 'Nyerere National Park (Selous)',
     region: 'Southern Tanzania',
-    heroImg: '/images/956A2192.webp',
+    heroImg: '/images/px-nyerere-hippos.jpg',
     tagline: 'A wilderness the size of Switzerland, explored by boat, on foot, and almost never by crowd.',
     history: [
       "Selous takes its name from Frederick Courteney Selous, the English explorer and big-game hunter who died here during the East African campaign of the First World War and is buried within its boundaries. Established in 1922 and declared a UNESCO World Heritage Site in 1982, it remains one of the largest protected wilderness areas on the continent — roughly the size of Switzerland.",

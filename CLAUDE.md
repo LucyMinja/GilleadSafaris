@@ -167,14 +167,16 @@ filename or existing caption.
   have `sharp`). Always render photos through `CoverImage` (it builds the
   `srcset`); pass `sizes` for anything narrower than ~60% of the screen
   (e.g. `sizes="33vw"` for 3-column cards).
-- **Heroes**: the homepage keeps the ocean video (`HeroVideo`, self-hosted
-  and compressed in `public/video/`: 1280px 3.7 MB / 768px 1.1 MB + poster —
-  never the original 53 MB Pexels 4K stream). Every other page passes its own
-  photo to `PageHero` via `image=` (+ `imagePosition` to keep a subject in
-  frame for portrait shots). Inner-page heroes are curated Pexels photos
-  (`public/images/px-*.jpg`, credited in `ATTRIBUTIONS.md`) chosen for a
-  moody, cinematic, clearly-wild look; Contact keeps Gillead's own branded-vehicle
-  photo. Never use zoo/captive-animal photos.
+- **Heroes**: no video anywhere (removed — the old Pexels 4K ocean clip was
+  53 MB). The homepage hero is the misty-giraffe photo (also Gallery's).
+  Every page passes its own photo to `PageHero` via `image=` (+
+  `imagePosition` to keep a subject in frame for portrait shots); destination
+  pages take `heroImg` from `src/app/pages/destinationdetail/data.ts` (the
+  list rows read `src/app/pages/destinations/data.ts`). Heroes are curated
+  Pexels photos (`public/images/px-*.jpg`, credited in `ATTRIBUTIONS.md`),
+  chosen for a moody, cinematic, clearly-wild look; About must show a person.
+  Never use zoo/captive-animal photos, and check a photo's real resolution
+  (≥2000px wide) before using it full-screen.
 - **Link check**: `scripts/check-links.mjs` runs after every build
   (`postbuild`) and fails it if any internal link/image in `out/` is broken.
 - **Dependencies**: only lucide-react, motion, next, react, react-dom,

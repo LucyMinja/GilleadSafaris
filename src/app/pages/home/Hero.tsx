@@ -3,7 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
-import HeroVideo from '@/app/components/HeroVideo';
+import CoverImage from '@/app/components/CoverImage';
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -15,7 +15,7 @@ export default function Hero() {
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden">
       <div className="absolute inset-0">
-        <HeroVideo />
+        <CoverImage src="/images/px-misty-giraffe.jpg" alt="A giraffe rising out of misty acacia bush" priority sizes="100vw" position="center 28%" />
       </div>
 
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />

@@ -3,7 +3,7 @@ export const northDestinations = [
     slug: 'serengeti',
     name: 'Serengeti National Park',
     region: 'Northern Tanzania',
-    heroImg: '/images/956A4274.webp',
+    heroImg: '/images/px-serengeti-lions.jpg',
     tagline: 'The endless plains where life plays out in full.',
     intro: 'Stand on the Serengeti at dawn and you understand immediately why the Maasai called it Siringet  "the place where the land runs on forever." The horizon dissolves in every direction. No fence, no edge, no end. Just grass, acacia, sky, and the slow movement of animals as far as you can see.',
     sections: [
@@ -39,7 +39,7 @@ export const northDestinations = [
     slug: 'ngorongoro',
     name: 'Ngorongoro Conservation Area',
     region: 'Northern Tanzania',
-    heroImg: '/images/IMG_1226.webp',
+    heroImg: '/images/px-ngorongoro-road.jpg',
     tagline: 'A world within a crater  ancient, intact, and unforgettable.',
     intro: 'Three million years ago a volcano exploded and collapsed inward, leaving a caldera 260 km² wide and 600 metres deep. The walls formed a self-contained world. An estimated 25,000 large animals live inside  in a space you can drive across in under an hour.',
     sections: [
@@ -108,20 +108,20 @@ export const northDestinations = [
     slug: 'manyara',
     name: 'Lake Manyara National Park',
     region: 'Northern Tanzania',
-    heroImg: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format',
+    heroImg: '/images/px-manyara-flamingos.jpg',
     tagline: 'A narrow strip of forest, lake and escarpment where lions climb trees.',
     intro: "Squeezed between the Rift Valley escarpment and the shimmering soda waters of Lake Manyara, this compact park packs an unusual range of habitat into a narrow strip of land — and produces one of East Africa's strangest wildlife behaviours in the process.",
     sections: [
       {
         heading: 'Lions in the Trees',
         body: "Manyara is one of only a handful of places on earth where lions regularly climb into the branches of acacia and sausage trees — a habit still debated among biologists, whether it's an escape from biting insects, relief from the heat, or simply a good vantage point over the plains below. Spotting a lion draped along a low branch remains one of the park's signature sightings.",
-        img: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format',
+        img: '/images/flamingo.webp',
         reverse: false,
       },
       {
         heading: 'A Forest Fed by the Rift Wall',
         body: 'Groundwater seeping down through the escarpment feeds a dense mahogany and fig forest at the park\'s entrance, sustaining large troops of baboon and blue monkey long after the surrounding plains have turned dry and brown — one of the few groundwater forests left in northern Tanzania.',
-        img: 'https://images.unsplash.com/photo-1518621736915-f3b1c41bfd00?w=1200&h=800&fit=crop&auto=format',
+        img: '/images/flamingo.webp',
         reverse: true,
       },
     ],
