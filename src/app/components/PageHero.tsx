@@ -16,8 +16,8 @@ import CoverImage from './CoverImage';
 // fonts here are the homepage Hero's, reused exactly — only the
 // title/subtitle text is page-specific. One component now owns all of it,
 // so every page hero moves and reads identically.
-// Each page passes its own photo; the homepage alone keeps the video
-// (HeroVideo), so inner pages load one compressed image instead of a clip.
+// Each page passes its own photo, matching the homepage's photo-led hero,
+// so every hero is one compressed image relevant to that page.
 export default function PageHero({
   title,
   subtitle,

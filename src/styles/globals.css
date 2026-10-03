@@ -23,3 +23,6 @@
 .safari-btn:active { transform: scale(0.97); }
 .safari-btn svg { transition: transform 0.3s ease; }
 .safari-btn:hover svg { transform: translateX(4px); }
+
+/* Homepage hero: progress line under the active scene name. */
+@keyframes hero-fill { from { width: 0%; } to { width: 100%; } }
