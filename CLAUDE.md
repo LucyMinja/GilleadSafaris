@@ -173,8 +173,8 @@ filename or existing caption.
   photo to `PageHero` via `image=` (+ `imagePosition` to keep a subject in
   frame for portrait shots). Inner-page heroes are curated Pexels photos
   (`public/images/px-*.jpg`, credited in `ATTRIBUTIONS.md`) chosen for a
-  moody, cinematic, clearly-wild look; About and Contact deliberately keep
-  Gillead's own guide/vehicle photos. Never use zoo/captive-animal photos.
+  moody, cinematic, clearly-wild look; Contact keeps Gillead's own branded-vehicle
+  photo. Never use zoo/captive-animal photos.
 - **Link check**: `scripts/check-links.mjs` runs after every build
   (`postbuild`) and fails it if any internal link/image in `out/` is broken.
 - **Dependencies**: only lucide-react, motion, next, react, react-dom,

@@ -10,10 +10,11 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | File | Used on | Photo | Photographer |
 |---|---|---|---|
 | px-serengeti-acacia.jpg | Safaris | https://www.pexels.com/photo/31207738/ | Dirk Pothen |
-| px-kilimanjaro-clouds.jpg | Trekking | https://www.pexels.com/photo/31144648/ | Marina Zvada |
-| px-zanzibar-aerial.jpg | Beach | https://www.pexels.com/photo/30125136/ | Dajana Reçi |
+| px-kilimanjaro-sunrise.jpg | Trekking | https://www.pexels.com/photo/36841474/ | Amani Allan |
+| px-zanzibar-dhow-aerial.jpg | Beach | https://www.pexels.com/photo/25706804/ | Saila Holidays Zanzibar |
 | px-maasai-gathering.jpg | Culture | https://www.pexels.com/photo/35724710/ | Ramy Photographer |
-| px-ngorongoro-panorama.jpg | Destinations | https://www.pexels.com/photo/30630770/ | Dirk Pothen |
+| px-acacia-sunset.jpg | Destinations | https://www.pexels.com/photo/23831844/ | Image Noise |
+| px-guide-binoculars.jpg | About | https://www.pexels.com/photo/7839578/ | Joseph Msuya |
 | px-safari-tent.jpg | Accommodation | https://www.pexels.com/photo/6790685/ | Lelani Badenhorst |
 | px-misty-giraffe.jpg | Gallery | https://www.pexels.com/photo/14367741/ | Pexels contributor |
 | px-safari-road.jpg | Booking | https://www.pexels.com/photo/4404518/ | Kureng Workx |

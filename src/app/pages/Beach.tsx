@@ -26,8 +26,8 @@ export default function Beach() {
       <PageHero
         title="Zanzibar & the Coast"
         subtitle="White sand, spice-scented old towns and warm Indian Ocean reefs. Stay on the beach, or finish your safari there."
-        image="/images/px-zanzibar-aerial.jpg"
-        imagePosition="center 45%"
+        image="/images/px-zanzibar-dhow-aerial.jpg"
+        imagePosition="center 42%"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">

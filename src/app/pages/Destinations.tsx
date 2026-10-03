@@ -11,7 +11,7 @@ export default function Destinations() {
       <PageHero
         title="Every corner of Tanzania has its own story."
         subtitle="From the endless plains of the Serengeti to the spice-scented alleys of Stone Town — here's where our guides actually take people, and why."
-        image="/images/px-ngorongoro-panorama.jpg"
+        image="/images/px-acacia-sunset.jpg"
       />
 
       <div className="py-6 lg:py-10">
