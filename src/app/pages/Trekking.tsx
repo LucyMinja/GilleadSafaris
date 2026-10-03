@@ -27,6 +27,7 @@ export default function Trekking() {
       <PageHero
         title="Kilimanjaro & Trekking"
         subtitle="Private climbs on Africa's highest peak and its neighbours, led by certified mountain guides from Moshi and Arusha."
+        image="/images/kilimanjaro-graded.jpg"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">

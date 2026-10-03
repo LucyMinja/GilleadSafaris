@@ -2,6 +2,7 @@
 
 import { useRef, type ReactNode } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
+import CoverImage from './CoverImage';
 
 // Single shared full-screen page hero — every interior page (Contact,
 // Booking, About, Culture, Accommodation, SafariTours, Gallery,
@@ -15,12 +16,16 @@ import { motion, useScroll, useTransform } from 'motion/react';
 // fonts here are the homepage Hero's, reused exactly — only the
 // title/subtitle text is page-specific. One component now owns all of it,
 // so every page hero moves and reads identically.
+// Each page passes its own photo; the homepage alone keeps the video
+// (HeroVideo), so inner pages load one compressed image instead of a clip.
 export default function PageHero({
   title,
   subtitle,
+  image = '/images/956A3309.webp',
 }: {
   title: ReactNode;
   subtitle?: string;
+  image?: string;
 }) {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -31,10 +36,7 @@ export default function PageHero({
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-end justify-center overflow-hidden pb-[24vh]">
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ backgroundColor: '#8D694B' }}>
-          <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/4010927/4010927-hd_1280_720_30fps.mp4" type="video/mp4" />
-        </video>
+        <CoverImage src={image} alt="" priority sizes="100vw" />
       </motion.div>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }} />

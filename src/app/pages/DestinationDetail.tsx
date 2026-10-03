@@ -19,6 +19,7 @@ export default function DestinationDetail({ slug }: { slug: string }) {
       <PageHero
         title={dest.name}
         subtitle={dest.tagline}
+        image={dest.heroImg}
       />
       {/* HistorySection's opener and StoryGallery's first pairing each get
           their own photo — using the same one twice in a row down the page

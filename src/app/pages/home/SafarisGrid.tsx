@@ -29,7 +29,7 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
     >
       <Link href={s.href} className="group block" style={{ textDecoration: 'none' }}>
         <div ref={overlayRef} className="relative overflow-hidden" style={{ borderRadius: '4px', aspectRatio: '4/3' }}>
-          <CoverImage src={s.img} alt={s.name} className="transition-transform duration-700 group-hover:scale-105" />
+          <CoverImage src={s.img} alt={s.name} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
           <motion.div
             className="absolute inset-0 pointer-events-none"
             style={{ backgroundColor: '#F1EAE0' }}

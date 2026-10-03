@@ -159,6 +159,23 @@ and partly fixed on the homepage, e.g. "Wildebeest Migration" was pointing at
 a lion portrait) — verify what's actually in a photo before trusting its
 filename or existing caption.
 
+## Performance pipeline (keep the site light)
+
+- **Photos**: put originals in `public/images/`. `scripts/optimize-images.mjs`
+  runs automatically before `dev`/`build` (`predev`/`prebuild`) and writes
+  640/1280/1920px WebP copies to `public/img/` (commit them — Vercel may not
+  have `sharp`). Always render photos through `CoverImage` (it builds the
+  `srcset`); pass `sizes` for anything narrower than ~60% of the screen
+  (e.g. `sizes="33vw"` for 3-column cards).
+- **Heroes**: only the homepage uses video (`HeroVideo`, self-hosted in
+  `public/video/`, 1280px 3.7 MB / 768px 1.1 MB + poster). Every other page
+  passes its own photo to `PageHero` via `image=`. Don't reintroduce remote
+  stock video — the old Pexels 4K clip was 53 MB on every page.
+- **Link check**: `scripts/check-links.mjs` runs after every build
+  (`postbuild`) and fails it if any internal link/image in `out/` is broken.
+- **Dependencies**: only lucide-react, motion, next, react, react-dom,
+  tw-animate-css are used. Check usage before adding a library.
+
 ## Running / verifying
 
 See `.claude/skills/run/SKILL.md`.

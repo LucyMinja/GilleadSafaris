@@ -43,7 +43,7 @@ export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] })
           >
             <Link href={tourHref(t)} className="group block">
               <div className="relative overflow-hidden mb-4" style={{ height: '220px', borderRadius: '4px' }}>
-                <CoverImage src={t.img} alt={t.name} className="transition-transform duration-700 group-hover:scale-105" />
+                <CoverImage src={t.img} alt={t.name} sizes="(min-width: 640px) 33vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)' }} />
                 <div className="absolute bottom-4 left-4 flex items-center gap-1.5">
                   <Clock size={11} strokeWidth={1.5} color="#F1EAE0" />

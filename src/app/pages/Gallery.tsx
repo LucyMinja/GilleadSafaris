@@ -23,6 +23,7 @@ export default function Gallery() {
       <PageHero
         title="Gallery"
         subtitle="Real moments from Tanzania's most extraordinary wildlife and landscapes."
+        image="/images/956A3919.webp"
       />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">
         <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(28px, 3.2vw, 42px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '18px', letterSpacing: '-0.01em' }}>

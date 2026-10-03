@@ -12,6 +12,7 @@ export default function About() {
       <PageHero
         title="About Gillead Safaris"
         subtitle="A Tanzanian-owned safari company built on honest service, deep local knowledge, and a genuine love for the wild places we call home."
+        image="/images/IMG_1081.webp"
       />
       <StorySection />
       <ValuesSection />

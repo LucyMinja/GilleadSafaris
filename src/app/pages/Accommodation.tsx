@@ -8,6 +8,7 @@ export default function Accommodation() {
       <PageHero
         title="Accommodation"
         subtitle="Every property handpicked. Every stay intentional. From baobab treehouses to oceanfront villas."
+        image="/images/956A3225.webp"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">

@@ -18,8 +18,15 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
   },
   description:
-    'Explore and book unforgettable safari adventures in Tanzania with a visually stunning, fully responsive website.',
+    'Private, tailor-made safaris, Kilimanjaro climbs and Zanzibar beach trips, planned by a Tanzanian-owned team in Arusha.',
   robots: 'index, follow',
+  // Preview card when a link is shared on WhatsApp, Facebook, LinkedIn etc.
+  openGraph: {
+    type: 'website',
+    siteName: SITE_NAME,
+    images: [{ url: '/img/956A3309-1280.webp', width: 1280, height: 853, alt: 'Zebra and wildebeest under an acacia in the Serengeti' }],
+  },
+  twitter: { card: 'summary_large_image' },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

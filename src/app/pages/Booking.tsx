@@ -109,6 +109,7 @@ export default function Booking() {
       <PageHero
         title="Book a Safari"
         subtitle="Tell us where you want to go, when you'd like to travel, and we'll craft the perfect Tanzania safari for you."
+        image="/images/956A3195.webp"
       />
       <StepProgress step={step} goToStep={goToStep} />
 

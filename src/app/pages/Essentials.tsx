@@ -16,6 +16,7 @@ export default function Essentials() {
       <PageHero
         title="Travel Essentials"
         subtitle="What to know before you go — seasons, entry requirements, health, and what to pack."
+        image="/images/IMG_0227.webp"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-20 lg:pt-28 pb-16 flex flex-col gap-24 lg:gap-32">

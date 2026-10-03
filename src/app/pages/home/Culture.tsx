@@ -42,7 +42,7 @@ export default function Culture() {
             >
               <Link href={`/culture#culture-${s.id}`} className="group block" style={{ textDecoration: 'none' }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', borderRadius: '4px' }}>
-                  <CoverImage src={s.img} alt={s.title} className="transition-transform duration-700 group-hover:scale-105" />
+                  <CoverImage src={s.img} alt={s.title} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)' }} />
                   <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
                     <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#E9C99A', marginBottom: '10px' }}>

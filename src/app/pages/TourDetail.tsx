@@ -23,7 +23,7 @@ export default function TourDetail({ slug }: { slug: string }) {
 
   return (
     <div style={{ backgroundColor: '#F1EAE0', fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
-      <PageHero title={tour.name} subtitle={tour.duration} />
+      <PageHero title={tour.name} subtitle={tour.duration} image={tour.img} />
 
       <TourIntro tour={tour} />
 

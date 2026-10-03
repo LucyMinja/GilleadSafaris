@@ -3,6 +3,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
+import HeroVideo from '@/app/components/HeroVideo';
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -15,10 +16,7 @@ export default function Hero() {
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden">
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
-        <video autoPlay muted loop playsInline className="absolute inset-0 w-full h-full object-cover" style={{ backgroundColor: '#8D694B' }}>
-          <source src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4" type="video/mp4" />
-          <source src="https://videos.pexels.com/video-files/4010927/4010927-hd_1280_720_30fps.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo />
       </motion.div>
 
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />

@@ -62,7 +62,7 @@ export default function NewsletterPopup() {
           style={{ backgroundColor: 'var(--chrome)', borderRadius: '2px', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}
         >
           <div className="relative hidden sm:block flex-shrink-0" style={{ width: '120px' }}>
-            <CoverImage src="/images/956A2358.webp" alt="Serengeti plains at first light" />
+            <CoverImage sizes="120px" src="/images/956A2358.webp" alt="Serengeti plains at first light" />
           </div>
 
           <div className="relative flex-1 min-w-0 p-5 sm:p-6">
