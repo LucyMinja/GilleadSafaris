@@ -13,8 +13,9 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-serengeti-acacia.jpg | Safaris | https://www.pexels.com/photo/31207738/ | Dirk Pothen |
 | px-kilimanjaro-above-clouds.jpg | Trekking | https://www.pexels.com/photo/15994035/ | Balaz Simon |
 | px-zanzibar-dhow-sunset.jpg | Beach | https://www.pexels.com/photo/14093348/ | GavinR |
-| px-maasai-adumu.jpg | Culture / Heritage | https://www.pexels.com/photo/35034043/ | MNM Shakir |
-| px-maasai-portrait.jpg | About | https://www.pexels.com/photo/29828564/ | Amani Allan |
+| px-heritage-carved-door.jpg | Culture / Heritage | https://www.pexels.com/photo/11025240/ | Roman Odintsov |
+| px-about-maasai-kili.jpg | About | https://www.pexels.com/photo/8879241/ | Jusper Mwangi |
+| px-contact-jeep-sunset.jpg | Contact | https://www.pexels.com/photo/28157155/ | Pexels contributor |
 | px-acacia-sunset.jpg | Destinations | https://www.pexels.com/photo/23831844/ | Image Noise |
 | px-serengeti-lions.jpg | Serengeti | https://www.pexels.com/photo/39034105/ | Laura Phillips |
 | px-ngorongoro-road.jpg | Ngorongoro | https://www.pexels.com/photo/28708299/ | GSN Travel |
