@@ -167,12 +167,14 @@ filename or existing caption.
   have `sharp`). Always render photos through `CoverImage` (it builds the
   `srcset`); pass `sizes` for anything narrower than ~60% of the screen
   (e.g. `sizes="33vw"` for 3-column cards).
-- **Heroes**: no video anywhere. The homepage hero (`home/Hero.tsx`) is a
-  "cinematic stills" sequence of Gillead's own photos — Safari, Kilimanjaro,
-  Zanzibar, Culture — whose scene names link to each section; only the first
-  photo loads up front. Every other page passes its own photo to `PageHero`
-  via `image=`. Don't reintroduce stock video — the old Pexels 4K ocean clip
-  was 53 MB on every page and not even Tanzanian.
+- **Heroes**: the homepage keeps the ocean video (`HeroVideo`, self-hosted
+  and compressed in `public/video/`: 1280px 3.7 MB / 768px 1.1 MB + poster —
+  never the original 53 MB Pexels 4K stream). Every other page passes its own
+  photo to `PageHero` via `image=` (+ `imagePosition` to keep a subject in
+  frame for portrait shots). Inner-page heroes are curated Pexels photos
+  (`public/images/px-*.jpg`, credited in `ATTRIBUTIONS.md`) chosen for a
+  moody, cinematic, clearly-wild look; About and Contact deliberately keep
+  Gillead's own guide/vehicle photos. Never use zoo/captive-animal photos.
 - **Link check**: `scripts/check-links.mjs` runs after every build
   (`postbuild`) and fails it if any internal link/image in `out/` is broken.
 - **Dependencies**: only lucide-react, motion, next, react, react-dom,

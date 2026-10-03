@@ -34,7 +34,7 @@ export default function Sustainability() {
       <PageHero
         title="Sustainability"
         subtitle="Tanzania's wildlife is the reason we exist as a company — how we operate has to reflect that, not just say it."
-        image="/images/956A1611.webp"
+        image="/images/px-elephants-waterhole.jpg"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 py-20 lg:py-28">

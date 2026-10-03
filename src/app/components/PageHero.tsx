@@ -22,10 +22,12 @@ export default function PageHero({
   title,
   subtitle,
   image = '/images/956A3309.webp',
+  imagePosition,
 }: {
   title: ReactNode;
   subtitle?: string;
   image?: string;
+  imagePosition?: string;
 }) {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -36,7 +38,7 @@ export default function PageHero({
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-end justify-center overflow-hidden pb-[24vh]">
       <motion.div className="absolute inset-0" style={{ y: videoY }}>
-        <CoverImage src={image} alt="" priority sizes="100vw" />
+        <CoverImage src={image} alt="" priority sizes="100vw" position={imagePosition} />
       </motion.div>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }} />

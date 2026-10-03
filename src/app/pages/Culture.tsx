@@ -11,7 +11,7 @@ export default function Culture() {
       <PageHero
         title="Culture & Heritage"
         subtitle="Tanzania is not just landscapes and wildlife. It is the Maasai warrior standing at sunset, the Hadzabe hunter reading the morning tracks, the spice-trader's carved door in Stone Town."
-        image="/images/stone-town.webp"
+        image="/images/px-maasai-gathering.jpg"
       />
       <CultureSections />
       <CuisineSection />

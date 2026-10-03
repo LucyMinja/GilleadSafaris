@@ -28,7 +28,7 @@ export default function SafariTours() {
       <PageHero
         title="Safari Tours"
         subtitle="Handcrafted itineraries across Tanzania's parks and cultures - every safari is tailor-made and quoted to suit your budget."
-        image="/images/956A3309.webp"
+        image="/images/px-serengeti-acacia.jpg"
       />
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">

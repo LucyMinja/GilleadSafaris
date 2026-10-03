@@ -28,12 +28,15 @@ export default function CoverImage({
   className = '',
   priority = false,
   sizes = '(min-width: 1024px) 60vw, 100vw',
+  position,
 }: {
   src: string;
   alt?: string;
   className?: string;
   priority?: boolean;
   sizes?: string;
+  /** CSS object-position, e.g. 'center 30%' to keep a subject in frame when cropped. */
+  position?: string;
 }) {
   const [loaded, setLoaded] = useState(false);
   const img = responsive(src);
@@ -50,6 +53,7 @@ export default function CoverImage({
       ref={(el) => { if (el?.complete) setLoaded(true); }}
       className={`absolute inset-0 w-full h-full object-cover ${className}`}
       style={{
+        objectPosition: position,
         backgroundColor: 'rgba(109,103,83,0.06)',
         filter: loaded ? 'blur(0px)' : 'blur(16px)',
         transition: 'filter 0.6s ease',
