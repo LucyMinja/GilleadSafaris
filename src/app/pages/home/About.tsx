@@ -24,7 +24,7 @@ export default function About() {
             <div className="relative mx-auto lg:mx-0" style={{ width: '88%' }}>
               <div className="group relative overflow-hidden" style={{ height: 'clamp(400px, 38vw, 520px)', borderRadius: '4px' }}>
                 <CoverImage
-                  src="/images/956A2613.webp"
+                  src="/images/956A2694.webp"
                   priority
                   className="transition-transform duration-[1400ms] ease-out group-hover:scale-[1.12]"
                 />

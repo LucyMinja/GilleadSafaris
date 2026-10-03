@@ -6,6 +6,6 @@ export const offices = [
     phone: '+255 753 959 375',
     email: 'info@gilleadsafaris.com',
     hours: 'Mon–Sat: 8:00am – 6:00pm EAT',
-    img: '/images/IMG_1068.webp',
+    img: '/images/IMG_1065.webp',
   },
 ];

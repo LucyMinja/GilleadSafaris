@@ -3,7 +3,7 @@ import { ArrowUpRight, Clock } from 'lucide-react';
 import RevealOnView from '@/app/pages/home/RevealOnView';
 import WordLink from '@/app/components/WordLink';
 import CoverImage from '@/app/components/CoverImage';
-import { tours } from '@/app/pages/safaritours/data';
+import { tours, tourHref } from '@/app/pages/safaritours/data';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -48,7 +48,11 @@ export default function RelatedTours({
 
       <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_COLS[Math.min(dest.relatedTours.length, 4)]} gap-6`}>
         {dest.relatedTours.map((tour, i) => {
-          const slug = tours.find((t) => t.id === tour.id)?.slug ?? '';
+          // Image and link come from the tour itself, so each tour shows its
+          // one photo everywhere instead of a hand-copied (and drifting) one.
+          const real = tours.find((t) => t.id === tour.id);
+          const img = real?.img ?? tour.img;
+          const href = real ? tourHref(real) : '/safaris';
           return (
             <RevealOnView
               key={tour.id}
@@ -60,9 +64,9 @@ export default function RelatedTours({
               once={false}
               margin="-40px"
             >
-              <Link href={`/safaris/${slug}`} className="group block">
+              <Link href={href} className="group block">
                 <div className="relative overflow-hidden mb-4" style={{ height: '200px', borderRadius: '4px' }}>
-                  <CoverImage src={tour.img} alt={tour.name} className="transition-transform duration-700 group-hover:scale-105" />
+                  <CoverImage src={img} alt={tour.name} sizes="(min-width: 1024px) 25vw, 50vw" className="transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 55%)' }} />
                   <div className="absolute bottom-4 left-4 flex items-center gap-1.5">
                     <Clock size={11} strokeWidth={1.5} color="#F1EAE0" />

@@ -14,6 +14,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 // on purpose: there's no real photo of the community yet, and its stand-in
 // image (an ostrich) would read as a caption for the people on a card.
 const stories = sections.filter((s) => [1, 2, 4].includes(s.id));
+// Homepage cards use their own photos so nothing repeats the Culture page.
+const HOME_IMG: Record<number, string> = { 1: '/images/px-home-culture-maasai.jpg', 2: '/images/px-home-culture-stonetown.jpg', 4: '/images/956A1471.webp' };
 
 export default function Culture() {
   return (
@@ -42,7 +44,7 @@ export default function Culture() {
             >
               <Link href={`/culture#culture-${s.id}`} className="group block" style={{ textDecoration: 'none' }}>
                 <div className="relative overflow-hidden" style={{ aspectRatio: '3/4', borderRadius: '4px' }}>
-                  <CoverImage src={s.img} alt={s.title} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
+                  <CoverImage src={HOME_IMG[s.id] ?? s.img} alt={s.title} sizes="(min-width: 768px) 33vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.15) 50%, transparent 100%)' }} />
                   <div className="absolute inset-x-0 bottom-0 p-6 lg:p-8">
                     <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', color: '#E9C99A', marginBottom: '10px' }}>

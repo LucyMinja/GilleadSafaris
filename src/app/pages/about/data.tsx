@@ -5,25 +5,25 @@ export const values = [
     icon: <Heart size={22} strokeWidth={1.5} />,
     title: 'Genuine Care',
     desc: 'Every itinerary is crafted with personal attention. We listen first and design second - your trip is never a template.',
-    img: '/images/IMG_1256.webp',
+    img: '/images/956A2681.webp',
   },
   {
     icon: <Leaf size={22} strokeWidth={1.5} />,
     title: 'Conservation First',
     desc: "We work inside parks that depend on tourism to fund their own protection - every safari we run is a reason for that land to stay wild.",
-    img: '/images/956A4243.webp',
+    img: '/images/956A3218.webp',
   },
   {
     icon: <Award size={22} strokeWidth={1.5} />,
     title: 'Uncompromising Quality',
     desc: 'We handpick every lodge, driver, and guide. If we would not stay there ourselves, we will not recommend it to you.',
-    img: "/images/kutokalodge_1707376322154(1).jpeg",
+    img: "/images/IMG_0239.webp",
   },
   {
     icon: <Users size={22} strokeWidth={1.5} />,
     title: 'Community Benefit',
     desc: 'Our guides and drivers are local, and every cultural visit is arranged directly with the community you meet - a real exchange, not a staged one.',
-    img: '/images/Darajani_Market.jpg',
+    img: '/images/IMG_2520.webp',
   },
 ];
 

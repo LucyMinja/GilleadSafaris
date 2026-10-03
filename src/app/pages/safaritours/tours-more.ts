@@ -74,7 +74,7 @@ export const toursMore = [
     priceNote: 'per person',
     type: 'Beach & Zanzibar',
     groupLabel: 'Private tour',
-    img: '/images/stone-town.webp',
+    img: '/images/px-beach-kendwa-pier.jpg',
     highlight: 'Beach Escape',
     desc: "Combine the history of Zanzibar's UNESCO-listed Stone Town with relaxation on the white sands of Kendwa Beach - a guided city tour, a spice plantation visit, and free time for snorkelling or scuba diving.",
     parks: ['Stone Town (UNESCO)', 'Spice Plantations', 'Kendwa Beach'],

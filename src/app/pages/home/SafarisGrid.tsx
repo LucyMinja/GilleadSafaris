@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { motion, useInView } from 'motion/react';
 import SafariButton from '@/app/components/SafariButton';
 import WordLink from '@/app/components/WordLink';
-import { toursIn } from '@/app/pages/safaritours/data';
+import { tours, toursIn } from '@/app/pages/safaritours/data';
 import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
 import PinHeader from './PinHeader';
@@ -14,7 +14,11 @@ import { safaris } from './data';
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
+// Each card shows its tour's own photo, so no image is shown twice on the site.
+const tourImg = (href: string) => tours.find((t) => href.endsWith('/' + t.slug))?.img;
+
 function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }) {
+  const img = tourImg(s.href) ?? s.img;
   const ref = useRef(null);
   const inView = useInView(ref, { once: false, amount: 0.2 });
   const overlayRef = useRef(null);
@@ -29,7 +33,7 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
     >
       <Link href={s.href} className="group block" style={{ textDecoration: 'none' }}>
         <div ref={overlayRef} className="relative overflow-hidden" style={{ borderRadius: '4px', aspectRatio: '4/3' }}>
-          <CoverImage src={s.img} alt={s.name} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
+          <CoverImage src={img} alt={s.name} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
           <motion.div
             className="absolute inset-0 pointer-events-none"
             style={{ backgroundColor: '#F1EAE0' }}

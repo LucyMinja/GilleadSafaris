@@ -71,7 +71,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/956A2874.webp',
+          img: '/images/956A3400.webp',
           vignette: {
             eyebrow: 'Big Five in One Day',
             headline: 'Every icon, one descent',
@@ -80,7 +80,7 @@ export const destinationData = [
           },
         },
         {
-          img: '/images/IMG_1068.webp',
+          img: '/images/IMG_1228.webp',
           vignette: {
             eyebrow: 'Meet Your Team',
             headline: 'Guides who grew up on this rim',
@@ -197,7 +197,7 @@ export const destinationData = [
       },
       secondary: [
         {
-          img: '/images/956A2613.webp',
+          img: '/images/IMG_0375.webp',
           vignette: {
             eyebrow: 'Ancient Baobab Trees',
             headline: 'Some older than the nearest town',
@@ -240,7 +240,7 @@ export const destinationData = [
       // yet — using a real, honest photo of Gillead's own fleet instead of
       // a mismatched park photo, since Arusha genuinely is where every
       // safari (not just this one) starts.
-      bigImages: ['/images/IMG_1068.webp'],
+      bigImages: ['/images/IMG_1078.webp'],
       bigVignette: {
         eyebrow: 'Your Gateway',
         headline: 'Every safari starts here',
@@ -330,7 +330,7 @@ export const destinationData = [
     story: {
       // Both images already verified as Selous in accommodation/lodges.ts
       // (Selous Migration Camp's own primary + secondary photos).
-      bigImages: ['/images/956A2192.webp', '/images/956A2874.webp'],
+      bigImages: ['/images/956A2192.webp', '/images/956A1791_1.webp'],
       bigVignette: {
         eyebrow: 'Rufiji River Boat Safaris',
         headline: 'The river safari almost nowhere else offers',

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     siteName: SITE_NAME,
-    images: [{ url: '/img/956A3309-1280.webp', width: 1280, height: 853, alt: 'Zebra and wildebeest under an acacia in the Serengeti' }],
+    images: [{ url: '/img/956A3425-1280.webp', width: 1280, height: 853, alt: 'Wildebeest on the Serengeti plains' }],
   },
   twitter: { card: 'summary_large_image' },
 };

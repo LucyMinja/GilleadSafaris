@@ -13,7 +13,7 @@ export const safariOptions = [
     name: 'Custom / Bespoke Safari',
     duration: 'You choose',
     price: 'Get a quote',
-    img: '/images/IMG_1068.webp',
+    img: '/images/IMG_1064.webp',
     desc: "Not seeing what you're after? Pick this, tell us your dates and group size, and add your ideas in the special requests box — our team will design and price an itinerary just for you.",
   },
 ];

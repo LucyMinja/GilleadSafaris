@@ -58,7 +58,7 @@ export const sections: EssentialsSection[] = [
     id: 'health',
     kicker: 'Your Protection',
     title: 'Health & Wellbeing',
-    img: '/images/kutoka.jpeg',
+    img: '/images/956A3028.webp',
     items: [
       {
         q: 'Do I need vaccinations or malaria medication?',

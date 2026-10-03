@@ -73,7 +73,7 @@ export default function StorySection() {
         margin="-80px"
       >
         <div className="relative overflow-hidden" style={{ height: 'clamp(360px, 40vw, 560px)', borderRadius: '2px' }}>
-          <CoverImage src="/images/IMG_1068.webp" priority />
+          <CoverImage src="/images/IMG_1081.webp" priority />
         </div>
       </RevealOnView>
     </div>

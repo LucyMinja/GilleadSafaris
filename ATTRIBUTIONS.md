@@ -27,3 +27,20 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-safari-road.jpg | Booking | https://www.pexels.com/photo/4404518/ | Kureng Workx |
 | px-kilimanjaro-plains.jpg | Essentials | https://www.pexels.com/photo/14510921/ | Twilight Kenya |
 | px-elephants-waterhole.jpg | Sustainability | https://www.pexels.com/photo/9185432/ | Akos Helgert |
+| px-trek-machame-trail / lemosho-camp / marangu-rocks / rongai-summit | Kilimanjaro tours | https://www.pexels.com/photo/15993988/ · 15993995 · 15994011 · 15994039 | Balaz Simon |
+| px-trek-meru-sunrise.jpg | Mount Meru tour | https://www.pexels.com/photo/9594981/ | Kureng Workx |
+| px-trek-lengai-volcano.jpg | Ol Doinyo Lengai tour | https://www.pexels.com/photo/19201574/ | Miguel Cuenca |
+| px-trek-rainforest.jpg | Kilimanjaro day hike | https://www.pexels.com/photo/35307996/ | Kiangalass |
+| px-beach-zanzibar-villa.jpg | Zanzibar holiday | https://www.pexels.com/photo/14408604/ | MCK |
+| px-beach-white-sand.jpg | Safari & Zanzibar | https://www.pexels.com/photo/36468248/ | Ana Kenk |
+| px-beach-tortoises.jpg | Prison Island | https://www.pexels.com/photo/24713354/ | Logan Hamm |
+| px-beach-turtle.jpg | Mnemba snorkelling | https://www.pexels.com/photo/20443161/ | Arias Bima |
+| px-beach-whale-shark.jpg | Mafia whale sharks | https://www.pexels.com/photo/5967796/ | Lachlan Ross |
+| px-beach-pemba-canoe.jpg | Pemba | https://www.pexels.com/photo/4860995/ | JD Gromov |
+| px-beach-kendwa-pier.jpg | Kendwa & Stone Town | https://www.pexels.com/photo/5858941/ | Taryn Elliott |
+| px-safari-elephant-dusk.jpg | 5-day Northern Safari | https://www.pexels.com/photo/18629364/ | Altezza Travel |
+| px-safari-elephant-silhouettes.jpg | 6-day Best of Tanzania | https://www.pexels.com/photo/5125391/ | Roger Brown |
+| px-lodge-nungwi-aerial / px-lodge-dhow-dusk | Zuri Zanzibar lodge | https://www.pexels.com/photo/9122382/ · 30311543 | LimonovDigital · Mustafa Masetic |
+| px-home-zanzibar-coast / px-home-zanzibar-boats | Homepage cards | https://www.pexels.com/photo/8765693/ · 5993893 | LimonovDigital · Taryn Elliott |
+| px-home-maasai-man / px-home-culture-maasai / px-home-culture-stonetown | Homepage cards | https://www.pexels.com/photo/10467022/ · 12339475 · 37087438 | Elly Shots · Gary Cohen · Lee Finvrede |
+| px-culture-maasai-gathering.jpg | Culture: Maasai section | https://www.pexels.com/photo/35724710/ | Ramy Photographer |

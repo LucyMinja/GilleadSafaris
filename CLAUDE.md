@@ -177,6 +177,10 @@ filename or existing caption.
   chosen for a moody, cinematic, clearly-wild look; About must show a person.
   Never use zoo/captive-animal photos, and check a photo's real resolution
   (≥2000px wide) before using it full-screen.
+- **No repeated photos**: each photo belongs to one thing (one tour, lodge,
+  destination, section). Lists that show a tour (homepage cards, destination
+  "related tours") take the image from the tour data via `tours`, never a
+  hand-copied path. Before adding a photo, grep that it isn't already used.
 - **Link check**: `scripts/check-links.mjs` runs after every build
   (`postbuild`) and fails it if any internal link/image in `out/` is broken.
 - **Dependencies**: only lucide-react, motion, next, react, react-dom,

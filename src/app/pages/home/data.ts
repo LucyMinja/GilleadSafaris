@@ -1,9 +1,9 @@
 export const destinations = [
-  { name: 'Serengeti', tag: 'Endless Plains', desc: 'Over 1.5 million wildebeest move across these plains each year, trailed by lion, cheetah, and leopard through one of the last truly wild landscapes left on earth.', href: '/destinations/serengeti', img: '/images/956A3225.webp' },
-  { name: 'Ngorongoro', tag: 'The Crater', desc: 'A caldera three million years old, walled in on every side, where black rhino, elephant, and flamingo share a single unbroken plain below the crater rim.', href: '/destinations/ngorongoro', img: '/images/956A4243.webp' },
-  { name: 'Zanzibar', tag: 'Island Paradise', desc: 'White sand beaches, spice farms scented with clove and cinnamon, and a UNESCO-listed Stone Town built from a thousand years of Swahili trade.', href: '/beach', img: '/images/nakupenda-beach.webp' },
+  { name: 'Serengeti', tag: 'Endless Plains', desc: 'Over 1.5 million wildebeest move across these plains each year, trailed by lion, cheetah, and leopard through one of the last truly wild landscapes left on earth.', href: '/destinations/serengeti', img: '/images/956A3342.webp' },
+  { name: 'Ngorongoro', tag: 'The Crater', desc: 'A caldera three million years old, walled in on every side, where black rhino, elephant, and flamingo share a single unbroken plain below the crater rim.', href: '/destinations/ngorongoro', img: '/images/956A4148.webp' },
+  { name: 'Zanzibar', tag: 'Island Paradise', desc: 'White sand beaches, spice farms scented with clove and cinnamon, and a UNESCO-listed Stone Town built from a thousand years of Swahili trade.', href: '/beach', img: '/images/px-home-zanzibar-coast.jpg' },
   { name: 'Kilimanjaro', tag: 'Roof of Africa', desc: 'Six ecological zones in a single climb, from rainforest to arctic summit, ending at Uhuru Peak with all of Tanzania spread out below you.', href: '/trekking', img: '/images/kilimanjaro-graded.jpg' },
-  { name: 'Tarangire', tag: 'Elephant Country', desc: 'Baobabs older than the nearest town and elephant herds three hundred strong, drawn to the only river that never runs dry through the long dry season.', href: '/destinations/tarangire', img: '/images/IMG_0227.webp' },
+  { name: 'Tarangire', tag: 'Elephant Country', desc: 'Baobabs older than the nearest town and elephant herds three hundred strong, drawn to the only river that never runs dry through the long dry season.', href: '/destinations/tarangire', img: '/images/IMG_0237.webp' },
 ];
 
 export const safaris = [
@@ -16,11 +16,11 @@ export const safaris = [
 ];
 
 export const offerings = [
-  { title: 'Into the Wild', img: '/images/956A2874.webp', href: '/safaris' },
+  { title: 'Into the Wild', img: '/images/956A2753.webp', href: '/safaris' },
   { title: 'The Great Migration', img: '/images/5.webp', href: '/safaris' },
-  { title: 'Meet the Maasai', img: '/images/IMG_2493.webp', href: '/culture' },
-  { title: 'Zanzibar Shores', img: '/images/nakupenda-beach.webp', href: '/safaris' },
-  { title: 'Off the Beaten Path', img: '/images/956A2236.webp', href: '/safaris' },
+  { title: 'Meet the Maasai', img: '/images/px-home-maasai-man.jpg', href: '/culture' },
+  { title: 'Zanzibar Shores', img: '/images/px-home-zanzibar-boats.jpg', href: '/safaris' },
+  { title: 'Off the Beaten Path', img: '/images/956A3207.webp', href: '/safaris' },
 ];
 
 // Real TripAdvisor reviews, lightly trimmed for length and obvious typos —
