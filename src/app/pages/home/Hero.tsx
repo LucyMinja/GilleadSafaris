@@ -4,7 +4,7 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 import CoverImage from '@/app/components/CoverImage';
-import { FocusTitle, FocusRule } from '@/app/components/FocusText';
+import HeroTitle from '@/app/components/HeroTitle';
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
@@ -27,12 +27,11 @@ export default function Hero() {
 
       <motion.div className="absolute inset-0 flex flex-col items-center justify-end text-center px-6 pb-[24vh]" style={{ y: textY, opacity: heroOpacity }}>
         <div>
-          <FocusTitle
+          <HeroTitle
             text={'Some journeys bring you\nback to life.'}
             delay={0.4}
             style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(38px, 4.8vw, 64px)', fontWeight: 400, lineHeight: 1.15, color: '#ffffff', textShadow: '0 2px 16px rgba(0,0,0,0.4)' }}
           />
-          <FocusRule delay={1.4} />
         </div>
       </motion.div>
 

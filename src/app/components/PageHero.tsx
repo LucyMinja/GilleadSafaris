@@ -3,7 +3,7 @@
 import { useRef, type ReactNode } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import CoverImage from './CoverImage';
-import { FocusTitle, FocusSubtitle, FocusRule } from './FocusText';
+import HeroTitle from './HeroTitle';
 
 // Single shared full-screen page hero — every interior page (Contact,
 // Booking, About, Culture, Accommodation, SafariTours, Gallery,
@@ -47,7 +47,7 @@ export default function PageHero({
 
       <motion.div className="relative z-10 text-center px-6 max-w-4xl mx-auto" style={{ y: textY, opacity: heroOpacity }}>
         <div>
-          <FocusTitle
+          <HeroTitle
             text={title}
             style={{
               fontFamily: "'Newsreader', Georgia, serif",
@@ -62,10 +62,8 @@ export default function PageHero({
             }}
           />
 
-          {subtitle ? (
-            <FocusSubtitle
-              text={subtitle}
-              style={{
+          {subtitle && (
+            <p style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
                 fontSize: '17px',
                 lineHeight: 1.8,
@@ -73,10 +71,9 @@ export default function PageHero({
                 maxWidth: '540px',
                 margin: '0 auto',
                 fontWeight: 400,
-              }}
-            />
-          ) : (
-            <FocusRule delay={0.9} />
+              }}>
+              {subtitle}
+            </p>
           )}
         </div>
       </motion.div>
