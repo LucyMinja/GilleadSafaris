@@ -9,15 +9,14 @@ export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
 
-  const videoY = useTransform(scrollYProgress, [0, 1], ['0%', '30%']);
   const textY = useTransform(scrollYProgress, [0, 0.5], ['0%', '-15%']);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0]);
 
   return (
     <section ref={heroRef} className="relative h-screen min-h-[600px] overflow-hidden">
-      <motion.div className="absolute inset-0" style={{ y: videoY }}>
+      <div className="absolute inset-0">
         <HeroVideo />
-      </motion.div>
+      </div>
 
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }} />

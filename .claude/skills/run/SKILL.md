@@ -11,6 +11,13 @@ description: Launch and verify the Gillead Safaris Next.js app (App Router lives
 - Styles: `src/styles/theme.css` (design tokens: `--background`, `--foreground`, `--primary`/accent, `.btn-primary`/`.btn-secondary`, base h1–h4). Google Fonts are loaded via a `<link rel="stylesheet">` in `app/layout.tsx` `<head>` — currently Newsreader (headings) + Plus Jakarta Sans (body). **Not** a CSS `@import`: Turbopack silently drops an external `@import` nested inside a locally-`@import`'d file, with no build error. `src/styles/fonts.css` is intentionally empty (just a comment) — don't put a font `@import` back in it.
 - Images: `public/images/` — a large library of real, high-quality wildlife/landscape photography (files named like `956A####.jpg`), mixed in with some low-quality/generic stock PNGs. Prefer the `956A*` real photos over the illustration-style PNGs when swapping images. Some existing captions don't match their images (a known issue, not a rendering bug) — verify what's actually in a photo before trusting its filename/caption.
 
+## Never run `npm run build` while the dev server is running
+
+Both write to `.next/`, so a production build overwrites the dev server's
+compiled CSS and the running site suddenly renders **unstyled** ("my CSS is
+gone"). Either stop dev first, or build in a separate git worktree. To recover:
+stop the dev server, `rm -rf .next`, then `npm run dev` again.
+
 ## Verification — match effort to the change
 
 **Small tweaks (color/copy/spacing/single-element edits):** trust the edit. Don't launch a browser. The dev server compiling without error (check `/tmp/nextdev.log` or the terminal) is enough. Read the diff back if unsure.
