@@ -15,7 +15,7 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-zanzibar-dhow-sunset.jpg | Beach | https://www.pexels.com/photo/14093348/ | GavinR |
 | px-heritage-carved-door.jpg | Culture / Heritage | https://www.pexels.com/photo/11025240/ | Roman Odintsov |
 | px-about-maasai-zebras.jpg | About | https://www.pexels.com/photo/2343011/ | Chomolla |
-| px-contact-acacia-zebras.jpg | Contact | https://www.pexels.com/photo/13098956/ | G.N. |
+| px-contact-elephants-kili.jpg | Contact | https://www.pexels.com/photo/26924191/ | LauKev Travel |
 | px-acacia-sunset.jpg | Destinations | https://www.pexels.com/photo/23831844/ | Image Noise |
 | px-serengeti-lions.jpg | Serengeti | https://www.pexels.com/photo/39034105/ | Laura Phillips |
 | px-ngorongoro-road.jpg | Ngorongoro | https://www.pexels.com/photo/28708299/ | GSN Travel |
