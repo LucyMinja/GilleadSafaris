@@ -45,7 +45,9 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-home-zanzibar-coast / px-home-zanzibar-boats | Homepage cards | https://www.pexels.com/photo/8765693/ · 5993893 | LimonovDigital · Taryn Elliott |
 | px-home-maasai-man / px-home-culture-maasai / px-home-culture-stonetown | Homepage cards | https://www.pexels.com/photo/10467022/ · 12339475 · 37087438 | Elly Shots · Gary Cohen · Lee Finvrede |
 | px-culture-maasai-gathering.jpg | Culture: Maasai section | https://www.pexels.com/photo/35724710/ | Ramy Photographer |
-| px-essentials-safari-gear.jpg | Essentials hero | https://www.pexels.com/photo/4993235/ | Rachel Claire |
-| px-essentials-seasons-clouds.jpg | Essentials: seasons | https://www.pexels.com/photo/30068845/ | Matt W |
-| px-essentials-passport-map.jpg | Essentials: requirements | https://www.pexels.com/photo/5405596/ | Taryn Elliott |
-| px-essentials-health-kit.jpg | Essentials: health | https://www.pexels.com/photo/4004227/ | Thishanabee |
+| px-essentials-sundowner.jpg | Essentials hero | https://www.pexels.com/photo/17831035/ | Entumoto |
+| px-essentials-rainbow-zebras.jpg | Essentials: seasons | https://www.pexels.com/photo/27020866/ | InsidePortugal |
+| px-essentials-zanzibar-airport.jpg | Essentials: requirements | https://www.pexels.com/photo/30220728/ | Keegan J Checks |
+| px-essentials-binoculars-zebras.jpg | Essentials: health | https://www.pexels.com/photo/20852883/ | YoungAfrikanna |
+| px-tour-ngorongoro-zebras.jpg | Ngorongoro day trip | https://www.pexels.com/photo/30301083/ | Doctor On Travel |
+| px-tour-selous-river-elephants.jpg | Selous & Mikumi tour | https://www.pexels.com/photo/28555070/ | Senorcaliente |

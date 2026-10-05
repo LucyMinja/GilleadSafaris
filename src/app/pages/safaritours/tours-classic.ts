@@ -8,7 +8,7 @@ export const toursClassic = [
     priceNote: 'per person',
     type: 'Day Trip',
     groupLabel: 'Private safari',
-    img: '/images/px-ngorongoro-road.jpg',
+    img: '/images/px-tour-ngorongoro-zebras.jpg',
     highlight: 'Quick Escape',
     desc: 'A short, action-packed safari for travellers with limited time. Descend 600m into the Ngorongoro Crater for half-day game viewing among lion, elephant, wildebeest, zebra, hyena and buffalo, then visit the soda waters of Lake Magadi to see flamingos and hippos.',
     parks: ['Ngorongoro Crater', 'Lake Magadi'],

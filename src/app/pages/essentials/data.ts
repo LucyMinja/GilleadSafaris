@@ -20,7 +20,7 @@ export const sections: EssentialsSection[] = [
     id: 'seasons',
     kicker: 'When to Go',
     title: "Tanzania's Seasons",
-    img: '/images/px-essentials-seasons-clouds.jpg',
+    img: '/images/px-essentials-rainbow-zebras.jpg',
     items: [
       {
         q: 'When is the best time to visit?',
@@ -36,7 +36,7 @@ export const sections: EssentialsSection[] = [
     id: 'travel-requirements',
     kicker: 'Arrival Logistics',
     title: 'Travel Requirements',
-    img: '/images/px-essentials-passport-map.jpg',
+    img: '/images/px-essentials-zanzibar-airport.jpg',
     reverse: true,
     items: [
       {
@@ -58,7 +58,7 @@ export const sections: EssentialsSection[] = [
     id: 'health',
     kicker: 'Your Protection',
     title: 'Health & Wellbeing',
-    img: '/images/px-essentials-health-kit.jpg',
+    img: '/images/px-essentials-binoculars-zebras.jpg',
     items: [
       {
         q: 'Do I need vaccinations or malaria medication?',

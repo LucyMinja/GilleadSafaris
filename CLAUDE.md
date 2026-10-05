@@ -184,6 +184,10 @@ filename or existing caption.
   hand-copied path. Before adding a photo, grep that it isn't already used.
 - **Link check**: `scripts/check-links.mjs` runs after every build
   (`postbuild`) and fails it if any internal link/image in `out/` is broken.
+- **Repeat check**: `scripts/check-repeats.mjs` also runs in `postbuild` and fails
+  the build if any page shows the same photo twice (hero vs. intro, hero vs.
+  related-tour card...). Trip pages show their photo only in the hero; the
+  intro is typography + the route of parks.
 - **Dependencies**: only lucide-react, motion, next, react, react-dom,
   tw-animate-css are used. Check usage before adding a library.
 

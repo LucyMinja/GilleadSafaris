@@ -10,7 +10,7 @@
     "images": "node scripts/optimize-images.mjs",
     "predev": "node scripts/optimize-images.mjs",
     "prebuild": "node scripts/optimize-images.mjs",
-    "postbuild": "node scripts/check-links.mjs"
+    "postbuild": "node scripts/check-links.mjs && node scripts/check-repeats.mjs"
   },
   "dependencies": {
     "lucide-react": "^0.475.0",

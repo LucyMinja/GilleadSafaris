@@ -32,7 +32,7 @@ export const toursMore = [
     priceNote: 'per person',
     type: 'Classic',
     groupLabel: 'Private safari',
-    img: '/images/px-nyerere-hippos.jpg',
+    img: '/images/px-tour-selous-river-elephants.jpg',
     highlight: 'Southern Circuit',
     desc: 'Discover the Rufiji River by boat, encounter hippos and crocodiles in the Selous Game Reserve, then spot giraffe, buffalo, elephant, lion and leopard on game drives in Mikumi National Park. Departs from and returns to Dar es Salaam.',
     parks: ['Nyerere National Park (Selous)', 'Mikumi National Park'],
