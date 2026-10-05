@@ -52,7 +52,7 @@ export const toursMore = [
     priceNote: 'per person',
     type: 'Classic',
     groupLabel: 'Private safari',
-    img: '/images/Lionessrock.webp',
+    img: '/images/956A2025.webp',
     highlight: 'Off the Beaten Path',
     desc: "An off-the-beaten-path southern circuit through Mikumi National Park, the vast and unspoilt Ruaha National Park, and a waterfall hike in the Udzungwa Mountains. Departs from and returns to Dar es Salaam.",
     parks: ['Mikumi National Park', 'Ruaha National Park', 'Udzungwa Mountains'],

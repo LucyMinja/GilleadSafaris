@@ -13,7 +13,8 @@ export const destinationData = [
     facts: { size: '14,763 km²', bestTime: 'June – October', animals: 'Lion · Cheetah · Leopard · Elephant · Buffalo · Wildebeest' },
     highlights: ['Great Migration', 'Big Five', 'Hot Air Balloon Safaris', 'Kopjes & Rock Formations', 'Predator Concentrations'],
     story: {
-      bigImages: ['/images/956A3225.webp', '/images/956A4274.webp'],
+      bigImages: ['/images/956A3225.webp', '/images/956A3919.webp'],
+      historyImg: '/images/956A2034.webp',
       bigVignette: {
         eyebrow: 'Great Migration',
         headline: 'Follow the herds',
@@ -62,7 +63,8 @@ export const destinationData = [
     facts: { size: '8,292 km²', bestTime: 'Year-round', animals: 'Black Rhino · Lion · Elephant · Hippo · Flamingo · Hyena' },
     highlights: ['Volcanic Caldera', 'Black Rhino Sightings', 'Big Five in One Day', 'Olduvai Gorge', 'Maasai Culture'],
     story: {
-      bigImages: ['/images/956A4243.webp', '/images/IMG_1256.webp'],
+      bigImages: ['/images/956A4243.webp', '/images/956A2546.webp'],
+      historyImg: '/images/956A3425.webp',
       bigVignette: {
         eyebrow: 'Volcanic Caldera',
         headline: 'A world inside a crater',
@@ -188,7 +190,8 @@ export const destinationData = [
     facts: { size: '2,850 km²', bestTime: 'June – October', animals: 'Elephant · Lion · Leopard · Gerenuk · Oryx · Python' },
     highlights: ['Giant Elephant Herds', 'Ancient Baobab Trees', '550+ Bird Species', 'Swamp Wildlife', 'Dry Season Spectacle'],
     story: {
-      bigImages: ['/images/IMG_0227.webp', '/images/956A3309.webp'],
+      bigImages: ['/images/IMG_0227.webp', '/images/956A2746.webp'],
+      historyImg: '/images/956A2968.webp',
       bigVignette: {
         eyebrow: 'Giant Elephant Herds',
         headline: 'Three hundred strong, and counting',
@@ -240,7 +243,8 @@ export const destinationData = [
       // yet — using a real, honest photo of Gillead's own fleet instead of
       // a mismatched park photo, since Arusha genuinely is where every
       // safari (not just this one) starts.
-      bigImages: ['/images/IMG_0376.webp'],
+      bigImages: ['/images/px-arusha-acacia-kili.jpg', '/images/IMG_0376.webp'],
+      historyImg: '/images/IMG_0200.webp',
       bigVignette: {
         eyebrow: 'Your Gateway',
         headline: 'Every safari starts here',
@@ -272,7 +276,8 @@ export const destinationData = [
       // (it isn't part of our own photo set) — one honest stock photo beats
       // a mismatched real one, see project convention on verifying image
       // content before trusting it (CLAUDE.md, Images section).
-      bigImages: ['/images/px-manyara-flamingos.jpg'],
+      bigImages: ['/images/IMG_2562.jpg', '/images/IMG_0196.webp'],
+      historyImg: '/images/IMG_2555.webp',
       bigVignette: {
         eyebrow: 'Tree-Climbing Lions',
         headline: 'A habit found almost nowhere else',
@@ -302,7 +307,8 @@ export const destinationData = [
       // Only two verified real photos of Ruaha are in the library (the
       // lodge photography from accommodation/lodges.ts) — using both, no
       // secondary pairing forced from unrelated generic wildlife shots.
-      bigImages: ['/images/956A3701.webp', '/images/956A2236.webp'],
+      bigImages: ['/images/956A2167.webp', '/images/956A2236.webp'],
+      historyImg: '/images/956A2701.webp',
       bigVignette: {
         eyebrow: 'Great Ruaha River',
         headline: 'Where the dry season concentrates everything',
@@ -311,7 +317,7 @@ export const destinationData = [
       },
     },
     relatedTours: [
-      { id: 8, name: '6 Days Ruaha, Mikumi & Udzungwa National Park', duration: '6 Days / 5 Nights', img: '/images/956A3701.webp' },
+      { id: 8, name: '6 Days Ruaha, Mikumi & Udzungwa National Park', duration: '6 Days / 5 Nights', img: '/images/956A2519.webp' },
     ],
   },
   {
@@ -330,7 +336,8 @@ export const destinationData = [
     story: {
       // Both images already verified as Selous in accommodation/lodges.ts
       // (Selous Migration Camp's own primary + secondary photos).
-      bigImages: ['/images/956A2192.webp', '/images/956A1791_1.webp'],
+      bigImages: ['/images/956A1769.webp', '/images/956A1791_1.webp'],
+      historyImg: '/images/956A1564.webp',
       bigVignette: {
         eyebrow: 'Rufiji River Boat Safaris',
         headline: 'The river safari almost nowhere else offers',

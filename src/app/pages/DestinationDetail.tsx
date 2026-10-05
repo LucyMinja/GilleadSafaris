@@ -24,9 +24,9 @@ export default function DestinationDetail({ slug }: { slug: string }) {
       {/* HistorySection's opener and StoryGallery's first pairing each get
           their own photo — using the same one twice in a row down the page
           would read as a mistake, not a design choice. Destinations with
-          only one verified real photo reuse it (nothing else honest to
-          show), everyone else gets the second carousel frame here. */}
-      <HistorySection dest={dest} img={dest.story.bigImages[dest.story.bigImages.length > 1 ? 1 : 0]} />
+          only one verified real photo reuse it; the rest set their own
+          `historyImg` so nothing repeats on the page. */}
+      <HistorySection dest={dest} img={('historyImg' in dest.story && dest.story.historyImg) || dest.story.bigImages[dest.story.bigImages.length > 1 ? 1 : 0]} />
       <StoryGallery bigImages={dest.story.bigImages} bigVignette={dest.story.bigVignette} secondary={dest.story.secondary} />
       <RelatedTours dest={dest} />
       <DetailCTA destName={dest.name} />
