@@ -24,15 +24,11 @@ export default function PageHero({
   subtitle,
   image = '/images/956A3309.webp',
   imagePosition,
-  portrait = false,
 }: {
   title: ReactNode;
   subtitle?: string;
   image?: string;
   imagePosition?: string;
-  /** Tall photos (e.g. Heritage's carved door): show the whole photo framed on
-      the right over a blurred copy, instead of cropping it to a thin strip. */
-  portrait?: boolean;
 }) {
   const heroRef = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] });
@@ -40,32 +36,16 @@ export default function PageHero({
   const heroOpacity = useTransform(scrollYProgress, [0, 0.6], [1, 0]);
 
   return (
-    <section ref={heroRef} className={`relative h-screen min-h-[600px] flex items-end overflow-hidden pb-[24vh] ${portrait ? 'justify-center md:justify-start' : 'justify-center'}`}>
+    <section ref={heroRef} className="relative h-screen min-h-[600px] flex items-end justify-center overflow-hidden pb-[24vh]">
       {/* Static photo — no parallax or zoom, so it reads as a clean, natural frame. */}
-      {portrait ? (
-        <>
-          {/* Phones are tall too, so the photo simply fills the screen there. */}
-          <div className="absolute inset-0 md:hidden">
-            <CoverImage src={image} alt="" priority sizes="100vw" />
-          </div>
-          <div className="hidden md:block absolute inset-0 scale-110" style={{ filter: 'blur(28px) brightness(0.55)' }}>
-            <CoverImage src={image} alt="" priority sizes="40vw" />
-          </div>
-          <div className="hidden md:block absolute right-[6vw] top-[14vh] bottom-[10vh] aspect-[2/3] shadow-[0_30px_80px_rgba(0,0,0,0.45)]" style={{ borderRadius: '2px', overflow: 'hidden' }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={image.replace(/^\/images\/(.+)\.\w+$/, '/img/$1-1280.webp')} alt="" className="w-full h-full object-cover" />
-          </div>
-        </>
-      ) : (
-        <div className="absolute inset-0">
-          <CoverImage src={image} alt="" priority sizes="100vw" position={imagePosition} />
-        </div>
-      )}
+      <div className="absolute inset-0">
+        <CoverImage src={image} alt="" priority sizes="100vw" position={imagePosition} />
+      </div>
       <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.25) 40%, rgba(0,0,0,0.6) 100%)' }} />
       <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.05) 60%, transparent 100%)' }} />
       <div className="absolute inset-x-0 bottom-0 h-32" style={{ background: 'linear-gradient(to bottom, transparent 0%, transparent 55%, rgba(241,234,224,0.35) 80%, #F1EAE0 100%)' }} />
 
-      <motion.div className={portrait ? "relative z-10 text-center md:text-left px-6 max-w-4xl mx-auto md:mx-0 md:ml-[7vw] md:max-w-[min(560px,42vw)]" : "relative z-10 text-center px-6 max-w-4xl mx-auto"} style={{ y: textY, opacity: heroOpacity }}>
+      <motion.div className="relative z-10 text-center px-6 max-w-4xl mx-auto" style={{ y: textY, opacity: heroOpacity }}>
         <div>
           <HeroTitle
             text={title}

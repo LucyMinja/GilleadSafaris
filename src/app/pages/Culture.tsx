@@ -12,7 +12,7 @@ export default function Culture() {
         title="Culture & Heritage"
         subtitle="Tanzania is not just landscapes and wildlife. It is the Maasai warrior standing at sunset, the Hadzabe hunter reading the morning tracks, the spice-trader's carved door in Stone Town."
         image="/images/px-heritage-carved-door.jpg"
-        portrait
+        imagePosition="center 45%"
       />
       <CultureSections />
       <CuisineSection />
