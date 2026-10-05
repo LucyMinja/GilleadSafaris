@@ -23,7 +23,7 @@ export default function Gallery() {
       <PageHero
         title="Gallery"
         subtitle="Real moments from Tanzania's most extraordinary wildlife and landscapes."
-        image="/images/px-misty-giraffe.jpg"
+        image="/images/px-cheetahs-dusk.jpg"
         imagePosition="center 28%"
       />
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 pt-14 lg:pt-16 text-center">
