@@ -29,7 +29,7 @@ export default function RelatedTours({ tour, all }: { tour: Tour; all: Tour[] })
       <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 2.6vw, 36px)', fontWeight: 600, color: '#6D6753', marginBottom: '32px' }}>
         {tourCategory(tour) === 'trekking' ? 'Other climbs on the same mountain' : tourCategory(tour) === 'beach' ? 'Other trips to the same shores' : 'Other safaris that visit the same parks'}
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
+      <div className="swipe-row grid grid-cols-1 sm:grid-cols-3 gap-6 text-left">
         {related.map((t, i) => (
           <RevealOnView
             key={t.id}

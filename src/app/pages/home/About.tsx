@@ -65,7 +65,7 @@ export default function About() {
             className="order-1 lg:order-2 lg:col-span-5">
             <div style={{ marginTop: 'clamp(20px, 3vw, 36px)' }}>
               <h2
-                className="text-center lg:text-left"
+                className="text-left"
                 style={{
                   fontFamily: "'Newsreader', Georgia, serif",
                   fontSize: 'clamp(30px, 3.6vw, 46px)',
@@ -82,23 +82,23 @@ export default function About() {
               <WordReveal
                 text="Gillead Safaris began with a simple belief: that the people who grew up watching the sun rise over the Serengeti are the ones best placed to share it with you."
                 baseDelay={0}
-                className="justify-center lg:justify-start"
+                className="justify-start"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '18px', fontWeight: 400 }}
               />
               <WordReveal
                 text="We're a team of professional driver-guides, trip planners, and safari specialists based in Arusha — trained for these parks, not just born near them — turning bucket-list dreams into real itineraries since 2020."
                 baseDelay={0.5}
-                className="justify-center lg:justify-start"
+                className="justify-start"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '18px', fontWeight: 400 }}
               />
               <WordReveal
                 text="Every itinerary starts with a conversation, not a template — where you want to go, how long you have, what you're hoping to see. We build the rest around that."
                 baseDelay={1.0}
-                className="justify-center lg:justify-start"
+                className="justify-start"
                 style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753', marginBottom: '32px', fontWeight: 400 }}
               />
 
-              <div className="flex justify-center lg:justify-start">
+              <div className="flex justify-start">
                 <SafariButton href="/about">
                   Our Story
                 </SafariButton>

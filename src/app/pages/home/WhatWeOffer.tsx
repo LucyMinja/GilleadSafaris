@@ -11,7 +11,7 @@ import { offerings } from './data';
 
 function OfferCard({ item, i }: { item: (typeof offerings)[number]; i: number }) {
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, amount: 0.2 });
+  const inView = useInView(ref, { once: false, amount: 0.05 });
 
   return (
     <motion.div
@@ -78,7 +78,7 @@ export default function WhatWeOffer() {
         </p>
       </PinHeader>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4" style={{ gap: '20px' }}>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 swipe-row" style={{ gap: '20px' }}>
         {offerings.map((item, i) => (
           <OfferCard key={item.title} item={item} i={i} />
         ))}

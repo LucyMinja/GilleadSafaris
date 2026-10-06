@@ -29,7 +29,7 @@ export default function BottomBar() {
   return (
     <div style={{ borderTop: '1px solid rgba(241,234,224,0.15)' }}>
       <div className="max-w-7xl mx-auto px-6 lg:px-20 pt-6 pb-16 lg:pb-6 flex flex-col lg:flex-row items-center justify-between gap-4">
-        <p style={fineprintStyle}>
+        <p className="text-center" style={fineprintStyle}>
           © {new Date().getFullYear()} Gillead Safaris Tanzania Ltd. All rights reserved.
         </p>
 

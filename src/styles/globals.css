@@ -44,3 +44,25 @@
 .hero-sweep { animation: hero-sweep 2.6s cubic-bezier(0.45, 0, 0.2, 1) 0.2s both; }
 .hero-sweep-sub { animation: hero-sweep 2.4s cubic-bezier(0.45, 0, 0.2, 1) 1.1s both; }
 @media (prefers-reduced-motion: reduce) { .hero-sweep, .hero-sweep-sub { animation: none; } }
+
+/* Phones: turn a stack of big cards into one swipeable row (with a peek of
+   the next card) so the homepage isn't 20 screens long. From the breakpoint
+   up, the element falls back to its normal grid classes. */
+@media (max-width: 639px) {
+  .swipe-row { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px !important;
+    margin-left: -24px; margin-right: -24px; padding-left: 24px !important; padding-right: 24px !important;
+    scrollbar-width: none; -webkit-overflow-scrolling: touch; padding-bottom: 6px; scroll-padding-inline: 24px; }
+  .swipe-row::-webkit-scrollbar { display: none; }
+  .swipe-row > * { flex: 0 0 80%; scroll-snap-align: start; min-width: 0; }
+}
+@media (max-width: 767px) {
+  .swipe-row-md { display: flex !important; overflow-x: auto; scroll-snap-type: x mandatory; gap: 14px !important;
+    margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px;
+    scrollbar-width: none; padding-bottom: 6px; scroll-padding-inline: 24px; }
+  .swipe-row-md::-webkit-scrollbar { display: none; }
+  .swipe-row-md > * { flex: 0 0 80%; scroll-snap-align: start; min-width: 0; }
+}
+@media (max-width: 639px) {
+  /* A swipe row that is itself the padded page container needs no bleed. */
+  .swipe-row.mx-auto { margin-left: 0; margin-right: 0; }
+}

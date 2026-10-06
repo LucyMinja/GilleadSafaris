@@ -30,7 +30,7 @@ export default function Culture() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 swipe-row-md">
           {stories.map((s, i) => (
             <RevealOnView
               key={s.id}

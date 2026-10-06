@@ -12,7 +12,7 @@ export default function TeamSection() {
           Meet the Team
         </h2>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 swipe-row">
         {team.map((member, i) => (
           <RevealOnView
             key={member.name}

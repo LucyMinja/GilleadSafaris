@@ -36,7 +36,7 @@ export default function TourCard({ tour, index }: { tour: Tour; index: number })
       <div className="contents" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)}>
         {/* Image column — order-2 on mobile */}
         <div className={`relative lg:col-span-7 order-2 ${isReverse ? 'lg:order-2' : 'lg:order-1'}`}>
-          <div className="relative" style={{ width: '88%', margin: isReverse ? '0 0 0 auto' : '0' }}>
+          <div className={`relative w-full lg:w-[88%] ${isReverse ? 'lg:ml-auto' : ''}`}>
             <Link
               href={href}
               className="relative block w-full overflow-hidden"

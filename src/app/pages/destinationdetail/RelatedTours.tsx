@@ -46,7 +46,7 @@ export default function RelatedTours({
         </div>
       </RevealOnView>
 
-      <div className={`grid grid-cols-1 sm:grid-cols-2 ${GRID_COLS[Math.min(dest.relatedTours.length, 4)]} gap-6`}>
+      <div className={`swipe-row grid grid-cols-1 sm:grid-cols-2 ${GRID_COLS[Math.min(dest.relatedTours.length, 4)]} gap-6`}>
         {dest.relatedTours.map((tour, i) => {
           // Image and link come from the tour itself, so each tour shows its
           // one photo everywhere instead of a hand-copied (and drifting) one.

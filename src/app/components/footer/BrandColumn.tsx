@@ -5,7 +5,7 @@ import { subLabel, chromeLink, chromeSmall } from '../chromeType';
 
 export default function BrandColumn() {
   return (
-    <div className="lg:col-span-2">
+    <div className="col-span-2">
       <Link href="/" className="flex items-center gap-3 mb-6" style={{ textDecoration: 'none' }}>
         <Image src="/images/og2.png" alt="Gillead Safaris" width={52} height={52} className="w-12 h-12 object-contain" />
         <div>

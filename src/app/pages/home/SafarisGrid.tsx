@@ -20,9 +20,9 @@ const tourImg = (href: string) => tours.find((t) => href.endsWith('/' + t.slug))
 function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }) {
   const img = tourImg(s.href) ?? s.img;
   const ref = useRef(null);
-  const inView = useInView(ref, { once: false, amount: 0.2 });
+  const inView = useInView(ref, { once: false, amount: 0.05 });
   const overlayRef = useRef(null);
-  const overlayInView = useInView(overlayRef, { once: true, amount: 0.3 });
+  const overlayInView = useInView(overlayRef, { once: true, amount: 0.05 });
 
   return (
     <motion.div
@@ -76,7 +76,7 @@ export default function SafarisGrid() {
         </p>
       </PinHeader>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 swipe-row">
         {safaris.map((s, i) => (
           <SafariCard key={s.name} s={s} delay={(i % 3) * 0.1} />
         ))}
