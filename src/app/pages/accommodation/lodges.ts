@@ -41,7 +41,7 @@ export const lodges: Lodge[] = [
     category: 'Tented Camps',
     price: 'Price on request',
     rating: 4.8,
-    img: '/images/956A3195.webp',
+    img: '/images/lodge-serengeti-pioneer.jpg',
     img2: '/images/956A3373.webp',
     desc: 'Twelve canvas tents on a kopje in the south-central Serengeti, styled after the explorers\' camps of the 1930s, with views over the Moru Kopjes and Lake Magadi. Each tent has a queen bed under a mosquito net, campaign furniture, a writing desk and a shaded veranda, with a flush toilet and solar-heated shower en suite. The lounge sits under a makuti thatch roof, dinner is served in the dining tent, and there\'s a plunge pool and an evening campfire.',
     amenities: ['12 en-suite tents (incl. 1 family tent)', 'Solar-heated showers & flush toilets', 'Plunge pool with sun loungers', 'Thatched lounge with Moru Kopjes views', 'Dining tent & bar', 'Evening campfire', 'Personal tent attendant', 'Solar power 24h & Wi-Fi', 'Room service'],

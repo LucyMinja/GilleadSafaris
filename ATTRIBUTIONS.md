@@ -62,3 +62,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 |---|---|---|
 | lodge-kuona-dining.jpg | Kuona Serengeti Lodge | kuonaserengeti.com (the lodge's own photo, supplied for use) |
 | lodge-tarangire-treetops.jpg | Elewana Tarangire Treetops | elewanacollection.com (the lodge's own photo) |
+| lodge-serengeti-pioneer.jpg | Elewana Serengeti Pioneer Camp | elewanacollection.com (the lodge's own photo) |
