@@ -1,0 +1,10 @@
+# Security for the api/ folder on the Apache server (cPanel).
+
+# Never let a browser open these files directly — they hold passwords or
+# are only meant to be included by submit.php.
+<FilesMatch "^(config\.php|config\.example\.php|db\.php)$">
+    Require all denied
+</FilesMatch>
+
+# No folder listings.
+Options -Indexes
