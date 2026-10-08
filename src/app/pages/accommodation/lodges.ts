@@ -25,7 +25,7 @@ export const lodges: Lodge[] = [
     category: 'Tented Camps',
     price: 'Price on request',
     rating: 5.0,
-    img: '/images/956A2725.webp',
+    img: '/images/lodge-kuona-dining.jpg',
     img2: '/images/956A2633.webp',
     desc: 'Built into the Serengeti\'s kopjes, Kuona ("to see" in Swahili) is a luxury lodge designed to disappear into the landscape. Spacious suites look out over the valley, and the lodge pairs game drives with a full wellness side: The Sanctuary spa with massage rooms, an outdoor pool and a fine-dining restaurant cooking to order from breakfast onward.',
     amenities: ['The Sanctuary spa & massage rooms', 'Outdoor pool', 'Fine-dining restaurant', 'Bar & coffee shop', 'Valley-view suites', 'Cooked-to-order breakfast', 'Free in-room Wi-Fi', 'Laundry service', 'Game drives'],
