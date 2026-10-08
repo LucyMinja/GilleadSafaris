@@ -41,7 +41,6 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-safari-elephant-dusk.jpg | 5-day Northern Safari | https://www.pexels.com/photo/18629364/ | Altezza Travel |
 | px-safari-elephant-silhouettes.jpg | 6-day Best of Tanzania | https://www.pexels.com/photo/5125391/ | Roger Brown |
 | px-lodge-nungwi-aerial / px-lodge-dhow-dusk | Zuri Zanzibar lodge | https://www.pexels.com/photo/9122382/ · 30311543 | LimonovDigital · Mustafa Masetic |
-| px-home-zanzibar-coast / px-home-zanzibar-boats | Homepage cards | https://www.pexels.com/photo/8765693/ · 5993893 | LimonovDigital · Taryn Elliott |
 | px-home-maasai-man / px-home-culture-maasai / px-home-culture-stonetown | Homepage cards | https://www.pexels.com/photo/10467022/ · 12339475 · 37087438 | Elly Shots · Gary Cohen · Lee Finvrede |
 | px-culture-maasai-gathering.jpg | Culture: Maasai section | https://www.pexels.com/photo/35724710/ | Ramy Photographer |
 | px-essentials-sundowner.jpg | Essentials hero | https://www.pexels.com/photo/17831035/ | Entumoto |
@@ -52,7 +51,6 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-tour-selous-river-elephants.jpg | Selous & Mikumi tour | https://www.pexels.com/photo/28555070/ | Senorcaliente |
 | px-cheetahs-dusk.jpg | Gallery hero | https://www.pexels.com/photo/12925485/ | Twilight Kenya |
 | px-impala-golden.jpg | Home: Great Migration card | https://www.pexels.com/photo/1109896/ | Pexels contributor |
-| px-home-tarangire-herd.jpg | Home: Tarangire card | https://www.pexels.com/photo/30629351/ | Dirk Pothen |
 | px-home-kilimanjaro.jpg | Home: Kilimanjaro card | https://www.pexels.com/photo/15994021/ | Balaz Simon |
 
 ## Lodge photography
@@ -71,3 +69,5 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | lodge-kuona-family-suite.jpg | Accommodation hero | kuonaserengeti.com (the lodge's own photo) |
 
 | px-sus-elephant-herd / maasai-village / jeep-distance / kili-porter | Sustainability | https://www.pexels.com/photo/9185426/ · 39559980 · 13242022 · 31121293 | Akos Helgert · Zenji · Kureng Workx · Marina Zvada |
+
+| px-home-serengeti-lion-cubs / ngorongoro-crater-lion / zanzibar-dhow / tarangire-elephant-family | Home: wild places | https://www.pexels.com/photo/17849765/ · 25950570 · 15505785 · 19986853 | Mike Knibbs · Nadia Loves Single · Andreea Vieru · BGBennett |

@@ -1,9 +1,9 @@
 export const destinations = [
-  { name: 'Serengeti', tag: 'Endless Plains', desc: 'Over 1.5 million wildebeest move across these plains each year, trailed by lion, cheetah, and leopard through one of the last truly wild landscapes left on earth.', href: '/destinations/serengeti', img: '/images/956A3342.webp' },
-  { name: 'Ngorongoro', tag: 'The Crater', desc: 'A caldera three million years old, walled in on every side, where black rhino, elephant, and flamingo share a single unbroken plain below the crater rim.', href: '/destinations/ngorongoro', img: '/images/956A4148.webp' },
-  { name: 'Zanzibar', tag: 'Island Paradise', desc: 'White sand beaches, spice farms scented with clove and cinnamon, and a UNESCO-listed Stone Town built from a thousand years of Swahili trade.', href: '/beach', img: '/images/px-home-zanzibar-coast.jpg' },
+  { name: 'Serengeti', tag: 'Endless Plains', desc: 'Over 1.5 million wildebeest move across these plains each year, trailed by lion, cheetah, and leopard through one of the last truly wild landscapes left on earth.', href: '/destinations/serengeti', img: '/images/px-home-serengeti-lion-cubs.jpg' },
+  { name: 'Ngorongoro', tag: 'The Crater', desc: 'A caldera three million years old, walled in on every side, where black rhino, elephant, and flamingo share a single unbroken plain below the crater rim.', href: '/destinations/ngorongoro', img: '/images/px-home-ngorongoro-crater-lion.jpg' },
+  { name: 'Zanzibar', tag: 'Island Paradise', desc: 'White sand beaches, spice farms scented with clove and cinnamon, and a UNESCO-listed Stone Town built from a thousand years of Swahili trade.', href: '/beach', img: '/images/px-home-zanzibar-dhow.jpg' },
   { name: 'Kilimanjaro', tag: 'Roof of Africa', desc: 'Six ecological zones in a single climb, from rainforest to arctic summit, ending at Uhuru Peak with all of Tanzania spread out below you.', href: '/trekking', img: '/images/px-home-kilimanjaro.jpg' },
-  { name: 'Tarangire', tag: 'Elephant Country', desc: 'Baobabs older than the nearest town and elephant herds three hundred strong, drawn to the only river that never runs dry through the long dry season.', href: '/destinations/tarangire', img: '/images/px-home-tarangire-herd.jpg' },
+  { name: 'Tarangire', tag: 'Elephant Country', desc: 'Baobabs older than the nearest town and elephant herds three hundred strong, drawn to the only river that never runs dry through the long dry season.', href: '/destinations/tarangire', img: '/images/px-home-tarangire-elephant-family.jpg' },
 ];
 
 export const safaris = [
