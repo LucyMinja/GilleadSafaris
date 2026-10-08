@@ -28,7 +28,9 @@ the padding value must be **exactly `px-6 lg:px-16`** — not `px-8`, not
 currently **`py-20 lg:py-28`** — for the same reason as the horizontal
 padding above (mismatched values look "roughly right" alone but create
 uneven gaps between sections when you scroll). The one deliberate exception
-is the About→WhatWeOffer transition, which is intentionally tighter
+was the About→WhatWeOffer transition (the floating Polaroid photo it
+relied on has since been removed, so re-check that gap before relying on
+this note), which was intentionally tighter
 (About's `pb-10 lg:pb-14`, WhatWeOffer's `pt-6 lg:pt-8`) because About's
 floating Polaroid photo already overflows below the section and provides
 its own visual breathing room — adding full padding on top of that
