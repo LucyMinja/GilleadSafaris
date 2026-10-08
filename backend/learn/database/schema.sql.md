@@ -1,4 +1,4 @@
-# `backend/schema.sql` — the database table
+# `backend/database/schema.sql` — the database table
 
 > **Step 1 of the backend.** Before any PHP, we decide *what we store*. Everything
 > else (the form handler, the admin dashboard) is built around this table.
@@ -132,7 +132,7 @@ fast without reading the whole table. We index exactly what we'll search by:
    ```sql
    CREATE DATABASE gillead_practice;
    USE gillead_practice;
-   SOURCE /Users/kostivinvestiment/Downloads/Safaris/backend/schema.sql;
+   SOURCE /Users/kostivinvestiment/Downloads/Safaris/backend/database/schema.sql;
    ```
 3. Insert a fake enquiry yourself:
    ```sql

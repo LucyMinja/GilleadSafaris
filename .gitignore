@@ -36,3 +36,5 @@ pnpm-debug.log*
 .vercel
 
 originalsite/
+# Backend secrets — never commit real passwords
+backend/api/config.php
