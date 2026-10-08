@@ -17,6 +17,7 @@ const COOKIE_KEY = 'gillead-cookie-consent';
 export default function NewsletterPopup() {
   const pathname = usePathname();
   const [show, setShow] = useState(false);
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -43,7 +44,7 @@ export default function NewsletterPopup() {
 
   const handleSubscribe = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    if (!name.trim() || !email) return;
     setSubscribed(true);
     setTimeout(dismiss, 3500);
   };
@@ -51,21 +52,30 @@ export default function NewsletterPopup() {
   return (
     <AnimatePresence>
       {show && (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center px-4">
+        <motion.div
+          className="absolute inset-0 bg-black/50 backdrop-blur-[2px]"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          onClick={dismiss}
+        />
         <motion.aside
           role="dialog"
+          aria-modal="true"
           aria-label="Newsletter sign-up"
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          exit={{ opacity: 0, y: 24, scale: 0.98 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed z-[55] bottom-20 left-3 right-3 sm:left-auto sm:bottom-24 sm:right-6 sm:w-[460px] flex overflow-hidden"
+          className="relative w-full max-w-[640px] flex overflow-hidden"
           style={{ backgroundColor: 'var(--chrome)', borderRadius: '2px', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}
         >
-          <div className="relative hidden sm:block flex-shrink-0" style={{ width: '120px' }}>
-            <CoverImage sizes="120px" src="/images/956A2350.webp" alt="Serengeti plains at first light" />
+          <div className="relative hidden sm:block flex-shrink-0" style={{ width: '220px' }}>
+            <CoverImage sizes="220px" src="/images/956A2350.webp" alt="Serengeti plains at first light" />
           </div>
 
-          <div className="relative flex-1 min-w-0 p-5 sm:p-6">
+          <div className="relative flex-1 min-w-0 p-6 sm:p-8">
             <button
               onClick={dismiss}
               aria-label="Close"
@@ -83,18 +93,30 @@ export default function NewsletterPopup() {
                 <p style={{ ...chromeLink, color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, marginBottom: '16px' }}>
                   Where the herds are, which parks are quiet, and a few photos from our guides. Nothing else.
                 </p>
-                <form onSubmit={handleSubscribe} className="flex gap-2">
+                <form onSubmit={handleSubscribe} className="flex flex-col gap-2.5">
+                  <input
+                    type="text"
+                    required
+                    placeholder="Your name"
+                    aria-label="Name"
+                    autoComplete="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className="w-full px-3 py-3 outline-none focus:border-[#C9A97E]"
+                    style={{ ...chromeLink, color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '2px' }}
+                  />
                   <input
                     type="email"
                     required
                     placeholder="Your email"
                     aria-label="Email address"
+                    autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 min-w-0 px-3 outline-none focus:border-[#C9A97E]"
+                    className="w-full px-3 py-3 outline-none focus:border-[#C9A97E]"
                     style={{ ...chromeLink, color: '#FFFFFF', backgroundColor: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.2)', borderRadius: '2px' }}
                   />
-                  <SafariButton type="submit" size="sm">Subscribe</SafariButton>
+                  <SafariButton type="submit" size="sm" style={{ width: '100%', padding: '13px 20px' }}>Subscribe</SafariButton>
                 </form>
                 <button
                   onClick={dismiss}
@@ -108,7 +130,7 @@ export default function NewsletterPopup() {
               <div className="py-2">
                 <p style={{ ...subLabel, color: '#C9A97E', marginBottom: '8px' }}>Asante</p>
                 <p style={{ fontFamily: "'Newsreader', serif", fontSize: '21px', fontWeight: 600, color: '#FFFFFF', lineHeight: 1.25, marginBottom: '6px' }}>
-                  You&rsquo;re on the list.
+                  {name.trim().split(' ')[0] ? `You're on the list, ${name.trim().split(' ')[0]}.` : 'You\'re on the list.'}
                 </p>
                 <p style={{ ...chromeLink, color: 'rgba(255,255,255,0.8)' }}>
                   The next letter goes out at the start of the season.
@@ -117,6 +139,7 @@ export default function NewsletterPopup() {
             )}
           </div>
         </motion.aside>
+        </div>
       )}
     </AnimatePresence>
   );
