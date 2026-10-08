@@ -104,8 +104,8 @@ export default function SafarisGrid() {
               className="group flex flex-col items-center justify-center py-4 sm:py-5 border transition-colors duration-300 hover:bg-[#8D694B] hover:border-[#8D694B]"
               style={{ borderColor: 'rgba(141,105,75,0.35)', borderRadius: '2px', textDecoration: 'none' }}
             >
-              <span className="transition-colors group-hover:text-white" style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3vw, 34px)', fontWeight: 600, color: '#6D6753', lineHeight: 1 }}>{c.n}</span>
-              <span className="flex items-center gap-1 mt-2 transition-colors group-hover:text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: '#8D694B' }}>
+              <span className="transition-colors text-[#6D6753] group-hover:text-white" style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3vw, 34px)', fontWeight: 600, lineHeight: 1 }}>{c.n}</span>
+              <span className="flex items-center gap-1 mt-2 transition-colors text-[#8D694B] group-hover:text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600 }}>
                 {c.label} <ArrowRight size={12} strokeWidth={2} className="transition-transform group-hover:translate-x-0.5" />
               </span>
             </Link>
