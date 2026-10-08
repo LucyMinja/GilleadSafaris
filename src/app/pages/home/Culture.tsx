@@ -21,11 +21,11 @@ export default function Culture() {
   return (
     <section className="py-20 lg:py-28" style={{ backgroundColor: '#F1EAE0' }}>
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-x-6 gap-y-6 mb-12 lg:mb-14 lg:items-end">
-          <h2 className="lg:col-span-5" style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(30px, 3.6vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15 }}>
+        <div className="max-w-3xl mx-auto text-center mb-12 lg:mb-14">
+          <h2 style={{ marginBottom: '18px', fontFamily: "'Newsreader', serif", fontSize: 'clamp(30px, 3.6vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15 }}>
             The people behind the places
           </h2>
-          <p className="lg:col-span-6 lg:col-start-7" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753' }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', lineHeight: 1.8, color: '#6D6753' }}>
             A safari here isn't only wildlife. It's a morning with Maasai herders, an afternoon in Stone Town's carved-door alleys, and parks where people and wildlife have shared the land for generations. We arrange each visit directly with the community you meet.
           </p>
         </div>
