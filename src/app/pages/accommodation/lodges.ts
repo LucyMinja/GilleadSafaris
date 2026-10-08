@@ -89,7 +89,7 @@ export const lodges: Lodge[] = [
     category: 'Luxury Lodges',
     price: 'Price on request',
     rating: 4.8,
-    img: '/images/IMG_0235.webp',
+    img: '/images/lodge-tarangire-treetops.jpg',
     img2: '/images/956A1611.webp',
     desc: 'Twenty treehouse rooms raised on stilts among marula and baobab trees, on a private concession bordering Tarangire National Park. At 65m², they\'re among the largest rooms in East Africa, each open-fronted with a wide balcony and a double shower. The main lodge is built around a thousand-year-old baobab and looks over a pool and a waterhole that elephants visit through the day.',
     amenities: ['20 elevated treehouse rooms (65m²)', 'Double shower en suite', 'Pool overlooking a waterhole', 'Restaurant, bar & lounge', 'Boma dinners & poolside dining', 'Walking safaris', 'Night game drives', 'Free supervised childcare', 'Laundry & free in-room Wi-Fi'],
