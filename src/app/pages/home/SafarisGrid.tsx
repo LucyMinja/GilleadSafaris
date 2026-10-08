@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import SafariButton from '@/app/components/SafariButton';
+import WordLink from '@/app/components/WordLink';
 import { tours, toursIn } from '@/app/pages/safaritours/data';
 import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
@@ -92,7 +93,8 @@ export default function SafarisGrid() {
         <p className="text-center mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B' }}>
           See every trip
         </p>
-        <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto">
+        {/* Phones & tablets: three boxed tiles. Laptops & desktops: word links. */}
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto lg:hidden">
           {[
             { href: '/safaris', n: toursIn('safaris').length, label: 'Safaris' },
             { href: '/trekking', n: toursIn('trekking').length, label: 'Treks' },
@@ -110,6 +112,11 @@ export default function SafarisGrid() {
               </span>
             </Link>
           ))}
+        </div>
+        <div className="hidden lg:flex justify-center gap-x-12">
+          <WordLink href="/safaris">All {toursIn('safaris').length} safaris</WordLink>
+          <WordLink href="/trekking">{toursIn('trekking').length} Kilimanjaro &amp; treks</WordLink>
+          <WordLink href="/beach">{toursIn('beach').length} beach holidays</WordLink>
         </div>
       </div>
 

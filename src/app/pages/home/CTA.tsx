@@ -4,7 +4,6 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ArrowUpRight } from 'lucide-react';
 import SafariButton from '@/app/components/SafariButton';
-import MagneticWrap from './MagneticWrap';
 import RevealOnView from './RevealOnView';
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
@@ -59,11 +58,9 @@ export default function CTA() {
             Contact us today and let our Arusha-based team design the perfect safari for you.
           </p>
           <div className="flex flex-wrap gap-4">
-            <MagneticWrap>
-              <SafariButton href="/booking">
-                Plan Your Safari
-              </SafariButton>
-            </MagneticWrap>
+            <SafariButton href="/booking">
+              Plan Your Safari
+            </SafariButton>
             <SafariButton href="tel:+255753959375" variant="secondary">
               Call Us
             </SafariButton>
