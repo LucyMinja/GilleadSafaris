@@ -80,6 +80,11 @@ export default function Booking() {
   };
 
   useEffect(() => {
+    // From an Accommodation page "Ask About This Lodge" button: note the lodge.
+    const lodgeParam = searchParams.get('lodge');
+    if (lodgeParam) {
+      setForm((f) => (f.specialRequests ? f : { ...f, specialRequests: `I'd like to stay at ${lodgeParam}.` }));
+    }
     const tourParam = searchParams.get('tour');
     if (!tourParam) return;
     const match = safariOptions.find((s) => s.id === tourParam);

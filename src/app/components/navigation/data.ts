@@ -68,17 +68,6 @@ export const menuLinks: NavLink[] = [
     label: 'Accommodation',
     href: '/accommodation',
     desktopNav: false,
-    subLinks: [
-      { label: 'Kuona Serengeti Lodge', href: '/accommodation?id=7', description: 'Built into ancient kopjes in the Serengeti' },
-      { label: 'Serengeti Pioneer Camp', href: '/accommodation?id=1', description: '1930s explorer tents above the Moru Kopjes' },
-      { label: 'Ngorongoro Serena Safari Lodge', href: '/accommodation?id=2', description: 'Stone rooms on the crater rim' },
-      { label: 'Zuri Zanzibar', href: '/accommodation?id=3', description: 'Villas on Kendwa Beach' },
-      { label: 'Tarangire Treetops', href: '/accommodation?id=4', description: 'Treehouse rooms among the baobabs' },
-      { label: 'Ruaha River Lodge', href: '/accommodation?id=5', description: 'Stone chalets on the Great Ruaha River' },
-      { label: 'Sand Rivers Selous', href: '/accommodation?id=6', description: 'Walking and boat safaris on the Rufiji' },
-      { label: 'Kutoka Lodge', href: '/accommodation?id=8', description: 'Garden lodge on the edge of Arusha' },
-      { label: 'View All Accommodations', href: '/accommodation' },
-    ]
   },
   { label: 'About', href: '/about', desktopNav: true },
   { label: 'Gallery', href: '/gallery', desktopNav: true },

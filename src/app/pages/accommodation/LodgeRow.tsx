@@ -61,7 +61,7 @@ export default function LodgeRow({ lodge, index }: { lodge: Lodge; index: number
         </p>
 
         <div className="flex items-center gap-6 flex-wrap mb-2">
-          <SafariButton href="/booking">Plan a Safari</SafariButton>
+          <SafariButton href={`/booking?lodge=${encodeURIComponent(lodge.name)}`}>Ask About This Lodge</SafariButton>
           <ExpandToggle expanded={expanded} onClick={() => setExpanded((e) => !e)} openLabel="Read More" />
         </div>
 
