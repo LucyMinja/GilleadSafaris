@@ -2,9 +2,9 @@
 
 import { useRef } from 'react';
 import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 import { motion, useInView } from 'motion/react';
 import SafariButton from '@/app/components/SafariButton';
-import WordLink from '@/app/components/WordLink';
 import { tours, toursIn } from '@/app/pages/safaritours/data';
 import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
@@ -31,8 +31,10 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
       animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 24 }}
       transition={{ duration: 0.45, delay, ease: EASE }}
     >
-      <Link href={s.href} className="group block" style={{ textDecoration: 'none' }}>
-        <div ref={overlayRef} className="relative overflow-hidden" style={{ borderRadius: '4px', aspectRatio: '4/3' }}>
+      {/* Phones: compact row (square thumbnail + text) so all trips stay visible
+          without a long stack of big cards. From sm up: the original card. */}
+      <Link href={s.href} className="group flex items-start gap-4 sm:block" style={{ textDecoration: 'none' }}>
+        <div ref={overlayRef} className="relative overflow-hidden shrink-0 w-[112px] h-[112px] sm:w-auto sm:h-auto sm:aspect-[4/3]" style={{ borderRadius: '4px' }}>
           <CoverImage src={img} alt={s.name} sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw" className="transition-transform duration-700 group-hover:scale-105" />
           <motion.div
             className="absolute inset-0 pointer-events-none"
@@ -42,7 +44,8 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
             transition={{ duration: 0.45, delay: delay + 0.1, ease: EASE }}
           />
         </div>
-        <MaskReveal viewport delay={delay + 0.15} duration={0.5} ease={EASE} style={{ marginTop: '18px', marginBottom: '6px' }}>
+        <div className="min-w-0 flex-1 sm:mt-[18px]">
+        <MaskReveal viewport delay={delay + 0.15} duration={0.5} ease={EASE} style={{ marginBottom: '6px' }}>
           <p style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B' }}>
             <CountUpDays text={s.days} />
           </p>
@@ -54,11 +57,12 @@ function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }
           </h3>
         </MaskReveal>
         <MaskReveal viewport delay={delay + 0.29} duration={0.5} ease={EASE}>
-          <p className="transition-colors duration-500 text-[#6D6753] group-hover:text-[#8D694B]"
-            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '17px', fontWeight: 400, lineHeight: 1.65, opacity: 0.85 }}>
+          <p className="transition-colors duration-500 text-[#6D6753] group-hover:text-[#8D694B] line-clamp-2 sm:line-clamp-none"
+            style={{ fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: '17px', fontWeight: 400, lineHeight: 1.55, opacity: 0.85 }}>
             {s.desc}
           </p>
         </MaskReveal>
+        </div>
       </Link>
     </motion.div>
   );
@@ -76,7 +80,7 @@ export default function SafarisGrid() {
         </p>
       </PinHeader>
 
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 swipe-row">
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {safaris.map((s, i) => (
           <SafariCard key={s.name} s={s} delay={(i % 3) * 0.1} />
         ))}
@@ -84,10 +88,29 @@ export default function SafarisGrid() {
 
       {/* Only six trips fit here — point to the full lists, one per section,
           with live counts so they never go stale as trips are added. */}
-      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex flex-wrap justify-center gap-x-10 gap-y-4 mt-14">
-        <WordLink href="/safaris">All {toursIn('safaris').length} safaris</WordLink>
-        <WordLink href="/trekking">{toursIn('trekking').length} Kilimanjaro &amp; treks</WordLink>
-        <WordLink href="/beach">{toursIn('beach').length} beach holidays</WordLink>
+      <div className="max-w-[1400px] mx-auto px-6 lg:px-16 mt-12 lg:mt-14">
+        <p className="text-center mb-4" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B' }}>
+          See every trip
+        </p>
+        <div className="grid grid-cols-3 gap-3 sm:gap-4 max-w-2xl mx-auto">
+          {[
+            { href: '/safaris', n: toursIn('safaris').length, label: 'Safaris' },
+            { href: '/trekking', n: toursIn('trekking').length, label: 'Treks' },
+            { href: '/beach', n: toursIn('beach').length, label: 'Beach' },
+          ].map((c) => (
+            <Link
+              key={c.href}
+              href={c.href}
+              className="group flex flex-col items-center justify-center py-4 sm:py-5 border transition-colors duration-300 hover:bg-[#8D694B] hover:border-[#8D694B]"
+              style={{ borderColor: 'rgba(141,105,75,0.35)', borderRadius: '2px', textDecoration: 'none' }}
+            >
+              <span className="transition-colors group-hover:text-white" style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3vw, 34px)', fontWeight: 600, color: '#6D6753', lineHeight: 1 }}>{c.n}</span>
+              <span className="flex items-center gap-1 mt-2 transition-colors group-hover:text-white" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.14em', textTransform: 'uppercase', fontWeight: 600, color: '#8D694B' }}>
+                {c.label} <ArrowRight size={12} strokeWidth={2} className="transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
 
       <div className="max-w-[1400px] mx-auto px-6 lg:px-16 flex justify-center mt-10">
