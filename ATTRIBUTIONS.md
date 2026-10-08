@@ -70,3 +70,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | lodge-kutoka.jpg | Kutoka Lodge | kutokalodge.com (the lodge's own photo) |
 | lodge-kuona-family-suite.jpg | Accommodation hero | kuonaserengeti.com (the lodge's own photo) |
 
+| px-sus-elephant-herd / maasai-village / jeep-distance / kili-porter | Sustainability | https://www.pexels.com/photo/9185426/ · 39559980 · 13242022 · 31121293 | Akos Helgert · Zenji · Kureng Workx · Marina Zvada |

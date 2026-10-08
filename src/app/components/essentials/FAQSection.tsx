@@ -41,7 +41,7 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
           <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.18em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '14px' }}>
             {section.kicker}
           </p>
-          <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(30px, 3.4vw, 460px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '32px' }}>
+          <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(30px, 3.4vw, 46px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '32px' }}>
             {section.title}
           </h2>
         </RevealOnView>
@@ -58,10 +58,10 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
               once={false}
               margin="-60px"
             >
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', fontWeight: 600, color: '#6D6753', marginBottom: '8px' }}>
+              <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '20px', fontWeight: 600, color: '#6D6753', lineHeight: 1.3, marginBottom: '8px' }}>
                 {item.q}
               </p>
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', lineHeight: 1.8, color: '#6D6753', opacity: 0.85 }}>
+              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', lineHeight: 1.8, color: '#6D6753', opacity: 0.85 }}>
                 {item.a}
               </p>
             </RevealOnView>
@@ -73,7 +73,7 @@ export default function FAQSection({ section }: { section: EssentialsSection }) 
             <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '17px', fontWeight: 600, color: '#6D6753', marginBottom: '10px' }}>
               {section.callout.label}
             </p>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '14px', lineHeight: 1.7, color: '#6D6753', opacity: 0.75, marginBottom: '12px' }}>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', lineHeight: 1.7, color: '#6D6753', opacity: 0.8, marginBottom: '12px' }}>
               {section.callout.text}
             </p>
             <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '11px', letterSpacing: '0.1em', fontWeight: 700, color: '#8D694B' }}>

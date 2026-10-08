@@ -13,7 +13,7 @@ export default function BottomNotes() {
         {notes.map(({ label, text }) => (
           <div key={label}>
             <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '9px', letterSpacing: '0.18em', textTransform: 'uppercase', color: C.gold, marginBottom: '10px' }}>{label}</p>
-            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.65, lineHeight: 1.8 }}>{text}</p>
+            <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', color: '#6D6753', opacity: 0.75, lineHeight: 1.7 }}>{text}</p>
           </div>
         ))}
       </div>

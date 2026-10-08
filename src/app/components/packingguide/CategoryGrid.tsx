@@ -19,13 +19,13 @@ export default function CategoryGrid({ season }: { season: Season }) {
           <div key={cat.title}>
             <div className="flex items-center gap-2.5 mb-3.5">
               <Icon size={17} strokeWidth={1.5} color="#8D694B" />
-              <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', fontWeight: 700, color: '#6D6753' }}>
+              <p style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: '20px', fontWeight: 600, color: '#6D6753' }}>
                 {cat.title}
               </p>
             </div>
             <div className="flex flex-wrap gap-x-5 gap-y-2">
               {cat.items.map((item) => (
-                <div key={item} className="flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85 }}>
+                <div key={item} className="flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '17px', color: '#6D6753', opacity: 0.85 }}>
                   <div style={{ width: '4px', height: '4px', backgroundColor: '#8D694B', borderRadius: '50%', flexShrink: 0 }} />
                   {item}
                 </div>

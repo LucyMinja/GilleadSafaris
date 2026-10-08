@@ -13,7 +13,7 @@ export default function SeasonInfo({ season }: { season: Season }) {
 
       <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
         {season.facts.map((fact) => (
-          <div key={fact} className="flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '13px', color: '#6D6753', opacity: 0.85 }}>
+          <div key={fact} className="flex items-center gap-2" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '16px', color: '#6D6753', opacity: 0.85 }}>
             <div style={{ width: '4px', height: '4px', backgroundColor: '#8D694B', borderRadius: '50%', flexShrink: 0 }} />
             {fact}
           </div>
