@@ -58,7 +58,7 @@ export default function NewsletterPopup() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 24 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed z-[55] bottom-3 left-3 right-3 sm:left-auto sm:bottom-6 sm:right-6 sm:w-[460px] flex overflow-hidden"
+          className="fixed z-[55] bottom-20 left-3 right-3 sm:left-auto sm:bottom-24 sm:right-6 sm:w-[460px] flex overflow-hidden"
           style={{ backgroundColor: 'var(--chrome)', borderRadius: '2px', border: '1px solid rgba(255,255,255,0.12)', boxShadow: '0 24px 60px rgba(0,0,0,0.35)' }}
         >
           <div className="relative hidden sm:block flex-shrink-0" style={{ width: '120px' }}>

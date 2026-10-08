@@ -6,6 +6,7 @@ import NewsletterPopup from '@/app/components/NewsletterPopup';
 import PageTransition from '@/app/components/PageTransition';
 import MotionProvider from '@/app/components/MotionProvider';
 import CookieConsent from '@/app/components/CookieConsent';
+import WhatsAppButton from '@/app/components/WhatsAppButton';
 import { SITE_URL, SITE_NAME } from '@/lib/site';
 import '@/styles/index.css';
 
@@ -80,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <PageTransition>{children}</PageTransition>
           <Footer />
           <CookieConsent />
+          <WhatsAppButton />
         </MotionProvider>
       </body>
     </html>
