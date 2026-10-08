@@ -48,7 +48,7 @@ function booking_confirmation(array $config, array $q): array
 
     return [
         'subject' => "We've received your safari request (#GS-{$q['id']})",
-        'html' => email_layout($config, 'Your safari request has reached our team in Arusha. We\'ll reply within 24 hours.', 'Booking request received', 'Asante, ' . $first . '!', $body),
+        'html' => email_layout($config, 'Your safari request has reached our team in Arusha. We\'ll reply within 24 hours.', 'Booking request received', 'Asante, ' . $first . '!', $body, '', 'booking'),
         'text' => $text,
     ];
 }
@@ -70,7 +70,7 @@ function enquiry_confirmation(array $config, array $q): array
 
     return [
         'subject' => 'We got your message — Gillead Safaris',
-        'html' => email_layout($config, 'Thanks for your message. We\'ll reply within 24 hours.', 'Message received', 'Thanks for reaching out, ' . $first, $body),
+        'html' => email_layout($config, 'Thanks for your message. We\'ll reply within 24 hours.', 'Message received', 'Thanks for reaching out, ' . $first, $body, '', 'enquiry'),
         'text' => $text,
     ];
 }
@@ -92,7 +92,7 @@ function subscribe_confirmation(array $config, array $q): array
 
     return [
         'subject' => "Karibu, {$first}! You're on the list",
-        'html' => email_layout($config, 'Welcome! Safari stories, straight from Tanzania.', 'Newsletter', 'Karibu, ' . $first . '!', $body, $note),
+        'html' => email_layout($config, 'Welcome! Safari stories, straight from Tanzania.', 'Newsletter', 'Karibu, ' . $first . '!', $body, $note, 'subscribe'),
         'text' => $text,
         'unsubscribe' => $unsub,
     ];
@@ -113,7 +113,7 @@ function unsubscribe_confirmation(array $config, array $q): array
 
     return [
         'subject' => "You've been unsubscribed — Gillead Safaris",
-        'html' => email_layout($config, 'You\'ve been unsubscribed from our newsletter.', 'Newsletter', 'Sorry to see you go, ' . $first, $body),
+        'html' => email_layout($config, 'You\'ve been unsubscribed from our newsletter.', 'Newsletter', 'Sorry to see you go, ' . $first, $body, '', 'unsubscribe'),
         'text' => $text,
     ];
 }
@@ -131,7 +131,7 @@ function team_notification(array $config, array $q): array
 
     return [
         'subject' => "New {$q['type']} #GS-{$q['id']} from {$q['name']}",
-        'html' => email_layout($config, "New {$q['type']} from {$q['name']}", 'Website', 'New ' . strtolower($type), $body),
+        'html' => email_layout($config, "New {$q['type']} from {$q['name']}", 'Website', 'New ' . strtolower($type), $body, '', 'team'),
         'text' => implode("\n", array_map(fn($k, $v) => "$k: $v", array_keys(array_filter($rows)), array_filter($rows))),
     ];
 }

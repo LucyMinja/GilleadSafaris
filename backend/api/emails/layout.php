@@ -29,7 +29,7 @@ const BRAND = [
 function email_button(string $label, string $href): string
 {
     $b = BRAND;
-    return '<table role="presentation" cellpadding="0" cellspacing="0" style="margin:28px 0 8px;"><tr>'
+    return '<table role="presentation" cellpadding="0" cellspacing="0" align="center" style="margin:28px auto 8px;"><tr>'
         . '<td style="background:' . $b['brown'] . ';border-radius:2px;">'
         . '<a href="' . e($href) . '" style="display:inline-block;padding:14px 28px;font-family:' . $b['sans'] . ';font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#ffffff;text-decoration:none;">'
         . e($label) . '</a></td></tr></table>';
@@ -58,36 +58,44 @@ function email_paragraph(string $text): string
 
 /**
  * Wrap content in the branded layout.
- * $preheader — the grey preview line inboxes show after the subject.
+ * $preheader  — the grey preview line inboxes show after the subject.
+ * $hero       — banner photo for this email type (public/email/<hero>.jpg).
  * $footerNote — optional extra line (e.g. the unsubscribe link).
  */
-function email_layout(array $config, string $preheader, string $eyebrow, string $headline, string $bodyHtml, string $footerNote = ''): string
+function email_layout(array $config, string $preheader, string $eyebrow, string $headline, string $bodyHtml, string $footerNote = '', string $hero = 'booking'): string
 {
     $b = BRAND;
     $site = rtrim($config['site_url'], '/');
     $year = date('Y');
+    $img = e($site . '/email/' . $hero . '.jpg');
 
     return '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">'
         . '<title>' . e($headline) . '</title></head>'
         . '<body style="margin:0;padding:0;background:' . $b['beige'] . ';">'
-        // hidden preheader
         . '<div style="display:none;max-height:0;overflow:hidden;opacity:0;">' . e($preheader) . '</div>'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' . $b['beige'] . ';"><tr><td align="center" style="padding:32px 16px;">'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">'
 
-        // header
-        . '<tr><td style="background:' . $b['chrome'] . ';padding:22px 32px;" align="left">'
-        . '<a href="' . e($site) . '" style="text-decoration:none;"><img src="' . e($site) . '/images/og2.png" width="56" height="56" alt="Gillead Safaris" style="display:inline-block;vertical-align:middle;border:0;"></a>'
-        . '<span style="display:inline-block;vertical-align:middle;margin-left:12px;font-family:' . $b['serif'] . ';font-size:20px;font-weight:600;color:#ffffff;">Gillead Safaris</span>'
-        . '</td></tr>'
+        // header — light, logo left, tagline right
+        . '<tr><td style="background:' . $b['card'] . ';padding:18px 28px;border-bottom:1px solid #E5DACB;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
+        . '<td align="left" style="vertical-align:middle;"><a href="' . e($site) . '"><img src="' . e($site) . '/images/og2.png" width="64" height="64" alt="Gillead Safaris" style="display:block;border:0;"></a></td>'
+        . '<td align="right" style="vertical-align:middle;font-family:' . $b['serif'] . ';font-size:17px;font-weight:600;line-height:1.35;color:' . $b['olive'] . ';">Where the wild<br><span style="color:' . $b['brown'] . ';">still sets the pace</span></td>'
+        . '</tr></table></td></tr>'
 
-        // card
-        . '<tr><td style="background:' . $b['card'] . ';padding:40px 32px 32px;">'
-        . '<p style="margin:0 0 10px;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:' . $b['brown'] . ';">' . e($eyebrow) . '</p>'
-        . '<h1 style="margin:0 0 20px;font-family:' . $b['serif'] . ';font-size:30px;line-height:1.2;font-weight:600;color:' . $b['olive'] . ';">' . e($headline) . '</h1>'
+        // hero — photo for this email type, darkened so the words read
+        . '<tr><td background="' . $img . '" bgcolor="' . $b['chrome'] . '" style="background:' . $b['chrome'] . ' url(' . $img . ') center/cover no-repeat;">'
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
+        . '<td align="center" style="background:rgba(40,34,24,0.55);padding:56px 32px;">'
+        . '<p style="margin:0 0 10px;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:' . $b['tan'] . ';">' . e($eyebrow) . '</p>'
+        . '<h1 style="margin:0;font-family:' . $b['serif'] . ';font-size:32px;line-height:1.2;font-weight:600;color:#ffffff;">' . e($headline) . '</h1>'
+        . '</td></tr></table></td></tr>'
+
+        // body
+        . '<tr><td style="background:' . $b['card'] . ';padding:36px 32px 34px;">'
         . $bodyHtml
-        . '<p style="margin:28px 0 0;font-family:' . $b['sans'] . ';font-size:15px;line-height:1.7;color:' . $b['olive'] . ';">Karibu,<br><strong>The Gillead Safaris team</strong><br>Arusha, Tanzania</p>'
+        . '<p style="margin:30px 0 0;text-align:center;font-family:' . $b['sans'] . ';font-size:15px;line-height:1.7;color:' . $b['olive'] . ';">Karibu,<br><strong>The Gillead Safaris team</strong><br>Arusha, Tanzania</p>'
         . '</td></tr>'
 
         // footer

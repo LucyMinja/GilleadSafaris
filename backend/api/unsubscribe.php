@@ -42,5 +42,7 @@ echo email_layout(
     $found ? 'You have been unsubscribed.' : 'Unsubscribe link not recognised.',
     'Newsletter',
     $found ? "You've been unsubscribed" : 'Link not recognised',
-    $body
+    $body,
+    '',
+    'unsubscribe'
 );
