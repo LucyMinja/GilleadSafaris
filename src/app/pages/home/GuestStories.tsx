@@ -25,9 +25,6 @@ export default function GuestStories() {
 
         {/* Text column — order-1 on mobile to ensure title/quote read first */}
         <div className="order-1 lg:order-2 lg:col-span-7">
-          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '16px' }}>
-            Guest Experiences
-          </p>
           <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3.2vw, 40px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '28px' }}>
             What travelers say, verified on TripAdvisor
           </h2>

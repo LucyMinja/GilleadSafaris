@@ -52,7 +52,6 @@ export default function CTA() {
           margin="-100px"
           className="order-1 lg:order-1"
         >
-          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.28em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '16px' }}>Start Planning</p>
           <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '18px' }}>
             Your Tanzania<br />adventure awaits
           </h2>
