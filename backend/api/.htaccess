@@ -2,9 +2,12 @@
 
 # Never let a browser open these files directly — they hold passwords or
 # are only meant to be included by submit.php.
-<FilesMatch "^(config\.php|config\.example\.php|db\.php)$">
+<FilesMatch "^(config\.php|config\.example\.php|db\.php|mailer\.php)$">
     Require all denied
 </FilesMatch>
 
 # No folder listings.
 Options -Indexes
+
+# The email templates are only ever included by PHP, never opened directly.
+RedirectMatch 403 ^.*/emails/.*$

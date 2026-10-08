@@ -12,6 +12,9 @@ return [
         'password' => 'CHANGE_ME',
     ],
 
+    // Public address of the website — used for links and the logo in emails.
+    'site_url' => 'https://www.gilleadsafaris.com',
+
     // Who receives new-enquiry emails, and the address emails come from.
     'notify_to' => 'info@gilleadsafaris.com',
     'mail_from' => 'info@gilleadsafaris.com',

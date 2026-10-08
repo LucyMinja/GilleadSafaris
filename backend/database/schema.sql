@@ -12,9 +12,12 @@ CREATE TABLE IF NOT EXISTS enquiries (
   message     TEXT         NULL,
   details     JSON         NULL,
   ip_address  VARCHAR(45)  NULL,
+  token       CHAR(32)     NULL,          -- newsletter: secret for the unsubscribe link
+  unsubscribed_at DATETIME NULL,          -- newsletter: set when they unsubscribe
   created_at  DATETIME     NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (id),
   INDEX idx_created (created_at),
   INDEX idx_type_status (type, status),
-  INDEX idx_ip_created (ip_address, created_at)
+  INDEX idx_ip_created (ip_address, created_at),
+  UNIQUE KEY uniq_token (token)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

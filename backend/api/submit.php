@@ -6,6 +6,8 @@
 declare(strict_types=1);
 
 require __DIR__ . '/db.php';
+require __DIR__ . '/mailer.php';
+require __DIR__ . '/emails/templates.php';
 $config = require __DIR__ . '/config.php';
 
 header('Content-Type: application/json; charset=utf-8');
@@ -74,9 +76,12 @@ if ((int)$count->fetchColumn() >= $config['max_per_hour']) {
 }
 
 // ── 6. Save (prepared statement = safe from SQL injection) ───────────────
+// Newsletter subscribers get a random secret for their unsubscribe link.
+$token = $type === 'newsletter' ? bin2hex(random_bytes(16)) : null;
+
 $insert = $pdo->prepare(
-    'INSERT INTO enquiries (type, name, email, phone, message, details, ip_address)
-     VALUES (:type, :name, :email, :phone, :message, :details, :ip)'
+    'INSERT INTO enquiries (type, name, email, phone, message, details, ip_address, token)
+     VALUES (:type, :name, :email, :phone, :message, :details, :ip, :token)'
 );
 $insert->execute([
     ':type'    => $type,
@@ -86,23 +91,23 @@ $insert->execute([
     ':message' => $message !== '' ? $message : null,
     ':details' => $details ? json_encode($details) : null,
     ':ip'      => $ip,
+    ':token'   => $token,
 ]);
 $id = (int)$pdo->lastInsertId();
 
-// ── 7. Email the team (never break the response if mail fails) ───────────
-if (!$config['debug']) {
-    $subject = "New {$type} enquiry #{$id} from {$name}";
-    $lines = ["Type: {$type}", "Name: {$name}", "Email: {$email}"];
-    if ($phone !== '')   $lines[] = "Phone: {$phone}";
-    if ($message !== '') $lines[] = "\nMessage:\n{$message}";
-    if ($details)        $lines[] = "\nDetails:\n" . json_encode($details, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+// ── 7. Emails: confirmation to the visitor + alert to the team ──────────
+// If sending fails the enquiry is already saved, so the visitor still sees success.
+$saved = ['id' => $id, 'type' => $type, 'name' => $name, 'email' => $email,
+          'phone' => $phone, 'message' => $message, 'details' => $details ?? [], 'token' => $token];
 
-    $headers = implode("\r\n", [
-        "From: Gillead Safaris Website <{$config['mail_from']}>",
-        "Reply-To: {$name} <{$email}>",
-        'Content-Type: text/plain; charset=utf-8',
-    ]);
-    @mail($config['notify_to'], $subject, implode("\n", $lines), $headers);
+$guestEmail = match ($type) {
+    'booking'    => booking_confirmation($config, $saved),
+    'contact'    => enquiry_confirmation($config, $saved),
+    'newsletter' => subscribe_confirmation($config, $saved),
+};
+send_mail($config, $email, $name, $guestEmail);
+if ($type !== 'newsletter') {
+    send_mail($config, $config['notify_to'], 'Gillead Safaris', team_notification($config, $saved), $email);
 }
 
 respond(201, ['ok' => true, 'id' => $id]);

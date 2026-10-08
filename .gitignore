@@ -38,3 +38,4 @@ pnpm-debug.log*
 originalsite/
 # Backend secrets — never commit real passwords
 backend/api/config.php
+backend/tools/previews/
