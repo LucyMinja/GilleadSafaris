@@ -69,3 +69,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | lodge-sand-rivers.jpg | Sand Rivers Selous | theluxurysafaricompany.com |
 | lodge-kutoka.jpg | Kutoka Lodge | kutokalodge.com (the lodge's own photo) |
 | lodge-kuona-family-suite.jpg | Accommodation hero | kuonaserengeti.com (the lodge's own photo) |
+| px-shore-paje / stone-town / mafia-whaleshark / pemba-cove | Beach: shores | https://www.pexels.com/photo/36468231/ · 37087445 · 7905797 · 33138984 | Ana Kenk · Lee Finvrede · Elianne Dipp · Sadock Kaisibalaam |
