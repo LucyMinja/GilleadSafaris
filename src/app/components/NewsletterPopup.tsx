@@ -88,10 +88,10 @@ export default function NewsletterPopup() {
             {!subscribed ? (
               <>
                 <p style={{ fontFamily: "'Newsreader', serif", fontSize: '21px', fontWeight: 600, color: '#FFFFFF', lineHeight: 1.25, marginBottom: '8px', paddingRight: '20px' }}>
-                  A short letter from Arusha, once a season
+                  Get the Serengeti in your inbox
                 </p>
                 <p style={{ ...chromeLink, color: 'rgba(255,255,255,0.8)', lineHeight: 1.6, marginBottom: '16px' }}>
-                  Where the herds are, which parks are quiet, and a few photos from our guides. Nothing else.
+                  Migration updates, travel tips and offers from our team in Arusha.
                 </p>
                 <form onSubmit={handleSubscribe} className="flex flex-col gap-2.5">
                   <input
@@ -118,13 +118,6 @@ export default function NewsletterPopup() {
                   />
                   <SafariButton type="submit" size="sm" style={{ width: '100%', padding: '13px 20px' }}>Subscribe</SafariButton>
                 </form>
-                <button
-                  onClick={dismiss}
-                  className="mt-3 text-white/60 hover:text-white transition-colors"
-                  style={{ ...chromeSmall, background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
-                >
-                  No thanks
-                </button>
               </>
             ) : (
               <div className="py-2">
