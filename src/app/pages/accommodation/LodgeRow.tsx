@@ -77,14 +77,6 @@ export default function LodgeRow({ lodge, index }: { lodge: Lodge; index: number
                   <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Facilities</p>
                   <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.amenities.join(' · ')}</p>
                 </div>
-                <div>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Best For</p>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.bestFor.join(', ')}</p>
-                </div>
-                <div>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '10px', letterSpacing: '0.16em', textTransform: 'uppercase', color: '#8D694B', marginBottom: '8px' }}>Season</p>
-                  <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '15px', color: '#6D6753', opacity: 0.85, lineHeight: 1.75 }}>{lodge.season} · {lodge.price}</p>
-                </div>
               </div>
             </motion.div>
           )}
