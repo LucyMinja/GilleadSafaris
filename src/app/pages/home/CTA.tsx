@@ -49,15 +49,15 @@ export default function CTA() {
           ease={EASE}
           once={false}
           margin="-100px"
-          className="order-1 lg:order-1"
+          className="order-1 lg:order-1 text-center lg:text-left"
         >
           <h2 style={{ fontFamily: "'Newsreader', Georgia, serif", fontSize: 'clamp(26px, 4vw, 44px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.2, marginBottom: '18px' }}>
             Your Tanzania<br />adventure awaits
           </h2>
-          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', color: '#6D6753', lineHeight: 1.8, fontWeight: 400, marginBottom: '32px', maxWidth: '360px' }}>
+          <p style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", fontSize: '18px', color: '#6D6753', lineHeight: 1.8, fontWeight: 400, marginBottom: '32px', maxWidth: '360px' }} className="mx-auto lg:mx-0">
             Contact us today and let our Arusha-based team design the perfect safari for you.
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex flex-wrap justify-center lg:justify-start gap-4">
             <SafariButton href="/booking">
               Plan Your Safari
             </SafariButton>

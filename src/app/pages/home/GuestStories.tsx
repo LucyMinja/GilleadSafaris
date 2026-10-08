@@ -24,7 +24,7 @@ export default function GuestStories() {
           className="max-w-[1400px] mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-12 gap-x-14 gap-y-12 lg:items-center">
 
         {/* Text column — order-1 on mobile to ensure title/quote read first */}
-        <div className="order-1 lg:order-2 lg:col-span-7">
+        <div className="order-1 lg:order-2 lg:col-span-7 text-center lg:text-left">
           <h2 style={{ fontFamily: "'Newsreader', serif", fontSize: 'clamp(26px, 3.2vw, 40px)', fontWeight: 600, color: '#6D6753', lineHeight: 1.15, marginBottom: '28px' }}>
             What travelers say, verified on TripAdvisor
           </h2>
@@ -39,7 +39,7 @@ export default function GuestStories() {
                 exit={{ opacity: 0, y: -16 }}
                 transition={{ duration: 0.4, ease: EASE }}
               >
-                <div className="flex items-center gap-1 mb-5">
+                <div className="flex items-center justify-center lg:justify-start gap-1 mb-5">
                   {Array.from({ length: t.rating }, (_, i) => (
                     <motion.span
                       key={i}
@@ -62,7 +62,7 @@ export default function GuestStories() {
             )}
           </div>
 
-          <div className="flex items-center justify-between mt-10 flex-wrap gap-6">
+          <div className="flex flex-col lg:flex-row items-center lg:justify-between mt-10 gap-6">
             <div className="flex gap-2">
               {testimonials.map((_, i) => (
                 <button
