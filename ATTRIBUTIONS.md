@@ -53,3 +53,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-tour-selous-river-elephants.jpg | Selous & Mikumi tour | https://www.pexels.com/photo/28555070/ | Senorcaliente |
 | px-cheetahs-dusk.jpg | Gallery hero | https://www.pexels.com/photo/12925485/ | Twilight Kenya |
 | px-impala-golden.jpg | Home: Great Migration card | https://www.pexels.com/photo/1109896/ | Pexels contributor |
+| px-home-tarangire-herd.jpg | Home: Tarangire card | https://www.pexels.com/photo/30629351/ | Dirk Pothen |
