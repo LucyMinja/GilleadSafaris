@@ -64,3 +64,8 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | lodge-tarangire-treetops.jpg | Elewana Tarangire Treetops | elewanacollection.com (the lodge's own photo) |
 | lodge-serengeti-pioneer.jpg | Elewana Serengeti Pioneer Camp | elewanacollection.com (the lodge's own photo) |
 | lodge-ngorongoro-serena.jpg | Ngorongoro Serena Safari Lodge | Serena Hotels (the lodge's own photo) |
+| lodge-zuri-villa.webp | Zuri Zanzibar | zurizanzibar.com (the resort's own photo) |
+| lodge-serena-room.jpg | Ngorongoro Serena (2nd photo) | Serena Hotels (the lodge's own photo) |
+| lodge-ruaha-river.jpg | Ruaha River Lodge | the lodge's own site (Wix) |
+| lodge-sand-rivers.jpg | Sand Rivers Selous | theluxurysafaricompany.com |
+| lodge-kutoka.jpg | Kutoka Lodge | kutokalodge.com (the lodge's own photo) |
