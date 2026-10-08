@@ -65,7 +65,7 @@ export default function About() {
             className="order-1 lg:order-2 lg:col-span-5">
             <div style={{ marginTop: 'clamp(20px, 3vw, 36px)' }}>
               <h2
-                className="text-left"
+                className="text-center lg:text-left"
                 style={{
                   fontFamily: "'Newsreader', Georgia, serif",
                   fontSize: 'clamp(30px, 3.6vw, 46px)',
