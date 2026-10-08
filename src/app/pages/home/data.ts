@@ -18,7 +18,7 @@ export const safaris = [
 export const offerings = [
   { title: 'Into the Wild', img: '/images/956A2753.webp', href: '/safaris' },
   { title: 'The Great Migration', img: '/images/px-impala-golden.jpg', href: '/safaris' },
-  { title: 'Meet the Maasai', img: '/images/px-home-maasai-woman.jpg', href: '/culture' },
+  { title: 'Meet the Maasai', img: '/images/px-home-maasai-dance.jpg', href: '/culture' },
   { title: 'Zanzibar Shores', img: '/images/px-home-zanzibar-boats.jpg', href: '/safaris' },
   { title: 'Off the Beaten Path', img: '/images/956A3207.webp', href: '/safaris' },
 ];

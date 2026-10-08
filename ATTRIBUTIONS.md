@@ -71,4 +71,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-sus-elephant-herd / maasai-village / jeep-distance / kili-porter | Sustainability | https://www.pexels.com/photo/9185426/ · 39559980 · 13242022 · 31121293 | Akos Helgert · Zenji · Kureng Workx · Marina Zvada |
 
 | px-home-serengeti-lion-cubs / ngorongoro-crater-lion / zanzibar-dhow / tarangire-elephant-family | Home: wild places | https://www.pexels.com/photo/17849765/ · 25950570 · 15505785 · 19986853 | Mike Knibbs · Nadia Loves Single · Andreea Vieru · BGBennett |
-| px-home-maasai-woman.jpg | Home: Meet the Maasai | https://www.pexels.com/photo/36048572/ | Ross Green |
+| px-home-maasai-dance.jpg | Home: Meet the Maasai | https://www.pexels.com/photo/35034041/ | MNM Shakir |
