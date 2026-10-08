@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { Cookie } from 'lucide-react';
 import SafariButton from './SafariButton';
 import { chromeLink } from './chromeType';
 
@@ -75,30 +74,10 @@ export default function CookieConsent() {
     setDecided(true);
   }
 
-  if (!visible) {
-    if (!decided) return null;
-    // Small square tab to reopen preferences — boxed like the site's buttons.
-    return (
-      <button
-        onClick={() => setVisible(true)}
-        aria-label="Cookie preferences"
-        // Hidden on phones, where it would sit on top of other bottom-corner UI;
-        // the Cookie Policy page has its own "change preferences" button.
-        className="fixed z-[100] bottom-6 left-6 hidden sm:flex items-center justify-center"
-        style={{
-          width: '40px',
-          height: '40px',
-          borderRadius: '2px',
-          backgroundColor: 'var(--chrome)',
-          border: '1px solid rgba(255,255,255,0.12)',
-          boxShadow: '0 10px 24px rgba(0,0,0,0.25)',
-          cursor: 'pointer',
-        }}
-      >
-        <Cookie size={17} strokeWidth={1.5} color="#C9A97E" />
-      </button>
-    );
-  }
+  // Once the visitor has chosen, nothing stays on screen. They can change
+  // their choice from the Cookie Policy page.
+  if (!visible) return null;
+
 
   // Same chrome colour, type and boxed buttons as the navbar/footer. On phones
   // it's a slim strip with the two buttons side by side, so it covers far
