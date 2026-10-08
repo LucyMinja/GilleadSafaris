@@ -24,7 +24,7 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 | px-ruaha-wild-dogs.jpg | Ruaha | https://www.pexels.com/photo/39440668/ | Rino Adamo |
 | px-nyerere-hippos.jpg | Nyerere (Selous) | https://www.pexels.com/photo/39034099/ | Laura Phillips |
 | px-arusha-meru.jpg | Arusha | https://www.pexels.com/photo/30847954/ | MN STR |
-| px-safari-tent.jpg | Accommodation | https://www.pexels.com/photo/6790685/ | Lelani Badenhorst |
+| px-accommodation-kopje-lodge.jpg | Accommodation hero | https://www.pexels.com/photo/18611231/ | Reto Wiezel |
 | px-safari-road.jpg | Booking | https://www.pexels.com/photo/4404518/ | Kureng Workx |
 | px-arusha-acacia-kili.jpg | Arusha story | https://www.pexels.com/photo/19168338/ | Wladimir Kuhne |
 | px-elephants-waterhole.jpg | Sustainability | https://www.pexels.com/photo/9185432/ | Akos Helgert |
