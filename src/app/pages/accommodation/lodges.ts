@@ -57,7 +57,7 @@ export const lodges: Lodge[] = [
     category: 'Luxury Lodges',
     price: 'Price on request',
     rating: 4.7,
-    img: '/images/IMG_0236.webp',
+    img: '/images/lodge-ngorongoro-serena.jpg',
     img2: '/images/956A2659.webp',
     desc: 'Built from river stone and cloaked in vines along the western rim of the Ngorongoro Crater, the lodge is almost invisible from the crater floor 600m below. Rooms have a twin or double bed, en-suite bathroom, safe and a private stone balcony looking straight into the caldera. The restaurant upstairs has two fireplaces and panoramic windows over the crater, with a wood-panelled bar, lounge and curio shop below.',
     amenities: ['Private stone balcony with crater view', 'Restaurant with panoramic windows', 'Bar & lounge with fireplaces', 'Massage & beauty treatments', 'Curio shop', 'Room service (suites)', 'Free Wi-Fi', 'Laundry service', 'Babysitting & children\'s menus'],
