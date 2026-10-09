@@ -25,6 +25,32 @@ email updates.
 | `unsubscribe_confirmation` | They click Unsubscribe | Subscriber |
 | `team_notification` | Booking or contact submitted | info@gilleadsafaris.com |
 
+## Signature photos (one per email)
+
+Each email has its own faded photo behind it, from header to footer. The
+last argument of `email_layout(...)` (`'booking'`, `'enquiry'`, `'subscribe'`,
+`'unsubscribe'`, `'team'`) picks `public/email/wm-<name>.jpg`:
+
+| Email | Photo |
+|---|---|
+| Booking | balloons over the Serengeti at dawn |
+| Contact | a giraffe in morning grass |
+| Subscribe | an acacia at misty sunrise |
+| Unsubscribe | a lone balloon drifting away |
+| Team alert | two giraffes |
+
+The photos are **pre-faded** (blended with the card colour) rather than faded
+with CSS `opacity`, because many email apps ignore that. To swap one, replace
+the JPG and keep it 1200×1800 and pale.
+
+## Responsive on phones
+
+Inline styles are the fallback. A small `<style>` block with
+`@media (max-width:620px)` then tightens things on phones: smaller side
+padding and headline, and the detail rows stack (label above value). Gmail,
+Apple Mail and most phone apps read it. Where an app ignores it, the email
+still works, just with the desktop spacing.
+
 ## Why emails are built with old-fashioned `<table>`s
 
 Websites use modern CSS (flexbox, grid, classes). **Email apps don't** — Gmail
