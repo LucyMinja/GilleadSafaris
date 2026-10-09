@@ -35,16 +35,16 @@ function email_button(string $label, string $href): string
         . e($label) . '</a></td></tr></table>';
 }
 
-// A two-column "label | value" summary table (booking details etc.).
+// A two-column "label | value" summary on a soft beige panel — no divider lines.
 function email_summary(array $rows): string
 {
     $b = BRAND;
-    $html = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;border-top:1px solid #E5DACB;">';
+    $html = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;background:rgba(241,234,224,0.85);border-radius:2px;">';
     foreach ($rows as $label => $value) {
         if ($value === null || $value === '') continue;
         $html .= '<tr>'
-            . '<td style="padding:12px 0;border-bottom:1px solid #E5DACB;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:' . $b['brown'] . ';width:40%;vertical-align:top;">' . e($label) . '</td>'
-            . '<td style="padding:12px 0;border-bottom:1px solid #E5DACB;font-family:' . $b['sans'] . ';font-size:15px;color:' . $b['olive'] . ';vertical-align:top;">' . nl2br(e((string)$value)) . '</td>'
+            . '<td style="padding:10px 0 10px 20px;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:' . $b['brown'] . ';width:40%;vertical-align:top;">' . e($label) . '</td>'
+            . '<td style="padding:10px 20px 10px 0;font-family:' . $b['sans'] . ';font-size:15px;color:' . $b['olive'] . ';vertical-align:top;">' . nl2br(e((string)$value)) . '</td>'
             . '</tr>';
     }
     return $html . '</table>';
@@ -79,7 +79,7 @@ function email_layout(array $config, string $preheader, string $eyebrow, string 
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" background="' . $wm . '" bgcolor="' . $b['card'] . '" style="max-width:600px;background:' . $b['card'] . ' url(' . $wm . ') center top/cover no-repeat;">'
 
         // header — logo left, tagline right (transparent so the watermark shows)
-        . '<tr><td style="padding:22px 32px 18px;border-bottom:1px solid rgba(141,105,75,0.25);">'
+        . '<tr><td style="padding:22px 32px 18px;">'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
         . '<td align="left" style="vertical-align:middle;"><a href="' . e($site) . '"><img src="' . e($site) . '/images/og2.png" width="64" height="64" alt="Gillead Safaris" style="display:block;border:0;"></a></td>'
         . '<td align="right" style="vertical-align:middle;font-family:' . $b['serif'] . ';font-size:17px;font-weight:600;line-height:1.35;color:' . $b['olive'] . ';">Where the wild<br><span style="color:' . $b['brown'] . ';">still sets the pace</span></td>'
