@@ -64,4 +64,4 @@ export const tourHref = (tour: Tour) => `/${tourCategory(tour)}/${tour.slug}`;
 
 export const toursIn = (category: TourCategory) => tours.filter((t) => tourCategory(t) === category);
 
-export const tourTypes = ['All', 'Classic', 'Cultural', 'Beach & Zanzibar', 'Migration', 'Day Trip'];
+export const tourTypes = ['All', 'Luxury', 'Classic', 'Cultural', 'Beach & Zanzibar', 'Migration', 'Day Trip'];
