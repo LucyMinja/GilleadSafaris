@@ -72,9 +72,10 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 
 | px-home-serengeti-lion-cubs / ngorongoro-crater-lion / zanzibar-dhow / tarangire-elephant-family | Home: wild places | https://www.pexels.com/photo/17849765/ · 25950570 · 15505785 · 19986853 | Mike Knibbs · Nadia Loves Single · Andreea Vieru · BGBennett |
 | px-home-maasai-dance.jpg | Home: Meet the Maasai | https://www.pexels.com/photo/35034041/ | MNM Shakir |
-| public/email/wm-team.jpg | Email watermark (team alert) | https://www.pexels.com/photo/12914825/ | Pexels contributor |
-| public/email/wm-booking.jpg | Email watermark (booking confirmation) | https://www.pexels.com/photo/28830598/ | Pexels contributor |
-| public/email/wm-enquiry.jpg | Email watermark (contact confirmation) | https://www.pexels.com/photo/36468844/ | Pexels contributor |
-| public/email/wm-subscribe.jpg | Email watermark (newsletter welcome) | https://www.pexels.com/photo/33621858/ | Pexels contributor |
-| public/email/wm-unsubscribe.jpg | Email watermark (unsubscribe) | https://www.pexels.com/photo/20792093/ | Pexels contributor |
+| public/email/banner-booking.jpg | Email photo (booking) | https://www.pexels.com/photo/26924191/ | Pexels contributor |
+| public/email/wm-booking.jpg | Email background (booking) | https://www.pexels.com/photo/12167300/ | Pexels contributor |
+| public/email/banner-enquiry.jpg, wm-enquiry.jpg | Email photo (contact) | https://www.pexels.com/photo/28652229/ | Pexels contributor |
+| public/email/banner-subscribe.jpg, wm-subscribe.jpg | Email photo (newsletter welcome) | https://www.pexels.com/photo/5574041/ | Pexels contributor |
+| public/email/banner-unsubscribe.jpg, wm-unsubscribe.jpg | Email photo (unsubscribe) | https://www.pexels.com/photo/20792093/ | Pexels contributor |
+| public/email/banner-team.jpg, wm-team.jpg | Email photo (team alert) | https://www.pexels.com/photo/7343161/ | Pexels contributor |
 | px-tour-luxury-elephants.jpg | 13 Days Tanzania in Style | https://www.pexels.com/photo/6950453/ | Bisakha Datta |

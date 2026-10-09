@@ -27,21 +27,27 @@ email updates.
 
 ## Signature photos (one per email)
 
-Each email has its own faded photo behind it, from header to footer. The
-last argument of `email_layout(...)` (`'booking'`, `'enquiry'`, `'subscribe'`,
-`'unsubscribe'`, `'team'`) picks `public/email/wm-<name>.jpg`:
+Each email uses its own photo twice:
+
+1. **`banner-<name>.jpg`**: a full-colour strip right under the logo. It's a
+   real `<img>`, so it shows in every email app, Outlook included.
+2. **`wm-<name>.jpg`**: a faded copy behind the whole email. The words sit
+   on a frosted cream panel on top of it, so they stay easy to read.
+
+The last argument of `email_layout(...)` picks the photo:
 
 | Email | Photo |
 |---|---|
-| Booking | balloons over the Serengeti at dawn |
-| Contact | a giraffe in morning grass |
-| Subscribe | an acacia at misty sunrise |
-| Unsubscribe | a lone balloon drifting away |
-| Team alert | two giraffes |
+| Booking (`booking`) | elephants under Kilimanjaro |
+| Contact (`enquiry`) | a lion pride on a fallen tree |
+| Subscribe (`subscribe`) | a zebra herd on the plains |
+| Unsubscribe (`unsubscribe`) | a lone balloon drifting off at sunset |
+| Team alert (`team`) | a male lion walking through the grass |
 
-The photos are **pre-faded** (blended with the card colour) rather than faded
-with CSS `opacity`, because many email apps ignore that. To swap one, replace
-the JPG and keep it 1200×1800 and pale.
+The background photos are **pre-faded** (blended with the cream colour) instead
+of being faded with CSS `opacity`, because many email apps ignore that. To swap
+one, replace both JPGs and keep the sizes (banner 1200×560, background
+900×1350).
 
 ## Responsive on phones
 

@@ -39,7 +39,7 @@ function email_button(string $label, string $href): string
 function email_summary(array $rows): string
 {
     $b = BRAND;
-    $html = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;background:rgba(241,234,224,0.85);border-radius:2px;">';
+    $html = '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;background:#F1EAE0;border-radius:2px;">';
     foreach ($rows as $label => $value) {
         if ($value === null || $value === '') continue;
         $html .= '<tr class="gs-row">'
@@ -59,7 +59,8 @@ function email_paragraph(string $text): string
 /**
  * Wrap content in the branded layout.
  * $preheader  — the grey preview line inboxes show after the subject.
- * $hero       — which signature photo sits behind the email (public/email/wm-<hero>.jpg):
+ * $hero       — which signature photo the email uses: a full-colour strip under the logo
+ *               (public/email/banner-<hero>.jpg) and a faded copy behind everything (wm-<hero>.jpg):
  *               booking, enquiry, subscribe, unsubscribe or team.
  * $footerNote — optional extra line (e.g. the unsubscribe link).
  */
@@ -76,8 +77,8 @@ function email_layout(array $config, string $preheader, string $eyebrow, string 
         // Phones: less padding, smaller headline, details stacked. Inline styles
         // stay as the fallback for apps that ignore <style>.
         . '<style>@media only screen and (max-width:620px){'
-        . '.gs-outer{padding:0!important}.gs-pad{padding-left:20px!important;padding-right:20px!important}'
-        . '.gs-h1{font-size:26px!important}.gs-tag{font-size:14px!important}.gs-logo{width:52px!important;height:52px!important}'
+        . '.gs-outer{padding:0!important}.gs-pad{padding-left:14px!important;padding-right:14px!important}'
+        . '.gs-h1{font-size:26px!important}.gs-panel{padding:26px 18px 22px!important}.gs-tag{font-size:14px!important}.gs-logo{width:52px!important;height:52px!important}'
         . '.gs-row td{display:block!important;width:auto!important;padding:2px 16px!important}.gs-row td:first-child{padding-top:12px!important}.gs-row td:last-child{padding-bottom:12px!important}'
         . '}</style>'
         . '<title>' . e($headline) . '</title></head>'
@@ -88,18 +89,24 @@ function email_layout(array $config, string $preheader, string $eyebrow, string 
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" background="' . $wm . '" bgcolor="' . $b['card'] . '" style="max-width:600px;background:' . $b['card'] . ' url(' . $wm . ') center top/cover no-repeat;">'
 
         // header — logo left, tagline right (transparent so the watermark shows)
-        . '<tr><td class="gs-pad" style="padding:22px 32px 18px;">'
+        . '<tr><td class="gs-pad" style="padding:22px 32px 18px;background:rgba(251,248,243,0.82);">'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
         . '<td align="left" style="vertical-align:middle;"><a href="' . e($site) . '"><img src="' . e($site) . '/images/og2.png" width="64" height="64" alt="Gillead Safaris" class="gs-logo" style="display:block;border:0;"></a></td>'
         . '<td align="right" class="gs-tag" style="vertical-align:middle;font-family:' . $b['serif'] . ';font-size:17px;font-weight:600;line-height:1.35;color:' . $b['olive'] . ';">Where the wild<br><span style="color:' . $b['brown'] . ';">still sets the pace</span></td>'
         . '</tr></table></td></tr>'
 
+        // signature photo, full colour — a real <img>, so it shows even where backgrounds don't (Outlook)
+        . '<tr><td style="padding:0;"><img src="' . e($site . '/email/banner-' . $hero . '.jpg') . '" width="600" alt="" style="display:block;width:100%;max-width:600px;height:auto;border:0;"></td></tr>'
+
         // body
-        . '<tr><td class="gs-pad" style="padding:40px 32px 34px;">'
+        . '<tr><td class="gs-pad" style="padding:28px 32px 36px;">'
+        // Frosted cream panel: the photo shows strongly around it, the words stay crisp on it.
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td class="gs-panel" bgcolor="' . $b['card'] . '" style="padding:34px 30px 30px;background:rgba(251,248,243,0.9);border-radius:2px;">'
         . '<p style="margin:0 0 10px;text-align:center;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:' . $b['brown'] . ';">' . e($eyebrow) . '</p>'
         . '<h1 class="gs-h1" style="margin:0 0 26px;text-align:center;font-family:' . $b['serif'] . ';font-size:32px;line-height:1.2;font-weight:600;color:' . $b['olive'] . ';">' . e($headline) . '</h1>'
         . $bodyHtml
         . '<p style="margin:30px 0 0;text-align:center;font-family:' . $b['sans'] . ';font-size:15px;line-height:1.7;color:' . $b['olive'] . ';">Karibu,<br><strong>The Gillead Safaris team</strong><br>Arusha, Tanzania</p>'
+        . '</td></tr></table>'
         . '</td></tr>'
 
         // footer
