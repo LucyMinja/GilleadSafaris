@@ -8,7 +8,7 @@ export const toursMore = [
     priceNote: 'per person, all-inclusive · from $3,900 pp for groups of 6+',
     type: 'Luxury',
     groupLabel: 'Private luxury journey',
-    img: '/images/px-tour-luxury-balloon.jpg',
+    img: '/images/px-tour-luxury-elephants.jpg',
     highlight: 'Our Signature Luxury Journey',
     desc: "Twelve nights across the plains, the crater and the coast: landscapes that stop conversation, wildlife encounters that stay with you for life, and moments of pure indulgence in between. From Arusha to Tarangire, the Ngorongoro Crater and four nights at Kuona Serengeti with your own butler, then three unhurried days on Zanzibar. Everything is included.",
     parks: ['Arusha', 'Tarangire', 'Ngorongoro Crater', 'Serengeti', 'Zanzibar'],
