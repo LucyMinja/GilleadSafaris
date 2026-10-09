@@ -10,7 +10,8 @@ import WhatsIncluded from './safaritours/WhatsIncluded';
 export default function SafariTours() {
   const searchParams = useSearchParams();
   const router = useRouter();
-  const tours = toursIn('safaris');
+  // Newest trips first, so a newly added safari leads the page.
+  const tours = [...toursIn('safaris')].sort((a, b) => b.id - a.id);
 
   // Old links (footer, destination "related tours") used `?open=<id>` to
   // deep-link into an inline expand that no longer exists — redirect those

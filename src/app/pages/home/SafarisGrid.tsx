@@ -11,12 +11,26 @@ import MaskReveal from './MaskReveal';
 import CountUpDays from './CountUpDays';
 import PinHeader from './PinHeader';
 import CoverImage from '@/app/components/CoverImage';
-import { safaris } from './data';
+import { safaris as curated } from './data';
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 // Each card shows its tour's own photo, so no image is shown twice on the site.
 const tourImg = (href: string) => tours.find((t) => href.endsWith('/' + t.slug))?.img;
+
+// Newest safaris first: a trip added to the data (higher id) automatically
+// takes the top card, and the oldest of the six drops off the homepage — it
+// stays in the full list and keeps its own page. Short card blurbs come from
+// home/data.ts when one exists, otherwise the trip's first sentence.
+const firstSentence = (t: string) => (t.match(/^.*?[.!?](\s|$)/)?.[0] ?? t).trim();
+const safaris = [...toursIn('safaris')]
+  .sort((a, b) => b.id - a.id)
+  .slice(0, 6)
+  .map((t) => {
+    const href = `/safaris/${t.slug}`;
+    const c = curated.find((x) => x.href === href);
+    return { name: c?.name ?? t.name, days: t.duration.split('/')[0].trim(), desc: c?.desc ?? firstSentence(t.desc), href, img: t.img };
+  });
 
 function SafariCard({ s, delay }: { s: (typeof safaris)[number]; delay: number }) {
   const img = tourImg(s.href) ?? s.img;
