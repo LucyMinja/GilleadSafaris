@@ -26,6 +26,7 @@ export const menuLinks: NavLink[] = [
     href: '/safaris',
     desktopNav: true,
     subLinks: [
+      { label: '13 Days Tanzania in Style', href: '/safaris/tanzania-in-style-13-days', description: 'Our signature all-inclusive luxury journey' },
       { label: '1 Day Ngorongoro Crater', href: '/safaris/ngorongoro-crater-day-trip', description: 'Quick escape to a wildlife sanctuary' },
       { label: '3 Days Classic Serengeti', href: '/safaris/classic-serengeti-3-days', description: 'A perfect introduction to safari country' },
       { label: '5 Days Northern Circuit', href: '/safaris/northern-safari-5-days', description: 'Tanzania\'s highlight parks in one circuit' },
