@@ -59,7 +59,7 @@ function email_paragraph(string $text): string
 /**
  * Wrap content in the branded layout.
  * $preheader  — the grey preview line inboxes show after the subject.
- * $hero       — banner photo for this email type (public/email/<hero>.jpg).
+ * $hero       — kept for compatibility (all emails share the watermark now).
  * $footerNote — optional extra line (e.g. the unsubscribe link).
  */
 function email_layout(array $config, string $preheader, string $eyebrow, string $headline, string $bodyHtml, string $footerNote = '', string $hero = 'booking'): string
@@ -67,7 +67,7 @@ function email_layout(array $config, string $preheader, string $eyebrow, string 
     $b = BRAND;
     $site = rtrim($config['site_url'], '/');
     $year = date('Y');
-    $img = e($site . '/email/' . $hero . '.jpg');
+    $wm = e($site . '/email/watermark.jpg');
 
     return '<!doctype html><html lang="en"><head><meta charset="utf-8">'
         . '<meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light">'
@@ -75,31 +75,26 @@ function email_layout(array $config, string $preheader, string $eyebrow, string 
         . '<body style="margin:0;padding:0;background:' . $b['beige'] . ';">'
         . '<div style="display:none;max-height:0;overflow:hidden;opacity:0;">' . e($preheader) . '</div>'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:' . $b['beige'] . ';"><tr><td align="center" style="padding:32px 16px;">'
-        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;">'
+        // The giraffe watermark runs behind the whole email, header to footer.
+        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" background="' . $wm . '" bgcolor="' . $b['card'] . '" style="max-width:600px;background:' . $b['card'] . ' url(' . $wm . ') center top/cover no-repeat;">'
 
-        // header — light, logo left, tagline right
-        . '<tr><td style="background:' . $b['card'] . ';padding:18px 28px;border-bottom:1px solid #E5DACB;">'
+        // header — logo left, tagline right (transparent so the watermark shows)
+        . '<tr><td style="padding:22px 32px 18px;border-bottom:1px solid rgba(141,105,75,0.25);">'
         . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
         . '<td align="left" style="vertical-align:middle;"><a href="' . e($site) . '"><img src="' . e($site) . '/images/og2.png" width="64" height="64" alt="Gillead Safaris" style="display:block;border:0;"></a></td>'
         . '<td align="right" style="vertical-align:middle;font-family:' . $b['serif'] . ';font-size:17px;font-weight:600;line-height:1.35;color:' . $b['olive'] . ';">Where the wild<br><span style="color:' . $b['brown'] . ';">still sets the pace</span></td>'
         . '</tr></table></td></tr>'
 
-        // hero — photo for this email type, darkened so the words read
-        . '<tr><td background="' . $img . '" bgcolor="' . $b['chrome'] . '" style="background:' . $b['chrome'] . ' url(' . $img . ') center/cover no-repeat;">'
-        . '<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>'
-        . '<td align="center" style="background:rgba(40,34,24,0.55);padding:56px 32px;">'
-        . '<p style="margin:0 0 10px;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:' . $b['tan'] . ';">' . e($eyebrow) . '</p>'
-        . '<h1 style="margin:0;font-family:' . $b['serif'] . ';font-size:32px;line-height:1.2;font-weight:600;color:#ffffff;">' . e($headline) . '</h1>'
-        . '</td></tr></table></td></tr>'
-
         // body
-        . '<tr><td style="background:' . $b['card'] . ';padding:36px 32px 34px;">'
+        . '<tr><td style="padding:40px 32px 34px;">'
+        . '<p style="margin:0 0 10px;text-align:center;font-family:' . $b['sans'] . ';font-size:11px;letter-spacing:0.22em;text-transform:uppercase;color:' . $b['brown'] . ';">' . e($eyebrow) . '</p>'
+        . '<h1 style="margin:0 0 26px;text-align:center;font-family:' . $b['serif'] . ';font-size:32px;line-height:1.2;font-weight:600;color:' . $b['olive'] . ';">' . e($headline) . '</h1>'
         . $bodyHtml
         . '<p style="margin:30px 0 0;text-align:center;font-family:' . $b['sans'] . ';font-size:15px;line-height:1.7;color:' . $b['olive'] . ';">Karibu,<br><strong>The Gillead Safaris team</strong><br>Arusha, Tanzania</p>'
         . '</td></tr>'
 
         // footer
-        . '<tr><td style="background:' . $b['chrome'] . ';padding:26px 32px;" align="center">'
+        . '<tr><td style="background:rgba(78,73,58,0.9);padding:26px 32px;" align="center">'
         . '<p style="margin:0 0 8px;font-family:' . $b['sans'] . ';font-size:13px;color:#ffffff;">'
         . '<a href="tel:+255753959375" style="color:#ffffff;text-decoration:none;">+255 753 959 375</a>'
         . ' &nbsp;·&nbsp; <a href="https://wa.me/255753959375" style="color:#ffffff;text-decoration:none;">WhatsApp</a>'

@@ -72,3 +72,4 @@ attribution required, credited here anyway. Files live in `public/images/px-*.jp
 
 | px-home-serengeti-lion-cubs / ngorongoro-crater-lion / zanzibar-dhow / tarangire-elephant-family | Home: wild places | https://www.pexels.com/photo/17849765/ · 25950570 · 15505785 · 19986853 | Mike Knibbs · Nadia Loves Single · Andreea Vieru · BGBennett |
 | px-home-maasai-dance.jpg | Home: Meet the Maasai | https://www.pexels.com/photo/35034041/ | MNM Shakir |
+| public/email/watermark.jpg | Email watermark (all emails) | https://www.pexels.com/photo/12914825/ | Pexels contributor |
